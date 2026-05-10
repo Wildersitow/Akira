@@ -107,5 +107,15 @@ public class ControladorLogin {
         }
     }
 
-
+    @FXML
+    public void cambiarRegistrar(ActionEvent event) {
+        try {
+            System.out.println("Navegando a Registro...");
+            @Override
+                    UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/Registro.fxml");
+        } catch (Exception e) {
+            System.err.println("ERROR al cambiar escena:");
+            e.printStackTrace();
+        }
+    }
 }
