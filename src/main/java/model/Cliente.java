@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class Cliente extends Persona {
 
     private String licenciaConducir;
