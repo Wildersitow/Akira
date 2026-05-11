@@ -7,7 +7,7 @@ import model.Cliente;
 import model.Empleado;
 import view.UtilidadesFX;
 
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.util.ArrayList;
 
 public class ServiceCuenta {
@@ -139,7 +139,7 @@ public class ServiceCuenta {
                 }
             }
 
-            Empleado empleado = EmpleadoDAO.buscarPorNombreUsuario(nombreUsuario);
+            Empleado empleado = empleadoDAO.buscarPorNombreUsuario(nombreUsuario);
 
             if (empleado != null) {
                 System.out.println("Usuario encontrado como Administrador");
