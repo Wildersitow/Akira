@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 
 public class ServiceCuenta {
 
-    public void iniciarSesion(ActionEvent event, String nombreUsuario, String contrasena)
+    public void iniciarSesion(ActionEvent event, String nombreUsuario, String contraseña)
             throws ServiceException {
 
         System.out.println("\n=== SERVICIO: Iniciando sesión ===");
@@ -19,7 +19,7 @@ public class ServiceCuenta {
                         "El nombre de usuario no puede estar vacío");
             }
 
-            if (contrasena == null || contrasena.trim().isEmpty()) {
+            if (contraseña == null || contraseña.trim().isEmpty()) {
                 throw new ServiceException("CONTRASEÑA_VACIA",
                         "La contraseña no puede estar vacía");
             }
@@ -33,14 +33,8 @@ public class ServiceCuenta {
                 System.out.println("Usuario encontrado como Cliente");
 
                 // Verificar contraseña
-                if (cliente.verificarContrasena(contraseña)) {
+                if (cliente.verificarContraseña(contraseña)) {
                     System.out.println("Contraseña correcta - Acceso concedido");
-
-                    // Verificar si la cuenta está activa
-                    if (!cliente.isActivo()) {
-                        throw new ServiceException("CUENTA_INACTIVA",
-                                "Tu cuenta ha sido desactivada. Contacta al administrador.");
-                    }
 
                     // Guardar sesión actual
                     SesionCuenta.setUsuarioActual(cliente);
@@ -49,7 +43,7 @@ public class ServiceCuenta {
                     mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido " + cliente.getNombre() + "!");
 
-                    cambiarEscena(event, "/com/mycompany/bankedsistema/presentacion/MenuPrincipal.fxml");
+                    view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/MenuPrincipal.fxml");
                     return;
 
                 } else {
@@ -69,20 +63,14 @@ public class ServiceCuenta {
                 if (empleado.verificarContraseña(contraseña)) {
                     System.out.println("Contraseña correcta - Acceso concedido");
 
-                    // Verificar si la cuenta está activa
-                    if (!empleado.isActivo()) {
-                        throw new ServiceException("CUENTA_INACTIVA",
-                                "Tu cuenta ha sido desactivada.");
-                    }
-
                     // Guardar sesión actual
-                    SesionUsuario.setUsuarioActual(empleado);
+                    SesionCuenta.setUsuarioActual(empleado);
 
                     // Redirigir a dashboard de administrador
-                    mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
+                    view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido Administrador " + empleado.getNombre() + "!");
 
-                    cambiarEscena(event, "/com/mycompany/bankedsistema/presentacion");
+                    view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion");
                     return;
 
                 } else {
