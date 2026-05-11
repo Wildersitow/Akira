@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Import del textField corregido en ControladorLogin">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Inicialización del ControladorRegister">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" afterDir="false" />
     </list>
@@ -463,7 +463,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778534491270</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="feat: Inicialización del ControladorRegister">
+      <option name="closed" value="true" />
+      <created>1778535715036</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1778535715036</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -478,7 +486,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Conexión con el DAO creada en metodo registrarUsuario" />
     <MESSAGE value="feat: Clase extra ControladorLogin eliminada" />
     <MESSAGE value="feat: Creación clase ClienteDAO" />
     <MESSAGE value="feat: Añadido carpeta .idea al gitignore" />
@@ -503,6 +510,7 @@
     <MESSAGE value="feat: Metodos en UtilidadesFX cambiados a public" />
     <MESSAGE value="feat: Import del actionEvent corregido en ControladorLogin" />
     <MESSAGE value="feat: Import del textField corregido en ControladorLogin" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Import del textField corregido en ControladorLogin" />
+    <MESSAGE value="feat: Inicialización del ControladorRegister" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Inicialización del ControladorRegister" />
   </component>
 </project>
