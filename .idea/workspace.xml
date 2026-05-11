@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" afterDir="false" />
-    </list>
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Import del actionEvent corregido en ControladorLogin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -446,7 +444,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778533492627</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="feat: Import del actionEvent corregido en ControladorLogin">
+      <option name="closed" value="true" />
+      <created>1778534172225</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1778534172225</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -461,7 +467,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodos controladores de rol en SesionCuenta" />
     <MESSAGE value="feat: Creación metodo registrarUsuario" />
     <MESSAGE value="feat: Conexión con el DAO creada en metodo registrarUsuario" />
     <MESSAGE value="feat: Clase extra ControladorLogin eliminada" />
@@ -486,6 +491,7 @@
     <MESSAGE value="feat: Creacion metodo obtenerTodos en EmpleadoDAO" />
     <MESSAGE value="feat: Creación constructor de ServiceCuenta para conexión con DAO" />
     <MESSAGE value="feat: Metodos en UtilidadesFX cambiados a public" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Metodos en UtilidadesFX cambiados a public" />
+    <MESSAGE value="feat: Import del actionEvent corregido en ControladorLogin" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Import del actionEvent corregido en ControladorLogin" />
   </component>
 </project>
