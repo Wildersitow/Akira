@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Clase extra ControladorLogin eliminada" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/model" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Wildersitow&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Wildersitow/Akira.git&quot;,
+    &quot;accountId&quot;: &quot;b9d8f8f7-50fb-42f0-894c-e4f6ff691cff&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3DW4KKBxwNnNlzSl1IQjZFFWznb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ControladorMenuInicio.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/service&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="" />
+      <created>1778384430563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778384430563</updated>
+    </task>
+    <task id="LOCAL-00001" summary="feat: Atributos en Persona.java actualizados">
+      <option name="closed" value="true" />
+      <created>1778402554811</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778402554811</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: Atributos en Empleado.java actualizados">
+      <option name="closed" value="true" />
+      <created>1778402676689</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778402676689</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: Atributos en Cliente.java actualizados">
+      <option name="closed" value="true" />
+      <created>1778402706463</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778402706463</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: Creación clase contrato">
+      <option name="closed" value="true" />
+      <created>1778448205425</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778448205425</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: Creación atributos y constructor de contrato">
+      <option name="closed" value="true" />
+      <created>1778449681873</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1778449681873</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: Creación metodo de utilidad cambiarEscenaConTransicion">
+      <option name="closed" value="true" />
+      <created>1778451061309</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1778451061309</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: Creación metodo mostrarAlerta">
+      <option name="closed" value="true" />
+      <created>1778451381590</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1778451381590</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: Creación handle del Inicio de sesion">
+      <option name="closed" value="true" />
+      <created>1778453264053</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1778453264053</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: Creación metodo cambiarRegistrar">
+      <option name="closed" value="true" />
+      <created>1778453460268</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1778453460268</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: Creación package service">
+      <option name="closed" value="true" />
+      <created>1778454186828</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1778454186828</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: Creación creación clase ServiceException">
+      <option name="closed" value="true" />
+      <created>1778454238769</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1778454238769</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: Creación logica de excepcion en ServiceLogin">
+      <option name="closed" value="true" />
+      <created>1778454617967</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1778454617967</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: Solución confusión con ServiceException y ServiceLogin">
+      <option name="closed" value="true" />
+      <created>1778454764193</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1778454764193</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: Creación clase ServiceCuenta">
+      <option name="closed" value="true" />
+      <created>1778455290094</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1778455290094</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: Creación clase SesionCuenta">
+      <option name="closed" value="true" />
+      <created>1778460077269</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1778460077269</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: Creación metodo IniciarSesion en serviceCuenta">
+      <option name="closed" value="true" />
+      <created>1778460288357</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1778460288357</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: Agregación metodos en clase Persona">
+      <option name="closed" value="true" />
+      <created>1778460862137</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1778460862137</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: Creación metodos controlador de sesion en SesionCuenta">
+      <option name="closed" value="true" />
+      <created>1778461629336</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1778461629336</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: Creación atributo rol en Persona">
+      <option name="closed" value="true" />
+      <created>1778461766287</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1778461766287</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: Creación metodos controladores de rol en SesionCuenta">
+      <option name="closed" value="true" />
+      <created>1778462044576</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1778462044576</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat: Creación metodo registrarUsuario">
+      <option name="closed" value="true" />
+      <created>1778462306713</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1778462306713</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat: Conexión con el DAO creada en metodo registrarUsuario">
+      <option name="closed" value="true" />
+      <created>1778524576201</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1778524576202</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat: Clase extra ControladorLogin eliminada">
+      <option name="closed" value="true" />
+      <created>1778524933478</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1778524933478</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Metodos en Persona.java actualizados" />
+    <MESSAGE value="feat: Atributos en Persona.java actualizados" />
+    <MESSAGE value="feat: Atributos en Empleado.java actualizados" />
+    <MESSAGE value="feat: Atributos en Cliente.java actualizados" />
+    <MESSAGE value="feat: Creación clase contrato" />
+    <MESSAGE value="feat: Creación atributos y constructor de contrato" />
+    <MESSAGE value="feat: Creación metodo de utilidad cambiarEscenaConTransicion" />
+    <MESSAGE value="feat: Creación metodo mostrarAlerta" />
+    <MESSAGE value="feat: Creación handle del Inicio de sesion" />
+    <MESSAGE value="feat: Creación metodo cambiarRegistrar" />
+    <MESSAGE value="feat: Creación package service" />
+    <MESSAGE value="feat: Creación creación clase ServiceException" />
+    <MESSAGE value="feat: Creación logica de excepcion en ServiceLogin" />
+    <MESSAGE value="feat: Solución confusión con ServiceException y ServiceLogin" />
+    <MESSAGE value="feat: Creación clase ServiceCuenta" />
+    <MESSAGE value="feat: Creación clase SesionCuenta" />
+    <MESSAGE value="feat: Creación metodo IniciarSesion en serviceCuenta" />
+    <MESSAGE value="feat: Agregación metodos en clase Persona" />
+    <MESSAGE value="feat: Creación metodos controlador de sesion en SesionCuenta" />
+    <MESSAGE value="feat: Creación atributo rol en Persona" />
+    <MESSAGE value="feat: Creación metodos controladores de rol en SesionCuenta" />
+    <MESSAGE value="feat: Creación metodo registrarUsuario" />
+    <MESSAGE value="feat: Conexión con el DAO creada en metodo registrarUsuario" />
+    <MESSAGE value="feat: Clase extra ControladorLogin eliminada" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Clase extra ControladorLogin eliminada" />
+  </component>
+</project>
