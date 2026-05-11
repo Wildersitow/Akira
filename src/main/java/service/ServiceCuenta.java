@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 
 public class ServiceCuenta {
 
+    public void registrarUsuario(ActionEvent event, String correo, String nombreUsuario, String contraseña, String rol) throws LogicaException {}
+
     public void iniciarSesion(ActionEvent event, String nombreUsuario, String contraseña)
             throws ServiceException {
 
