@@ -1,5 +1,7 @@
 package service;
 
+import dao.ClienteDAO;
+import dao.EmpleadoDAO;
 import javafx.scene.control.Alert;
 import model.Cliente;
 import model.Empleado;
@@ -9,6 +11,14 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class ServiceCuenta {
+
+    private ClienteDAO clienteDAO;
+    private EmpleadoDAO empleadoDAO;
+
+    public ServiceCuenta() {
+        this.clienteDAO = new ClienteDAO();
+        this.empleadoDAO = new EmpleadoDAO();
+    }
 
     public void registrarUsuario(ActionEvent event, String nombreUsuario, String correo, String documentoid, String contraseña, String rol) throws ServiceException {
         System.out.println("\n=== SERVICIO: Iniciando registro de usuario ===");
