@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import service.ServiceException;
 import service.ServiceLogin;
 
 import java.awt.*;
@@ -70,7 +71,7 @@ public class ControladorLogin {
 
             System.out.println("Inicio de sesión procesado exitosamente\n");
 
-        } catch (LogicaException e) {
+        } catch (ServiceException e) {
             System.err.println("Error de lógica: " + e.getMessage());
 
             String titulo = "Error de inicio de sesión";
