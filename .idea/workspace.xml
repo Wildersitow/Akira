@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación clase EmpleadoDAO">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
-    </list>
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo guardar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -295,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778525666883</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="feat: Creación metodo guardar">
+      <option name="closed" value="true" />
+      <created>1778526420719</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1778526420719</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,7 +315,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Atributos en Empleado.java actualizados" />
     <MESSAGE value="feat: Atributos en Cliente.java actualizados" />
     <MESSAGE value="feat: Creación clase contrato" />
     <MESSAGE value="feat: Creación atributos y constructor de contrato" />
@@ -335,6 +339,7 @@
     <MESSAGE value="feat: Creación clase ClienteDAO" />
     <MESSAGE value="feat: Añadido carpeta .idea al gitignore" />
     <MESSAGE value="feat: Creación clase EmpleadoDAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación clase EmpleadoDAO" />
+    <MESSAGE value="feat: Creación metodo guardar" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo guardar" />
   </component>
 </project>

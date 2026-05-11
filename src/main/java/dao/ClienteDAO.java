@@ -44,6 +44,11 @@ public class ClienteDAO {
         }
     }
 
+    private void guardarLista(ArrayList<Cliente> clientes) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_CLIENTES))) {
+            oos.writeObject(clientes);
+        }
+    }
 
     //Metodo privado encargado de leer el documento
 
