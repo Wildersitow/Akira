@@ -70,6 +70,25 @@ public class ClienteDAO {
         return cuentas;
     }
 
+        public Cliente crearCuentaParaCliente(String nombreUsuario) throws ServiceException {
+        // Verificar que el cliente exista
+        Cliente cliente = buscarPorNombreUsuario(nombreUsuario);
+        if (cliente == null) {
+            throw new ServiceException("CLIENTE_NO_EXISTE",
+                    "No se encontró el cliente con usuario: " + nombreUsuario);
+        }
+        // Verificar que no tenga cuenta ya
+            Cliente cuentaExistente = buscarCuentaPorUsuario(nombreUsuario);
+        if (cuentaExistente != null) {
+            throw new ServiceException("CUENTA_EXISTENTE",
+                    "El cliente ya tiene una cuenta registrada");
+        }
+        Cliente nuevaCuenta = new Cliente("", nombreUsuario, "", "", "", "cliente", 0, "", 0.0, 0, new ArrayList<>());
+        guardarCuenta(nuevaCuenta);
+        System.out.println("✓ Cuenta creada para cliente: " + nombreUsuario);
+        return nuevaCuenta;
+    }
+
     private void guardarListaCuentas(ArrayList<Persona> cuentas) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_CUENTAS))) {
             oos.writeObject(cuentas);
