@@ -78,7 +78,7 @@ public class ClienteDAO {
                     "No se encontró el cliente con usuario: " + nombreUsuario);
         }
         // Verificar que no tenga cuenta ya
-            Cliente cuentaExistente = buscarCuentaPorUsuario(nombreUsuario);
+            Cliente cuentaExistente = buscarCuentaClientePorUsuario(nombreUsuario);
         if (cuentaExistente != null) {
             throw new ServiceException("CUENTA_EXISTENTE",
                     "El cliente ya tiene una cuenta registrada");
@@ -94,6 +94,23 @@ public class ClienteDAO {
             oos.writeObject(cuentas);
         }
     }
+
+    public Cliente buscarCuentaClientePorUsuario(String nombreUsuario) throws ServiceException {
+        try {
+            ArrayList<Persona> cuentas = leerCuentas();
+            for (Persona c : cuentas) {
+                if (c.getNombreUsuario().equalsIgnoreCase(nombreUsuario)) {
+                    return (Cliente) c;
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_LECTURA",
+                    "Error al buscar cuenta: " + e.getMessage(), e);
+        }
+    }
+
+
 
     //Metodo privado encargado de leer el documento
 

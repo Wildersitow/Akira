@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo guardarListaCuentas">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo crearCuentaParaCliente">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -326,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778527182221</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="feat: Creación metodo crearCuentaParaCliente">
+      <option name="closed" value="true" />
+      <created>1778527666528</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1778527666528</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -341,7 +350,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodo de utilidad cambiarEscenaConTransicion" />
     <MESSAGE value="feat: Creación metodo mostrarAlerta" />
     <MESSAGE value="feat: Creación handle del Inicio de sesion" />
     <MESSAGE value="feat: Creación metodo cambiarRegistrar" />
@@ -366,6 +374,7 @@
     <MESSAGE value="feat: Creación getters nombreUsuario y documentoid" />
     <MESSAGE value="feat: Creación metodo leerCuentas" />
     <MESSAGE value="feat: Creación metodo guardarListaCuentas" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo guardarListaCuentas" />
+    <MESSAGE value="feat: Creación metodo crearCuentaParaCliente" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo crearCuentaParaCliente" />
   </component>
 </project>
