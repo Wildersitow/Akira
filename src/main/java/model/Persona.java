@@ -17,4 +17,12 @@ public abstract  class Persona {
         this.email = email;
         this.telefono = telefono;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public boolean verificarContraseña(String contraseña) {
+        return this.contraseña != null && this.contraseña.equals(this.contraseña);
+    }
 }
