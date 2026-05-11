@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Asignacion de los botones al FXML" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Imports FXML agregados a los controladores" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,14 +84,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00009" summary="feat: Creación metodo cambiarRegistrar">
-      <option name="closed" value="true" />
-      <created>1778453460268</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1778453460268</updated>
     </task>
     <task id="LOCAL-00010" summary="feat: Creación package service">
       <option name="closed" value="true" />
@@ -477,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778538205989</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="feat: Imports FXML agregados a los controladores">
+      <option name="closed" value="true" />
+      <created>1778538749591</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1778538749592</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -492,8 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodo buscarPorNombreUsuario" />
-    <MESSAGE value="feat: Creación metodo guardarCuenta" />
     <MESSAGE value="feat: Creación metodo obtenerTodos" />
     <MESSAGE value="feat: Creación metodo actualizar" />
     <MESSAGE value="feat: Creación metodo eliminar" />
@@ -517,6 +515,8 @@
     <MESSAGE value="feat: Metodo cambiar IniciarSesión creado" />
     <MESSAGE value="feat: Metodo cambiarRegistrar creado en ControladorMenuInicio" />
     <MESSAGE value="feat: Asignacion de los botones al FXML" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Asignacion de los botones al FXML" />
+    <MESSAGE value="feat: Imports FXML agregados" />
+    <MESSAGE value="feat: Imports FXML agregados a los controladores" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Imports FXML agregados a los controladores" />
   </component>
 </project>
