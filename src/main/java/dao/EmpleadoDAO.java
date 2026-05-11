@@ -66,7 +66,33 @@ public class EmpleadoDAO {
             return leer();
         } catch (IOException e) {
             throw new ServiceException("ERROR_LECTURA",
-                    "Error al leer administradores: " + e.getMessage(), e);
+                    "Error al leer empleados: " + e.getMessage(), e);
+        }
+    }
+
+    public void actualizar(Empleado empleado) throws ServiceException {
+        try {
+            ArrayList<Empleado> empleados = leer();
+            boolean encontrado = false;
+
+            for (int i = 0; i < empleados.size(); i++) {
+                if (empleados.get(i).getNombreUsuario().equals(empleado.getNombreUsuario())) {
+                    empleados.set(i, empleado);
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            if (!encontrado) {
+                throw new ServiceException("EMPLEADO_NO_ENCONTRADO",
+                        "No se encontró el empleado con usuario: " + empleado.getNombreUsuario());
+            }
+
+            guardarLista(empleados);
+
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_ACTUALIZACION",
+                    "Error al actualizar empleado: " + e.getMessage(), e);
         }
     }
 
