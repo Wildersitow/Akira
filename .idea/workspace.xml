@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo obtenerTodos">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo actualizar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -366,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778529475377</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="feat: Creación metodo actualizar">
+      <option name="closed" value="true" />
+      <created>1778530127578</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1778530127578</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -381,7 +390,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación creación clase ServiceException" />
     <MESSAGE value="feat: Creación logica de excepcion en ServiceLogin" />
     <MESSAGE value="feat: Solución confusión con ServiceException y ServiceLogin" />
     <MESSAGE value="feat: Creación clase ServiceCuenta" />
@@ -406,6 +414,7 @@
     <MESSAGE value="feat: Creación metodo buscarPorNombreUsuario" />
     <MESSAGE value="feat: Creación metodo guardarCuenta" />
     <MESSAGE value="feat: Creación metodo obtenerTodos" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo obtenerTodos" />
+    <MESSAGE value="feat: Creación metodo actualizar" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo actualizar" />
   </component>
 </project>

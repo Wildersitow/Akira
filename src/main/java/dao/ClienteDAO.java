@@ -124,6 +124,27 @@ public class ClienteDAO {
         }
     }
 
+    public void eliminar(String nombreUsuario) throws ServiceException {
+        try {
+            ArrayList<Cliente> clientes = leer();
+            boolean eliminado = clientes.removeIf(c -> c.getNombreUsuario().equals(nombreUsuario));
+
+            if (!eliminado) {
+                throw new ServiceException("CLIENTE_NO_ENCONTRADO",
+                        "No se encontró el cliente");
+            }
+
+            guardarLista(clientes);
+
+            System.out.println("✓ Cliente eliminado: " + nombreUsuario);
+
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_ELIMINACION",
+                    "Error al eliminar cliente: " + e.getMessage(), e);
+        }
+    }
+
+
     private void guardarListaCuentas(ArrayList<Persona> cuentas) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_CUENTAS))) {
             oos.writeObject(cuentas);
