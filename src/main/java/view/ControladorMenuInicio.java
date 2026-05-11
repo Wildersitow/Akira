@@ -9,5 +9,12 @@ import javafx.stage.Stage;
 
 public class ControladorMenuInicio {
 
+    private Stage stage;
+    private Scene scene;
+    private final UtilidadesFX utilidades;
+
+    public ControladorMenuInicio(UtilidadesFX utilidades) {
+        this.utilidades = utilidades;
+    }
 
 }
