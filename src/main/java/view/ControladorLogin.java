@@ -5,8 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import service.ServiceCuenta;
 import service.ServiceException;
-import service.ServiceLogin;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,17 +17,17 @@ public class ControladorLogin {
     private Scene scene;
     private Parent root;
 
+    private ServiceCuenta serviceCuenta;
+
     @FXML
     private TextField field_usuario;
 
     @FXML
     private PasswordField field_contra;
 
-    private ServiceLogin serviceLogin;
-
     @FXML
     public void initialize() {
-        serviceLogin = new ServiceLogin();
+        serviceCuenta = new ServiceCuenta();
         System.out.println("✓ IniciarSesiónController inicializado correctamente");
     }
 
@@ -37,11 +37,11 @@ public class ControladorLogin {
             System.out.println("\n=== CONTROLADOR: Iniciando proceso de inicio de sesión ===");
 
             String nombreUsuario = field_usuario.getText();
-            String contrasena = field_contra.getText();
+            String contraseña = field_contra.getText();
 
             System.out.println("Datos capturados:");
             System.out.println("  • Usuario: " + nombreUsuario);
-            System.out.println("  • Contraseña: " + (contrasena != null ? "****" : "null"));
+            System.out.println("  • Contraseña: " + (contraseña != null ? "****" : "null"));
 
 
             if (nombreUsuario == null || nombreUsuario.trim().isEmpty()) {
@@ -51,14 +51,14 @@ public class ControladorLogin {
                 return;
             }
 
-            if (contrasena == null || contrasena.trim().isEmpty()) {
+            if (contraseña == null || contraseña.trim().isEmpty()) {
                 UtilidadesFX.mostrarAlerta(Alert.AlertType.WARNING, "Campo vacío",
                         "Por favor, ingresa tu contraseña");
                 field_contra.requestFocus();
                 return;
             }
 
-            if (contrasena.length() < 6) {
+            if (contraseña.length() < 6) {
                 UtilidadesFX.mostrarAlerta(Alert.AlertType.WARNING, "Contraseña inválida",
                         "La contraseña debe tener al menos 6 caracteres");
                 field_contra.clear();
@@ -67,7 +67,7 @@ public class ControladorLogin {
             }
 
             System.out.println("Delegando a ServicioCuenta.iniciarSesion()...");
-            serviceLogin.iniciarSesion(event, nombreUsuario, contrasena);
+            serviceCuenta.iniciarSesion(event, nombreUsuario, contraseña);
 
             System.out.println("Inicio de sesión procesado exitosamente\n");
 
