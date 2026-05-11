@@ -3,11 +3,15 @@ package service;
 import javafx.scene.control.Alert;
 import model.Cliente;
 import model.Empleado;
+import view.UtilidadesFX;
+
 import java.awt.event.ActionEvent;
 
 public class ServiceCuenta {
 
-    public void registrarUsuario(ActionEvent event, String correo, String nombreUsuario, String contraseña, String rol) throws LogicaException {}
+    public void registrarUsuario(ActionEvent event, String nombreUsuario, String correo, String documentoid, String contraseña, String rol) throws ServiceException {
+
+    }
 
     public void iniciarSesion(ActionEvent event, String nombreUsuario, String contraseña)
             throws ServiceException {
@@ -100,5 +104,9 @@ public class ServiceCuenta {
             throw new ServiceException("ERROR_INICIO_SESION",
                     "Error al iniciar sesión: " + e.getMessage(), e);
         }
+    }
+    private boolean esCorreoValido(String correo) {
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        return correo != null && correo.matches(regex);
     }
 }
