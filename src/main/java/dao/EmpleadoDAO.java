@@ -96,6 +96,24 @@ public class EmpleadoDAO {
         }
     }
 
+    public void eliminar(String nombreUsuario) throws ServiceException {
+        try {
+            ArrayList<Empleado> empleados = leer();
+            boolean eliminado = empleados.removeIf(a -> a.getNombreUsuario().equals(nombreUsuario));
+
+            if (!eliminado) {
+                throw new ServiceException("EMPLEADO_NO_ENCONTRADO",
+                        "No se encontró el empleado");
+            }
+
+            guardarLista(empleados);
+
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_ELIMINACION",
+                    "Error al eliminar empleado: " + e.getMessage(), e);
+        }
+    }
+
     private void guardarLista(ArrayList<Empleado> empleados) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO))) {
             oos.writeObject(empleados);
