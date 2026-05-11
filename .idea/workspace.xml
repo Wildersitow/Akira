@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo cambiarIniciarSesión en ControladorRegister">
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipal.fxml" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Cambio en la ruta FXML de register">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/Akira.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,14 +85,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00002" summary="feat: Atributos en Empleado.java actualizados">
-      <option name="closed" value="true" />
-      <created>1778402676689</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1778402676689</updated>
     </task>
     <task id="LOCAL-00003" summary="feat: Atributos en Cliente.java actualizados">
       <option name="closed" value="true" />
@@ -479,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778536619250</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="feat: Cambio en la ruta FXML de register">
+      <option name="closed" value="true" />
+      <created>1778536950400</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1778536950400</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,7 +493,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Añadido carpeta .idea al gitignore" />
     <MESSAGE value="feat: Creación clase EmpleadoDAO" />
     <MESSAGE value="feat: Creación getters nombreUsuario y documentoid" />
     <MESSAGE value="feat: Creación metodo leerCuentas" />
@@ -519,6 +517,7 @@
     <MESSAGE value="feat: Inicialización del ControladorRegister" />
     <MESSAGE value="feat: Creación metodo handleRegistrar en ControladorRegister" />
     <MESSAGE value="feat: Creación metodo cambiarIniciarSesión en ControladorRegister" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo cambiarIniciarSesión en ControladorRegister" />
+    <MESSAGE value="feat: Cambio en la ruta FXML de register" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Cambio en la ruta FXML de register" />
   </component>
 </project>
