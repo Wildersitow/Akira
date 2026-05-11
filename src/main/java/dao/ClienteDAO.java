@@ -1,6 +1,7 @@
 package dao;
 
 import model.Cliente;
+import model.Persona;
 import service.ServiceException;
 
 import java.io.*;
@@ -48,6 +49,25 @@ public class ClienteDAO {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_CLIENTES))) {
             oos.writeObject(clientes);
         }
+    }
+
+    private ArrayList<Persona> leerCuentas() throws IOException {
+        ArrayList<Persona> cuentas = new ArrayList<>();
+        File archivo = new File(ARCHIVO_CUENTAS);
+
+        if (!archivo.exists()) {
+            return cuentas;
+        }
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
+            cuentas = (ArrayList<Persona>) ois.readObject();
+        } catch (EOFException e) {
+            // Archivo vacío, retornar lista vacía
+        } catch (ClassNotFoundException e) {
+            throw new IOException("Error al leer el archivo de cuentas: clase no encontrada", e);
+        }
+
+        return cuentas;
     }
 
     //Metodo privado encargado de leer el documento
