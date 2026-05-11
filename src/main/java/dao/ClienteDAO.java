@@ -98,6 +98,32 @@ public class ClienteDAO {
         }
     }
 
+    public void actualizar(Cliente cliente) throws ServiceException {
+        try {
+            ArrayList<Cliente> clientes = leer();
+            boolean encontrado = false;
+
+            for (int i = 0; i < clientes.size(); i++) {
+                if (clientes.get(i).getNombreUsuario().equals(cliente.getNombreUsuario())) {
+                    clientes.set(i, cliente);
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                throw new ServiceException("CLIENTE_NO_ENCONTRADO",
+                        "No se encontró el cliente con usuario: " + cliente.getNombreUsuario());
+            }
+            guardarLista(clientes);
+
+            System.out.println("✓ Cliente actualizado: " + cliente.getNombreUsuario());
+
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_ACTUALIZACION",
+                    "Error al actualizar cliente: " + e.getMessage(), e);
+        }
+    }
+
     private void guardarListaCuentas(ArrayList<Persona> cuentas) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_CUENTAS))) {
             oos.writeObject(cuentas);
