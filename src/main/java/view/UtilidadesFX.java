@@ -18,7 +18,7 @@ public class UtilidadesFX {
     private Scene scene;
     private Parent root;
 
-    private void cambiarEscenaConTransicion(ActionEvent event, String rutaFxml) {
+    public void cambiarEscenaConTransicion(ActionEvent event, String rutaFxml) {
         try {
             Node source = (Node) event.getSource();
             stage = (Stage) source.getScene().getWindow();
@@ -74,7 +74,7 @@ public class UtilidadesFX {
         }
     }
 
-    private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensaje) {
+    public void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensaje) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
