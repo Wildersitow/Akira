@@ -61,10 +61,10 @@ public class ServiceCuenta {
                 System.out.println("Cliente guardado exitosamente!");
 
                 // Mostrar confirmación y redirigir
-                view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
+                utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
                         "¡Bienvenido " + nombreUsuario + "! Tu cuenta de cliente ha sido creada.");
 
-                view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
+                utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
 
             } else if (rol.equalsIgnoreCase("empleado")) {
                 System.out.println("Creando nuevo Empleado...");
@@ -76,11 +76,11 @@ public class ServiceCuenta {
                 System.out.println("Empleado guardado exitosamente!");
 
                 // Mostrar confirmación y redirigir
-                UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
+                utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
                         "¡Bienvenido " + nombreUsuario + "! Tu cuenta de empleado ha sido creada.");
 
                 // Ir a inicio de sesión
-                view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
+                utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
 
             } else {
                 throw new ServiceException("ROL_INVALIDO", "El rol especificado no es válido");
@@ -126,10 +126,10 @@ public class ServiceCuenta {
 
                     SesionCuenta.setUsuarioActual(cliente);
 
-                    view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
+                    utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido " + cliente.getNombre() + "!");
 
-                    view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/MenuPrincipal.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/MenuPrincipal.fxml");
                     return;
 
                 } else {
@@ -149,10 +149,10 @@ public class ServiceCuenta {
 
                     SesionCuenta.setUsuarioActual(empleado);
 
-                    view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
+                    utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido Empleado " + empleado.getNombre() + "!");
 
-                    view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion");
+                    utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion");
                     return;
 
                 } else {
