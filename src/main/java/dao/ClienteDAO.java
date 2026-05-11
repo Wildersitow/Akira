@@ -70,6 +70,12 @@ public class ClienteDAO {
         return cuentas;
     }
 
+    private void guardarListaCuentas(ArrayList<Persona> cuentas) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_CUENTAS))) {
+            oos.writeObject(cuentas);
+        }
+    }
+
     //Metodo privado encargado de leer el documento
 
     private ArrayList<Cliente> leer() throws IOException {
