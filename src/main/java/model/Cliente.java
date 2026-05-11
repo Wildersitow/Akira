@@ -9,8 +9,8 @@ public class Cliente extends Persona {
     private int puntosFidelidad;
     private List<Contrato> contratos;
 
-    public Cliente(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, int telefono, String licenciaConducir, double historialCredito, int puntosFidelidad, List<Contrato> contratos) {
-        super(nombre, nombreUsuario, contraseña, documentoid, email, telefono);
+    public Cliente(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, String rol, int telefono, String licenciaConducir, double historialCredito, int puntosFidelidad, List<Contrato> contratos) {
+        super(nombre, nombreUsuario, contraseña, documentoid, email, rol, telefono);
         this.licenciaConducir = licenciaConducir;
         this.historialCredito = historialCredito;
         this.puntosFidelidad = puntosFidelidad;

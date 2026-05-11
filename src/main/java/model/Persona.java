@@ -7,14 +7,16 @@ public abstract  class Persona {
     private String contraseña;
     private String documentoid;
     private String email;
+    private String rol;
     private int telefono;
 
-    public Persona(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, int telefono) {
+    public Persona(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, String rol, int telefono) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
         this.documentoid = documentoid;
         this.email = email;
+        this.rol = rol;
         this.telefono = telefono;
     }
 
@@ -24,5 +26,9 @@ public abstract  class Persona {
 
     public boolean verificarContraseña(String contraseña) {
         return this.contraseña != null && this.contraseña.equals(this.contraseña);
+    }
+
+    public String getRol() {
+        return rol;
     }
 }
