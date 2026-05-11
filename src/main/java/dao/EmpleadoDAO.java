@@ -3,7 +3,7 @@ package dao;
 import model.Empleado;
 import service.ServiceException;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class EmpleadoDAO {
@@ -42,7 +42,7 @@ public class EmpleadoDAO {
             return null;
         } catch (IOException e) {
             throw new ServiceException("ERROR_LECTURA",
-                    "Error al buscar administrador: " + e.getMessage(), e);
+                    "Error al buscar empleado: " + e.getMessage(), e);
         }
     }
 
@@ -57,8 +57,27 @@ public class EmpleadoDAO {
             return null;
         } catch (IOException e) {
             throw new ServiceException("ERROR_LECTURA",
-                    "Error al buscar administrador: " + e.getMessage(), e);
+                    "Error al buscar empleado: " + e.getMessage(), e);
         }
+    }
+
+    private ArrayList<Empleado> leer() throws IOException {
+        ArrayList<Empleado> empleados = new ArrayList<>();
+        File archivo = new File(ARCHIVO);
+
+        if (!archivo.exists()) {
+            return empleados;
+        }
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
+            empleados = (ArrayList<Empleado>) ois.readObject();
+        } catch (EOFException e) {
+            // Archivo vacío, retornar lista vacía
+        } catch (ClassNotFoundException e) {
+            throw new IOException("Error al leer el archivo: clase no encontrada", e);
+        }
+
+        return empleados;
     }
 
 
