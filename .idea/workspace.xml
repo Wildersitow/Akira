@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Cambio en la ruta FXML de register">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Akira.java" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Inicialización para la clase ControladorMenuInicio">
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,30 +85,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00003" summary="feat: Atributos en Cliente.java actualizados">
-      <option name="closed" value="true" />
-      <created>1778402706463</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1778402706463</updated>
-    </task>
-    <task id="LOCAL-00004" summary="feat: Creación clase contrato">
-      <option name="closed" value="true" />
-      <created>1778448205425</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1778448205425</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat: Creación atributos y constructor de contrato">
-      <option name="closed" value="true" />
-      <created>1778449681873</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1778449681873</updated>
     </task>
     <task id="LOCAL-00006" summary="feat: Creación metodo de utilidad cambiarEscenaConTransicion">
       <option name="closed" value="true" />
@@ -478,7 +454,31 @@
       <option name="project" value="LOCAL" />
       <updated>1778536950400</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="feat: Creación clase Main llamada Akira">
+      <option name="closed" value="true" />
+      <created>1778537200509</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537200509</updated>
+    </task>
+    <task id="LOCAL-00053" summary="feat: Metodo main eliminado de ControladorMenuInicio">
+      <option name="closed" value="true" />
+      <created>1778537339175</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537339176</updated>
+    </task>
+    <task id="LOCAL-00054" summary="feat: Inicialización para la clase ControladorMenuInicio">
+      <option name="closed" value="true" />
+      <created>1778537399825</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537399826</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -493,9 +493,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación clase EmpleadoDAO" />
-    <MESSAGE value="feat: Creación getters nombreUsuario y documentoid" />
-    <MESSAGE value="feat: Creación metodo leerCuentas" />
     <MESSAGE value="feat: Creación metodo guardarListaCuentas" />
     <MESSAGE value="feat: Creación metodo crearCuentaParaCliente" />
     <MESSAGE value="feat: Creación metodo buscarCuentaClientePorUsuario" />
@@ -518,6 +515,9 @@
     <MESSAGE value="feat: Creación metodo handleRegistrar en ControladorRegister" />
     <MESSAGE value="feat: Creación metodo cambiarIniciarSesión en ControladorRegister" />
     <MESSAGE value="feat: Cambio en la ruta FXML de register" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Cambio en la ruta FXML de register" />
+    <MESSAGE value="feat: Creación clase Main llamada Akira" />
+    <MESSAGE value="feat: Metodo main eliminado de ControladorMenuInicio" />
+    <MESSAGE value="feat: Inicialización para la clase ControladorMenuInicio" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Inicialización para la clase ControladorMenuInicio" />
   </component>
 </project>

@@ -27,4 +27,14 @@ public class ControladorMenuInicio {
         }
     }
 
+    public void cambiarRegistrar(ActionEvent event){
+        try {
+            System.out.println("Intentando cambiar a Registro...");
+            utilidades.cambiarEscenaConTransicion(event, "/src/main/resources/FXML/Register.fxml");
+        } catch (Exception e) {
+            System.err.println("ERROR al cambiar escena:");
+            e.printStackTrace();
+        }
+    }
+
 }
