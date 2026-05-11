@@ -119,7 +119,7 @@ public class ControladorLogin {
     public void cambiarRegistrar(ActionEvent event) {
         try {
             System.out.println("Navegando a Registro...");
-                    utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/Registro.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "/src/main/resources/FXML/Register.fxml");
         } catch (Exception e) {
             System.err.println("ERROR al cambiar escena:");
             e.printStackTrace();

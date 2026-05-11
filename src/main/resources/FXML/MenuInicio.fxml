@@ -16,7 +16,12 @@
             <Font name="Haettenschweiler" size="67.0" />
          </font>
       </Label>
-      <Button fx:id="boton_logout" layoutX="537.0" layoutY="251.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="sALIR" textFill="WHITE">
+      <Button fx:id="boton_registrar" layoutX="360.0" layoutY="252.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="REGISTRATE" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="boton_login" layoutX="640.0" layoutY="252.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="INICIA SESIÓN" textFill="WHITE">
          <font>
             <Font name="Impact Regular" size="25.0" />
          </font>
