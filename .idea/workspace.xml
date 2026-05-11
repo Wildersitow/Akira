@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Inicialización para la clase ControladorMenuInicio">
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Metodo cambiarRegistrar creado en ControladorMenuInicio">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/MenuInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuInicio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/Register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,22 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00006" summary="feat: Creación metodo de utilidad cambiarEscenaConTransicion">
-      <option name="closed" value="true" />
-      <created>1778451061309</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1778451061309</updated>
-    </task>
-    <task id="LOCAL-00007" summary="feat: Creación metodo mostrarAlerta">
-      <option name="closed" value="true" />
-      <created>1778451381590</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1778451381590</updated>
     </task>
     <task id="LOCAL-00008" summary="feat: Creación handle del Inicio de sesion">
       <option name="closed" value="true" />
@@ -478,7 +465,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778537399826</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="feat: Metodo cambiar IniciarSesión creado">
+      <option name="closed" value="true" />
+      <created>1778537672838</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537672838</updated>
+    </task>
+    <task id="LOCAL-00056" summary="feat: Metodo cambiarRegistrar creado en ControladorMenuInicio">
+      <option name="closed" value="true" />
+      <created>1778537795565</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537795565</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -493,8 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodo guardarListaCuentas" />
-    <MESSAGE value="feat: Creación metodo crearCuentaParaCliente" />
     <MESSAGE value="feat: Creación metodo buscarCuentaClientePorUsuario" />
     <MESSAGE value="feat: Creación metodo buscarPorNombreUsuario" />
     <MESSAGE value="feat: Creación metodo guardarCuenta" />
@@ -518,6 +519,8 @@
     <MESSAGE value="feat: Creación clase Main llamada Akira" />
     <MESSAGE value="feat: Metodo main eliminado de ControladorMenuInicio" />
     <MESSAGE value="feat: Inicialización para la clase ControladorMenuInicio" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Inicialización para la clase ControladorMenuInicio" />
+    <MESSAGE value="feat: Metodo cambiar IniciarSesión creado" />
+    <MESSAGE value="feat: Metodo cambiarRegistrar creado en ControladorMenuInicio" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Metodo cambiarRegistrar creado en ControladorMenuInicio" />
   </component>
 </project>

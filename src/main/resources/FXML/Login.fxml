@@ -24,7 +24,7 @@
                </font>
             </Label>
             <PasswordField fx:id="field_contra" layoutX="159.0" layoutY="405.0" prefHeight="48.0" prefWidth="486.0" style="-fx-background-color: #D4D4D4;" />
-            <Button fx:id="boton_login" layoutX="299.0" layoutY="493.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="LOGIN" textFill="WHITE">
+            <Button fx:id="boton_login" layoutX="299.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleIniciarSesion" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="25.0" />
                </font>
@@ -34,7 +34,7 @@
                   <Font name="Impact Regular" size="21.0" />
                </font>
             </Label>
-            <Button fx:id="boton_registro" layoutX="455.0" layoutY="599.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #9B0F1F;" text="REGISTRARSE" textFill="WHITE">
+            <Button fx:id="boton_registro" layoutX="455.0" layoutY="599.0" mnemonicParsing="false" onAction="#cambiarRegistrar" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #9B0F1F;" text="REGISTRARSE" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="14.0" />
                </font>
