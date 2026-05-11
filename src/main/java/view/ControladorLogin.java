@@ -5,11 +5,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 import service.ServiceCuenta;
 import service.ServiceException;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class ControladorLogin {
 
@@ -17,13 +17,20 @@ public class ControladorLogin {
     private Scene scene;
     private Parent root;
 
+    private final UtilidadesFX utilidades;
     private ServiceCuenta serviceCuenta;
+
+
 
     @FXML
     private TextField field_usuario;
 
     @FXML
     private PasswordField field_contra;
+
+    public ControladorLogin(UtilidadesFX utilidades) {
+        this.utilidades = utilidades;
+    }
 
     @FXML
     public void initialize() {
@@ -45,21 +52,21 @@ public class ControladorLogin {
 
 
             if (nombreUsuario == null || nombreUsuario.trim().isEmpty()) {
-                UtilidadesFX.mostrarAlerta(Alert.AlertType.WARNING, "Campo vacío",
+                utilidades.mostrarAlerta(Alert.AlertType.WARNING, "Campo vacío",
                         "Por favor, ingresa tu nombre de usuario");
                 field_usuario.requestFocus();
                 return;
             }
 
             if (contraseña == null || contraseña.trim().isEmpty()) {
-                UtilidadesFX.mostrarAlerta(Alert.AlertType.WARNING, "Campo vacío",
+                utilidades.mostrarAlerta(Alert.AlertType.WARNING, "Campo vacío",
                         "Por favor, ingresa tu contraseña");
                 field_contra.requestFocus();
                 return;
             }
 
             if (contraseña.length() < 6) {
-                UtilidadesFX.mostrarAlerta(Alert.AlertType.WARNING, "Contraseña inválida",
+                utilidades.mostrarAlerta(Alert.AlertType.WARNING, "Contraseña inválida",
                         "La contraseña debe tener al menos 6 caracteres");
                 field_contra.clear();
                 field_contra.requestFocus();
@@ -99,12 +106,12 @@ public class ControladorLogin {
                     break;
             }
 
-            UtilidadesFX.mostrarAlerta(Alert.AlertType.ERROR, titulo, e.getMessage());
+            utilidades.mostrarAlerta(Alert.AlertType.ERROR, titulo, e.getMessage());
 
         } catch (Exception e) {
             System.err.println("✗ Error inesperado: " + e.getMessage());
             e.printStackTrace();
-            UtilidadesFX.mostrarAlerta(Alert.AlertType.ERROR, "Error del sistema",
+            utilidades.mostrarAlerta(Alert.AlertType.ERROR, "Error del sistema",
                     "Ocurrió un error inesperado: " + e.getMessage());
         }
     }
@@ -113,8 +120,7 @@ public class ControladorLogin {
     public void cambiarRegistrar(ActionEvent event) {
         try {
             System.out.println("Navegando a Registro...");
-            @Override
-                    UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/Registro.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/Registro.fxml");
         } catch (Exception e) {
             System.err.println("ERROR al cambiar escena:");
             e.printStackTrace();

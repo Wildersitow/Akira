@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/service",
+    "git-widget-placeholder": "feature/view",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
