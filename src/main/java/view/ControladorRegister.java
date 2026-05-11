@@ -9,6 +9,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import service.ServiceCuenta;
 import service.ServiceException;
+import javafx.fxml.FXML;
 
 public class ControladorRegister {
 
