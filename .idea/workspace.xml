@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Clase extra ControladorLogin eliminada">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación clase EmpleadoDAO">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +271,31 @@
       <option name="project" value="LOCAL" />
       <updated>1778524933478</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="feat: Creación clase ClienteDAO">
+      <option name="closed" value="true" />
+      <created>1778525597923</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1778525597923</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: Añadido carpeta .idea al gitignore">
+      <option name="closed" value="true" />
+      <created>1778525629226</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1778525629226</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: Creación clase EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778525666883</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1778525666883</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,8 +310,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Metodos en Persona.java actualizados" />
-    <MESSAGE value="feat: Atributos en Persona.java actualizados" />
     <MESSAGE value="feat: Atributos en Empleado.java actualizados" />
     <MESSAGE value="feat: Atributos en Cliente.java actualizados" />
     <MESSAGE value="feat: Creación clase contrato" />
@@ -309,6 +332,9 @@
     <MESSAGE value="feat: Creación metodo registrarUsuario" />
     <MESSAGE value="feat: Conexión con el DAO creada en metodo registrarUsuario" />
     <MESSAGE value="feat: Clase extra ControladorLogin eliminada" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Clase extra ControladorLogin eliminada" />
+    <MESSAGE value="feat: Creación clase ClienteDAO" />
+    <MESSAGE value="feat: Añadido carpeta .idea al gitignore" />
+    <MESSAGE value="feat: Creación clase EmpleadoDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación clase EmpleadoDAO" />
   </component>
 </project>
