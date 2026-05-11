@@ -95,6 +95,21 @@ public class ClienteDAO {
         }
     }
 
+    public Cliente buscarPorNombreUsuario(String nombreUsuario) throws ServiceException {
+        try {
+            ArrayList<Cliente> clientes = leer();
+            for (Cliente c : clientes) {
+                if (c.getNombreUsuario().equalsIgnoreCase(nombreUsuario)) {
+                    return c;
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_LECTURA",
+                    "Error al buscar cliente: " + e.getMessage(), e);
+        }
+    }
+
     public Cliente buscarCuentaClientePorUsuario(String nombreUsuario) throws ServiceException {
         try {
             ArrayList<Persona> cuentas = leerCuentas();
