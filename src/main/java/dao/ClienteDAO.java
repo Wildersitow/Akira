@@ -125,6 +125,32 @@ public class ClienteDAO {
         }
     }
 
+    public void guardarCuenta(Cliente cuenta) throws ServiceException {
+        try {
+            ArrayList<Persona> cuentas = leerCuentas();
+            boolean actualizado = false;
+
+            // Buscar si ya existe la cuenta y actualizarla
+            for (int i = 0; i < cuentas.size(); i++) {
+                if (cuentas.get(i).getNombreUsuario().equals(cuenta.getNombreUsuario())) {
+                    cuentas.set(i, cuenta);
+                    actualizado = true;
+                    break;
+                }
+            }
+            if (!actualizado) {
+                cuentas.add(cuenta);
+            }
+
+            guardarListaCuentas(cuentas);
+
+            System.out.println("✓ Cuenta guardada/actualizada: " + cuenta.getNombreUsuario());
+
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_GUARDADO",
+                    "Error al guardar cuenta: " + e.getMessage(), e);
+        }
+    }
 
 
     //Metodo privado encargado de leer el documento

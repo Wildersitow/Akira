@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo crearCuentaParaCliente">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo buscarPorNombreUsuario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
     </list>
@@ -335,7 +335,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778527666528</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="feat: Creación metodo buscarCuentaClientePorUsuario">
+      <option name="closed" value="true" />
+      <created>1778528079639</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1778528079639</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: Creación metodo buscarPorNombreUsuario">
+      <option name="closed" value="true" />
+      <created>1778528728236</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1778528728236</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,8 +366,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodo mostrarAlerta" />
-    <MESSAGE value="feat: Creación handle del Inicio de sesion" />
     <MESSAGE value="feat: Creación metodo cambiarRegistrar" />
     <MESSAGE value="feat: Creación package service" />
     <MESSAGE value="feat: Creación creación clase ServiceException" />
@@ -375,6 +389,8 @@
     <MESSAGE value="feat: Creación metodo leerCuentas" />
     <MESSAGE value="feat: Creación metodo guardarListaCuentas" />
     <MESSAGE value="feat: Creación metodo crearCuentaParaCliente" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo crearCuentaParaCliente" />
+    <MESSAGE value="feat: Creación metodo buscarCuentaClientePorUsuario" />
+    <MESSAGE value="feat: Creación metodo buscarPorNombreUsuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo buscarPorNombreUsuario" />
   </component>
 </project>
