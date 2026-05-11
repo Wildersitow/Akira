@@ -89,6 +89,15 @@ public class ClienteDAO {
         return nuevaCuenta;
     }
 
+    public ArrayList<Cliente> obtenerTodos() throws ServiceException {
+        try {
+            return leer();
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_LECTURA",
+                    "Error al leer clientes: " + e.getMessage(), e);
+        }
+    }
+
     private void guardarListaCuentas(ArrayList<Persona> cuentas) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO_CUENTAS))) {
             oos.writeObject(cuentas);
