@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación constructor de ServiceCuenta para conexión con DAO">
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UtilidadesFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UtilidadesFX.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -430,7 +431,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778532113522</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="feat: Creación constructor de ServiceCuenta para conexión con DAO">
+      <option name="closed" value="true" />
+      <created>1778532777728</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1778532777728</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -445,7 +454,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodos controlador de sesion en SesionCuenta" />
     <MESSAGE value="feat: Creación atributo rol en Persona" />
     <MESSAGE value="feat: Creación metodos controladores de rol en SesionCuenta" />
     <MESSAGE value="feat: Creación metodo registrarUsuario" />
@@ -470,6 +478,7 @@
     <MESSAGE value="feat: Creacion metodo leer en EmpleadoDAO" />
     <MESSAGE value="feat: Creacion metodo guardarLista en EmpleadoDAO" />
     <MESSAGE value="feat: Creacion metodo obtenerTodos en EmpleadoDAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creacion metodo obtenerTodos en EmpleadoDAO" />
+    <MESSAGE value="feat: Creación constructor de ServiceCuenta para conexión con DAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación constructor de ServiceCuenta para conexión con DAO" />
   </component>
 </project>

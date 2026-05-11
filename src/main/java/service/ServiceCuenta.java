@@ -12,12 +12,14 @@ import java.util.ArrayList;
 
 public class ServiceCuenta {
 
-    private ClienteDAO clienteDAO;
-    private EmpleadoDAO empleadoDAO;
+    private final ClienteDAO clienteDAO;
+    private final EmpleadoDAO empleadoDAO;
+    private final UtilidadesFX utilidades;   // agregar esto
 
     public ServiceCuenta() {
         this.clienteDAO = new ClienteDAO();
         this.empleadoDAO = new EmpleadoDAO();
+        this.utilidades = new UtilidadesFX(); // agregar esto
     }
 
     public void registrarUsuario(ActionEvent event, String nombreUsuario, String correo, String documentoid, String contraseña, String rol) throws ServiceException {
@@ -55,7 +57,7 @@ public class ServiceCuenta {
 
                 Cliente nuevoCliente = new Cliente("", nombreUsuario, contraseña, documentoid, correo, "cliente", 0, "", 0.0, 0, new ArrayList<>());
 
-                ClienteDAO.guardar(nuevoCliente);
+                clienteDAO.guardar(nuevoCliente);
                 System.out.println("Cliente guardado exitosamente!");
 
                 // Mostrar confirmación y redirigir
@@ -70,7 +72,7 @@ public class ServiceCuenta {
                 Empleado nuevoEmpleado = new Empleado("", nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "", 0.0);
 
                 // Guardar en repositorio
-                EmpleadoDAO.guardar(nuevoEmpleado);
+                empleadoDAO.guardar(nuevoEmpleado);
                 System.out.println("Empleado guardado exitosamente!");
 
                 // Mostrar confirmación y redirigir
