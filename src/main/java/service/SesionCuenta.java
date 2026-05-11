@@ -22,4 +22,21 @@ public class SesionCuenta {
         usuarioActual = null;
     }
 
+    public static String getRolActual() {
+        if (usuarioActual != null) {
+            return usuarioActual.getRol();
+        }
+        return null;
+    }
+
+    public static boolean esAdministrador() {
+        return usuarioActual != null &&
+                "administrador".equalsIgnoreCase(usuarioActual.getRol());
+    }
+
+    public static boolean esCliente() {
+        return usuarioActual != null &&
+                "cliente".equalsIgnoreCase(usuarioActual.getRol());
+    }
+
 }

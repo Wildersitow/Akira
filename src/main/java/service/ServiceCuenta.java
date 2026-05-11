@@ -40,7 +40,7 @@ public class ServiceCuenta {
                     SesionCuenta.setUsuarioActual(cliente);
 
                     // Redirigir a dashboard de cliente
-                    mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
+                    view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido " + cliente.getNombre() + "!");
 
                     view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/MenuPrincipal.fxml");
