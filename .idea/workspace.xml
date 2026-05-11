@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creacion metodo leer en EmpleadoDAO">
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmpleadoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmpleadoDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -391,7 +390,31 @@
       <option name="project" value="LOCAL" />
       <updated>1778531200780</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778531725245</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1778531725245</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat: Creacion metodo buscarPorNombre en EmpleaoDAO">
+      <option name="closed" value="true" />
+      <created>1778531872715</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1778531872715</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat: Creacion metodo leer en EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778531974381</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1778531974381</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,8 +429,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación clase ServiceCuenta" />
-    <MESSAGE value="feat: Creación clase SesionCuenta" />
     <MESSAGE value="feat: Creación metodo IniciarSesion en serviceCuenta" />
     <MESSAGE value="feat: Agregación metodos en clase Persona" />
     <MESSAGE value="feat: Creación metodos controlador de sesion en SesionCuenta" />
@@ -431,6 +452,8 @@
     <MESSAGE value="feat: Creación metodo eliminar" />
     <MESSAGE value="feat: Creación metodo guardar" />
     <MESSAGE value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
+    <MESSAGE value="feat: Creacion metodo buscarPorNombre en EmpleaoDAO" />
+    <MESSAGE value="feat: Creacion metodo leer en EmpleadoDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creacion metodo leer en EmpleadoDAO" />
   </component>
 </project>

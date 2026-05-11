@@ -61,6 +61,12 @@ public class EmpleadoDAO {
         }
     }
 
+    private void guardarLista(ArrayList<Empleado> empleados) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO))) {
+            oos.writeObject(empleados);
+        }
+    }
+
     private ArrayList<Empleado> leer() throws IOException {
         ArrayList<Empleado> empleados = new ArrayList<>();
         File archivo = new File(ARCHIVO);
