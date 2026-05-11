@@ -61,6 +61,15 @@ public class EmpleadoDAO {
         }
     }
 
+    public ArrayList<Empleado> obtenerTodos() throws ServiceException {
+        try {
+            return leer();
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_LECTURA",
+                    "Error al leer administradores: " + e.getMessage(), e);
+        }
+    }
+
     private void guardarLista(ArrayList<Empleado> empleados) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ARCHIVO))) {
             oos.writeObject(empleados);
