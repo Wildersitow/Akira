@@ -46,6 +46,21 @@ public class EmpleadoDAO {
         }
     }
 
+    public Empleado buscarPorNombre(String nombre) throws ServiceException {
+        try {
+            ArrayList<Empleado> empleados = leer();
+            for (Empleado e : empleados) {
+                if (e.getNombre().equalsIgnoreCase(nombre)) {
+                    return e;
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            throw new ServiceException("ERROR_LECTURA",
+                    "Error al buscar administrador: " + e.getMessage(), e);
+        }
+    }
+
 
 
 }

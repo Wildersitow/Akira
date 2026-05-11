@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación metodo guardar">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmpleadoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmpleadoDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -405,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Solución confusión con ServiceException y ServiceLogin" />
     <MESSAGE value="feat: Creación clase ServiceCuenta" />
     <MESSAGE value="feat: Creación clase SesionCuenta" />
     <MESSAGE value="feat: Creación metodo IniciarSesion en serviceCuenta" />
@@ -430,6 +430,7 @@
     <MESSAGE value="feat: Creación metodo actualizar" />
     <MESSAGE value="feat: Creación metodo eliminar" />
     <MESSAGE value="feat: Creación metodo guardar" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación metodo guardar" />
+    <MESSAGE value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
   </component>
 </project>
