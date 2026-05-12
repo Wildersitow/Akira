@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Imports FXML agregados a los controladores" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Solución error de ejecución en module-info.java">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/BicicletaElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BicicletaElectrica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Contrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PatinetaElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/PatinetaElectrica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Akira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Akira.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UtilidadesFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UtilidadesFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/akira/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/akira/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/MenuInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuInicio.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +87,9 @@
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -84,14 +106,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00010" summary="feat: Creación package service">
-      <option name="closed" value="true" />
-      <created>1778454186828</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1778454186828</updated>
     </task>
     <task id="LOCAL-00011" summary="feat: Creación creación clase ServiceException">
       <option name="closed" value="true" />
@@ -477,7 +491,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778538749592</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="feat: Solución error de ejecución en module-info.java">
+      <option name="closed" value="true" />
+      <created>1778538963765</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1778538963765</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -492,7 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodo obtenerTodos" />
     <MESSAGE value="feat: Creación metodo actualizar" />
     <MESSAGE value="feat: Creación metodo eliminar" />
     <MESSAGE value="feat: Creación metodo guardar" />
@@ -517,6 +538,17 @@
     <MESSAGE value="feat: Asignacion de los botones al FXML" />
     <MESSAGE value="feat: Imports FXML agregados" />
     <MESSAGE value="feat: Imports FXML agregados a los controladores" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Imports FXML agregados a los controladores" />
+    <MESSAGE value="feat: Solución error de ejecución en module-info.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Solución error de ejecución en module-info.java" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

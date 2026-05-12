@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.net.URL;
+
 public class UtilidadesFX {
 
     private Stage stage;
@@ -38,7 +40,14 @@ public class UtilidadesFX {
 
             exitTransition.setOnFinished(e -> {
                 try {
-                    Parent rootNuevo = FXMLLoader.load(getClass().getResource(rutaFxml));
+                    URL url = getClass().getResource(rutaFxml);
+                    if (url == null) {
+                        System.err.println("FXML no encontrado en: " + rutaFxml);
+                        return;
+                    }
+
+                    FXMLLoader loader = new FXMLLoader(url);
+                    Parent rootNuevo = loader.load();
 
                     rootNuevo.setOpacity(0.0);
                     rootNuevo.setScaleX(1.05);

@@ -39,6 +39,10 @@ public class ControladorRegister {
     @FXML
     private ToggleGroup cuenta;
 
+    public ControladorRegister() {
+        this.utilidades = new UtilidadesFX();
+    }
+
     public ControladorRegister(UtilidadesFX utilidades) {
         this.utilidades = utilidades;
     }
@@ -154,7 +158,7 @@ public class ControladorRegister {
     public void cambiarIniciarSesion(ActionEvent event) {
         try {
             System.out.println("Navegando a Iniciar Sesión...");
-            utilidades.cambiarEscenaConTransicion(event, "/src/main/resources/FXML/Login.fxml");
+            utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
         } catch (Exception e) {
             System.err.println("ERROR al cambiar escena:");
             e.printStackTrace();

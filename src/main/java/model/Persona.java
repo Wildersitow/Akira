@@ -2,13 +2,13 @@ package model;
 
 public abstract  class Persona {
 
-    private String nombre;
-    private String nombreUsuario;
-    private String contraseña;
-    private String documentoid;
-    private String email;
-    private String rol;
-    private int telefono;
+    private final String nombre;
+    private final String nombreUsuario;
+    private final String contraseña;
+    private final String documentoid;
+    private final String email;
+    private final String rol;
+    private final int telefono;
 
     public Persona(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, String rol, int telefono) {
         this.nombre = nombre;

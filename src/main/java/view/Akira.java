@@ -10,14 +10,14 @@ import static javafx.application.Application.launch;
 
 public class Akira extends Application {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         launch(args);
     }
     @Override
     public void start(Stage stage) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Akira.class.getResource("/src/main/resources/FXML/MenuInicio.fxml"));
+            loader.setLocation(Akira.class.getResource("/FXML/MenuInicio.fxml"));
 
             Parent root = loader.load();
             Scene scene = new Scene(root);
