@@ -2,9 +2,9 @@ package model;
 
 public class BicicletaElectrica extends VehiculoElectrico {
 
-    private int numeroMarchas;
-    private boolean tieneAsistenciaPedal;
-    private String tipoBicicleta;
+    private final int numeroMarchas;
+    private final boolean tieneAsistenciaPedal;
+    private final String tipoBicicleta;
 
     public BicicletaElectrica(String id, String marca, String modelo,
                               Double autonomiaKm, Double capacidadBateria,

@@ -2,10 +2,10 @@ package model;
 
 public class AutoElectrico extends VehiculoElectrico {
 
-    private int numeroPuertas;
-    private int numeroPasajeros;
-    private String tipoCarga;
-    private String traccion;
+    private final int numeroPuertas;
+    private final int numeroPasajeros;
+    private final String tipoCarga;
+    private final String traccion;
 
     public AutoElectrico(String id, String marca, String modelo,
                          Double autonomiaKm, Double capacidadBateria,

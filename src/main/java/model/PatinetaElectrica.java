@@ -2,9 +2,9 @@ package model;
 
 public class PatinetaElectrica extends VehiculoElectrico {
 
-    private boolean esPlegable;
-    private Double pesoDispositivoKg;
-    private Double pesoMaximoUsuarioKg;
+    private final boolean esPlegable;
+    private final Double pesoDispositivoKg;
+    private final Double pesoMaximoUsuarioKg;
 
     public PatinetaElectrica(String id, String marca, String modelo,
                              Double autonomiaKm, Double capacidadBateria,

@@ -2,9 +2,9 @@ package model;
 
 public class MotoElectrica extends VehiculoElectrico {
 
-    private int numeroPasajeros;
-    private String tipoMoto;
-    private String tipoCarga;
+    private final int numeroPasajeros;
+    private final String tipoMoto;
+    private final String tipoCarga;
 
     public MotoElectrica(String id, String marca, String modelo,
                          Double autonomiaKm, Double capacidadBateria,
