@@ -2,20 +2,52 @@ package model;
 
 public class MotoElectrica extends VehiculoElectrico {
 
-    private final int numeroPasajeros;
-    private final String tipoMoto;
-    private final String tipoCarga;
+    private int alturaAsientoMm;
+    private String tipoMoto;
+    private double pesoKg;
 
-    public MotoElectrica(String id, String marca, String modelo,
-                         Double autonomiaKm, Double capacidadBateria,
-                         Double precioBase, int velocidadMaxima,
-                         int numeroPasajeros, String tipoMoto, String tipoCarga) {
-
-        super(id, marca, modelo, autonomiaKm, capacidadBateria, precioBase, velocidadMaxima);
-
-        this.numeroPasajeros = numeroPasajeros;
+    public MotoElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima, int alturaAsientoMm, String tipoMoto, double pesoKg) {
+        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, potenciaMotorKW, velocidadMaxima);
+        this.alturaAsientoMm = alturaAsientoMm;
         this.tipoMoto = tipoMoto;
-        this.tipoCarga = tipoCarga;
+        this.pesoKg = pesoKg;
     }
 
+    @Override
+    public double calcularPrecioFinal(){
+
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "MotoEléctrica | " + super.toString() +
+                " | Tipo: " + tipoMoto +
+                " | Peso: " + pesoKg + " kg" +
+                " | Altura asiento: " + alturaAsientoMm + " mm";
+    }
+
+    public int getAlturaAsientoMm() {
+        return alturaAsientoMm;
+    }
+
+    public void setAlturaAsientoMm(int alturaAsientoMm) {
+        this.alturaAsientoMm = alturaAsientoMm;
+    }
+
+    public String getTipoMoto() {
+        return tipoMoto;
+    }
+
+    public void setTipoMoto(String tipoMoto) {
+        this.tipoMoto = tipoMoto;
+    }
+
+    public double getPesoKg() {
+        return pesoKg;
+    }
+
+    public void setPesoKg(double pesoKg) {
+        this.pesoKg = pesoKg;
+    }
 }

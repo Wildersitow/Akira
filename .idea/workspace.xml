@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Arreglo en las rutas">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
