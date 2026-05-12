@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.net.URL;
 
 public class UtilidadesFX {
@@ -40,12 +41,15 @@ public class UtilidadesFX {
 
             exitTransition.setOnFinished(e -> {
                 try {
-                    URL url = getClass().getResource(rutaFxml);
-                    if (url == null) {
-                        System.err.println("FXML no encontrado en: " + rutaFxml);
+                    // Leer directamente desde src/main/resources
+                    File fxmlFile = new File("src/main/resources" + rutaFxml);
+
+                    if (!fxmlFile.exists()) {
+                        System.err.println("FXML no encontrado en: " + fxmlFile.getAbsolutePath());
                         return;
                     }
 
+                    URL url = fxmlFile.toURI().toURL();
                     FXMLLoader loader = new FXMLLoader(url);
                     Parent rootNuevo = loader.load();
 
@@ -90,5 +94,4 @@ public class UtilidadesFX {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-
 }

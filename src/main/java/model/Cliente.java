@@ -1,8 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Cliente extends Persona {
+public class Cliente extends Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private final String licenciaConducir;
     private final double historialCredito;

@@ -25,7 +25,7 @@ public class ControladorMenuInicio {
     public void cambiarIniciarSesion(ActionEvent event){
         try {
             System.out.println("Intentando cambiar a Iniciar Sesión...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
+            utilidades.cambiarEscenaConTransicion(event, "src/main/resources/FXML/Login.fxml");
         } catch (Exception e) {
             System.err.println("ERROR al cambiar escena:");
             e.printStackTrace();
@@ -35,7 +35,7 @@ public class ControladorMenuInicio {
     public void cambiarRegistrar(ActionEvent event){
         try {
             System.out.println("Intentando cambiar a Registro...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/Register.fxml");
+            utilidades.cambiarEscenaConTransicion(event, "src/main/resources/FXML/Register.fxml");
         } catch (Exception e) {
             System.err.println("ERROR al cambiar escena:");
             e.printStackTrace();
