@@ -18,7 +18,7 @@ public class Akira extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            File fxmlFile = new File("src/main/resources/FXML/Login.fxml");
+            File fxmlFile = new File("src/main/resources/FXML/MenuInicio.fxml");
             FXMLLoader loader = new FXMLLoader(fxmlFile.toURI().toURL());
 
             Parent root = loader.load();

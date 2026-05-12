@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Serializable implementada a clases Persona">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Arreglo en las rutas">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.bat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Akira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Akira.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/UtilidadesFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UtilidadesFX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/model" />
+        <entry key="$PROJECT_DIR$" value="feature/service" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,21 +73,12 @@
     "git-widget-placeholder": "feature/view",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.externalTools"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Akira" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="view.Akira" />
-      <module name="Akira" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -102,14 +93,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00012" summary="feat: Creación logica de excepcion en ServiceLogin">
-      <option name="closed" value="true" />
-      <created>1778454617967</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1778454617967</updated>
     </task>
     <task id="LOCAL-00013" summary="feat: Solución confusión con ServiceException y ServiceLogin">
       <option name="closed" value="true" />
@@ -487,15 +470,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778538963765</updated>
     </task>
-    <task id="LOCAL-00060" summary="feat: Serializable implementada a clases Persona">
+    <task id="LOCAL-00060" summary="feat: gitignore actualizado con el workspace.xml">
       <option name="closed" value="true" />
-      <created>1778545132051</created>
+      <created>1778548331838</created>
       <option name="number" value="00060" />
       <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1778545132051</updated>
+      <updated>1778548331838</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="feat: Arreglo en las rutas">
+      <option name="closed" value="true" />
+      <created>1778549339950</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1778549339950</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -510,8 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creación metodo eliminar" />
-    <MESSAGE value="feat: Creación metodo guardar" />
     <MESSAGE value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
     <MESSAGE value="feat: Creacion metodo buscarPorNombre en EmpleaoDAO" />
     <MESSAGE value="feat: Creacion metodo leer en EmpleadoDAO" />
@@ -534,8 +523,10 @@
     <MESSAGE value="feat: Imports FXML agregados" />
     <MESSAGE value="feat: Imports FXML agregados a los controladores" />
     <MESSAGE value="feat: Solución error de ejecución en module-info.java" />
-    <MESSAGE value="feat: Serializable implementada a clases Persona" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Serializable implementada a clases Persona" />
+    <MESSAGE value="feat: gitignore actualizado con el workspace.xml" />
+    <MESSAGE value="feat: Rutas en ServiceCuenta actualizadas" />
+    <MESSAGE value="feat: Arreglo en las rutas" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Arreglo en las rutas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
