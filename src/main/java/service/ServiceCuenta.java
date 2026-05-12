@@ -64,7 +64,7 @@ public class ServiceCuenta {
                 utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
                         "¡Bienvenido " + nombreUsuario + "! Tu cuenta de cliente ha sido creada.");
 
-                utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
+                utilidades.cambiarEscenaConTransicion(event, "src/main/resources/FXML/Login.fxml");
 
             } else if (rol.equalsIgnoreCase("empleado")) {
                 System.out.println("Creando nuevo Empleado...");
@@ -129,7 +129,7 @@ public class ServiceCuenta {
                     utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido " + cliente.getNombre() + "!");
 
-                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "src/main/resources/FXML/MenuPrincipal.fxml");
                     return;
 
                 } else {
@@ -152,7 +152,7 @@ public class ServiceCuenta {
                     utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido Empleado " + empleado.getNombre() + "!");
 
-                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "src/main/resources/FXML/MenuPrincipal.fxml");
                     return;
 
                 } else {
