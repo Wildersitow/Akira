@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Arreglo en las rutas">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2026_5_51_p_m___Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2026_5_51_p_ m__[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_05_2026_5_51_p_ m__[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/EmpleadoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Contrato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/SesionCuenta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/Akira.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/UtilidadesFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuInicio.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipal.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/Register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Akira.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Akira.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/BicicletaElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BicicletaElectrica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PatinetaElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/PatinetaElectrica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/akira/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/akira/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/akira/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/akira/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/akira/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/akira/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/akira/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/akira/hello-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/service" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Wildersitow&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Wildersitow/Akira.git&quot;,
+    &quot;accountId&quot;: &quot;b9d8f8f7-50fb-42f0-894c-e4f6ff691cff&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3DW4KKBxwNnNlzSl1IQjZFFWznb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Akira.executor": "Run",
+    "Application.ControladorMenuInicio.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging feature/model",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.externalTools"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="" />
+      <created>1778384430563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778384430563</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: Solución confusión con ServiceException y ServiceLogin">
+      <option name="closed" value="true" />
+      <created>1778454764193</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1778454764193</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: Creación clase ServiceCuenta">
+      <option name="closed" value="true" />
+      <created>1778455290094</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1778455290094</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: Creación clase SesionCuenta">
+      <option name="closed" value="true" />
+      <created>1778460077269</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1778460077269</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: Creación metodo IniciarSesion en serviceCuenta">
+      <option name="closed" value="true" />
+      <created>1778460288357</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1778460288357</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: Agregación metodos en clase Persona">
+      <option name="closed" value="true" />
+      <created>1778460862137</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1778460862137</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: Creación metodos controlador de sesion en SesionCuenta">
+      <option name="closed" value="true" />
+      <created>1778461629336</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1778461629336</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: Creación atributo rol en Persona">
+      <option name="closed" value="true" />
+      <created>1778461766287</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1778461766287</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: Creación metodos controladores de rol en SesionCuenta">
+      <option name="closed" value="true" />
+      <created>1778462044576</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1778462044576</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat: Creación metodo registrarUsuario">
+      <option name="closed" value="true" />
+      <created>1778462306713</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1778462306713</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat: Conexión con el DAO creada en metodo registrarUsuario">
+      <option name="closed" value="true" />
+      <created>1778524576201</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1778524576202</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat: Clase extra ControladorLogin eliminada">
+      <option name="closed" value="true" />
+      <created>1778524933478</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1778524933478</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: Creación clase ClienteDAO">
+      <option name="closed" value="true" />
+      <created>1778525597923</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1778525597923</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: Añadido carpeta .idea al gitignore">
+      <option name="closed" value="true" />
+      <created>1778525629226</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1778525629226</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: Creación clase EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778525666883</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1778525666883</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: Creación metodo guardar">
+      <option name="closed" value="true" />
+      <created>1778526420719</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1778526420719</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat: Creación getters nombreUsuario y documentoid">
+      <option name="closed" value="true" />
+      <created>1778526662717</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1778526662717</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat: Creación metodo leerCuentas">
+      <option name="closed" value="true" />
+      <created>1778526977692</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1778526977692</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat: Creación metodo guardarListaCuentas">
+      <option name="closed" value="true" />
+      <created>1778527182221</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1778527182221</updated>
+    </task>
+    <task id="LOCAL-00031" summary="feat: Creación metodo crearCuentaParaCliente">
+      <option name="closed" value="true" />
+      <created>1778527666528</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1778527666528</updated>
+    </task>
+    <task id="LOCAL-00032" summary="feat: Creación metodo buscarCuentaClientePorUsuario">
+      <option name="closed" value="true" />
+      <created>1778528079639</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1778528079639</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: Creación metodo buscarPorNombreUsuario">
+      <option name="closed" value="true" />
+      <created>1778528728236</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1778528728236</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feat: Creación metodo guardarCuenta">
+      <option name="closed" value="true" />
+      <created>1778529382457</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1778529382457</updated>
+    </task>
+    <task id="LOCAL-00035" summary="feat: Creación metodo obtenerTodos">
+      <option name="closed" value="true" />
+      <created>1778529475377</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1778529475377</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: Creación metodo actualizar">
+      <option name="closed" value="true" />
+      <created>1778530127578</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1778530127578</updated>
+    </task>
+    <task id="LOCAL-00037" summary="feat: Creación metodo eliminar">
+      <option name="closed" value="true" />
+      <created>1778530912415</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1778530912415</updated>
+    </task>
+    <task id="LOCAL-00038" summary="feat: Creación metodo guardar">
+      <option name="closed" value="true" />
+      <created>1778531200780</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1778531200780</updated>
+    </task>
+    <task id="LOCAL-00039" summary="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778531725245</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1778531725245</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat: Creacion metodo buscarPorNombre en EmpleaoDAO">
+      <option name="closed" value="true" />
+      <created>1778531872715</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1778531872715</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat: Creacion metodo leer en EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778531974381</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1778531974381</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat: Creacion metodo guardarLista en EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778532045032</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1778532045032</updated>
+    </task>
+    <task id="LOCAL-00043" summary="feat: Creacion metodo obtenerTodos en EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1778532113522</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1778532113522</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat: Creación constructor de ServiceCuenta para conexión con DAO">
+      <option name="closed" value="true" />
+      <created>1778532777728</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1778532777728</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat: Metodos en UtilidadesFX cambiados a public">
+      <option name="closed" value="true" />
+      <created>1778533492626</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1778533492627</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat: Import del actionEvent corregido en ControladorLogin">
+      <option name="closed" value="true" />
+      <created>1778534172225</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1778534172225</updated>
+    </task>
+    <task id="LOCAL-00047" summary="feat: Import del textField corregido en ControladorLogin">
+      <option name="closed" value="true" />
+      <created>1778534491270</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1778534491270</updated>
+    </task>
+    <task id="LOCAL-00048" summary="feat: Inicialización del ControladorRegister">
+      <option name="closed" value="true" />
+      <created>1778535715036</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1778535715036</updated>
+    </task>
+    <task id="LOCAL-00049" summary="feat: Creación metodo handleRegistrar en ControladorRegister">
+      <option name="closed" value="true" />
+      <created>1778536455639</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1778536455639</updated>
+    </task>
+    <task id="LOCAL-00050" summary="feat: Creación metodo cambiarIniciarSesión en ControladorRegister">
+      <option name="closed" value="true" />
+      <created>1778536619249</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1778536619250</updated>
+    </task>
+    <task id="LOCAL-00051" summary="feat: Cambio en la ruta FXML de register">
+      <option name="closed" value="true" />
+      <created>1778536950400</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1778536950400</updated>
+    </task>
+    <task id="LOCAL-00052" summary="feat: Creación clase Main llamada Akira">
+      <option name="closed" value="true" />
+      <created>1778537200509</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537200509</updated>
+    </task>
+    <task id="LOCAL-00053" summary="feat: Metodo main eliminado de ControladorMenuInicio">
+      <option name="closed" value="true" />
+      <created>1778537339175</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537339176</updated>
+    </task>
+    <task id="LOCAL-00054" summary="feat: Inicialización para la clase ControladorMenuInicio">
+      <option name="closed" value="true" />
+      <created>1778537399825</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537399826</updated>
+    </task>
+    <task id="LOCAL-00055" summary="feat: Metodo cambiar IniciarSesión creado">
+      <option name="closed" value="true" />
+      <created>1778537672838</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537672838</updated>
+    </task>
+    <task id="LOCAL-00056" summary="feat: Metodo cambiarRegistrar creado en ControladorMenuInicio">
+      <option name="closed" value="true" />
+      <created>1778537795565</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1778537795565</updated>
+    </task>
+    <task id="LOCAL-00057" summary="feat: Asignacion de los botones al FXML">
+      <option name="closed" value="true" />
+      <created>1778538205989</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1778538205989</updated>
+    </task>
+    <task id="LOCAL-00058" summary="feat: Imports FXML agregados a los controladores">
+      <option name="closed" value="true" />
+      <created>1778538749591</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1778538749592</updated>
+    </task>
+    <task id="LOCAL-00059" summary="feat: Solución error de ejecución en module-info.java">
+      <option name="closed" value="true" />
+      <created>1778538963765</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1778538963765</updated>
+    </task>
+    <task id="LOCAL-00060" summary="feat: gitignore actualizado con el workspace.xml">
+      <option name="closed" value="true" />
+      <created>1778548331838</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1778548331838</updated>
+    </task>
+    <task id="LOCAL-00061" summary="feat: Arreglo en las rutas">
+      <option name="closed" value="true" />
+      <created>1778549339950</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1778549339950</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
+    <MESSAGE value="feat: Creacion metodo buscarPorNombre en EmpleaoDAO" />
+    <MESSAGE value="feat: Creacion metodo leer en EmpleadoDAO" />
+    <MESSAGE value="feat: Creacion metodo guardarLista en EmpleadoDAO" />
+    <MESSAGE value="feat: Creacion metodo obtenerTodos en EmpleadoDAO" />
+    <MESSAGE value="feat: Creación constructor de ServiceCuenta para conexión con DAO" />
+    <MESSAGE value="feat: Metodos en UtilidadesFX cambiados a public" />
+    <MESSAGE value="feat: Import del actionEvent corregido en ControladorLogin" />
+    <MESSAGE value="feat: Import del textField corregido en ControladorLogin" />
+    <MESSAGE value="feat: Inicialización del ControladorRegister" />
+    <MESSAGE value="feat: Creación metodo handleRegistrar en ControladorRegister" />
+    <MESSAGE value="feat: Creación metodo cambiarIniciarSesión en ControladorRegister" />
+    <MESSAGE value="feat: Cambio en la ruta FXML de register" />
+    <MESSAGE value="feat: Creación clase Main llamada Akira" />
+    <MESSAGE value="feat: Metodo main eliminado de ControladorMenuInicio" />
+    <MESSAGE value="feat: Inicialización para la clase ControladorMenuInicio" />
+    <MESSAGE value="feat: Metodo cambiar IniciarSesión creado" />
+    <MESSAGE value="feat: Metodo cambiarRegistrar creado en ControladorMenuInicio" />
+    <MESSAGE value="feat: Asignacion de los botones al FXML" />
+    <MESSAGE value="feat: Imports FXML agregados" />
+    <MESSAGE value="feat: Imports FXML agregados a los controladores" />
+    <MESSAGE value="feat: Solución error de ejecución en module-info.java" />
+    <MESSAGE value="feat: gitignore actualizado con el workspace.xml" />
+    <MESSAGE value="feat: Rutas en ServiceCuenta actualizadas" />
+    <MESSAGE value="feat: Arreglo en las rutas" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Arreglo en las rutas" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

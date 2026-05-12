@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1F1F1F;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorLogin">
+   <children>
+      <AnchorPane prefHeight="720.0" prefWidth="806.0" style="-fx-background-color: #1A1A1A;">
+         <children>
+            <Label fx:id="texto_usuario" alignment="CENTER" layoutX="242.0" layoutY="123.0" prefHeight="48.0" prefWidth="322.0" text="NOMBRE DE USUARIO" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="39.0" />
+               </font>
+            </Label>
+            <Label fx:id="texto_contra" alignment="CENTER" layoutX="300.0" layoutY="333.0" prefHeight="48.0" prefWidth="205.0" text="CONTRASEÑA" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="39.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="field_contra" layoutX="159.0" layoutY="405.0" prefHeight="48.0" prefWidth="486.0" style="-fx-background-color: #D4D4D4;" />
+            <Button fx:id="boton_login" layoutX="299.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleIniciarSesion" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Label fx:id="texto_registro" alignment="CENTER" layoutX="197.0" layoutY="599.0" prefHeight="14.0" prefWidth="254.0" text="Aun no tienes una cuenta?" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="21.0" />
+               </font>
+            </Label>
+            <Button fx:id="boton_registro" layoutX="455.0" layoutY="599.0" mnemonicParsing="false" onAction="#cambiarRegistrar" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #9B0F1F;" text="REGISTRARSE" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="field_usuario" layoutX="159.0" layoutY="209.0" prefHeight="48.0" prefWidth="486.0" style="-fx-background-color: #D4D4D4;" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="449.0" fitWidth="479.0" layoutX="817.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../Desktop/Paint%20Paper/Paint/logoprovisional.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

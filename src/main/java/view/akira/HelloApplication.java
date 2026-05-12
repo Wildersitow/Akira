@@ -1,4 +1,4 @@
-package org.example.akira;
+package view.akira;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

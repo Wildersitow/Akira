@@ -1,14 +1,45 @@
 package model;
 
-public abstract  class Persona {
+import java.io.Serializable;
 
-    private int nombre;
-    private int email;
-    private int telefono;
+public abstract  class Persona implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    public Persona(int nombre, int email, int telefono) {
+    private final String nombre;
+    private final String nombreUsuario;
+    private final String contraseña;
+    private final String documentoid;
+    private final String email;
+    private final String rol;
+    private final int telefono;
+
+    public Persona(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, String rol, int telefono) {
         this.nombre = nombre;
+        this.nombreUsuario = nombreUsuario;
+        this.contraseña = contraseña;
+        this.documentoid = documentoid;
         this.email = email;
+        this.rol = rol;
         this.telefono = telefono;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public String getDocumentoId() {
+        return documentoid;
+    }
+
+    public boolean verificarContraseña(String contraseña) {
+        return this.contraseña != null && this.contraseña.equals(this.contraseña);
+    }
+
+    public String getRol() {
+        return rol;
     }
 }

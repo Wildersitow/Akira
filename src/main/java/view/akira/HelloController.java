@@ -1,4 +1,4 @@
-package org.example.akira;
+package view.akira;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
