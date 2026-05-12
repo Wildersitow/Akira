@@ -64,7 +64,7 @@ public class ServiceCuenta {
                 utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
                         "¡Bienvenido " + nombreUsuario + "! Tu cuenta de cliente ha sido creada.");
 
-                utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
+                utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
 
             } else if (rol.equalsIgnoreCase("empleado")) {
                 System.out.println("Creando nuevo Empleado...");
@@ -80,7 +80,7 @@ public class ServiceCuenta {
                         "¡Bienvenido " + nombreUsuario + "! Tu cuenta de empleado ha sido creada.");
 
                 // Ir a inicio de sesión
-                utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
+                utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
 
             } else {
                 throw new ServiceException("ROL_INVALIDO", "El rol especificado no es válido");
@@ -129,7 +129,7 @@ public class ServiceCuenta {
                     utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido " + cliente.getNombre() + "!");
 
-                    utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/MenuPrincipal.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
                     return;
 
                 } else {
@@ -152,7 +152,7 @@ public class ServiceCuenta {
                     utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido Empleado " + empleado.getNombre() + "!");
 
-                    utilidades.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion");
+                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
                     return;
 
                 } else {
