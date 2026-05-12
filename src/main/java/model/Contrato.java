@@ -1,19 +1,37 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Contrato {
-    private final String producto;
-    private final Date fechaContrato;
-    private final String persona;
-    private final String supervisor;
-    private final String precio;
 
-    public Contrato(String producto, Date fechaContrato, String persona, String supervisor, String precio) {
-        this.producto = producto;
-        this.fechaContrato = fechaContrato;
-        this.persona = persona;
-        this.supervisor = supervisor;
-        this.precio = precio;
+    private Long id;
+    private LocalDate fehcaVenta;
+    private Cliente cliente;
+    private VehiculoElectrico vehiculoElectrico;
+    private double precioFinal;
+    private String formaDePago;
+    private Empleado empleado;
+    private String estadoContrato;
+
+    public Contrato(Cliente cliente, VehiculoElectrico vehiculoElectrico, double precioFinal, Long id, String formaDePago, LocalDate fehcaVenta, String estadoContrato, Empleado empleado) {
+        this.cliente = cliente;
+        this.vehiculoElectrico = vehiculoElectrico;
+        this.precioFinal = precioFinal;
+        this.id = id;
+        this.formaDePago = formaDePago;
+        this.fehcaVenta = fehcaVenta;
+        this.estadoContrato = estadoContrato;
+        this.empleado = empleado;
     }
+
+    public double calcularDescuento(){
+        return 0;
+    }
+
+    public String generarResumen(){
+        return "";
+    }
+
+
 }
