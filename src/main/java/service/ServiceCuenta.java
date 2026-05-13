@@ -1,14 +1,26 @@
 package service;
 
+import dao.ClienteDAO;
+import dao.EmpleadoDAO;
 import javafx.scene.control.Alert;
 import model.Cliente;
 import model.Empleado;
 import view.UtilidadesFX;
 
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.util.ArrayList;
 
 public class ServiceCuenta {
+
+    private final ClienteDAO clienteDAO;
+    private final EmpleadoDAO empleadoDAO;
+    private final UtilidadesFX utilidades;   // agregar esto
+
+    public ServiceCuenta() {
+        this.clienteDAO = new ClienteDAO();
+        this.empleadoDAO = new EmpleadoDAO();
+        this.utilidades = new UtilidadesFX(); // agregar esto
+    }
 
     public void registrarUsuario(ActionEvent event, String nombreUsuario, String correo, String documentoid, String contraseña, String rol) throws ServiceException {
         System.out.println("\n=== SERVICIO: Iniciando registro de usuario ===");
@@ -45,14 +57,14 @@ public class ServiceCuenta {
 
                 Cliente nuevoCliente = new Cliente("", nombreUsuario, contraseña, documentoid, correo, "cliente", 0, "", 0.0, 0, new ArrayList<>());
 
-                ClienteDAO.guardar(nuevoCliente);
+                clienteDAO.guardar(nuevoCliente);
                 System.out.println("Cliente guardado exitosamente!");
 
                 // Mostrar confirmación y redirigir
-                view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
+                utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
                         "¡Bienvenido " + nombreUsuario + "! Tu cuenta de cliente ha sido creada.");
 
-                view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
+                utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
 
             } else if (rol.equalsIgnoreCase("empleado")) {
                 System.out.println("Creando nuevo Empleado...");
@@ -60,15 +72,15 @@ public class ServiceCuenta {
                 Empleado nuevoEmpleado = new Empleado("", nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "", 0.0);
 
                 // Guardar en repositorio
-                EmpleadoDAO.guardar(nuevoEmpleado);
+                empleadoDAO.guardar(nuevoEmpleado);
                 System.out.println("Empleado guardado exitosamente!");
 
                 // Mostrar confirmación y redirigir
-                UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
+                utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso",
                         "¡Bienvenido " + nombreUsuario + "! Tu cuenta de empleado ha sido creada.");
 
                 // Ir a inicio de sesión
-                view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/IniciarSesión.fxml");
+                utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
 
             } else {
                 throw new ServiceException("ROL_INVALIDO", "El rol especificado no es válido");
@@ -114,10 +126,10 @@ public class ServiceCuenta {
 
                     SesionCuenta.setUsuarioActual(cliente);
 
-                    view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
+                    utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido " + cliente.getNombre() + "!");
 
-                    view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion/MenuPrincipal.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
                     return;
 
                 } else {
@@ -127,7 +139,7 @@ public class ServiceCuenta {
                 }
             }
 
-            Empleado empleado = EmpleadoDAO.buscarPorNombreUsuario(nombreUsuario);
+            Empleado empleado = empleadoDAO.buscarPorNombreUsuario(nombreUsuario);
 
             if (empleado != null) {
                 System.out.println("Usuario encontrado como Administrador");
@@ -137,10 +149,10 @@ public class ServiceCuenta {
 
                     SesionCuenta.setUsuarioActual(empleado);
 
-                    view.UtilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
+                    utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido Empleado " + empleado.getNombre() + "!");
 
-                    view.UtilidadesFX.cambiarEscenaConTransicion(event, "/com/mycompany/bankedsistema/presentacion");
+                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
                     return;
 
                 } else {

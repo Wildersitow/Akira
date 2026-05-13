@@ -5,5 +5,7 @@ module view.akira {
 
 
     opens view.akira to javafx.fxml;
+    opens view to javafx.fxml, javafx.graphics;
     exports view.akira;
+    exports view;
 }

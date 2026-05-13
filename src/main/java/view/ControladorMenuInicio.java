@@ -1,20 +1,45 @@
 package view;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ControladorMenuInicio extends Application {
+public class ControladorMenuInicio {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("MenuInicio.fxml"));
-        primaryStage.setTitle("Hola mundo");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    private Stage stage;
+    private Scene scene;
+    private final UtilidadesFX utilidades;
+
+    public ControladorMenuInicio() {
+        this.utilidades = new UtilidadesFX();
     }
 
-    public static void main(String[] args) { launch(args); }
+
+    public ControladorMenuInicio(UtilidadesFX utilidades) {
+        this.utilidades = utilidades;
+    }
+
+    public void cambiarIniciarSesion(ActionEvent event){
+        try {
+            System.out.println("Intentando cambiar a Iniciar Sesión...");
+            utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
+        } catch (Exception e) {
+            System.err.println("ERROR al cambiar escena:");
+            e.printStackTrace();
+        }
+    }
+
+    public void cambiarRegistrar(ActionEvent event){
+        try {
+            System.out.println("Intentando cambiar a Registro...");
+            utilidades.cambiarEscenaConTransicion(event, "/FXML/Register.fxml");
+        } catch (Exception e) {
+            System.err.println("ERROR al cambiar escena:");
+            e.printStackTrace();
+        }
+    }
+
 }

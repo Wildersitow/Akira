@@ -3,7 +3,7 @@ package service;
 public class ServiceException extends Exception {
     private static final long serialVersionUID = 1L;
 
-    private String codigo;
+    private final String codigo;
 
     public ServiceException(String codigo, String mensaje) {
         super(mensaje);

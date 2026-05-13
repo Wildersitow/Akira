@@ -12,13 +12,16 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
+import java.net.URL;
+
 public class UtilidadesFX {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    private void cambiarEscenaConTransicion(ActionEvent event, String rutaFxml) {
+    public void cambiarEscenaConTransicion(ActionEvent event, String rutaFxml) {
         try {
             Node source = (Node) event.getSource();
             stage = (Stage) source.getScene().getWindow();
@@ -38,7 +41,17 @@ public class UtilidadesFX {
 
             exitTransition.setOnFinished(e -> {
                 try {
-                    Parent rootNuevo = FXMLLoader.load(getClass().getResource(rutaFxml));
+                    // Leer directamente desde src/main/resources
+                    File fxmlFile = new File("src/main/resources" + rutaFxml);
+
+                    if (!fxmlFile.exists()) {
+                        System.err.println("FXML no encontrado en: " + fxmlFile.getAbsolutePath());
+                        return;
+                    }
+
+                    URL url = fxmlFile.toURI().toURL();
+                    FXMLLoader loader = new FXMLLoader(url);
+                    Parent rootNuevo = loader.load();
 
                     rootNuevo.setOpacity(0.0);
                     rootNuevo.setScaleX(1.05);
@@ -74,12 +87,11 @@ public class UtilidadesFX {
         }
     }
 
-    private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensaje) {
+    public void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensaje) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-
 }
