@@ -27,7 +27,7 @@
             <Font name="Haettenschweiler" size="67.0" />
          </font>
       </Label>
-      <Button fx:id="boton_inicio" layoutX="230.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" text="INICIO" textFill="WHITE">
+      <Button fx:id="boton_inicio" layoutX="230.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
          <font>
             <Font name="Impact Regular" size="25.0" />
          </font>
@@ -61,17 +61,17 @@
             <Font name="Haettenschweiler" size="45.0" />
          </font>
       </Label>
-      <Button fx:id="boton_alquilar" layoutX="387.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" text="ALQUILAR" textFill="WHITE">
+      <Button fx:id="boton_alquilar" layoutX="387.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ALQUILAR" textFill="WHITE">
          <font>
             <Font name="Impact Regular" size="25.0" />
          </font>
       </Button>
-      <Button fx:id="boton_comprar" layoutX="540.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" text="COMPRAR" textFill="WHITE">
+      <Button fx:id="boton_comprar" layoutX="540.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="COMPRAR" textFill="WHITE">
          <font>
             <Font name="Impact Regular" size="25.0" />
          </font>
       </Button>
-      <Button fx:id="boton_flota" layoutX="694.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" text="FLOTA" textFill="WHITE">
+      <Button fx:id="boton_flota" layoutX="694.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
          <font>
             <Font name="Impact Regular" size="25.0" />
          </font>
