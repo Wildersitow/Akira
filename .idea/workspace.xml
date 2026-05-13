@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Arreglo en las rutas">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/logoprovisional.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipal.fxml" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="Merge branch 'feature/dao' of https://github.com/Wildersitow/Akira into feature/view&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/FXML/MenuInicio.fxml&#10;#&#9;src/main/resources/FXML/MenuPrincipal.fxml">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,24 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Akira.executor": "Run",
-    "Application.ControladorMenuInicio.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/view",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/Documents/IntelliJIDEA/Akira/src/main/resources/Imagenes",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.externalTools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Akira.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ControladorMenuInicio.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/view&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/Documents/IntelliJIDEA/Akira/src/main/resources/Imagenes&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalTools&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Documents\IntelliJIDEA\Akira\src\main\resources\Imagenes" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
