@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="Merge branch 'feature/dao' of https://github.com/Wildersitow/Akira into feature/view&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/FXML/MenuInicio.fxml&#10;#&#9;src/main/resources/FXML/MenuPrincipal.fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Creación archivo styles.css en resources">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,14 @@
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/feature/dao" />
+    <option name="OPTIONS">
+      <set>
+        <option value="SQUASH" />
+      </set>
     </option>
   </component>
   <component name="Git.Settings">
@@ -94,14 +103,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00013" summary="feat: Solución confusión con ServiceException y ServiceLogin">
-      <option name="closed" value="true" />
-      <created>1778454764193</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1778454764193</updated>
     </task>
     <task id="LOCAL-00014" summary="feat: Creación clase ServiceCuenta">
       <option name="closed" value="true" />
@@ -487,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778549339950</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="feat: Creación archivo styles.css en resources">
+      <option name="closed" value="true" />
+      <created>1778651364888</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1778651364888</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,7 +511,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
     <MESSAGE value="feat: Creacion metodo buscarPorNombre en EmpleaoDAO" />
     <MESSAGE value="feat: Creacion metodo leer en EmpleadoDAO" />
     <MESSAGE value="feat: Creacion metodo guardarLista en EmpleadoDAO" />
@@ -527,7 +535,8 @@
     <MESSAGE value="feat: gitignore actualizado con el workspace.xml" />
     <MESSAGE value="feat: Rutas en ServiceCuenta actualizadas" />
     <MESSAGE value="feat: Arreglo en las rutas" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Arreglo en las rutas" />
+    <MESSAGE value="feat: Creación archivo styles.css en resources" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Creación archivo styles.css en resources" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
