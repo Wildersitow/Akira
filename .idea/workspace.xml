@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Arreglo en las rutas">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Akira.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Akira.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuInicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorRegister.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +62,12 @@
   "keyToString": {
     "Application.Akira.executor": "Run",
     "Application.ControladorMenuInicio.executor": "Run",
+    "Application.Launcher.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/view",
+    "git-widget-placeholder": "feature/dao",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -79,6 +76,26 @@
     "settings.editor.selected.configurable": "preferences.externalTools"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.akira.Launcher" />
+      <module name="Akira" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.akira.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launcher" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -93,22 +110,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00013" summary="feat: Solución confusión con ServiceException y ServiceLogin">
-      <option name="closed" value="true" />
-      <created>1778454764193</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1778454764193</updated>
-    </task>
-    <task id="LOCAL-00014" summary="feat: Creación clase ServiceCuenta">
-      <option name="closed" value="true" />
-      <created>1778455290094</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1778455290094</updated>
     </task>
     <task id="LOCAL-00015" summary="feat: Creación clase SesionCuenta">
       <option name="closed" value="true" />
@@ -486,7 +487,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778549339950</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="feat(dao): agregar clase ConexionDB para conexión a Oracle XEPDB1">
+      <option name="closed" value="true" />
+      <created>1778647070992</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1778647070993</updated>
+    </task>
+    <task id="LOCAL-00063" summary="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database">
+      <option name="closed" value="true" />
+      <created>1778647091853</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1778647091853</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -501,8 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creacion metodo buscarPorNombreUsuario en EmpleadoDAO" />
-    <MESSAGE value="feat: Creacion metodo buscarPorNombre en EmpleaoDAO" />
     <MESSAGE value="feat: Creacion metodo leer en EmpleadoDAO" />
     <MESSAGE value="feat: Creacion metodo guardarLista en EmpleadoDAO" />
     <MESSAGE value="feat: Creacion metodo obtenerTodos en EmpleadoDAO" />
@@ -526,7 +541,9 @@
     <MESSAGE value="feat: gitignore actualizado con el workspace.xml" />
     <MESSAGE value="feat: Rutas en ServiceCuenta actualizadas" />
     <MESSAGE value="feat: Arreglo en las rutas" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Arreglo en las rutas" />
+    <MESSAGE value="feat(dao): agregar clase ConexionDB para conexión a Oracle XEPDB1" />
+    <MESSAGE value="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
