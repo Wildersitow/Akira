@@ -44,7 +44,7 @@
       </AnchorPane>
       <ImageView fitHeight="449.0" fitWidth="479.0" layoutX="817.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/Paint%20Paper/Paint/logoprovisional.png" />
+            <Image url="@../Imagenes/logoprovisional.png" />
          </image>
       </ImageView>
    </children>
