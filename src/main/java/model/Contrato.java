@@ -29,12 +29,34 @@ public class Contrato {
         this.empleado = empleado;
     }
 
-    public double calcularDescuento(){
-        return 0;
+    public double calcularDescuento() {
+        double descuento = 0.0;
+
+        if (formaDePago.equalsIgnoreCase("CONTADO")) {
+            descuento += precioFinal * DESCUENTO_CONTADO;
+        }
+
+        return descuento;
     }
 
     public String generarResumen(){
-        return "";
+        return  "===== RESUMEN DEL CONTRATO =====" + "\n" +
+                "ID Contrato   : " + id                              + "\n" +
+                "Fecha         : " + fehcaVenta                           + "\n" +
+                "Estado        : " + estadoContrato                          + "\n" +
+                "--- Cliente ---"                                     + "\n" +
+                "Nombre        : " + cliente.getNombre()             + "\n" +
+                "Cédula        : " + cliente.getDocumentoId()             + "\n" +
+                "--- Vehículo ---"                                    + "\n" +
+                "Vehículo      : " + vehiculoElectrico.getMarca() + " " +
+                vehiculoElectrico.getModelo()             + "\n" +
+                "--- Empleado ---"                                    + "\n" +
+                "Gestionado por: " + empleado.getNombre()            + "\n" +
+                "--- Pago ---"                                        + "\n" +
+                "Forma de pago : " + formaDePago                       + "\n" +
+                "Descuento     : $" + calcularDescuento()            + "\n" +
+                "Precio total  : $" + precioFinal                    + "\n" +
+                "================================";
     }
 
 
