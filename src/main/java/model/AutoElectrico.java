@@ -52,7 +52,6 @@ public class AutoElectrico extends VehiculoElectrico {
                 " | Tracción: " + traccion;
     }
 
-
     public int getNumeroPasajeros() {
         return numeroPasajeros;
     }

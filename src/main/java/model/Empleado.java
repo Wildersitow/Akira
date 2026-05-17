@@ -7,7 +7,6 @@ public class Empleado extends Persona implements Serializable {
     private static final double PORCENTAJE_SALUD      = 0.04;
     private static final double PORCENTAJE_PENSION     = 0.04;
     private static final double PORCENTAJE_RETENCION   = 0.07;
-
     private static final long serialVersionUID = 1L;
 
     private final String codigoEmpleado;
@@ -28,7 +27,6 @@ public class Empleado extends Persona implements Serializable {
         return salario - descuentoSalud - descuentoPension - descuentoRetencion;
     }
 
-    // Solo el cargo "Administrador" tiene privilegios de admin
     public boolean esAdmin() {
         return this.cargo.equalsIgnoreCase("Administrador");
     }

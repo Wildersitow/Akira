@@ -36,6 +36,11 @@ public class Contrato {
             descuento += precioFinal * DESCUENTO_CONTADO;
         }
 
+        if (cliente.tieneContratos() &&
+                cliente.getContratos().size() >= MINIMO_CONTRATOS_RECURRENTE) {
+            descuento += precioFinal * DESCUENTO_CLIENTE_RECURRENTE;
+        }
+
         return descuento;
     }
 
@@ -59,5 +64,35 @@ public class Contrato {
                 "================================";
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public String getEstadoContrato() {
+        return estadoContrato;
+    }
+
+    public String getFormaDePago() {
+        return formaDePago;
+    }
+
+    public LocalDate getFehcaVenta() {
+        return fehcaVenta;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public double getPrecioFinal() {
+        return precioFinal;
+    }
+
+    public VehiculoElectrico getVehiculoElectrico() {
+        return vehiculoElectrico;
+    }
 }

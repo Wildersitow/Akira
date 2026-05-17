@@ -28,23 +28,6 @@ public abstract class VehiculoElectrico {
         VelocidadMaxima = velocidadMaxima;
     }
 
-
-    public boolean estaDisponible(){
-        return this.Estado == EstadoVehiculo.DISPONIBLE;
-    }
-
-
-    public void marcarComoVendido(){
-        if (!estaDisponible()) {
-            throw new IllegalStateException("El vehículo ya se encuentra vendido");
-        }
-        this.Estado = EstadoVehiculo.VENDIDO;
-    }
-
-
-    public abstract double calcularPrecioFinal();
-
-
     public int getAnio() {
         return Anio;
     }
@@ -133,6 +116,16 @@ public abstract class VehiculoElectrico {
         VelocidadMaxima = velocidadMaxima;
     }
 
+    public boolean estaDisponible(){
+        return this.Estado == EstadoVehiculo.DISPONIBLE;
+    }
+
+    public void marcarComoVendido(){
+        if (!estaDisponible()) {
+            throw new IllegalStateException("El vehículo ya se encuentra vendido");
+        }
+        this.Estado = EstadoVehiculo.VENDIDO;
+    }
 
     @Override
     public String toString() {
@@ -143,7 +136,5 @@ public abstract class VehiculoElectrico {
                 "Estado: " + Estado;
     }
 
-
-
-
+    public abstract double calcularPrecioFinal();
 }

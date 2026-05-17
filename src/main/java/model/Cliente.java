@@ -19,4 +19,43 @@ public class Cliente extends Persona implements Serializable {
         this.contratos = contratos;
     }
 
+    public List<Contrato> getContratos() {
+        return contratos;
+    }
+
+    public double getHistorialCredito() {
+        return historialCredito;
+    }
+
+    public String getLicenciaConducir() {
+        return licenciaConducir;
+    }
+
+    public int getPuntosFidelidad() {
+        return puntosFidelidad;
+    }
+
+    public double getTotalGastado() {
+        if (contratos == null || contratos.isEmpty()) {
+            return 0.0;
+        }
+        double total = 0.0;
+        for (Contrato contrato : contratos) {
+            total += contrato.getPrecioFinal();
+        }
+        return total;
+    }
+
+    public boolean tieneContratos() {
+        return contratos != null && !contratos.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente | " + super.toString() +
+                " | Licencia: " + licenciaConducir +
+                " | Crédito: " + historialCredito +
+                " | Puntos: " + puntosFidelidad +
+                " | Contratos: " + (contratos != null ? contratos.size() : 0);
+    }
 }
