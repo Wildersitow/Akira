@@ -5,6 +5,10 @@ import java.util.Date;
 
 public class Contrato {
 
+    private static final double DESCUENTO_CONTADO          = 0.05;
+    private static final double DESCUENTO_CLIENTE_RECURRENTE = 0.03;
+    private static final int    MINIMO_CONTRATOS_RECURRENTE  = 2;
+
     private Long id;
     private LocalDate fehcaVenta;
     private Cliente cliente;

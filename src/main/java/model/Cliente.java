@@ -18,4 +18,5 @@ public class Cliente extends Persona implements Serializable {
         this.puntosFidelidad = puntosFidelidad;
         this.contratos = contratos;
     }
+
 }

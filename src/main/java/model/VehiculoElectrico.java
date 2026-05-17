@@ -35,6 +35,9 @@ public abstract class VehiculoElectrico {
 
 
     public void marcarComoVendido(){
+        if (!estaDisponible()) {
+            throw new IllegalStateException("El vehículo ya se encuentra vendido");
+        }
         this.Estado = EstadoVehiculo.VENDIDO;
     }
 
@@ -139,4 +142,8 @@ public abstract class VehiculoElectrico {
                 "Autonomía: " + AutonomiaKm + " km | " +
                 "Estado: " + Estado;
     }
+
+
+
+
 }
