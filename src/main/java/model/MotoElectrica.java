@@ -2,6 +2,11 @@ package model;
 
 public class MotoElectrica extends VehiculoElectrico {
 
+    private static final double RECARGO_DEPORTIVA  = 0.12;
+    private static final double RECARGO_OFFROAD    = 0.10;
+    private static final double RECARGO_AUTONOMIA  = 0.05;
+    private static final int    UMBRAL_AUTONOMIA_KM = 150;
+
     private int alturaAsientoMm;
     private String tipoMoto;
     private double pesoKg;
@@ -15,8 +20,17 @@ public class MotoElectrica extends VehiculoElectrico {
 
     @Override
     public double calcularPrecioFinal(){
+        double precioFinal = getPrecioBase();
 
-        return 0;
+        if (tipoMoto.equalsIgnoreCase("Deportiva")) {
+            precioFinal += precioFinal * RECARGO_DEPORTIVA;
+        } else if (tipoMoto.equalsIgnoreCase("Off-road")) {
+            precioFinal += precioFinal * RECARGO_OFFROAD;
+        }
+        if (getAutonomiaKm() > UMBRAL_AUTONOMIA_KM) {
+            precioFinal += precioFinal * RECARGO_AUTONOMIA;
+        }
+        return precioFinal;
     }
 
     @Override

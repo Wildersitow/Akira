@@ -2,6 +2,12 @@ package model;
 
 public class PatinetaElectrica extends VehiculoElectrico {
 
+    private static final double RECARGO_ALTA_VELOCIDAD = 0.10;
+    private static final double RECARGO_PLEGABLE       = 0.07;
+    private static final double RECARGO_AUTONOMIA      = 0.05;
+    private static final int    UMBRAL_VELOCIDAD_KMH   = 30;
+    private static final int    UMBRAL_AUTONOMIA_KM    = 40;
+
     private int velocidadMaximaKmH;
     private int cargaMaximaKg;
     private boolean esPlegable;
@@ -15,7 +21,21 @@ public class PatinetaElectrica extends VehiculoElectrico {
 
     @Override
     public double calcularPrecioFinal() {
-        return 0;
+        double precioFinal = getPrecioBase();
+
+        if (velocidadMaximaKmH > UMBRAL_VELOCIDAD_KMH) {
+            precioFinal += precioFinal * RECARGO_ALTA_VELOCIDAD;
+        }
+
+        if (esPlegable) {
+            precioFinal += precioFinal * RECARGO_PLEGABLE;
+        }
+
+        if (getAutonomiaKm() > UMBRAL_AUTONOMIA_KM) {
+            precioFinal += precioFinal * RECARGO_AUTONOMIA;
+        }
+
+        return precioFinal;
     }
 
     @Override

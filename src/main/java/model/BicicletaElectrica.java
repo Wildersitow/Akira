@@ -2,6 +2,12 @@ package model;
 
 public class BicicletaElectrica extends VehiculoElectrico {
 
+    private static final double RECARGO_CARBONO   = 0.20;
+    private static final double RECARGO_ALUMINIO  = 0.05;
+    private static final double RECARGO_THROTTLE  = 0.08;
+    private static final double RECARGO_AUTONOMIA = 0.05;
+    private static final int    UMBRAL_AUTONOMIA_KM = 80;
+
     private int numeroMarchas;
     private int velocidadMaximaKmH;
     private String tipoAsistencia;
@@ -17,7 +23,20 @@ public class BicicletaElectrica extends VehiculoElectrico {
 
     @Override
     public double calcularPrecioFinal() {
-        return 0;
+        double precioFinal = getPrecioBase();
+
+        if (materialMarco.equalsIgnoreCase("Carbono")) {
+            precioFinal += precioFinal * RECARGO_CARBONO;
+        } else if (materialMarco.equalsIgnoreCase("Aluminio")) {
+            precioFinal += precioFinal * RECARGO_ALUMINIO;
+        }
+        if (tipoAsistencia.equalsIgnoreCase("Throttle")) {
+            precioFinal += precioFinal * RECARGO_THROTTLE;
+        }
+        if (getAutonomiaKm() > UMBRAL_AUTONOMIA_KM) {
+            precioFinal += precioFinal * RECARGO_AUTONOMIA;
+        }
+        return precioFinal;
     }
 
     @Override

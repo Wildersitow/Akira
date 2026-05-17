@@ -2,6 +2,12 @@ package model;
 
 public class AutoElectrico extends VehiculoElectrico {
 
+    private static final double RECARGO_SUV_PICKUP   = 0.15;
+    private static final double RECARGO_COUPE        = 0.10;
+    private static final double RECARGO_AWD          = 0.10;
+    private static final double RECARGO_ALTA_POTENCIA = 0.08;
+    private static final int    UMBRAL_POTENCIA_KW   = 150;
+
     private final int numeroPuertas;
     private final int numeroPasajeros;
     private final String tipoCarro;
@@ -18,7 +24,23 @@ public class AutoElectrico extends VehiculoElectrico {
     @Override
     public double calcularPrecioFinal(){
 
-        return 0;
+        double precioFinal = getPrecioBase();
+
+        if (tipoCarro.equalsIgnoreCase("SUV") || tipoCarro.equalsIgnoreCase("Pickup")) {
+            precioFinal += precioFinal * RECARGO_SUV_PICKUP;
+        } else if (tipoCarro.equalsIgnoreCase("Coupe")) {
+            precioFinal += precioFinal * RECARGO_COUPE;
+        }
+
+        if (traccion.equalsIgnoreCase("AWD")) {
+            precioFinal += precioFinal * RECARGO_AWD;
+        }
+
+        if (getPotenciaMotorKW() > UMBRAL_POTENCIA_KW) {
+            precioFinal += precioFinal * RECARGO_ALTA_POTENCIA;
+        }
+
+        return precioFinal;
     }
 
     @Override
