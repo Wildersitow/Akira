@@ -11,14 +11,14 @@
    <children>
       <Pane fx:id="pane_producto1" layoutX="77.0" layoutY="492.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #CCCCCC; -fx-border-radius: 20px;">
          <children>
-            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="#ff1f1f">
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
                <font>
                   <Font name="Arial" size="27.0" />
                </font>
             </Label>
             <Button fx:id="ver_detalles" layoutX="155.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="VER DETALLES" textFill="WHITE">
                <font>
-                  <Font name="Impact Regular" size="25.0" />
+                  <Font name="Roboto" size="17.0" />
                </font>
             </Button>
          </children></Pane>
@@ -34,29 +34,29 @@
       </Button>
       <Pane fx:id="pane_producto11" layoutX="77.0" layoutY="109.0" prefHeight="317.0" prefWidth="1126.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #CCCCCC; -fx-border-radius: 20px;">
          <children>
-            <Label layoutX="26.0" layoutY="58.0" prefHeight="81.0" prefWidth="490.0" text="Encuentra tu próximo" textFill="#ff1f1f">
+            <Label layoutX="26.0" layoutY="58.0" prefHeight="81.0" prefWidth="502.0" text="Encuentra tu próximo" textFill="WHITE">
                <font>
-                  <Font name="Arial" size="49.0" />
+                  <Font name="Inter Regular" size="49.0" />
                </font>
             </Label>
-            <Label layoutX="26.0" layoutY="129.0" prefHeight="71.0" prefWidth="450.0" text="vehículo eléctrico" textFill="#ff1f1f">
+            <Label layoutX="26.0" layoutY="129.0" prefHeight="71.0" prefWidth="450.0" text="vehículo eléctrico" textFill="WHITE">
                <font>
                   <Font name="Arial" size="49.0" />
                </font>
             </Label>
             <Button fx:id="bot_alquilar" layoutX="26.0" layoutY="217.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="211.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="ALQUILAR AHORA" textFill="WHITE">
                <font>
-                  <Font name="Impact Regular" size="25.0" />
+                  <Font name="Roboto" size="17.0" />
                </font>
             </Button>
             <Button fx:id="bot_comprar" layoutX="265.0" layoutY="217.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="211.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #CCCCCC;" text="COMPRAR" textFill="WHITE">
                <font>
-                  <Font name="Impact Regular" size="25.0" />
+                  <Font name="Roboto" size="17.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Label layoutX="78.0" layoutY="437.0" prefHeight="55.0" prefWidth="382.0" text="Vehiculos Recomendados" textFill="#ff1f1f">
+      <Label layoutX="78.0" layoutY="437.0" prefHeight="55.0" prefWidth="382.0" text="Vehiculos Recomendados" textFill="WHITE">
          <font>
             <Font name="Arial" size="31.0" />
          </font>
@@ -76,31 +76,31 @@
             <Font name="Impact Regular" size="25.0" />
          </font>
       </Button>
-      <TextField layoutX="860.0" layoutY="48.0" prefHeight="38.0" prefWidth="330.0" style="-fx-background-color: #1F1F1F;" />
+      <TextField layoutX="860.0" layoutY="48.0" prefHeight="38.0" prefWidth="330.0" style="-fx-border-color: #1F1F1F;" />
       <Pane fx:id="pane_producto12" layoutX="463.0" layoutY="492.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #CCCCCC; -fx-border-radius: 20px;">
          <children>
-            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="#ff1f1f">
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
                <font>
                   <Font name="Arial" size="27.0" />
                </font>
             </Label>
             <Button fx:id="ver_detalles2" layoutX="155.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="VER DETALLES" textFill="WHITE">
                <font>
-                  <Font name="Impact Regular" size="25.0" />
+                  <Font name="Roboto" size="17.0" />
                </font>
             </Button>
          </children>
       </Pane>
       <Pane fx:id="pane_producto13" layoutX="848.0" layoutY="492.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #CCCCCC; -fx-border-radius: 20px;">
          <children>
-            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="#ff1f1f">
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
                <font>
                   <Font name="Arial" size="27.0" />
                </font>
             </Label>
             <Button fx:id="ver_detalles3" layoutX="155.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="VER DETALLES" textFill="WHITE">
                <font>
-                  <Font name="Impact Regular" size="25.0" />
+                  <Font name="Roboto" size="17.0" />
                </font>
             </Button>
          </children>
