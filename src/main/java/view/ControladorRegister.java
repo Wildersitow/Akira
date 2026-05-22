@@ -158,7 +158,7 @@ public class ControladorRegister {
     public void cambiarIniciarSesion(ActionEvent event) {
         try {
             System.out.println("Navegando a Iniciar Sesión...");
-            utilidades.cambiarEscenaConTransicion(event, "src/main/resources/FXML/Login.fxml");
+            utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
         } catch (Exception e) {
             System.err.println("ERROR al cambiar escena:");
             e.printStackTrace();
