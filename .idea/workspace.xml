@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Arreglo en las rutas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/IVehiculoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VehiculoElectrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/VehiculoElectrico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/VehiculoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/VehiculoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -24,4 +24,32 @@ public abstract class VehiculoElectrico {
         this.VelocidadMaxima = velocidadMaxima;
 
     }
+
+    public Double getAutonomiaKm() {
+        return AutonomiaKm;
+    }
+
+    public int getVelocidadMaxima() {
+        return VelocidadMaxima;
+    }
+
+    public Double getPrecioBase() {
+        return PrecioBase;
+    }
+
+    public String getModelo() {
+        return Modelo;
+    }
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public Double getCapacidadBateria() {
+        return CapacidadBateria;
+    }
 }
