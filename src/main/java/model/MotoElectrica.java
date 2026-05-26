@@ -6,6 +6,10 @@ public class MotoElectrica extends VehiculoElectrico {
     private final String tipoMoto;
     private final String tipoCarga;
 
+    public int getNumeroPasajeros() { return numeroPasajeros; }
+    public String getTipoMoto() { return tipoMoto; }
+    public String getTipoCarga() { return tipoCarga; }
+
     public MotoElectrica(String id, String marca, String modelo,
                          Double autonomiaKm, Double capacidadBateria,
                          Double precioBase, int velocidadMaxima,
