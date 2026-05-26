@@ -5,6 +5,10 @@ import model.Persona;
 import service.ServiceException;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClienteDAO {
@@ -228,5 +232,37 @@ public class ClienteDAO {
         }
 
         return clientes;
+    }
+
+    public Cliente buscarPorEmail(String email) throws ServiceException {
+        String sql = "SELECT * FROM cliente WHERE email = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+            return null;
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar cliente: " + e.getMessage(), e);
+        }
+    }
+
+    private Cliente mapear(ResultSet rs) throws SQLException {
+        return new Cliente(
+                rs.getString("nombre"),
+                rs.getString("email"),
+                rs.getString("contrasena"),
+                rs.getString("cedula"),
+                rs.getString("email"),
+                "cliente",
+                0,
+                "",
+                0.0,
+                0,
+                new ArrayList<>()
+        );
     }
 }
