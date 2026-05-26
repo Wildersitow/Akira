@@ -23,11 +23,11 @@ public class EmpleadoDAO {
 
             con.setAutoCommit(false); // ← agrega esto
 
-            ps.setString(1, cliente.getNombre());
-            ps.setString(2, cliente.getDocumentoId());
-            ps.setString(3, String.valueOf(cliente.getTelefono()));
-            ps.setString(4, cliente.getEmail());
-            ps.setString(5, cliente.getContraseña());
+            ps.setString(1, empleado.getNombre());
+            ps.setString(2, empleado.getDocumentoId());
+            ps.setString(3, String.valueOf(empleado.getTelefono()));
+            ps.setString(4, empleado.getEmail());
+            ps.setString(5, empleado.getContraseña());
             ps.setString(6, null);
             ps.executeUpdate();
 
