@@ -7,6 +7,11 @@ public class AutoElectrico extends VehiculoElectrico {
     private final String tipoCarga;
     private final String traccion;
 
+    public int getNumeroPuertas() { return numeroPuertas; }
+    public int getNumeroPasajeros() { return numeroPasajeros; }
+    public String getTipoCarga() { return tipoCarga; }
+    public String getTraccion() { return traccion; }
+
     public AutoElectrico(String id, String marca, String modelo,
                          Double autonomiaKm, Double capacidadBateria,
                          Double precioBase, int velocidadMaxima,
