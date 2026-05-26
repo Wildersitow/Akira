@@ -55,7 +55,7 @@ public class ServiceCuenta {
             if (rol.equalsIgnoreCase("cliente")) {
                 System.out.println("Creando nuevo Cliente...");
 
-                Cliente nuevoCliente = new Cliente("", nombreUsuario, contraseña, documentoid, correo, "cliente", 0, "", 0.0, 0, new ArrayList<>());
+                Cliente nuevoCliente = new Cliente(nombreUsuario, nombreUsuario, contraseña, documentoid, correo, "cliente", 0, "", 0.0, 0, new ArrayList<>());
 
                 clienteDAO.guardar(nuevoCliente);
                 System.out.println("Cliente guardado exitosamente!");
@@ -69,7 +69,7 @@ public class ServiceCuenta {
             } else if (rol.equalsIgnoreCase("empleado")) {
                 System.out.println("Creando nuevo Empleado...");
 
-                Empleado nuevoEmpleado = new Empleado("", nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "", 0.0);
+                Empleado nuevoEmpleado = new Empleado(nombreUsuario, nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "", 0.0);
 
                 // Guardar en repositorio
                 empleadoDAO.guardar(nuevoEmpleado);
@@ -116,7 +116,7 @@ public class ServiceCuenta {
             }
 
 
-            Cliente cliente = clienteDAO.buscarPorNombreUsuario(nombreUsuario);
+            Cliente cliente = clienteDAO.buscarPorEmail(nombreUsuario);
 
             if (cliente != null) {
                 System.out.println("Usuario encontrado como Cliente");
@@ -139,7 +139,7 @@ public class ServiceCuenta {
                 }
             }
 
-            Empleado empleado = empleadoDAO.buscarPorNombreUsuario(nombreUsuario);
+            Empleado empleado = empleadoDAO.buscarPorEmail(nombreUsuario);
 
             if (empleado != null) {
                 System.out.println("Usuario encontrado como Administrador");
