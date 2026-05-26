@@ -4,6 +4,10 @@ import model.Empleado;
 import service.ServiceException;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmpleadoDAO {
@@ -140,5 +144,34 @@ public class EmpleadoDAO {
     }
 
 
+    public Empleado buscarPorEmail(String email) throws ServiceException {
+        String sql = "SELECT * FROM empleado WHERE email = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+            return null;
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar empleado: " + e.getMessage(), e);
+        }
+    }
+
+    private Empleado mapear(ResultSet rs) throws SQLException {
+        return new Empleado(
+                rs.getString("nombre"),
+                rs.getString("email"),
+                rs.getString("contrasena"),
+                rs.getString("cedula"),
+                rs.getString("email"),
+                "empleado",
+                0,
+                "",
+                rs.getString("cargo"),
+                rs.getDouble("salario")
+        );
+    }
 }
