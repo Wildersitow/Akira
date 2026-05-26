@@ -17,35 +17,26 @@ public class ClienteDAO {
     private static final String ARCHIVO_CUENTAS = "cuentas.dat";
 
     public void guardar(Cliente cliente) throws ServiceException {
-        try {
-            ArrayList<Cliente> clientes = leer();
+        String sql = "INSERT INTO cliente (nombre, cedula, telefono, email, contrasena, direccion) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
-            // Verificar si el nombre de usuario ya existe
-            for (Cliente c : clientes) {
-                if (c.getNombreUsuario().equalsIgnoreCase(cliente.getNombreUsuario())) {
-                    throw new ServiceException("USUARIO_DUPLICADO",
-                            "El nombre de usuario '" + cliente.getNombreUsuario() + "' ya está en uso");
-                }
-            }
+            con.setAutoCommit(false);
 
-            // Verificar si el documento de identidad ya existe
-            if (cliente.getDocumentoId() != null && !cliente.getDocumentoId().isEmpty()) {
-                for (Cliente c : clientes) {
-                    if (c.getDocumentoId().equals(cliente.getDocumentoId())) {
-                        throw new ServiceException("CEDULA_DUPLICADA",
-                                "El documento de identidad '" + cliente.getDocumentoId() + "' ya está registrado");
-                    }
-                }
-            }
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getDocumentoId());
+            ps.setString(3, String.valueOf(cliente.getTelefono()));
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getContraseña());
+            ps.setString(6, null);
+            ps.executeUpdate();
 
-            clientes.add(cliente);
-            guardarLista(clientes);
-
+            con.commit();
             System.out.println("✓ Cliente guardado: " + cliente.getNombreUsuario());
 
-        } catch (IOException e) {
-            throw new ServiceException("ERROR_GUARDADO",
-                    "Error al guardar cliente: " + e.getMessage(), e);
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_GUARDADO", "Error al guardar cliente: " + e.getMessage(), e);
         }
     }
 
