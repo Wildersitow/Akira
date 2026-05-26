@@ -46,8 +46,8 @@ public class ServiceCuenta {
                         "La contraseña debe tener al menos 6 caracteres");
             }
 
-            if (clienteDAO.buscarPorNombreUsuario(nombreUsuario) != null ||
-                    empleadoDAO.buscarPorNombreUsuario(nombreUsuario) != null) {
+            if (clienteDAO.buscarPorEmail(correo) != null ||
+                    empleadoDAO.buscarPorEmail(correo) != null) {
                 throw new ServiceException("USUARIO_DUPLICADO",
                         "El nombre de usuario '" + nombreUsuario + "' ya está en uso");
             }
