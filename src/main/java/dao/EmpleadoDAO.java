@@ -1,5 +1,6 @@
 package dao;
 
+import model.Cliente;
 import model.Empleado;
 import service.ServiceException;
 
@@ -15,23 +16,25 @@ public class EmpleadoDAO {
     private static final String ARCHIVO = "empleado.dat";
 
     public void guardar(Empleado empleado) throws ServiceException {
-        try {
-            ArrayList<Empleado> empleados = leer();
+        String sql = "INSERT INTO cliente (nombre, cedula, telefono, email, contrasena, direccion) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
-            // Verificar si el nombre de usuario ya existe
-            for (Empleado e : empleados) {
-                if (e.getNombreUsuario().equalsIgnoreCase(empleado.getNombreUsuario())) {
-                    throw new ServiceException("USUARIO_DUPLICADO",
-                            "El nombre de usuario '" + empleado.getNombreUsuario() + "' ya está en uso");
-                }
-            }
+            con.setAutoCommit(false); // ← agrega esto
 
-            empleados.add(empleado);
-            guardarLista(empleados);
+            ps.setString(1, cliente.getNombre());
+            ps.setString(2, cliente.getDocumentoId());
+            ps.setString(3, String.valueOf(cliente.getTelefono()));
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getContraseña());
+            ps.setString(6, null);
+            ps.executeUpdate();
 
-        } catch (IOException e) {
-            throw new ServiceException("ERROR_GUARDADO",
-                    "Error al guardar empleado: " + e.getMessage(), e);
+            con.commit(); // ← y esto
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_GUARDADO", "Error al guardar cliente: " + e.getMessage(), e);
         }
     }
 
