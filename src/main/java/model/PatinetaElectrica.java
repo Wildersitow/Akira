@@ -6,6 +6,11 @@ public class PatinetaElectrica extends VehiculoElectrico {
     private final Double pesoDispositivoKg;
     private final Double pesoMaximoUsuarioKg;
 
+    public boolean isEsPlegable() { return esPlegable; }
+    public Double getPesoDispositivoKg() { return pesoDispositivoKg; }
+    public Double getPesoMaximoUsuarioKg() { return pesoMaximoUsuarioKg; }
+
+
     public PatinetaElectrica(String id, String marca, String modelo,
                              Double autonomiaKm, Double capacidadBateria,
                              Double precioBase, int velocidadMaxima,
