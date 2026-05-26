@@ -11,6 +11,14 @@ public abstract class VehiculoElectrico {
     protected int VelocidadMaxima;
 
 
+    public String getId() { return Id; }
+    public String getMarca() { return Marca; }
+    public String getModelo() { return Modelo; }
+    public Double getAutonomiaKm() { return AutonomiaKm; }
+    public Double getCapacidadBateria() { return CapacidadBateria; }
+    public Double getPrecioBase() { return PrecioBase; }
+    public int getVelocidadMaxima() { return VelocidadMaxima; }
+
     public VehiculoElectrico(String id, String marca, String modelo,
                              Double autonomiaKm, Double CapacidadBateria,
                              Double precioBase, int velocidadMaxima)
