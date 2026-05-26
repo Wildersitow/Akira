@@ -1,4 +1,4 @@
-package view.akira;
+package view;
 
 public class AlquilerControlador {
 }
