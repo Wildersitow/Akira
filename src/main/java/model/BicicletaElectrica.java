@@ -6,6 +6,10 @@ public class BicicletaElectrica extends VehiculoElectrico {
     private final boolean tieneAsistenciaPedal;
     private final String tipoBicicleta;
 
+    public int getNumeroMarchas() { return numeroMarchas; }
+    public boolean isTieneAsistenciaPedal() { return tieneAsistenciaPedal; }
+    public String getTipoBicicleta() { return tipoBicicleta; }
+
     public BicicletaElectrica(String id, String marca, String modelo,
                               Double autonomiaKm, Double capacidadBateria,
                               Double precioBase, int velocidadMaxima,
