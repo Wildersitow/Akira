@@ -104,6 +104,7 @@ public class AutoElectricoDAO {
             case 3  -> EstadoVehiculo.ALQUILADO;
             case 4  -> EstadoVehiculo.MANTENIMIENTO;
             default -> EstadoVehiculo.DISPONIBLE;
+
         };
     }
 }
