@@ -1,6 +1,7 @@
 package dao;
 
 import model.AutoElectrico;
+import model.EstadoVehiculo;
 import service.ServiceException;
 
 import java.sql.*;
@@ -9,21 +10,22 @@ import java.util.ArrayList;
 public class AutoElectricoDAO {
 
     public void guardar(AutoElectrico auto) throws ServiceException {
-        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio, numero_puertas, cap_pasajeros, tipo_carro, traccion) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             con.setAutoCommit(false);
             ps.setString(1, auto.getMarca());
             ps.setString(2, auto.getModelo());
-            ps.setInt(3, 2024);
-            ps.setString(4, null);
+            ps.setInt(3, auto.getAnio());
+            ps.setString(4, auto.getColor());
             ps.setDouble(5, auto.getPrecioBase());
-            ps.setInt(6, auto.getNumeroPuertas());
-            ps.setInt(7, auto.getNumeroPasajeros());
-            ps.setString(8, auto.getTipoCarga());
-            ps.setString(9, auto.getTraccion());
+            ps.setInt(6, estadoToId(auto.getEstado()));
+            ps.setInt(7, auto.getNumeroPuertas());
+            ps.setString(8, auto.getTipoCarro());
+            ps.setInt(9, auto.getNumeroPasajeros());
+            ps.setString(10, auto.getTraccion());
             ps.executeUpdate();
             con.commit();
 
@@ -60,7 +62,7 @@ public class AutoElectricoDAO {
             con.commit();
 
             if (filas == 0)
-                throw new ServiceException("AUTO_NO_ENCONTRADO", "No se encontró el auto");
+                throw new ServiceException("AUTO_NO_ENCONTRADO", "No se encontró el auto con id: " + id);
 
         } catch (SQLException e) {
             throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar auto: " + e.getMessage(), e);
@@ -69,17 +71,39 @@ public class AutoElectricoDAO {
 
     private AutoElectrico mapear(ResultSet rs) throws SQLException {
         return new AutoElectrico(
+                rs.getInt("anio"),
+                0.0,                          // autonomiaKm — no está en la tabla
+                0.0,                          // capacidadBateria — no está en la tabla
+                rs.getString("color"),
+                idToEstado(rs.getInt("estado_id")),
                 String.valueOf(rs.getLong("id")),
                 rs.getString("marca"),
                 rs.getString("modelo"),
-                0.0,
-                0.0,
                 rs.getDouble("precio"),
-                0,
-                rs.getInt("numero_puertas"),
+                0,                            // potenciaMotorKW — no está en la tabla
+                0,                            // velocidadMaxima — no está en la tabla
                 rs.getInt("cap_pasajeros"),
+                rs.getInt("numero_puertas"),
                 rs.getString("tipo_carro"),
                 rs.getString("traccion")
         );
+    }
+
+    private int estadoToId(EstadoVehiculo estado) {
+        return switch (estado) {
+            case DISPONIBLE    -> 1;
+            case VENDIDO       -> 2;
+            case ALQUILADO     -> 3;
+            case MANTENIMIENTO -> 4;
+        };
+    }
+
+    private EstadoVehiculo idToEstado(int id) {
+        return switch (id) {
+            case 2  -> EstadoVehiculo.VENDIDO;
+            case 3  -> EstadoVehiculo.ALQUILADO;
+            case 4  -> EstadoVehiculo.MANTENIMIENTO;
+            default -> EstadoVehiculo.DISPONIBLE;
+        };
     }
 }
