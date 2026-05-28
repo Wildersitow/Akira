@@ -9,19 +9,22 @@ import java.util.ArrayList;
 public class EmpleadoDAO {
 
     public void guardar(Empleado empleado) throws ServiceException {
-        String sql = "INSERT INTO empleado (nombre, cedula, telefono, email, contrasena, cargo, salario, fecha_ingreso) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, SYSDATE)";
+        String sql = "INSERT INTO empleado (nombre, nombre_usuario, cedula, telefono, email, contrasena, rol, cargo, salario, fecha_ingreso, codigo_empleado) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?)";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             con.setAutoCommit(false);
             ps.setString(1, empleado.getNombre());
-            ps.setString(2, empleado.getDocumentoId());
-            ps.setString(3, String.valueOf(empleado.getTelefono()));
-            ps.setString(4, empleado.getEmail());
-            ps.setString(5, empleado.getContraseña());
-            ps.setString(6, empleado.getCargo());
-            ps.setDouble(7, empleado.getSalario());
+            ps.setString(2, empleado.getNombreUsuario());
+            ps.setString(3, empleado.getDocumentoId());
+            ps.setString(4, String.valueOf(empleado.getTelefono()));
+            ps.setString(5, empleado.getEmail());
+            ps.setString(6, empleado.getContraseña());
+            ps.setString(7, empleado.getRol());
+            ps.setString(8, empleado.getCargo());
+            ps.setDouble(9, empleado.getSalario());
+            ps.setString(10, empleado.getCodigoEmpleado());
             ps.executeUpdate();
             con.commit();
 
@@ -48,17 +51,19 @@ public class EmpleadoDAO {
     }
 
     public void actualizar(Empleado empleado) throws ServiceException {
-        String sql = "UPDATE empleado SET nombre=?, telefono=?, contrasena=?, cargo=?, salario=? WHERE email=?";
+        String sql = "UPDATE empleado SET nombre=?, nombre_usuario=?, telefono=?, contrasena=?, rol=?, cargo=?, salario=? WHERE email=?";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             con.setAutoCommit(false);
             ps.setString(1, empleado.getNombre());
-            ps.setString(2, String.valueOf(empleado.getTelefono()));
-            ps.setString(3, empleado.getContraseña());
-            ps.setString(4, empleado.getCargo());
-            ps.setDouble(5, empleado.getSalario());
-            ps.setString(6, empleado.getEmail());
+            ps.setString(2, empleado.getNombreUsuario());
+            ps.setString(3, String.valueOf(empleado.getTelefono()));
+            ps.setString(4, empleado.getContraseña());
+            ps.setString(5, empleado.getRol());
+            ps.setString(6, empleado.getCargo());
+            ps.setDouble(7, empleado.getSalario());
+            ps.setString(8, empleado.getEmail());
 
             int filas = ps.executeUpdate();
             con.commit();
@@ -128,12 +133,13 @@ public class EmpleadoDAO {
     private Empleado mapear(ResultSet rs) throws SQLException {
         return new Empleado(
                 rs.getString("nombre"),
-                rs.getString("email"),
+                rs.getString("nombre_usuario"),
                 rs.getString("contrasena"),
                 rs.getString("cedula"),
                 rs.getString("email"),
-                "empleado",
-                0, "",
+                rs.getString("rol"),
+                rs.getInt("telefono"),
+                rs.getString("codigo_empleado"),
                 rs.getString("cargo"),
                 rs.getDouble("salario")
         );
