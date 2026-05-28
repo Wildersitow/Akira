@@ -9,18 +9,23 @@ import java.util.ArrayList;
 public class ClienteDAO {
 
     public void guardar(Cliente cliente) throws ServiceException {
-        String sql = "INSERT INTO cliente (nombre, cedula, telefono, email, contrasena, direccion) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO cliente (nombre, nombre_usuario, cedula, telefono, email, contrasena, rol, direccion, licencia_conducir, historial_credito, puntos_fidelidad) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             con.setAutoCommit(false);
             ps.setString(1, cliente.getNombre());
-            ps.setString(2, cliente.getDocumentoId());
-            ps.setString(3, String.valueOf(cliente.getTelefono()));
-            ps.setString(4, cliente.getEmail());
-            ps.setString(5, cliente.getContraseña());
-            ps.setString(6, null);
+            ps.setString(2, cliente.getNombreUsuario());
+            ps.setString(3, cliente.getDocumentoId());
+            ps.setString(4, String.valueOf(cliente.getTelefono()));
+            ps.setString(5, cliente.getEmail());
+            ps.setString(6, cliente.getContraseña());
+            ps.setString(7, cliente.getRol());
+            ps.setString(8, null);                        // direccion — no está en el modelo
+            ps.setString(9, cliente.getLicenciaConducir());
+            ps.setDouble(10, cliente.getHistorialCredito());
+            ps.setInt(11, cliente.getPuntosFidelidad());
             ps.executeUpdate();
             con.commit();
 
@@ -47,16 +52,20 @@ public class ClienteDAO {
     }
 
     public void actualizar(Cliente cliente) throws ServiceException {
-        String sql = "UPDATE cliente SET nombre=?, telefono=?, contrasena=?, direccion=? WHERE email=?";
+        String sql = "UPDATE cliente SET nombre=?, nombre_usuario=?, telefono=?, contrasena=?, rol=?, licencia_conducir=?, historial_credito=?, puntos_fidelidad=? WHERE email=?";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             con.setAutoCommit(false);
             ps.setString(1, cliente.getNombre());
-            ps.setString(2, String.valueOf(cliente.getTelefono()));
-            ps.setString(3, cliente.getContraseña());
-            ps.setString(4, null);
-            ps.setString(5, cliente.getEmail());
+            ps.setString(2, cliente.getNombreUsuario());
+            ps.setString(3, String.valueOf(cliente.getTelefono()));
+            ps.setString(4, cliente.getContraseña());
+            ps.setString(5, cliente.getRol());
+            ps.setString(6, cliente.getLicenciaConducir());
+            ps.setDouble(7, cliente.getHistorialCredito());
+            ps.setInt(8, cliente.getPuntosFidelidad());
+            ps.setString(9, cliente.getEmail());
 
             int filas = ps.executeUpdate();
             con.commit();
@@ -126,13 +135,16 @@ public class ClienteDAO {
     private Cliente mapear(ResultSet rs) throws SQLException {
         return new Cliente(
                 rs.getString("nombre"),
-                rs.getString("email"),
+                rs.getString("nombre_usuario"),
                 rs.getString("contrasena"),
                 rs.getString("cedula"),
                 rs.getString("email"),
-                "cliente",
-                0, "", 0.0, 0,
-                new ArrayList<>()
+                rs.getString("rol"),
+                rs.getInt("telefono"),
+                rs.getString("licencia_conducir"),
+                rs.getDouble("historial_credito"),
+                rs.getInt("puntos_fidelidad"),
+                new ArrayList<>()                         // contratos — se cargan aparte
         );
     }
 }
