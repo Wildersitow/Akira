@@ -48,4 +48,54 @@ public class AkiraAssistantService {
         - Cuando necesites más información del usuario para recomendar, haz una sola pregunta a la vez.
         """;
 
+    public String enviarMensaje(String mensajeUsuario) throws Exception {
+
+        String inventario = construirInventario();
+
+        String systemPrompt = SYSTEM_BASE + "\n\n" + inventario;
+
+        historial.add(new String[]{"user", mensajeUsuario});
+
+        StringBuilder mensajesJson = new StringBuilder("[");
+        for (int i = 0; i < historial.size(); i++) {
+            String[] msg = historial.get(i);
+            if (i > 0) mensajesJson.append(",");
+            mensajesJson.append(String.format(
+                    "{\"role\":\"%s\",\"content\":\"%s\"}",
+                    msg[0], escaparJson(msg[1])
+            ));
+        }
+
+        mensajesJson.append("]");
+
+        String body = String.format("""
+            {
+              "model": "%s",
+              "max_tokens": 1024,
+              "system": "%s",
+              "messages": %s
+            }
+            """, MODEL, escaparJson(systemPrompt), mensajesJson);
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(API_URL))
+                .header("Content-Type", "application/json")
+                .header("x-api-key", API_KEY)
+                .header("anthropic-version", "2023-06-01")
+                .POST(HttpRequest.BodyPublishers.ofString(body))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() != 200) {
+            throw new RuntimeException("Error API (" + response.statusCode() + "): " + response.body());
+        }
+
+        String respuesta = extraerTextoRespuesta(response.body());
+        historial.add(new String[]{"assistant", respuesta});
+        return respuesta;
+    }
+
+
 }
