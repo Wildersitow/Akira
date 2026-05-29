@@ -195,4 +195,17 @@ public class AkiraAssistantService {
         historial.clear();
     }
 
+    private String extraerTextoRespuesta(String json) {
+        int idx = json.indexOf("\"text\":");
+        if (idx == -1) return "No pude obtener una respuesta.";
+        int inicio = json.indexOf("\"", idx + 7) + 1;
+        int fin = inicio;
+        while (fin < json.length()) {
+            if (json.charAt(fin) == '\\') { fin += 2; continue; }
+            if (json.charAt(fin) == '"') break;
+            fin++;
+        }
+        return desescaparJson(json.substring(inicio, fin));
+    }
+
 }
