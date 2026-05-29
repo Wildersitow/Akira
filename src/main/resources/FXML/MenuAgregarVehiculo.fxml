@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -373,46 +375,46 @@
       </Pane>
       <Pane prefHeight="728.0" prefWidth="220.0" style="-fx-background-color: #1F1F1F; -fx-border-color: #3B3B3B;">
          <children>
-            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="109.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
+            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="109.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="boton_contratos" layoutX="12.0" layoutY="280.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ALQUILERES" textFill="WHITE">
+            <Button fx:id="boton_contratos" layoutX="12.0" layoutY="280.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CONTRATOS" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="boton_comprar" layoutX="12.0" layoutY="366.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="COMPRAS" textFill="WHITE">
+            <Button fx:id="boton_comprar" layoutX="12.0" layoutY="366.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="COMPRAS" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="boton_flota" layoutX="12.0" layoutY="452.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
+            <Button fx:id="boton_flota" layoutX="12.0" layoutY="452.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="boton_asistente" layoutX="12.0" layoutY="536.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ASISTENTE" textFill="WHITE">
+            <Button fx:id="boton_asistente" layoutX="12.0" layoutY="536.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ASISTENTE" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="25.0" />
                </font>
             </Button>
-            <Label fx:id="label_akira" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="26.0" prefHeight="54.0" prefWidth="158.0" text="AKIRA" textFill="#9b0f1f">
-               <font>
-                  <Font name="Arial" size="45.0" />
-               </font>
-            </Label>
-            <Button fx:id="boton_asistente1" layoutX="13.0" layoutY="618.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
+            <Button fx:id="boton_asistente1" layoutX="13.0" layoutY="618.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="boton_agel" layoutX="13.0" layoutY="192.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="AÑADIR/QUITAR VEHICULO" textFill="WHITE">
+            <Button fx:id="boton_agel" layoutX="13.0" layoutY="192.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="AGREGAR VEHICULO" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="18.0" />
                </font>
             </Button>
+            <ImageView fitHeight="145.0" fitWidth="209.0" layoutX="38.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/logoprovisional.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutX="266.0" layoutY="23.0" prefHeight="54.0" prefWidth="958.0" style="-fx-background-color: #9B0F1F;">

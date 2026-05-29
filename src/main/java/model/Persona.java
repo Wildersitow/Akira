@@ -36,8 +36,14 @@ public abstract  class Persona implements Serializable {
     }
 
     public boolean verificarContraseña(String contraseña) {
-        return this.contraseña != null && this.contraseña.equals(this.contraseña);
+        return this.contraseña != null && this.contraseña.equals(contraseña);
     }
+
+    public String getEmail() { return email; }
+
+    public String getContraseña() { return contraseña; }
+
+    public int getTelefono() { return telefono; }
 
     public String getRol() {
         return rol;
