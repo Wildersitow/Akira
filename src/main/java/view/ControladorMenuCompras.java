@@ -2,11 +2,11 @@ package view;
 
 import javafx.event.ActionEvent;
 
-public class ControladorMenuPrincipal {
+public class ControladorMenuCompras {
 
     private final UtilidadesFX utilidades;
 
-    public ControladorMenuPrincipal() {
+    public ControladorMenuCompras() {
         this.utilidades = new UtilidadesFX();
     }
 

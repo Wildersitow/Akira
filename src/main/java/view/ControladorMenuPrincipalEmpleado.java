@@ -2,11 +2,11 @@ package view;
 
 import javafx.event.ActionEvent;
 
-public class ControladorMenuPrincipal {
+public class ControladorMenuPrincipalEmpleado {
 
     private final UtilidadesFX utilidades;
 
-    public ControladorMenuPrincipal() {
+    public ControladorMenuPrincipalEmpleado() {
         this.utilidades = new UtilidadesFX();
     }
 
@@ -20,7 +20,17 @@ public class ControladorMenuPrincipal {
         }
     }
 
-    public void cambiarAlquiler(ActionEvent event){
+    public void cambiarAgregarVehiculo(ActionEvent event){
+        try {
+            System.out.println("Intentando cambiar a MenuCompras...");
+            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuAgregarVehiculo.fxml");
+        } catch (Exception e) {
+            System.err.println("ERROR al cambiar escena:");
+            e.printStackTrace();
+        }
+    }
+
+    public void cambiarAlquileres(ActionEvent event){
         try {
             System.out.println("Intentando cambiar a Alquiler...");
             utilidades.cambiarEscenaConTransicion(event, "/FXML/Alquiler.fxml");
@@ -43,7 +53,7 @@ public class ControladorMenuPrincipal {
     public void cambiarFlota(ActionEvent event){
         try {
             System.out.println("Intentando cambiar a MenuFlota...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml");
+            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuAgregarVehiculo.fxml");
         } catch (Exception e) {
             System.err.println("ERROR al cambiar escena:");
             e.printStackTrace();
@@ -59,5 +69,6 @@ public class ControladorMenuPrincipal {
             e.printStackTrace();
         }
     }
+
 
 }

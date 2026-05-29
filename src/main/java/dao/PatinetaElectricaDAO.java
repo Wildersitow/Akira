@@ -1,0 +1,111 @@
+package dao;
+
+import model.EstadoVehiculo;
+import model.PatinetaElectrica;
+import service.ServiceException;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+public class PatinetaElectricaDAO {
+
+    public void guardar(PatinetaElectrica patineta) throws ServiceException {
+        String sql = "INSERT INTO patineta_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, velocidad_max_kmh, peso_plat_kg, plegable, carga_maxima_kg) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            con.setAutoCommit(false);
+            ps.setString(1, patineta.getMarca());
+            ps.setString(2, patineta.getModelo());
+            ps.setInt(3, patineta.getAnio());
+            ps.setString(4, patineta.getColor());
+            ps.setDouble(5, patineta.getPrecioBase());
+            ps.setDouble(6, patineta.getAutonomiaKm());
+            ps.setDouble(7, patineta.getCapacidadBateria());
+            ps.setInt(8, patineta.getPotenciaMotorKW());
+            ps.setInt(9, estadoToId(patineta.getEstado()));
+            ps.setInt(10, patineta.getVelocidadMaximaKmH());
+            ps.setDouble(11, 0.0);               // peso_plat_kg — no existe en el modelo
+            ps.setInt(12, patineta.isEsPlegable() ? 1 : 0);
+            ps.setInt(13, patineta.getCargaMaximaKg());
+            ps.executeUpdate();
+            con.commit();
+
+            System.out.println("✓ Patineta guardada: " + patineta.getMarca() + " " + patineta.getModelo());
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_GUARDADO", "Error al guardar patineta: " + e.getMessage(), e);
+        }
+    }
+
+    public ArrayList<PatinetaElectrica> obtenerTodos() throws ServiceException {
+        String sql = "SELECT * FROM patineta_electrica";
+        ArrayList<PatinetaElectrica> lista = new ArrayList<>();
+        try (Connection con = ConexionDB.getConexion();
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+
+            while (rs.next()) lista.add(mapear(rs));
+            return lista;
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al leer patinetas: " + e.getMessage(), e);
+        }
+    }
+
+    public void eliminar(long id) throws ServiceException {
+        String sql = "DELETE FROM patineta_electrica WHERE id = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            con.setAutoCommit(false);
+            ps.setLong(1, id);
+            int filas = ps.executeUpdate();
+            con.commit();
+
+            if (filas == 0)
+                throw new ServiceException("PATINETA_NO_ENCONTRADA", "No se encontró la patineta con id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar patineta: " + e.getMessage(), e);
+        }
+    }
+
+    private PatinetaElectrica mapear(ResultSet rs) throws SQLException {
+        return new PatinetaElectrica(
+                rs.getInt("anio"),
+                rs.getDouble("autonomia_km"),
+                rs.getDouble("capacidad_bateria"),
+                rs.getString("color"),
+                idToEstado(rs.getInt("estado_id")),
+                String.valueOf(rs.getLong("id")),
+                rs.getString("marca"),
+                rs.getString("modelo"),
+                rs.getDouble("precio_base"),
+                rs.getInt("potencia_motor_kw"),
+                0,                               // velocidadMaxima heredada — no está en la tabla
+                rs.getInt("carga_maxima_kg"),
+                rs.getInt("plegable") == 1,
+                rs.getInt("velocidad_max_kmh")
+        );
+    }
+
+    private int estadoToId(EstadoVehiculo estado) {
+        return switch (estado) {
+            case DISPONIBLE    -> 1;
+            case VENDIDO       -> 2;
+            case ALQUILADO     -> 3;
+            case MANTENIMIENTO -> 4;
+        };
+    }
+
+    private EstadoVehiculo idToEstado(int id) {
+        return switch (id) {
+            case 2  -> EstadoVehiculo.VENDIDO;
+            case 3  -> EstadoVehiculo.ALQUILADO;
+            case 4  -> EstadoVehiculo.MANTENIMIENTO;
+            default -> EstadoVehiculo.DISPONIBLE;
+        };
+    }
+}
