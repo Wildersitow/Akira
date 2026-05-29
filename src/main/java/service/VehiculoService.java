@@ -27,4 +27,35 @@ public class VehiculoService {
 
         vehiculoRepository.guardar(vehiculo);
     }
+
+    public void actualizarVehiculo(VehiculoElectrico vehiculo) throws ServiceException {
+        if (vehiculo == null || vehiculo.getMarca() == null || vehiculo.getId() == null){
+            throw new ServiceException("VEH_004", "El vehiculo o su id no pueden ser nulos");
+        }
+
+        buscarPorId(vehiculo.getId());
+        vehiculoRepository.actualizar(vehiculo);
+    }
+
+    public void eliminarVehiculo(String id) throws ServiceException {
+        VehiculoElectrico vehiculo = vehiculoRepository.buscarPorId(id);
+
+        if (!vehiculo.estaDisponible()) {
+            throw new ServiceException("VEH-005", "No se puede eliminar un vehiculo ya vendido");
+        }
+
+        vehiculoRepository.eliminar(id);
+    }
+
+    public VehiculoElectrico buscarPorId(String id) throws ServiceException {
+        if (id == null || id.isBlank()) {
+            throw new ServiceException("VEH-006", "El ID del vehículo no puede ser nulo o vacío");
+        }
+        VehiculoElectrico vehiculo = vehiculoRepository.buscarPorId(id);
+        if (vehiculo == null) {
+            throw new ServiceException("VEH-007", "No se encontró un vehículo con el ID: " + id);
+        }
+        return vehiculo;
+    }
+
 }
