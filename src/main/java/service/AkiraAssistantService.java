@@ -97,5 +97,102 @@ public class AkiraAssistantService {
         return respuesta;
     }
 
+    private String construirInventario() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("=== INVENTARIO ACTUAL DEL SISTEMA ===\n\n");
+
+        // Autos
+        try {
+            ArrayList<AutoElectrico> autos = autoDAO.obtenerTodos();
+            if (!autos.isEmpty()) {
+                sb.append("AUTOS ELÉCTRICOS (").append(autos.size()).append("):\n");
+                for (AutoElectrico a : autos) {
+                    sb.append(String.format(
+                            "  • %s %s | Precio: $%.0f | Puertas: %d | Pasajeros: %d | Tracción: %s | Tipo carga: %s\n",
+                            a.getMarca(), a.getModelo(), a.getPrecioBase(),
+                            a.getNumeroPuertas(), a.getNumeroPasajeros(),
+                            a.getTraccion(), a.getTipoCarga()
+                    ));
+                }
+            } else {
+                sb.append("AUTOS ELÉCTRICOS: Sin registros.\n");
+            }
+        } catch (Exception e) {
+            sb.append("AUTOS ELÉCTRICOS: Error al consultar.\n");
+        }
+
+        sb.append("\n");
+
+        // Motos
+        try {
+            ArrayList<MotoElectrica> motos = motoDAO.obtenerTodos();
+            if (!motos.isEmpty()) {
+                sb.append("MOTOS ELÉCTRICAS (").append(motos.size()).append("):\n");
+                for (MotoElectrica m : motos) {
+                    sb.append(String.format(
+                            "  • %s %s | Precio: $%.0f | Tipo: %s | Pasajeros: %d | Tipo carga: %s\n",
+                            m.getMarca(), m.getModelo(), m.getPrecioBase(),
+                            m.getTipoMoto(), m.getNumeroPasajeros(), m.getTipoCarga()
+                    ));
+                }
+            } else {
+                sb.append("MOTOS ELÉCTRICAS: Sin registros.\n");
+            }
+        } catch (Exception e) {
+            sb.append("MOTOS ELÉCTRICAS: Error al consultar.\n");
+        }
+
+        sb.append("\n");
+
+        // Bicicletas
+        try {
+            ArrayList<BicicletaElectrica> bicis = biciDAO.obtenerTodos();
+            if (!bicis.isEmpty()) {
+                sb.append("BICICLETAS ELÉCTRICAS (").append(bicis.size()).append("):\n");
+                for (BicicletaElectrica b : bicis) {
+                    sb.append(String.format(
+                            "  • %s %s | Precio: $%.0f | Marchas: %d | Asistencia pedal: %s | Tipo: %s\n",
+                            b.getMarca(), b.getModelo(), b.getPrecioBase(),
+                            b.getNumeroMarchas(),
+                            b.isTieneAsistenciaPedal() ? "Sí" : "No",
+                            b.getTipoBicicleta()
+                    ));
+                }
+            } else {
+                sb.append("BICICLETAS ELÉCTRICAS: Sin registros.\n");
+            }
+        } catch (Exception e) {
+            sb.append("BICICLETAS ELÉCTRICAS: Error al consultar.\n");
+        }
+
+        sb.append("\n");
+
+        // Patinetas
+        try {
+            ArrayList<PatinetaElectrica> patinetas = patiDAO.obtenerTodos();
+            if (!patinetas.isEmpty()) {
+                sb.append("PATINETAS ELÉCTRICAS (").append(patinetas.size()).append("):\n");
+                for (PatinetaElectrica p : patinetas) {
+                    sb.append(String.format(
+                            "  • %s %s | Precio: $%.0f | Plegable: %s | Peso dispositivo: %.1f kg | Peso máx usuario: %.1f kg\n",
+                            p.getMarca(), p.getModelo(), p.getPrecioBase(),
+                            p.isEsPlegable() ? "Sí" : "No",
+                            p.getPesoDispositivoKg(), p.getPesoMaximoUsuarioKg()
+                    ));
+                }
+            } else {
+                sb.append("PATINETAS ELÉCTRICAS: Sin registros.\n");
+            }
+        } catch (Exception e) {
+            sb.append("PATINETAS ELÉCTRICAS: Error al consultar.\n");
+        }
+
+        sb.append("\n=== FIN DEL INVENTARIO ===");
+        return sb.toString();
+    }
+
+    public void limpiarHistorial() {
+        historial.clear();
+    }
 
 }
