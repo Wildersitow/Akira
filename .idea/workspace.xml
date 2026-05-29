@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="feat: Arreglo en las rutas">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/AutoElectricoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/BicicletaElectricaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ConexionDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/MotoElectricaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/PatinetaElectricaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/AlquilerControlador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorAsistenteAI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuAgregarVehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuCompras.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuPrincipalEmpleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/EmpleadoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/EmpleadoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Empleado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/EstadoVehiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/EstadoVehiculo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorMenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuPrincipal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +84,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature/model",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
