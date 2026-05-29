@@ -12,6 +12,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/dao/MotoElectricaDAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/dao/PatinetaElectricaDAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/model/EstadoVehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/AkiraAssistantService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/AlquilerControlador.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorAsistenteAI.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuAgregarVehiculo.java" afterDir="false" />
