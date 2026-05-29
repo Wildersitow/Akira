@@ -1,0 +1,178 @@
+/* ═══════════════════════════════════════════════════════════════
+   Akira Assistant — Stylesheet (paleta roja/negra)
+   ═══════════════════════════════════════════════════════════════ */
+
+.root {
+    -fx-background-color: #1a1a1a;
+    -fx-font-family: "Segoe UI", "SF Pro Text", sans-serif;
+}
+
+/* ── HEADER ────────────────────────────────────────────────── */
+.header {
+    -fx-background-color: #8B0000;
+    -fx-border-color: #6B0000;
+    -fx-border-width: 0 0 2 0;
+}
+
+.header-icon {
+    -fx-font-size: 28px;
+}
+
+.header-titulo {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.header-subtitulo {
+    -fx-text-fill: #ffcccc;
+    -fx-font-size: 12px;
+}
+
+.btn-limpiar {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffcccc;
+    -fx-border-color: rgba(255,255,255,0.3);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 6 14 6 14;
+}
+
+.btn-limpiar:hover {
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-background-color: rgba(255,255,255,0.1);
+}
+
+/* ── PREGUNTAS RÁPIDAS ─────────────────────────────────────── */
+.preguntas-rapidas {
+    -fx-background-color: #222222;
+    -fx-border-color: #333333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.btn-pregunta {
+    -fx-background-color: #2a2a2a;
+    -fx-text-fill: #dddddd;
+    -fx-border-color: #444444;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-font-size: 11px;
+    -fx-cursor: hand;
+    -fx-padding: 6 12 6 12;
+}
+
+.btn-pregunta:hover {
+    -fx-background-color: #8B0000;
+    -fx-border-color: #cc0000;
+    -fx-text-fill: white;
+}
+
+.btn-pregunta:disabled {
+    -fx-opacity: 0.4;
+}
+
+/* ── CHAT (transparente para ver la imagen de fondo) ───────── */
+.scroll-chat {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-chat .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-chat .scroll-bar:vertical {
+    -fx-background-color: #222222;
+    -fx-pref-width: 8;
+}
+
+.scroll-chat .scroll-bar:vertical .thumb {
+    -fx-background-color: #555555;
+    -fx-background-radius: 4;
+}
+
+.chat-container {
+    -fx-background-color: transparent;
+}
+
+/* ── BURBUJAS ──────────────────────────────────────────────── */
+.burbuja-usuario {
+    -fx-background-color: #8B0000;
+    -fx-text-fill: white;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 18 18 4 18;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 3;
+}
+
+.burbuja-asistente {
+    -fx-background-color: #2a2a2a;
+    -fx-text-fill: #eeeeee;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 18 18 18 4;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 3;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 18 18 18 4;
+    -fx-border-width: 1;
+}
+
+.avatar-asistente {
+    -fx-background-color: #8B0000;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+    -fx-background-radius: 50;
+    -fx-alignment: center;
+}
+
+/* ── INPUT BAR ─────────────────────────────────────────────── */
+.input-bar {
+    -fx-background-color: #222222;
+    -fx-border-color: #333333;
+    -fx-border-width: 1 0 0 0;
+}
+
+.campo-texto {
+    -fx-background-color: #2a2a2a;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #777777;
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-border-color: #444444;
+    -fx-border-width: 1;
+    -fx-padding: 10 16 10 16;
+    -fx-font-size: 13px;
+}
+
+.campo-texto:focused {
+    -fx-border-color: #cc0000;
+}
+
+.btn-enviar {
+    -fx-background-color: #8B0000;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 24;
+    -fx-cursor: hand;
+    -fx-padding: 10 22 10 22;
+    -fx-font-size: 13px;
+}
+
+.btn-enviar:hover {
+    -fx-background-color: #cc0000;
+}
+
+.btn-enviar:disabled {
+    -fx-opacity: 0.5;
+}
+
+.indicador-carga {
+    -fx-progress-color: #cc0000;
+}

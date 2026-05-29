@@ -108,5 +108,10 @@
             <Font name="Impact Regular" size="25.0" />
          </font>
       </Button>
+      <Button fx:id="boton_asistente1" layoutX="1002.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="165.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
