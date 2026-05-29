@@ -208,6 +208,27 @@ public class ServiceCuenta {
         }
     }
 
+    public Empleado buscarEmpleadoPorNombre(String nombre) throws ServiceException {
+        try {
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new ServiceException("NOMBRE_VACIO", "El nombre no puede estar vacío");
+            }
 
+            Empleado empleado = empleadoDAO.buscarPorNombre(nombre.trim());
+
+            if (empleado == null) {
+                throw new ServiceException("EMPLEADO_NO_ENCONTRADO",
+                        "No se encontró ningún empleado con el nombre '" + nombre + "'");
+            }
+
+            return empleado;
+
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getCodigo(), e.getMessage(), e);
+        } catch (Exception e) {
+            throw new ServiceException("ERROR_BUSQUEDA",
+                    "Error al buscar empleado por nombre: " + e.getMessage(), e);
+        }
+    }
 
 }
