@@ -208,4 +208,22 @@ public class AkiraAssistantService {
         return desescaparJson(json.substring(inicio, fin));
     }
 
+    private String escaparJson(String text) {
+        return text
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t");
+    }
+
+    private String desescaparJson(String text) {
+        return text
+                .replace("\\n", "\n")
+                .replace("\\r", "\r")
+                .replace("\\t", "\t")
+                .replace("\\\"", "\"")
+                .replace("\\\\", "\\");
+    }
+
 }
