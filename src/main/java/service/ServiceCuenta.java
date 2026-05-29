@@ -184,4 +184,30 @@ public class ServiceCuenta {
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
         return correo != null && correo.matches(regex);
     }
+
+    public Cliente buscarClientePorNombre(String nombre) throws ServiceException {
+        try {
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new ServiceException("NOMBRE_VACIO", "El nombre no puede estar vacío");
+            }
+
+            Cliente cliente = clienteDAO.buscarPorNombre(nombre.trim());
+
+            if (cliente == null) {
+                throw new ServiceException("CLIENTE_NO_ENCONTRADO",
+                        "No se encontró ningún cliente con el nombre '" + nombre + "'");
+            }
+
+            return cliente;
+
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getCodigo(), e.getMessage(), e);
+        } catch (Exception e) {
+            throw new ServiceException("ERROR_BUSQUEDA",
+                    "Error al buscar cliente por nombre: " + e.getMessage(), e);
+        }
+    }
+
+
+
 }
