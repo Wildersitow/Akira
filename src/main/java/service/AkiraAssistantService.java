@@ -108,10 +108,10 @@ public class AkiraAssistantService {
                 sb.append("AUTOS ELÉCTRICOS (").append(autos.size()).append("):\n");
                 for (AutoElectrico a : autos) {
                     sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Puertas: %d | Pasajeros: %d | Tracción: %s | Tipo carga: %s\n",
+                            "  • %s %s | Precio: $%.0f | Puertas: %d | Pasajeros: %d | Tracción: %s\n",
                             a.getMarca(), a.getModelo(), a.getPrecioBase(),
-                            a.getNumeroPuertas(), a.getNumeroPasajeros(),
-                            a.getTraccion(), a.getTipoCarga()
+                            a.getNumeroPuertas(), a.getNumeroPasajeros()
+
                     ));
                 }
             } else {
@@ -130,9 +130,9 @@ public class AkiraAssistantService {
                 sb.append("MOTOS ELÉCTRICAS (").append(motos.size()).append("):\n");
                 for (MotoElectrica m : motos) {
                     sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Tipo: %s | Pasajeros: %d | Tipo carga: %s\n",
+                            "  • %s %s | Precio: $%.0f | Tipo: %s | \n",
                             m.getMarca(), m.getModelo(), m.getPrecioBase(),
-                            m.getTipoMoto(), m.getNumeroPasajeros(), m.getTipoCarga()
+                            m.getTipoMoto()
                     ));
                 }
             } else {
@@ -151,11 +151,11 @@ public class AkiraAssistantService {
                 sb.append("BICICLETAS ELÉCTRICAS (").append(bicis.size()).append("):\n");
                 for (BicicletaElectrica b : bicis) {
                     sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Marchas: %d | Asistencia pedal: %s | Tipo: %s\n",
+                            "  • %s %s | Precio: $%.0f | Marchas: %d |Tipo Asistencia pedal: %s | Material: %s\n",
                             b.getMarca(), b.getModelo(), b.getPrecioBase(),
                             b.getNumeroMarchas(),
-                            b.isTieneAsistenciaPedal() ? "Sí" : "No",
-                            b.getTipoBicicleta()
+                            b.getTipoAsistencia(),
+                            b.getMaterialMarco()
                     ));
                 }
             } else {
@@ -174,10 +174,10 @@ public class AkiraAssistantService {
                 sb.append("PATINETAS ELÉCTRICAS (").append(patinetas.size()).append("):\n");
                 for (PatinetaElectrica p : patinetas) {
                     sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Plegable: %s | Peso dispositivo: %.1f kg | Peso máx usuario: %.1f kg\n",
+                            "  • %s %s | Precio: $%.0f | Plegable: %s | Peso dispositivo: %.1f kg \n",
                             p.getMarca(), p.getModelo(), p.getPrecioBase(),
-                            p.isEsPlegable() ? "Sí" : "No",
-                            p.getPesoDispositivoKg(), p.getPesoMaximoUsuarioKg()
+                            p.isEsPlegable() ? "Sí" : "No"
+
                     ));
                 }
             } else {
