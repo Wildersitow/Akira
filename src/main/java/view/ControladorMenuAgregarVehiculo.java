@@ -7,43 +7,78 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import model.*;
 import service.*;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ControladorMenuAgregarVehiculo {
 
-    @FXML private Pane paneAuto;
-    @FXML private Pane paneMoto;
-    @FXML private Pane panePatineta;
-    @FXML private Pane paneBicicleta;
+    @FXML
+    private Pane paneAuto;
+    @FXML
+    private Pane paneMoto;
+    @FXML
+    private Pane panePatineta;
+    @FXML
+    private Pane paneBicicleta;
 
-    @FXML private ComboBox<String> comboTipoVehiculo;
+    @FXML
+    private ImageView imgAuto, imgMoto, imgPatineta, imgBici;
 
-    @FXML private TextField id_auto, marca_auto, modelo_auto, km_auto, bateria_auto;
-    @FXML private TextField precio_base, vmax_auto, puertas_auto, pasajeros_auto;
-    @FXML private TextField carga_auto, traccion_auto, color_auto, año_auto;
+    @FXML
+    private ComboBox<String> comboTipoVehiculo;
 
-    @FXML private TextField id_moto, marca_moto, modelo_moto, km_moto, baeria_moto;
-    @FXML private TextField precio_moto, vmax_moto, color_moto, año_moto;
-    @FXML private TextField carga_moto, pasajeros_moto, tipo_moto;
+    @FXML
+    private TextField id_auto, marca_auto, modelo_auto, km_auto, bateria_auto;
+    @FXML
+    private TextField precio_base, vmax_auto, puertas_auto, pasajeros_auto;
+    @FXML
+    private TextField carga_auto, traccion_auto, color_auto, año_auto;
 
-    @FXML private TextField id_patineta, marca_patineta, modelo_patineta, km_patineta;
-    @FXML private TextField bateria_patineta, precio_patineta, velocidad_patineta;
-    @FXML private TextField año_patineta, pesomax_patineta, peso_patineta, color_patineta;
-    @FXML private CheckBox box_patineta;
+    @FXML
+    private TextField id_moto, marca_moto, modelo_moto, km_moto, baeria_moto;
+    @FXML
+    private TextField precio_moto, vmax_moto, color_moto, año_moto;
+    @FXML
+    private TextField carga_moto, pasajeros_moto, tipo_moto;
 
-    @FXML private TextField id_bici, marca_bici, model_bici, km_bici, bateria_bici;
-    @FXML private TextField precio_bici, vmax_bici, marchas_bici, tipo_bici;
-    @FXML private TextField color_bici, año_bici;
-    @FXML private CheckBox box_bici;
+    @FXML
+    private TextField id_patineta, marca_patineta, modelo_patineta, km_patineta;
+    @FXML
+    private TextField bateria_patineta, precio_patineta, velocidad_patineta;
+    @FXML
+    private TextField año_patineta, pesomax_patineta, peso_patineta, color_patineta;
+    @FXML
+    private CheckBox box_patineta;
 
-    @FXML private TableView<VehiculoFila> tablaVehiculos;
-    @FXML private TableColumn<VehiculoFila, String> colTipo, colId, colMarca, colModelo;
-    @FXML private TableColumn<VehiculoFila, String> colFecha, colAutonomia, colBateria;
-    @FXML private TableColumn<VehiculoFila, String> colPrecio, colVelocidad;
+    @FXML
+    private TextField id_bici, marca_bici, model_bici, km_bici, bateria_bici;
+    @FXML
+    private TextField precio_bici, vmax_bici, marchas_bici, tipo_bici;
+    @FXML
+    private TextField color_bici, año_bici;
+    @FXML
+    private CheckBox box_bici;
+
+    @FXML
+    private TableView<VehiculoFila> tablaVehiculos;
+    @FXML
+    private TableColumn<VehiculoFila, String> colTipo, colId, colMarca, colModelo;
+    @FXML
+    private TableColumn<VehiculoFila, String> colFecha, colAutonomia, colBateria;
+    @FXML
+    private TableColumn<VehiculoFila, String> colPrecio, colVelocidad;
 
     private final ObservableList<VehiculoFila> listaVehiculos = FXCollections.observableArrayList();
+
+    private String rutaImagenAuto = null;
+    private String rutaImagenMoto = null;
+    private String rutaImagenPatineta = null;
+    private String rutaImagenBici = null;
+
 
     private final AutoElectricoService autoService = new AutoElectricoService();
     private final MotoElectricaService motoService = new MotoElectricaService();
@@ -51,6 +86,26 @@ public class ControladorMenuAgregarVehiculo {
     private final BicicletaElectricaService biciService = new BicicletaElectricaService();
 
     private final UtilidadesFX utilidadesFX = new UtilidadesFX();
+
+    @FXML
+    private void seleccionarImagenAuto() {
+        rutaImagenAuto = seleccionarImagen(imgAuto);
+    }
+
+    @FXML
+    private void seleccionarImagenMoto() {
+        rutaImagenMoto = seleccionarImagen(imgMoto);
+    }
+
+    @FXML
+    private void seleccionarImagenPatineta() {
+        rutaImagenPatineta = seleccionarImagen(imgPatineta);
+    }
+
+    @FXML
+    private void seleccionarImagenBici() {
+        rutaImagenBici = seleccionarImagen(imgBici);
+    }
 
     @FXML
     public void initialize() {
@@ -65,9 +120,9 @@ public class ControladorMenuAgregarVehiculo {
                 .addListener((obs, anterior, nuevo) -> {
                     ocultarTodosLosPanes();
                     switch (nuevo) {
-                        case "Auto Eléctrico"      -> paneAuto.setVisible(true);
-                        case "Moto Eléctrica"      -> paneMoto.setVisible(true);
-                        case "Patineta Eléctrica"  -> panePatineta.setVisible(true);
+                        case "Auto Eléctrico" -> paneAuto.setVisible(true);
+                        case "Moto Eléctrica" -> paneMoto.setVisible(true);
+                        case "Patineta Eléctrica" -> panePatineta.setVisible(true);
                         case "Bicicleta Eléctrica" -> paneBicicleta.setVisible(true);
                     }
                 });
@@ -253,33 +308,81 @@ public class ControladorMenuAgregarVehiculo {
 
     @FXML
     private void limpiarAuto() {
-        id_auto.clear(); marca_auto.clear(); modelo_auto.clear();
-        km_auto.clear(); bateria_auto.clear(); precio_base.clear();
-        vmax_auto.clear(); puertas_auto.clear(); pasajeros_auto.clear();
-        carga_auto.clear(); traccion_auto.clear(); color_auto.clear(); año_auto.clear();
+        id_auto.clear();
+        marca_auto.clear();
+        modelo_auto.clear();
+        km_auto.clear();
+        bateria_auto.clear();
+        precio_base.clear();
+        vmax_auto.clear();
+        puertas_auto.clear();
+        pasajeros_auto.clear();
+        carga_auto.clear();
+        traccion_auto.clear();
+        color_auto.clear();
+        año_auto.clear();
     }
 
     @FXML
     private void limpiarMoto() {
-        id_moto.clear(); marca_moto.clear(); modelo_moto.clear();
-        km_moto.clear(); baeria_moto.clear(); precio_moto.clear();
-        vmax_moto.clear(); color_moto.clear(); año_moto.clear();
-        carga_moto.clear(); pasajeros_moto.clear(); tipo_moto.clear();
+        id_moto.clear();
+        marca_moto.clear();
+        modelo_moto.clear();
+        km_moto.clear();
+        baeria_moto.clear();
+        precio_moto.clear();
+        vmax_moto.clear();
+        color_moto.clear();
+        año_moto.clear();
+        carga_moto.clear();
+        pasajeros_moto.clear();
+        tipo_moto.clear();
     }
 
     @FXML
     private void limpiarPatineta() {
-        id_patineta.clear(); marca_patineta.clear(); modelo_patineta.clear();
-        km_patineta.clear(); bateria_patineta.clear(); precio_patineta.clear();
-        velocidad_patineta.clear(); año_patineta.clear(); pesomax_patineta.clear();
-        peso_patineta.clear(); color_patineta.clear(); box_patineta.setSelected(false);
+        id_patineta.clear();
+        marca_patineta.clear();
+        modelo_patineta.clear();
+        km_patineta.clear();
+        bateria_patineta.clear();
+        precio_patineta.clear();
+        velocidad_patineta.clear();
+        año_patineta.clear();
+        pesomax_patineta.clear();
+        peso_patineta.clear();
+        color_patineta.clear();
+        box_patineta.setSelected(false);
     }
 
     @FXML
     private void limpiarBici() {
-        id_bici.clear(); marca_bici.clear(); model_bici.clear();
-        km_bici.clear(); bateria_bici.clear(); precio_bici.clear();
-        vmax_bici.clear(); marchas_bici.clear(); tipo_bici.clear();
-        color_bici.clear(); año_bici.clear(); box_bici.setSelected(false);
+        id_bici.clear();
+        marca_bici.clear();
+        model_bici.clear();
+        km_bici.clear();
+        bateria_bici.clear();
+        precio_bici.clear();
+        vmax_bici.clear();
+        marchas_bici.clear();
+        tipo_bici.clear();
+        color_bici.clear();
+        año_bici.clear();
+        box_bici.setSelected(false);
+    }
+
+    private String seleccionarImagen(ImageView imageView) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar imagen");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg")
+        );
+        File archivo = fileChooser.showOpenDialog(null);
+        if (archivo != null) {
+            Image imagen = new Image(archivo.toURI().toString());
+            imageView.setImage(imagen);
+            return archivo.getAbsolutePath();
+        }
+        return null;
     }
 }

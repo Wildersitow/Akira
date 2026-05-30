@@ -85,6 +85,7 @@
             <TextField fx:id="traccion_auto" layoutX="768.0" layoutY="144.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
+                  <ImageView fx:id="imgAuto" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
                   <Button fx:id="btn_imagen_auto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />
@@ -187,6 +188,7 @@
             <TextField fx:id="carga_moto" layoutX="768.0" layoutY="61.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
+                  <ImageView fx:id="imgMoto" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
                   <Button fx:id="btn_imagen_moto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />
@@ -282,6 +284,7 @@
             <TextField fx:id="pesomax_patineta" layoutX="768.0" layoutY="61.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
+                  <ImageView fx:id="imgPatineta" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
                   <Button fx:id="btn_imagen_patineta" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />
@@ -387,6 +390,7 @@
             <TextField fx:id="tipo_bici" layoutX="768.0" layoutY="61.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
+                  <ImageView fx:id="imgBici" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
                   <Button fx:id="btn_imagen_bici" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />

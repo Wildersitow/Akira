@@ -2,6 +2,7 @@ module view.akira {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires java.sql;
 
 
     opens view.akira to javafx.fxml;
