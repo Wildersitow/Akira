@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class AutoElectricoDAO {
 
     public void guardar(AutoElectrico auto) throws ServiceException {
-        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -26,6 +26,7 @@ public class AutoElectricoDAO {
             ps.setString(8, auto.getTipoCarro());
             ps.setInt(9, auto.getNumeroPasajeros());
             ps.setString(10, auto.getTraccion());
+            ps.setString(11, auto.getImagen());
             ps.executeUpdate();
             con.commit();
 
@@ -70,7 +71,7 @@ public class AutoElectricoDAO {
     }
 
     private AutoElectrico mapear(ResultSet rs) throws SQLException {
-        return new AutoElectrico(
+        AutoElectrico auto =  new AutoElectrico(
                 rs.getInt("anio"),
                 0.0,                          // autonomiaKm — no está en la tabla
                 0.0,                          // capacidadBateria — no está en la tabla
@@ -87,6 +88,8 @@ public class AutoElectricoDAO {
                 rs.getString("tipo_carro"),
                 rs.getString("traccion")
         );
+        auto.setImagen(rs.getString("imagen"));
+        return auto;
     }
 
     private int estadoToId(EstadoVehiculo estado) {

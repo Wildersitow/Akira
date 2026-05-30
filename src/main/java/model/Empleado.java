@@ -12,6 +12,10 @@ public class Empleado extends Persona implements Serializable {
     private final String codigoEmpleado;
     private final String cargo;
     private final double salario;
+    public String getCargo() { return cargo; }
+    public double getSalario() { return salario; }
+    public String getCodigoEmpleado() { return codigoEmpleado; }
+
 
     public Empleado(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, String rol, int telefono, String codigoEmpleado, String cargo, double salario) {
         super(nombre, nombreUsuario, contraseña, documentoid, email, rol, telefono);
