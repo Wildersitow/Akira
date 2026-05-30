@@ -13,18 +13,16 @@
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="806.0" style="-fx-background-color: #1A1A1A;">
          <children>
-            <Label fx:id="texto_usuario" alignment="CENTER" layoutX="242.0" layoutY="123.0" prefHeight="48.0" prefWidth="322.0" text="NOMBRE DE USUARIO" textFill="WHITE">
+            <Label fx:id="texto_contra" layoutX="159.0" layoutY="78.0" prefHeight="48.0" prefWidth="381.0" text="!BIENVENIDO A AKIRA!" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="39.0" />
                </font>
             </Label>
-            <Label fx:id="texto_contra" alignment="CENTER" layoutX="300.0" layoutY="333.0" prefHeight="48.0" prefWidth="205.0" text="CONTRASEÑA" textFill="WHITE">
+            <PasswordField fx:id="field_contra" layoutX="159.0" layoutY="312.0" prefHeight="48.0" prefWidth="486.0" promptText="Contraseña" styleClass="text-field" stylesheets="@../css/styles.css">
                <font>
-                  <Font name="Impact Regular" size="39.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="field_contra" layoutX="159.0" layoutY="405.0" prefHeight="48.0" prefWidth="486.0" style="-fx-background-color: #D4D4D4;" />
-            <Button fx:id="boton_login" layoutX="299.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleIniciarSesion" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="LOGIN" textFill="WHITE">
+                  <Font size="16.0" />
+               </font></PasswordField>
+            <Button fx:id="boton_login" layoutX="299.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleIniciarSesion" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="25.0" />
                </font>
@@ -39,12 +37,20 @@
                   <Font name="Impact Regular" size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="field_usuario" layoutX="159.0" layoutY="209.0" prefHeight="48.0" prefWidth="486.0" style="-fx-background-color: #D4D4D4;" />
+            <TextField fx:id="field_usuario" layoutX="159.0" layoutY="227.0" prefHeight="48.0" prefWidth="486.0" promptText="Nombre de Usuario" styleClass="text-field" stylesheets="@../css/styles.css">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label fx:id="texto_contra1" layoutX="159.0" layoutY="148.0" prefHeight="20.0" prefWidth="486.0" text="Ingresa tu información de inicio de sesión para ingresas al sistema" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <ImageView fitHeight="449.0" fitWidth="479.0" layoutX="817.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/Paint%20Paper/Paint/logoprovisional.png" />
+            <Image url="@../Imagenes/LogoFondoNegro.png" />
          </image>
       </ImageView>
    </children>
