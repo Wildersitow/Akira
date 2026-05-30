@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #060606;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuCompras">
+   <children>
+      <Pane fx:id="pane_producto1" layoutX="429.0" layoutY="130.0" prefHeight="182.0" prefWidth="389.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="188.0" layoutY="14.0" prefHeight="20.0" prefWidth="117.0" text="Vehiculo" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="bot_alquilar" layoutX="188.0" layoutY="136.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Añadir al carrito" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="bot_comprar" layoutX="188.0" layoutY="91.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Ver Información" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </Button>
+            <Label layoutX="188.0" layoutY="48.0" prefHeight="20.0" prefWidth="117.0" text="Precio" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button fx:id="boton_inicio" layoutX="429.0" layoutY="59.0" mnemonicParsing="false" onAction="#cambiarInicio" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="boton_alquilar" layoutX="574.0" layoutY="59.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ALQUILAR" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="boton_comprar" layoutX="719.0" layoutY="59.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="COMPRAR" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="boton_flota" layoutX="864.0" layoutY="59.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="bot_comprar1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1165.0" layoutY="59.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="61.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #3B3B3B;" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="17.0" />
+         </font>
+      </Button>
+      <Pane fx:id="pane_producto12" layoutX="837.0" layoutY="130.0" prefHeight="182.0" prefWidth="389.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_producto13" layoutX="429.0" layoutY="327.0" prefHeight="182.0" prefWidth="389.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_producto121" layoutX="837.0" layoutY="327.0" prefHeight="182.0" prefWidth="389.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="label_akira" layoutX="157.0" layoutY="47.0" prefHeight="32.0" prefWidth="142.0" text="AKIRA" textFill="#9b0f1f">
+         <font>
+            <Font name="Arial" size="45.0" />
+         </font>
+      </Label>
+      <Pane fx:id="pane_producto11" layoutX="61.0" layoutY="130.0" prefHeight="542.0" prefWidth="334.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label alignment="CENTER" layoutX="27.0" layoutY="24.0" prefHeight="32.0" prefWidth="280.0" text="FILTROS DE BUSQUEDA" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="23.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="11.0" layoutY="88.0" prefHeight="40.0" prefWidth="312.0" promptText="TIPO DE VEHICULO" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/styles.css" />
+            <ComboBox layoutX="11.0" layoutY="142.0" prefHeight="40.0" prefWidth="312.0" promptText="PRECIO" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/styles.css" />
+            <ComboBox layoutX="11.0" layoutY="196.0" prefHeight="40.0" prefWidth="312.0" promptText="MARCA" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/styles.css" />
+            <ComboBox layoutX="11.0" layoutY="250.0" prefHeight="40.0" prefWidth="312.0" promptText="MODELO" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/styles.css" />
+            <ComboBox layoutX="11.0" layoutY="304.0" prefHeight="40.0" prefWidth="312.0" promptText="AUTONOMIA EN KILOMETROS" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/styles.css" />
+            <ComboBox layoutX="11.0" layoutY="359.0" prefHeight="40.0" prefWidth="312.0" promptText="CAPACIDAD DE BATERIA" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/styles.css" />
+            <ComboBox layoutX="11.0" layoutY="415.0" prefHeight="40.0" prefWidth="312.0" promptText="VELOCIDAD MAXIMA" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/styles.css" />
+         </children>
+      </Pane>
+      <Button fx:id="boton_flota1" layoutX="1008.0" layoutY="59.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ASISTENTE" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="1179.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/descarga.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

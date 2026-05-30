@@ -4,24 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/empleado.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/EstadoVehiculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Akira.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Akira.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="409e5832-a0a8-4d3e-a74e-a6dc80ce1a93" name="Changes" comment="fix(service): asignar cargo por defecto al registrar empleado para evitar ORA-01400">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/AlquilerControlador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorAsistenteAI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuAgregarVehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuCompras.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuPrincipalEmpleado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/Alquiler.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/AsistenteAI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuAgregarVehiculo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuCompras.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipalEmpleado.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Asistente.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Akira" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/AutoElectricoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AutoElectricoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/AutoElectrico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BicicletaElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BicicletaElectrica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Contrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Contrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Empleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MotoElectrica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/PatinetaElectrica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/PatinetaElectrica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/VehiculoElectrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/VehiculoElectrico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ServiceCuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ControladorMenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ControladorMenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/FXML/MenuPrincipal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +53,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Wildersitow/Akira.git&quot;,
-    &quot;accountId&quot;: &quot;b9d8f8f7-50fb-42f0-894c-e4f6ff691cff&quot;
+    &quot;accountId&quot;: &quot;c3405369-2b81-49b5-ba58-cd290777df7f&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -73,24 +72,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Akira.executor": "Run",
-    "Application.ControladorMenuInicio.executor": "Run",
-    "Application.Launcher.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging feature/dao",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.externalTools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Akira.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ControladorMenuInicio.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Launcher.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/dao&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.externalTools&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.akira.Launcher" />
@@ -125,110 +124,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778384430563</updated>
-    </task>
-    <task id="LOCAL-00015" summary="feat: Creación clase SesionCuenta">
-      <option name="closed" value="true" />
-      <created>1778460077269</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1778460077269</updated>
-    </task>
-    <task id="LOCAL-00016" summary="feat: Creación metodo IniciarSesion en serviceCuenta">
-      <option name="closed" value="true" />
-      <created>1778460288357</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1778460288357</updated>
-    </task>
-    <task id="LOCAL-00017" summary="feat: Agregación metodos en clase Persona">
-      <option name="closed" value="true" />
-      <created>1778460862137</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1778460862137</updated>
-    </task>
-    <task id="LOCAL-00018" summary="feat: Creación metodos controlador de sesion en SesionCuenta">
-      <option name="closed" value="true" />
-      <created>1778461629336</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1778461629336</updated>
-    </task>
-    <task id="LOCAL-00019" summary="feat: Creación atributo rol en Persona">
-      <option name="closed" value="true" />
-      <created>1778461766287</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1778461766287</updated>
-    </task>
-    <task id="LOCAL-00020" summary="feat: Creación metodos controladores de rol en SesionCuenta">
-      <option name="closed" value="true" />
-      <created>1778462044576</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1778462044576</updated>
-    </task>
-    <task id="LOCAL-00021" summary="feat: Creación metodo registrarUsuario">
-      <option name="closed" value="true" />
-      <created>1778462306713</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1778462306713</updated>
-    </task>
-    <task id="LOCAL-00022" summary="feat: Conexión con el DAO creada en metodo registrarUsuario">
-      <option name="closed" value="true" />
-      <created>1778524576201</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1778524576202</updated>
-    </task>
-    <task id="LOCAL-00023" summary="feat: Clase extra ControladorLogin eliminada">
-      <option name="closed" value="true" />
-      <created>1778524933478</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1778524933478</updated>
-    </task>
-    <task id="LOCAL-00024" summary="feat: Creación clase ClienteDAO">
-      <option name="closed" value="true" />
-      <created>1778525597923</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1778525597923</updated>
-    </task>
-    <task id="LOCAL-00025" summary="feat: Añadido carpeta .idea al gitignore">
-      <option name="closed" value="true" />
-      <created>1778525629226</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1778525629226</updated>
-    </task>
-    <task id="LOCAL-00026" summary="feat: Creación clase EmpleadoDAO">
-      <option name="closed" value="true" />
-      <created>1778525666883</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1778525666883</updated>
-    </task>
-    <task id="LOCAL-00027" summary="feat: Creación metodo guardar">
-      <option name="closed" value="true" />
-      <created>1778526420719</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1778526420719</updated>
     </task>
     <task id="LOCAL-00028" summary="feat: Creación getters nombreUsuario y documentoid">
       <option name="closed" value="true" />
@@ -518,7 +413,111 @@
       <option name="project" value="LOCAL" />
       <updated>1778647091853</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database">
+      <option name="closed" value="true" />
+      <created>1779938267976</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1779938267976</updated>
+    </task>
+    <task id="LOCAL-00065" summary="feat(model): agregar estado MANTENIMIENTO al enum EstadoVehiculo">
+      <option name="closed" value="true" />
+      <created>1779938371553</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1779938371553</updated>
+    </task>
+    <task id="LOCAL-00066" summary="fix(dao): alinear AutoElectricoDAO con esquema Oracle">
+      <option name="closed" value="true" />
+      <created>1779938390219</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1779938390219</updated>
+    </task>
+    <task id="LOCAL-00067" summary="fix(dao): alinear BicicletaElectricaDAO con esquema Oracle">
+      <option name="closed" value="true" />
+      <created>1779939121121</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1779939121121</updated>
+    </task>
+    <task id="LOCAL-00068" summary="fix(dao): alinear MotoElectricaDAO con esquema Oracle">
+      <option name="closed" value="true" />
+      <created>1779939801536</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1779939801536</updated>
+    </task>
+    <task id="LOCAL-00069" summary="fix(dao): alinear PatinetaElectricaDAO con esquema Oracle">
+      <option name="closed" value="true" />
+      <created>1779940210809</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1779940210809</updated>
+    </task>
+    <task id="LOCAL-00070" summary="fix(dao): alinear ClienteDAO con esquema Oracle">
+      <option name="closed" value="true" />
+      <created>1779940865554</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1779940865554</updated>
+    </task>
+    <task id="LOCAL-00071" summary="fix(dao): alinear EmpleadoDAO con esquema Oracle">
+      <option name="closed" value="true" />
+      <created>1779940881299</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1779940881299</updated>
+    </task>
+    <task id="LOCAL-00072" summary="feat(dao): agregar buscarPorNombre en ClienteDAO">
+      <option name="closed" value="true" />
+      <created>1780030869244</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1780030869246</updated>
+    </task>
+    <task id="LOCAL-00073" summary="feat(service): agregar buscarClientePorNombre">
+      <option name="closed" value="true" />
+      <created>1780030940580</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1780030940580</updated>
+    </task>
+    <task id="LOCAL-00074" summary="feat(dao): agregar buscarPorNombre en EmpleadoDAO">
+      <option name="closed" value="true" />
+      <created>1780031270211</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1780031270212</updated>
+    </task>
+    <task id="LOCAL-00075" summary="feat(service): agregar buscarEmpleadoPorNombre">
+      <option name="closed" value="true" />
+      <created>1780031442872</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1780031442872</updated>
+    </task>
+    <task id="LOCAL-00076" summary="fix(service): asignar cargo por defecto al registrar empleado para evitar ORA-01400">
+      <option name="closed" value="true" />
+      <created>1780111404527</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1780111404528</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,18 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: Creacion metodo leer en EmpleadoDAO" />
-    <MESSAGE value="feat: Creacion metodo guardarLista en EmpleadoDAO" />
-    <MESSAGE value="feat: Creacion metodo obtenerTodos en EmpleadoDAO" />
-    <MESSAGE value="feat: Creación constructor de ServiceCuenta para conexión con DAO" />
-    <MESSAGE value="feat: Metodos en UtilidadesFX cambiados a public" />
-    <MESSAGE value="feat: Import del actionEvent corregido en ControladorLogin" />
-    <MESSAGE value="feat: Import del textField corregido en ControladorLogin" />
-    <MESSAGE value="feat: Inicialización del ControladorRegister" />
-    <MESSAGE value="feat: Creación metodo handleRegistrar en ControladorRegister" />
-    <MESSAGE value="feat: Creación metodo cambiarIniciarSesión en ControladorRegister" />
-    <MESSAGE value="feat: Cambio en la ruta FXML de register" />
-    <MESSAGE value="feat: Creación clase Main llamada Akira" />
     <MESSAGE value="feat: Metodo main eliminado de ControladorMenuInicio" />
     <MESSAGE value="feat: Inicialización para la clase ControladorMenuInicio" />
     <MESSAGE value="feat: Metodo cambiar IniciarSesión creado" />
@@ -558,7 +545,19 @@
     <MESSAGE value="feat: Arreglo en las rutas" />
     <MESSAGE value="feat(dao): agregar clase ConexionDB para conexión a Oracle XEPDB1" />
     <MESSAGE value="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore(pom): agregar dependencia ojdbc11 para conexión con Oracle Database" />
+    <MESSAGE value="feat(model): agregar estado MANTENIMIENTO al enum EstadoVehiculo" />
+    <MESSAGE value="fix(dao): alinear AutoElectricoDAO con esquema Oracle" />
+    <MESSAGE value="fix(dao): alinear BicicletaElectricaDAO con esquema Oracle" />
+    <MESSAGE value="fix(dao): alinear MotoElectricaDAO con esquema Oracle" />
+    <MESSAGE value="fix(dao): alinear PatinetaElectricaDAO con esquema Oracle" />
+    <MESSAGE value="fix(dao): alinear ClienteDAO con esquema Oracle" />
+    <MESSAGE value="fix(dao): alinear EmpleadoDAO con esquema Oracle" />
+    <MESSAGE value="feat(dao): agregar buscarPorNombre en ClienteDAO" />
+    <MESSAGE value="feat(service): agregar buscarClientePorNombre" />
+    <MESSAGE value="feat(dao): agregar buscarPorNombre en EmpleadoDAO" />
+    <MESSAGE value="feat(service): agregar buscarEmpleadoPorNombre" />
+    <MESSAGE value="fix(service): asignar cargo por defecto al registrar empleado para evitar ORA-01400" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(service): asignar cargo por defecto al registrar empleado para evitar ORA-01400" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

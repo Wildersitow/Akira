@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #060606;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuPrincipalEmpleado">
+   <children>
+      <Pane fx:id="pane_producto1" layoutX="266.0" layoutY="418.0" prefHeight="276.0" prefWidth="958.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <TableView layoutX="29.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0" style="-fx-background-color: #2a2a2a;" stylesheets="@../css/styles.css">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="ID" />
+                  <TableColumn prefWidth="88.80000305175781" text="MODELO" />
+                  <TableColumn prefWidth="96.79998779296875" text="PRECIO" />
+                  <TableColumn prefWidth="114.40008544921875" text="COMPRADOR" />
+                  <TableColumn prefWidth="70.39990234375" text="FECHA" />
+               </columns>
+            </TableView>
+            <TableView layoutX="485.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0" style="-fx-background-color: #2a2a2a;" stylesheets="@../css/styles.css">
+               <columns>
+                  <TableColumn prefWidth="146.4000244140625" text="CLIENTE" />
+                  <TableColumn prefWidth="130.4000244140625" text="VEHICULO" />
+                  <TableColumn prefWidth="87.199951171875" text="FECHA" />
+                  <TableColumn prefWidth="83.9998779296875" text="ESTADO" />
+               </columns>
+            </TableView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" text="VEHICULOS COMPRADOS" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="594.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" text="VEHICULOS ALQUILADOS">
+               <font>
+                  <Font name="Roboto" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_producto11" layoutX="266.0" layoutY="35.0" prefHeight="302.0" prefWidth="958.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Pane layoutX="26.0" layoutY="109.0" prefHeight="164.0" prefWidth="226.0" style="-fx-background-color: #9B0F1F;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" text="TOTAL VEHICULOS" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="263.0" layoutY="109.0" prefHeight="164.0" prefWidth="220.0" style="-fx-background-color: #9B0F1F;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" text="INGRESOS" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="493.0" layoutY="109.0" prefHeight="164.0" prefWidth="226.0" style="-fx-background-color: #9B0F1F;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" text="TOTAL CLIENTES" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="728.0" layoutY="109.0" prefHeight="164.0" prefWidth="204.0" style="-fx-background-color: #9B0F1F;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" text="CONTRATOS ACTIVOS" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="label_akira1" layoutX="26.0" layoutY="14.0" prefHeight="54.0" prefWidth="175.0" text="Bienvenido," textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_akira11" layoutX="201.0" layoutY="14.0" prefHeight="54.0" prefWidth="175.0" text="USUARIO" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_akira12" layoutX="26.0" layoutY="68.0" prefHeight="23.0" prefWidth="393.0" text="Resumen general del sistema" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="266.0" layoutY="351.0" prefHeight="54.0" prefWidth="958.0" style="-fx-background-color: #9B0F1F;">
+         <children>
+            <Label layoutX="14.0" layoutY="16.0" prefHeight="23.0" prefWidth="125.0" text="LISTAS" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="728.0" prefWidth="220.0" style="-fx-background-color: #1F1F1F; -fx-border-color: #3B3B3B;">
+         <children>
+            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_alquilar" layoutX="12.0" layoutY="274.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CONTRATOS" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="HISTORIAL DE COMPRAS" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ASISTENTE" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Label fx:id="label_akira" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="31.0" prefHeight="54.0" prefWidth="158.0" text="AKIRA" textFill="#9b0f1f">
+               <font>
+                  <Font name="Arial" size="45.0" />
+               </font>
+            </Label>
+            <Button fx:id="boton_asistente1" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="AÑADIR/QUITAR VEHICULO" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="21.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
