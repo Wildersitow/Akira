@@ -13,6 +13,7 @@ public abstract class VehiculoElectrico {
     protected int VelocidadMaxima;
     protected int PotenciaMotorKW;
     protected EstadoVehiculo Estado;
+    protected String Imagen;
 
     public VehiculoElectrico(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima) {
         Anio = anio;
@@ -125,6 +126,13 @@ public abstract class VehiculoElectrico {
             throw new IllegalStateException("El vehículo ya se encuentra vendido");
         }
         this.Estado = EstadoVehiculo.VENDIDO;
+    }
+    public String getImagen() {
+        return Imagen;
+    }
+
+    public void setImagen(String imagen) {
+        Imagen = imagen;
     }
 
     @Override
