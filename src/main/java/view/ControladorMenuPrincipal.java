@@ -1,65 +1,15 @@
 package view;
 
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+
+import java.awt.event.ActionEvent;
+import java.beans.EventHandler;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class ControladorMenuPrincipal {
-
-    private final UtilidadesFX utilidades;
-
-    public ControladorMenuPrincipal() {
-        this.utilidades = new UtilidadesFX();
-    }
-
-    public void cambiarInicio(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a MenuPrincipal...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
-    }
-
-    public void cambiarAlquiler(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a Alquiler...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/Alquiler.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
-    }
-
-    public void cambiarCompras(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a MenuCompras...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuCompras.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
-    }
-
-    public void cambiarFlota(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a MenuFlota...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
-    }
-
-    public void cambiarAsistente(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a Asistente...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/Asistente.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
-    }
-
-
-
 }

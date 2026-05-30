@@ -152,7 +152,7 @@ public class ServiceCuenta {
                     utilidades.mostrarAlerta(Alert.AlertType.INFORMATION, "Bienvenido",
                             "¡Bienvenido Empleado " + empleado.getNombre() + "!");
 
-                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipalEmpleado.fxml");
+                    utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
                     return;
 
                 } else {

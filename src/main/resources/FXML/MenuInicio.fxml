@@ -3,10 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0A0A0A;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuInicio">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0"
+            style="-fx-background-color: #0A0A0A;"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.ControladorMenuInicio">
    <children>
+      <Pane fx:id="pane_producto1" layoutX="75.0" layoutY="445.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #CCCCCC; -fx-border-radius: 20px;" />
+      <Pane fx:id="pane_producto2" layoutX="463.0" layoutY="445.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-border-color: #CCCCCC; -fx-border-radius: 20px; -fx-background-radius: 20px;" />
+      <Pane fx:id="pane_producto3" layoutX="847.0" layoutY="445.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-border-color: #CCCCCC; -fx-background-radius: 20px; -fx-border-radius: 20px;" />
       <Label fx:id="label_akira" layoutX="75.0" layoutY="33.0" prefHeight="66.0" prefWidth="132.0" text="AKIRA" textFill="#ff1f1f">
          <font>
             <Font name="Haettenschweiler" size="67.0" />

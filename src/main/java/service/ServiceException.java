@@ -9,8 +9,6 @@ public class ServiceException extends Exception {
         super(mensaje);
         this.codigo = codigo;
     }
-    
-    
 
     public ServiceException(String codigo, String mensaje, Throwable causa) {
         super(mensaje, causa);
