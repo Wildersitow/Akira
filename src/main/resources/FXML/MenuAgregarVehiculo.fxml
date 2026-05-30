@@ -469,15 +469,15 @@
 
       <TableView layoutX="266.0" layoutY="506.0" prefHeight="201.0" prefWidth="958.0" style="-fx-background-color: #2a2a2a; -fx-border-color: #3B3B3B;" stylesheets="@../css/styles.css">
          <columns>
-            <TableColumn prefWidth="128.79998779296875" text="TIPO DE VEHICULO" />
-            <TableColumn prefWidth="56.0" text="ID" />
-            <TableColumn prefWidth="92.0" text="MARCA" />
-            <TableColumn prefWidth="88.79998779296875" text="MODELO" />
-            <TableColumn prefWidth="83.20001220703125" text="FECHA" />
-            <TableColumn prefWidth="97.5999755859375" text="AUTONOMIA" />
-            <TableColumn prefWidth="160.00006103515625" text="CAPACIDAD DE BATERIA" />
-            <TableColumn prefWidth="89.599853515625" text="PRECIO" />
-            <TableColumn prefWidth="162.4000244140625" text="VELOCIDAD MAXIMA" />
+            <TableColumn fx:id="colTipo" prefWidth="128.79998779296875" text="TIPO DE VEHICULO" />
+            <TableColumn fx:id="colId" prefWidth="56.0" text="ID" />
+            <TableColumn fx:id="colMarca" prefWidth="92.0" text="MARCA" />
+            <TableColumn fx:id="colModelo" prefWidth="88.79998779296875" text="MODELO" />
+            <TableColumn fx:id="colFecha" prefWidth="83.20001220703125" text="FECHA" />
+            <TableColumn fx:id="colAutonomia" prefWidth="97.5999755859375" text="AUTONOMIA" />
+            <TableColumn fx:id="colBateria" prefWidth="160.00006103515625" text="CAPACIDAD DE BATERIA" />
+            <TableColumn fx:id="colPrecio" prefWidth="89.599853515625" text="PRECIO" />
+            <TableColumn fx:id="colVelocidad" prefWidth="162.4000244140625" text="VELOCIDAD MAXIMA" />
          </columns>
       </TableView>
       <TextField fx:id="campoBuscar" layoutX="266.0" layoutY="457.0" prefHeight="32.0" prefWidth="384.0" promptText="Buscar Vehiculo" stylesheets="@../css/styles.css" />
