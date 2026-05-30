@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,7 +13,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.CheckBox?>
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #060606;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuAgregarVehiculo">
    <children>
       <Pane fx:id="paneAuto" layoutX="266.0" layoutY="88.0" prefHeight="353.0" prefWidth="958.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
@@ -85,25 +85,20 @@
             <TextField fx:id="traccion_auto" layoutX="768.0" layoutY="144.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
-                  <ImageView fx:id="imgAuto" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
-                  <Button fx:id="btn_imagen_auto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                  <ImageView fx:id="imgAuto" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_auto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenAuto" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button fx:id="btn_limpiar_auto" layoutX="628.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+            <Button fx:id="btn_limpiar_auto" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarAuto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btn_eliminar_auto" layoutX="399.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Eliminar Vehiculo" textFill="WHITE">
-               <font>
-                  <Font name="Roboto" size="17.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn_agregar_auto" layoutX="166.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+            <Button fx:id="btn_agregar_auto" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarAuto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
@@ -188,25 +183,20 @@
             <TextField fx:id="carga_moto" layoutX="768.0" layoutY="61.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
-                  <ImageView fx:id="imgMoto" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
-                  <Button fx:id="btn_imagen_moto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                  <ImageView fx:id="imgMoto" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_moto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenMoto" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button fx:id="btn_limpiar_moto" layoutX="628.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+            <Button fx:id="btn_limpiar_moto" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarMoto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btn_eliminar_moto" layoutX="399.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Eliminar Vehiculo" textFill="WHITE">
-               <font>
-                  <Font name="Roboto" size="17.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn_agregar_moto" layoutX="166.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+            <Button fx:id="btn_agregar_moto" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarMoto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
@@ -284,25 +274,20 @@
             <TextField fx:id="pesomax_patineta" layoutX="768.0" layoutY="61.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
-                  <ImageView fx:id="imgPatineta" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
-                  <Button fx:id="btn_imagen_patineta" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                  <ImageView fx:id="imgPatineta" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_patineta" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenPatineta" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button fx:id="btn_limpiar_patineta" layoutX="628.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+            <Button fx:id="btn_limpiar_patineta" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarPatineta" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btn_eliminar_patineta" layoutX="399.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Eliminar Vehiculo" textFill="WHITE">
-               <font>
-                  <Font name="Roboto" size="17.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn_agregar_patineta" layoutX="166.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+            <Button fx:id="btn_agregar_patineta" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarPatineta" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
@@ -390,25 +375,20 @@
             <TextField fx:id="tipo_bici" layoutX="768.0" layoutY="61.0" stylesheets="@../css/styles.css" />
             <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
                <children>
-                  <ImageView fx:id="imgBici" fitWidth="142.0" fitHeight="160.0" layoutX="1.0" layoutY="1.0" preserveRatio="true" pickOnBounds="true" />
-                  <Button fx:id="btn_imagen_bici" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                  <ImageView fx:id="imgBici" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_bici" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenBici" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="17.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button fx:id="btn_limpiar_bici" layoutX="628.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+            <Button fx:id="btn_limpiar_bici" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarBici" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
             </Button>
-            <Button fx:id="btn_eliminar_bici" layoutX="399.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Eliminar Vehiculo" textFill="WHITE">
-               <font>
-                  <Font name="Roboto" size="17.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn_agregar_bici" layoutX="166.0" layoutY="298.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+            <Button fx:id="btn_agregar_bici" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarBici" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="17.0" />
                </font>
@@ -500,6 +480,11 @@
             <TableColumn prefWidth="162.4000244140625" text="VELOCIDAD MAXIMA" />
          </columns>
       </TableView>
-      <TextField layoutX="266.0" layoutY="457.0" prefHeight="32.0" prefWidth="384.0" promptText="Buscar Vehiculo" stylesheets="@../css/styles.css" />
+      <TextField fx:id="campoBuscar" layoutX="266.0" layoutY="457.0" prefHeight="32.0" prefWidth="384.0" promptText="Buscar Vehiculo" stylesheets="@../css/styles.css" />
+      <Button fx:id="btn_eliminar" layoutX="1036.0" layoutY="457.0" mnemonicParsing="false" onAction="#eliminarVehiculo" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Eliminar Vehiculo" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="17.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
