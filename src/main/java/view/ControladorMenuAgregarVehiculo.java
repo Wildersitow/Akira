@@ -1,14 +1,15 @@
 package view;
 
-import dao.AutoElectricoDAO;
-import dao.BicicletaElectricaDAO;
-import dao.MotoElectricaDAO;
-import dao.PatinetaElectricaDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import model.*;
 import service.*;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ControladorMenuAgregarVehiculo {
 
@@ -37,6 +38,13 @@ public class ControladorMenuAgregarVehiculo {
     @FXML private TextField color_bici, año_bici;
     @FXML private CheckBox box_bici;
 
+    @FXML private TableView<VehiculoFila> tablaVehiculos;
+    @FXML private TableColumn<VehiculoFila, String> colTipo, colId, colMarca, colModelo;
+    @FXML private TableColumn<VehiculoFila, String> colFecha, colAutonomia, colBateria;
+    @FXML private TableColumn<VehiculoFila, String> colPrecio, colVelocidad;
+
+    private final ObservableList<VehiculoFila> listaVehiculos = FXCollections.observableArrayList();
+
     private final AutoElectricoService autoService = new AutoElectricoService();
     private final MotoElectricaService motoService = new MotoElectricaService();
     private final PatinetaElectricaService patinetaService = new PatinetaElectricaService();
@@ -47,10 +55,8 @@ public class ControladorMenuAgregarVehiculo {
     @FXML
     public void initialize() {
         comboTipoVehiculo.getItems().addAll(
-                "Auto Eléctrico",
-                "Moto Eléctrica",
-                "Patineta Eléctrica",
-                "Bicicleta Eléctrica"
+                "Auto Eléctrico", "Moto Eléctrica",
+                "Patineta Eléctrica", "Bicicleta Eléctrica"
         );
         ocultarTodosLosPanes();
 
@@ -65,6 +71,55 @@ public class ControladorMenuAgregarVehiculo {
                         case "Bicicleta Eléctrica" -> paneBicicleta.setVisible(true);
                     }
                 });
+
+        configurarColumnas();
+        cargarTabla();
+    }
+
+    private void configurarColumnas() {
+        colTipo.setCellValueFactory(d -> d.getValue().tipoProperty());
+        colId.setCellValueFactory(d -> d.getValue().idProperty());
+        colMarca.setCellValueFactory(d -> d.getValue().marcaProperty());
+        colModelo.setCellValueFactory(d -> d.getValue().modeloProperty());
+        colFecha.setCellValueFactory(d -> d.getValue().fechaProperty());
+        colAutonomia.setCellValueFactory(d -> d.getValue().autonomiaProperty());
+        colBateria.setCellValueFactory(d -> d.getValue().bateriaProperty());
+        colPrecio.setCellValueFactory(d -> d.getValue().precioProperty());
+        colVelocidad.setCellValueFactory(d -> d.getValue().velocidadProperty());
+        tablaVehiculos.setItems(listaVehiculos);
+    }
+
+    private void cargarTabla() {
+        listaVehiculos.clear();
+        String fecha = LocalDate.now().toString();
+        try {
+            for (AutoElectrico a : autoService.obtenerTodos())
+                listaVehiculos.add(new VehiculoFila("Auto", a.getId(), a.getMarca(),
+                        a.getModelo(), fecha, String.valueOf(a.getAutonomiaKm()),
+                        String.valueOf(a.getCapacidadBateria()),
+                        String.valueOf(a.getPrecioBase()), String.valueOf(a.getVelocidadMaxima())));
+
+            for (MotoElectrica m : motoService.obtenerTodos())
+                listaVehiculos.add(new VehiculoFila("Moto", m.getId(), m.getMarca(),
+                        m.getModelo(), fecha, String.valueOf(m.getAutonomiaKm()),
+                        String.valueOf(m.getCapacidadBateria()),
+                        String.valueOf(m.getPrecioBase()), String.valueOf(m.getVelocidadMaxima())));
+
+            for (PatinetaElectrica p : patinetaService.obtenerTodos())
+                listaVehiculos.add(new VehiculoFila("Patineta", p.getId(), p.getMarca(),
+                        p.getModelo(), fecha, String.valueOf(p.getAutonomiaKm()),
+                        String.valueOf(p.getCapacidadBateria()),
+                        String.valueOf(p.getPrecioBase()), String.valueOf(p.getVelocidadMaxima())));
+
+            for (BicicletaElectrica b : biciService.obtenerTodos())
+                listaVehiculos.add(new VehiculoFila("Bicicleta", b.getId(), b.getMarca(),
+                        b.getModelo(), fecha, String.valueOf(b.getAutonomiaKm()),
+                        String.valueOf(b.getCapacidadBateria()),
+                        String.valueOf(b.getPrecioBase()), String.valueOf(b.getVelocidadMaxima())));
+
+        } catch (ServiceException e) {
+            utilidadesFX.mostrarAlerta(Alert.AlertType.ERROR, "Error", e.getMessage());
+        }
     }
 
     private void ocultarTodosLosPanes() {
@@ -97,6 +152,7 @@ public class ControladorMenuAgregarVehiculo {
             autoService.guardar(auto);
             utilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Auto registrado correctamente.");
             limpiarAuto();
+            cargarTabla();
         } catch (ServiceException e) {
             utilidadesFX.mostrarAlerta(Alert.AlertType.ERROR, "Error", e.getMessage());
         } catch (NumberFormatException e) {
@@ -126,6 +182,7 @@ public class ControladorMenuAgregarVehiculo {
             motoService.guardar(moto);
             utilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Moto registrada correctamente.");
             limpiarMoto();
+            cargarTabla();
         } catch (ServiceException e) {
             utilidadesFX.mostrarAlerta(Alert.AlertType.ERROR, "Error", e.getMessage());
         } catch (NumberFormatException e) {
@@ -155,6 +212,7 @@ public class ControladorMenuAgregarVehiculo {
             patinetaService.guardar(patineta);
             utilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Patineta registrada correctamente.");
             limpiarPatineta();
+            cargarTabla();
         } catch (ServiceException e) {
             utilidadesFX.mostrarAlerta(Alert.AlertType.ERROR, "Error", e.getMessage());
         } catch (NumberFormatException e) {
@@ -185,6 +243,7 @@ public class ControladorMenuAgregarVehiculo {
             biciService.guardar(bici);
             utilidadesFX.mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito", "Bicicleta registrada correctamente.");
             limpiarBici();
+            cargarTabla();
         } catch (ServiceException e) {
             utilidadesFX.mostrarAlerta(Alert.AlertType.ERROR, "Error", e.getMessage());
         } catch (NumberFormatException e) {
