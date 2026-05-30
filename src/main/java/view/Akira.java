@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 import static javafx.application.Application.launch;
 
 public class Akira extends Application {
@@ -16,8 +18,8 @@ public class Akira extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Akira.class.getResource("/FXML/MenuInicio.fxml"));
+            File fxmlFile = new File("src/main/resources/FXML/MenuInicio.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlFile.toURI().toURL());
 
             Parent root = loader.load();
             Scene scene = new Scene(root);

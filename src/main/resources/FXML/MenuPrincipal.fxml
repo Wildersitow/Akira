@@ -6,17 +6,109 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0A0A0A;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuInicio">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #060606;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuPrincipal">
    <children>
-      <Pane fx:id="pane_producto1" layoutX="75.0" layoutY="445.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #CCCCCC; -fx-border-radius: 20px;" />
-      <Pane fx:id="pane_producto2" layoutX="463.0" layoutY="445.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-border-color: #CCCCCC; -fx-border-radius: 20px; -fx-background-radius: 20px;" />
-      <Pane fx:id="pane_producto3" layoutX="847.0" layoutY="445.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-border-color: #CCCCCC; -fx-background-radius: 20ṕx; -fx-border-radius: 20px;" />
-      <Label fx:id="label_akira" layoutX="75.0" layoutY="33.0" prefHeight="66.0" prefWidth="132.0" text="AKIRA" textFill="#ff1f1f">
+      <Pane fx:id="pane_producto1" layoutX="77.0" layoutY="492.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="27.0" />
+               </font>
+            </Label>
+            <Button fx:id="ver_detalles" layoutX="155.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="VER DETALLES" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Label fx:id="label_akira" layoutX="78.0" layoutY="32.0" prefHeight="76.0" prefWidth="257.0" text="AKIRA" textFill="#9b0f1f">
          <font>
-            <Font name="Haettenschweiler" size="67.0" />
+            <Font name="Arial" size="45.0" />
          </font>
       </Label>
-      <Button fx:id="boton_logout" layoutX="640.0" layoutY="253.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="sALIR" textFill="WHITE">
+      <Button fx:id="boton_inicio" layoutX="230.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Pane fx:id="pane_producto11" layoutX="77.0" layoutY="109.0" prefHeight="317.0" prefWidth="1126.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="26.0" layoutY="58.0" prefHeight="81.0" prefWidth="502.0" text="Encuentra tu próximo" textFill="WHITE">
+               <font>
+                  <Font name="Inter Regular" size="49.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="129.0" prefHeight="71.0" prefWidth="450.0" text="vehículo eléctrico" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="49.0" />
+               </font>
+            </Label>
+            <Button fx:id="bot_alquilar" layoutX="26.0" layoutY="217.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="211.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="ALQUILAR AHORA" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </Button>
+            <Button fx:id="bot_comprar" layoutX="265.0" layoutY="217.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="211.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #3B3B3B;" text="COMPRAR" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="78.0" layoutY="437.0" prefHeight="55.0" prefWidth="382.0" text="Vehiculos Recomendados" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="31.0" />
+         </font>
+      </Label>
+      <Button fx:id="boton_alquilar" layoutX="387.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ALQUILAR" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="boton_comprar" layoutX="540.0" layoutY="40.0" mnemonicParsing="false" onAction="#cambiarCompras" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="COMPRAR" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="boton_flota" layoutX="694.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Pane fx:id="pane_producto12" layoutX="463.0" layoutY="492.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="27.0" />
+               </font>
+            </Label>
+            <Button fx:id="ver_detalles2" layoutX="155.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="VER DETALLES" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_producto13" layoutX="848.0" layoutY="492.0" prefHeight="200.0" prefWidth="353.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="25.0" layoutY="22.0" prefHeight="20.0" prefWidth="117.0" text="xxx" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="27.0" />
+               </font>
+            </Label>
+            <Button fx:id="ver_detalles3" layoutX="155.0" layoutY="128.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="176.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 20px; -fx-border-radius: 20px;" text="VER DETALLES" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Button fx:id="boton_asistente" layoutX="842.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ASISTENTE" textFill="WHITE">
+         <font>
+            <Font name="Impact Regular" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="boton_asistente1" layoutX="1002.0" layoutY="40.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="165.0" style="-fx-background-color: #060606;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
          <font>
             <Font name="Impact Regular" size="25.0" />
          </font>
