@@ -69,7 +69,7 @@ public class ServiceCuenta {
             } else if (rol.equalsIgnoreCase("empleado")) {
                 System.out.println("Creando nuevo Empleado...");
 
-                Empleado nuevoEmpleado = new Empleado(nombreUsuario, nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "", 0.0);
+                Empleado nuevoEmpleado = new Empleado(nombreUsuario, nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "Administrador", 0.0);
 
                 // Guardar en repositorio
                 empleadoDAO.guardar(nuevoEmpleado);
