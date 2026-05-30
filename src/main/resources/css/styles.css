@@ -1,0 +1,127 @@
+.boton-custom {
+    -fx-background-color: #060606;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+.boton-custom:hover {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: red;
+    -fx-font-size: 16px;   /* texto más grande */
+    -fx-scale-x: 1.05;     /* zoom suave en X */
+    -fx-scale-y: 1.05;     /* zoom suave en Y */
+}
+
+/* ── Apariencia base del ComboBox ── */
+.combo-box {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #444444;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+/* Texto del ComboBox en blanco */
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-padding: 0;
+}
+
+/* Ocultar el botón de la flecha completamente */
+.combo-box .arrow-button {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-padding: 0;
+    -fx-opacity: 0;
+}
+
+.combo-box .arrow {
+    -fx-opacity: 0;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+}
+
+/* ── Cuando el usuario abre/enfoca el ComboBox ── */
+.combo-box:focused,
+.combo-box:showing {
+    -fx-background-color: #3d1a1a;   /* rojo oscuro, acorde a tu botón */
+    -fx-border-color: #c0392b;
+}
+
+/* ── Lista desplegable (el popup) ── */
+.combo-box-popup .list-view {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #c0392b;
+    -fx-border-width: 1;
+}
+
+.combo-box .list-cell:empty .text {
+    -fx-fill: #aaaaaa;
+    -fx-alignment: center;
+}
+
+/* Cada opción en la lista */
+.combo-box-popup .list-view .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: #1f1f1f;
+    -fx-padding: 6 10 6 10;
+    -fx-alignment: center;
+}
+
+/* Opción al pasar el mouse (hover) */
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #3d1a1a;
+    -fx-text-fill: white;
+}
+
+/* Opción seleccionada */
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent gray transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 4 0;
+    -fx-text-fill: white;
+}
+
+/* Encabezados centrados y en rojo */
+.table-view .column-header .label {
+    -fx-text-fill: #ffffff;
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+}
+
+/* Fondo del encabezado */
+.table-view .column-header {
+    -fx-background-color:  #9B0F1F;
+    -fx-border-color:  #2a2a2a;
+}
+
+.table-view .column-header-background {
+    -fx-background-color:  #9B0F1F;
+}
+
+.check-box .label {
+    -fx-text-fill: transparent;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: gray;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: black;
+}
+
+
