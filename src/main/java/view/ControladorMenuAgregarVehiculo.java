@@ -1,5 +1,6 @@
 package view;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -94,7 +95,7 @@ public class ControladorMenuAgregarVehiculo {
 
         configurarColumnas();
         configurarBuscador();
-        cargarTabla();
+        Platform.runLater(() -> cargarTabla());
     }
 
     private void configurarColumnas() {

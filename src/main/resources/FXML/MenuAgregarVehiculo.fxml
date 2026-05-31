@@ -467,7 +467,7 @@
          </children>
       </Pane>
 
-      <TableView layoutX="266.0" layoutY="506.0" prefHeight="201.0" prefWidth="958.0" style="-fx-background-color: #2a2a2a; -fx-border-color: #3B3B3B;" stylesheets="@../css/styles.css">
+      <TableView fx:id="tablaVehiculos" layoutX="266.0" layoutY="506.0" prefHeight="201.0" prefWidth="958.0" style="-fx-background-color: #2a2a2a; -fx-border-color: #3B3B3B;" stylesheets="@../css/styles.css">
          <columns>
             <TableColumn fx:id="colTipo" prefWidth="128.79998779296875" text="TIPO DE VEHICULO" />
             <TableColumn fx:id="colId" prefWidth="56.0" text="ID" />
