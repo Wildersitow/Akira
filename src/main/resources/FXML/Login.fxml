@@ -13,7 +13,7 @@
    <children>
       <AnchorPane prefHeight="720.0" prefWidth="806.0" style="-fx-background-color: #1A1A1A;">
          <children>
-            <Label fx:id="texto_contra" layoutX="159.0" layoutY="78.0" prefHeight="48.0" prefWidth="381.0" text="!BIENVENIDO A AKIRA!" textFill="WHITE">
+            <Label fx:id="texto_contra" layoutX="159.0" layoutY="78.0" prefHeight="48.0" prefWidth="480.0" text="!BIENVENIDO A AKIRA!" textFill="WHITE">
                <font>
                   <Font name="Impact Regular" size="39.0" />
                </font>
