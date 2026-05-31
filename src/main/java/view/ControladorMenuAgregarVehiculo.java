@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
+import javafx.application.Platform;
 
 public class ControladorMenuAgregarVehiculo {
 
@@ -94,7 +95,7 @@ public class ControladorMenuAgregarVehiculo {
 
         configurarColumnas();
         configurarBuscador();
-        cargarTabla();
+        Platform.runLater(this::cargarTabla);
     }
 
     private void configurarColumnas() {
