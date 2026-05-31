@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class AutoElectricoDAO {
 
     public void guardar(AutoElectrico auto) throws ServiceException {
-        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion, imagen) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio_base, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion,  autonomia_km, capacidad_bateria, velocidad_maxima, potencia_motor_kw, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -26,7 +26,11 @@ public class AutoElectricoDAO {
             ps.setString(8, auto.getTipoCarro());
             ps.setInt(9, auto.getNumeroPasajeros());
             ps.setString(10, auto.getTraccion());
-            ps.setString(11, auto.getImagen());
+            ps.setDouble(11, auto.getAutonomiaKm());
+            ps.setDouble(12, auto.getCapacidadBateria());
+            ps.setInt(13,    auto.getVelocidadMaxima());
+            ps.setInt(14,    auto.getPotenciaMotorKW());
+            ps.setString(15, auto.getImagen());
             ps.executeUpdate();
             con.commit();
 
@@ -80,7 +84,7 @@ public class AutoElectricoDAO {
                 String.valueOf(rs.getLong("id")),
                 rs.getString("marca"),
                 rs.getString("modelo"),
-                rs.getDouble("precio"),
+                rs.getDouble("precio_base"),
                 0,                            // potenciaMotorKW — no está en la tabla
                 0,                            // velocidadMaxima — no está en la tabla
                 rs.getInt("cap_pasajeros"),
