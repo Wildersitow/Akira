@@ -1,38 +1,293 @@
+/* ═══════════════════════════════════════════════════════════
+   AKIRA — Sistema de Gestión de Vehículos
+   styles.css — Tema oscuro profesional con acento rojo
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── ROOT / VARIABLES (JavaFX no soporta var(), pero defines
+      colores aquí de referencia para mantener consistencia) ── */
+
+/* Paleta:
+   Fondo principal:    #0d0d0d
+   Fondo tarjeta:      #1a1a1a
+   Fondo sidebar:      #111111
+   Acento rojo:        #9B0F1F
+   Acento rojo claro:  #c0392b
+   Borde sutil:        #2e2e2e
+   Texto primario:     #f0f0f0
+   Texto secundario:   #888888
+*/
+
+
+/* ══════════════════════════════════════════════════
+   1. CONTENEDOR RAÍZ / FONDO GENERAL
+   ══════════════════════════════════════════════════ */
+
+.root {
+    -fx-background-color: #0d0d0d;
+    -fx-font-family: "Rajdhani";
+    /* MEJORA: fondo más profundo que el #060606 original, da más
+       contraste con las tarjetas y evita que todo se vea "plano" */
+}
+
+
+/* ══════════════════════════════════════════════════
+   2. SIDEBAR / PANEL LATERAL
+   ══════════════════════════════════════════════════ */
+
+.sidebar {
+    -fx-background-color: #111111;
+    -fx-border-color: transparent #2e2e2e transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    /* MEJORA: borde derecho sutil que separa el sidebar del contenido
+       sin usar una línea obvia y gruesa */
+}
+
+
+/* ══════════════════════════════════════════════════
+   3. BOTONES DE NAVEGACIÓN (sidebar)
+   ══════════════════════════════════════════════════ */
+
 .boton-custom {
-    -fx-background-color: #060606;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-padding: 10 20;
+    -fx-background-color: transparent;
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+    -fx-padding: 12 24;
     -fx-cursor: hand;
-    -fx-scale-x: 1;
-    -fx-scale-y: 1;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: transparent;
+    /* MEJORAS:
+       - Fondo transparent en lugar de negro puro: el sidebar ya tiene su color
+       - Texto gris en reposo (#aaa): menos agresivo que blanco, destaca al hover
+       - Borde izquierdo de 3px (indicador de selección activa)
+       - Alineación a la izquierda: más natural para menús de navegación
+       - Font-size 13 más limpio que 14 en sidebar */
 }
 
 .boton-custom:hover {
-    -fx-background-color: #9B0F1F;
-    -fx-text-fill: red;
-    -fx-font-size: 16px;   /* texto más grande */
-    -fx-scale-x: 1.05;     /* zoom suave en X */
-    -fx-scale-y: 1.05;     /* zoom suave en Y */
+    -fx-background-color: #1f1010;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-border-color: #9B0F1F;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    /* MEJORAS:
+       - Se elimina el zoom (scale) en botones de sidebar: el zoom en
+         elementos de nav se ve poco profesional y rompe el layout
+       - Fondo rojo muy oscuro (#1f1010) en hover: sutil pero cálido
+       - El borde izquierdo rojo actúa como indicador visual elegante
+       - Texto blanco puro al hover: buen contraste */
 }
 
-/* ── Apariencia base del ComboBox ── */
+.boton-custom:pressed {
+    -fx-background-color: #2a0a0a;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #c0392b;
+    /* NUEVO: estado pressed diferenciado para feedback táctil */
+}
+
+
+/* ══════════════════════════════════════════════════
+   4. TARJETAS DE ESTADÍSTICAS (KPI cards)
+   ══════════════════════════════════════════════════ */
+
+.card-estadistica {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 10;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 12, 0, 0, 4);
+    /* NUEVO: Las tarjetas KPI necesitan su propia clase.
+       Aplícala a cada VBox/HBox de "TOTAL VEHICULOS", etc.
+       - Border radius redondeado: más moderno que esquinas rectas
+       - Sombra sutil: da profundidad y las "levanta" del fondo
+       - Borde fino #2e2e2e: define el límite sin ser agresivo */
+}
+
+.card-estadistica:hover {
+    -fx-border-color: #9B0F1F;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.3), 16, 0, 0, 0);
+    /* NUEVO: al hacer hover la tarjeta "se ilumina" en rojo:
+       feedback visual elegante y consistente con la marca */
+}
+
+.label-kpi-valor {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    /* NUEVO: el número grande necesita ser imponente.
+       32px hace que los "0" se vean como datos reales, no placeholders */
+}
+
+.label-kpi-titulo {
+    -fx-text-fill: #888888;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    /* NUEVO: título de KPI en gris y pequeño, contrasta con el número grande
+       Jerarquía visual clara: número dominante, etiqueta secundaria */
+}
+
+
+/* ══════════════════════════════════════════════════
+   5. ENCABEZADO DE SECCIÓN (ej: "LISTAS")
+   ══════════════════════════════════════════════════ */
+
+.seccion-header {
+    -fx-background-color: #9B0F1F;
+    -fx-background-radius: 6 6 0 0;
+    -fx-padding: 10 16;
+    /* MEJORA: radius solo arriba — la sección header va pegada
+       a la tabla de abajo, solo redondear la parte superior */
+}
+
+.seccion-header-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    /* NUEVO: etiqueta del header de sección clara y legible */
+}
+
+
+/* ══════════════════════════════════════════════════
+   6. TABLAS
+   ══════════════════════════════════════════════════ */
+
+.table-view {
+    -fx-background-color: #161616;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 0 0 8 8;
+    -fx-background-radius: 0 0 8 8;
+    -fx-table-cell-border-color: transparent;
+    /* MEJORAS:
+       - Fondo ligeramente distinto al root para que la tabla destaque
+       - Sin bordes entre celdas (table-cell-border transparent): más limpio
+       - Radius solo abajo (complementa el header de arriba) */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #ffffff;
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    /* Sin cambio en color, se sube el font-size a 12 para más legibilidad */
+}
+
+.table-view .column-header {
+    -fx-background-color: #9B0F1F;
+    -fx-border-color: #7a0c18;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 8 0;
+    /* MEJORA: borde derecho entre columnas en rojo más oscuro,
+       da separación sutil sin usar gris que rompe el tema */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #9B0F1F;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #161616;
+    -fx-border-color: transparent transparent #1f1f1f transparent;
+    -fx-border-width: 0 0 1 0;
+    /* NUEVO: línea separadora muy sutil entre filas (no era visible antes) */
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #1a1a1a;
+    /* NUEVO: filas alternas (zebra striping) — hace las tablas
+       con muchos datos MUCHO más legibles */
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #1f0a0a;
+    /* NUEVO: hover sobre fila con tinte rojo oscuro, consistente con el tema */
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #3d1010;
+    /* NUEVO: fila seleccionada visible pero no agresiva */
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #dddddd;
+    -fx-alignment: CENTER;
+    -fx-padding: 6 8;
+    /* MEJORA: texto #ddd (no blanco puro) reduce fatiga visual en tablas grandes
+       Padding vertical de 6px: filas con más "aire", más fáciles de escanear */
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #555555;
+    -fx-font-size: 13px;
+    /* MEJORA: "Tabla sin contenido" en gris medio, no blanco,
+       indica claramente que es un estado vacío */
+}
+
+/* Ocultar scroll bar horizontal si no es necesaria */
+.table-view .scroll-bar:horizontal {
+    -fx-opacity: 0.4;
+    -fx-pref-height: 6;
+}
+
+.table-view .scroll-bar:vertical {
+    -fx-opacity: 0.4;
+    -fx-pref-width: 6;
+    /* NUEVO: scrollbars finas y semitransparentes — menos intrusivas */
+}
+
+
+/* ══════════════════════════════════════════════════
+   7. CAMPOS DE TEXTO
+   ══════════════════════════════════════════════════ */
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #3e3e3e transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 0 6 0;
+    -fx-text-fill: #f0f0f0;
+    -fx-prompt-text-fill: #555555;
+    /* MEJORAS:
+       - Borde inferior #3e3e3e (era "gray", demasiado claro en fondos oscuros)
+       - Prompt text en #555 (era heredado del sistema, podía verse raro)
+       - Padding vertical equilibrado */
+}
+
+.text-field:focused {
+    -fx-border-color: transparent transparent #9B0F1F transparent;
+    /* NUEVO: al enfocar el campo, el underline se vuelve rojo —
+       feedback claro de qué campo está activo */
+}
+
+.text-field:hover {
+    -fx-border-color: transparent transparent #666666 transparent;
+    /* NUEVO: hover intermedio entre gris y rojo */
+}
+
+
+/* ══════════════════════════════════════════════════
+   8. COMBO BOX
+   ══════════════════════════════════════════════════ */
+
 .combo-box {
-    -fx-background-color: #2a2a2a;
-    -fx-border-color: #444444;
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #3e3e3e;
     -fx-border-radius: 6;
     -fx-background-radius: 6;
+    -fx-padding: 4 8;
+    /* MEJORA: border más visible (#3e3e3e vs #444) y padding interno */
 }
 
-/* Texto del ComboBox en blanco */
 .combo-box .list-cell {
-    -fx-text-fill: white;
+    -fx-text-fill: #e0e0e0;
     -fx-background-color: transparent;
     -fx-alignment: center;
     -fx-padding: 0;
 }
 
-/* Ocultar el botón de la flecha completamente */
 .combo-box .arrow-button {
     -fx-min-width: 0;
     -fx-pref-width: 0;
@@ -47,81 +302,306 @@
     -fx-pref-width: 0;
 }
 
-/* ── Cuando el usuario abre/enfoca el ComboBox ── */
 .combo-box:focused,
 .combo-box:showing {
-    -fx-background-color: #3d1a1a;   /* rojo oscuro, acorde a tu botón */
-    -fx-border-color: #c0392b;
+    -fx-background-color: #200e0e;
+    -fx-border-color: #9B0F1F;
+    /* Sin cambio funcional, se ajusta el rojo al acento principal */
 }
 
-/* ── Lista desplegable (el popup) ── */
 .combo-box-popup .list-view {
-    -fx-background-color: #1f1f1f;
-    -fx-border-color: #c0392b;
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #9B0F1F;
     -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.8), 16, 0, 0, 4);
+    /* NUEVO: sombra en el dropdown para que "flote" sobre el contenido */
 }
 
 .combo-box .list-cell:empty .text {
-    -fx-fill: #aaaaaa;
+    -fx-fill: #555555;
     -fx-alignment: center;
 }
 
-/* Cada opción en la lista */
 .combo-box-popup .list-view .list-cell {
-    -fx-text-fill: white;
-    -fx-background-color: #1f1f1f;
-    -fx-padding: 6 10 6 10;
+    -fx-text-fill: #e0e0e0;
+    -fx-background-color: #1a1a1a;
+    -fx-padding: 8 12;
     -fx-alignment: center;
+    /* MEJORA: padding vertical de 8 (era 6), opciones más fáciles de clickear */
 }
 
-/* Opción al pasar el mouse (hover) */
 .combo-box-popup .list-view .list-cell:hover {
-    -fx-background-color: #3d1a1a;
-    -fx-text-fill: white;
-}
-
-/* Opción seleccionada */
-.combo-box-popup .list-view .list-cell:selected {
-    -fx-background-color: #c0392b;
-    -fx-text-fill: white;
-}
-
-.text-field {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent transparent gray transparent;
-    -fx-border-width: 0 0 1 0;
-    -fx-padding: 0 0 4 0;
-    -fx-text-fill: white;
-}
-
-/* Encabezados centrados y en rojo */
-.table-view .column-header .label {
+    -fx-background-color: #2a0e0e;
     -fx-text-fill: #ffffff;
-    -fx-alignment: CENTER;
-    -fx-font-weight: bold;
 }
 
-/* Fondo del encabezado */
-.table-view .column-header {
-    -fx-background-color:  #9B0F1F;
-    -fx-border-color:  #2a2a2a;
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: #ffffff;
 }
 
-.table-view .column-header-background {
-    -fx-background-color:  #9B0F1F;
-}
+
+/* ══════════════════════════════════════════════════
+   9. CHECK BOX
+   ══════════════════════════════════════════════════ */
 
 .check-box .label {
-    -fx-text-fill: transparent;
+    -fx-text-fill: #cccccc;
+    /* MEJORA: era transparent, lo que hace imposible leer etiquetas.
+       Si quieres ocultar el texto solo en casos específicos,
+       crea una clase aparte como .check-box-sin-label */
 }
 
 .check-box .box {
-    -fx-background-color: white;
-    -fx-border-color: gray;
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #555555;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    /* MEJORA: fondo oscuro en lugar de blanco (más consistente con el tema)
+       Border-radius para esquinas ligeramente redondeadas */
+}
+
+.check-box:hover .box {
+    -fx-border-color: #9B0F1F;
+    /* NUEVO: hover en el checkbox con acento rojo */
+}
+
+.check-box:selected .box {
+    -fx-background-color: #9B0F1F;
+    -fx-border-color: #9B0F1F;
+    /* NUEVO: cuando está seleccionado, el fondo se vuelve rojo */
 }
 
 .check-box:selected .mark {
-    -fx-background-color: black;
+    -fx-background-color: #ffffff;
+    /* MEJORA: el tick blanco sobre fondo rojo — mucho más legible que negro */
 }
 
 
+/* ══════════════════════════════════════════════════
+   10. LABELS GENERALES
+   ══════════════════════════════════════════════════ */
+
+.label-titulo {
+    -fx-text-fill: #f0f0f0;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    /* NUEVO: clase para el "Bienvenido, USUARIO" — si lo aplicas
+       el título se ve más imponente */
+}
+
+.label-subtitulo {
+    -fx-text-fill: #666666;
+    -fx-font-size: 13px;
+    /* NUEVO: "Resumen general del sistema" en gris apagado —
+       jerarquía visual clara */
+}
+
+
+/* ══════════════════════════════════════════════════
+   11. SCROLL BARS GLOBALES
+   ══════════════════════════════════════════════════ */
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #333333;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #9B0F1F;
+    /* NUEVO: scrollbar thumb se vuelve rojo al hover — detalle de calidad */
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 0;
+    /* NUEVO: ocultar las flechas de los scrollbars — más limpio y moderno */
+}
+
+
+/* ══════════════════════════════════════════════════
+   12. SEPARADOR
+   ══════════════════════════════════════════════════ */
+
+.separator .line {
+    -fx-border-color: #2e2e2e;
+    -fx-border-width: 1 0 0 0;
+    /* NUEVO: si usas separadores, que sean del mismo tono sutil */
+}
+
+
+/* ══════════════════════════════════════════════════
+   13. TOOLTIPS (si los usas)
+   ══════════════════════════════════════════════════ */
+
+.tooltip {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #9B0F1F;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-font-size: 12px;
+    -fx-padding: 6 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 8, 0, 0, 2);
+    /* NUEVO: tooltips con estilo consistente al tema oscuro rojo */
+}
+
+
+/* ══════════════════════════════════════════════════
+   14. CLASE UTILITARIA — CHECK-BOX SIN ETIQUETA
+       (reemplaza el .check-box .label { transparent })
+   ══════════════════════════════════════════════════ */
+
+.check-box-sin-label .label {
+    -fx-text-fill: transparent;
+    -fx-padding: 0;
+    -fx-min-width: 0;
+    -fx-max-width: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   CLASES NUEVAS — agregar al final de styles.css
+   ══════════════════════════════════════════════════ */
+
+/* Panel contenedor general (fondo oscuro con borde) */
+.panel-contenido {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 16;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 3);
+}
+
+/* Título "Bienvenido," */
+.label-titulo {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 30px;
+    -fx-font-family: "Rajdhani";
+    -fx-font-weight: normal;
+}
+
+/* Título "USUARIO" — resaltado en blanco y bold */
+.label-titulo-usuario {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 30px;
+    -fx-font-family: "Rajdhani";
+    -fx-font-weight: bold;
+}
+
+/* "Resumen general del sistema" */
+.label-subtitulo {
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+    -fx-font-family: "Rajdhani";
+}
+
+/* Etiqueta encima de cada tabla ("VEHICULOS COMPRADOS") */
+.label-seccion-tabla {
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 13px;
+    -fx-font-family: "Rajdhani";
+    -fx-font-weight: bold;
+}
+
+/* Tarjeta KPI — fondo rojo con esquinas redondeadas */
+.card-estadistica {
+    -fx-background-color: #9B0F1F;
+    -fx-background-radius: 12;
+    -fx-border-color: #7a0c18;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.3), 10, 0, 0, 2);
+}
+
+.card-estadistica:hover {
+    -fx-background-color: #b01222;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.6), 18, 0, 0, 0);
+}
+
+/* Número grande dentro de la KPI card */
+.label-kpi-valor {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 36px;
+    -fx-font-family: "Rajdhani";
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/* Etiqueta pequeña de la KPI card */
+.label-kpi-titulo {
+    -fx-text-fill: rgba(255,255,255,0.75);
+    -fx-font-size: 11px;
+    -fx-font-family: "Rajdhani";
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/* Header de sección "LISTAS" */
+.seccion-header {
+    -fx-background-color: #9B0F1F;
+}
+
+.seccion-header-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-family: "Rajdhani";
+    -fx-font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #111111;
+    -fx-border-color: transparent #2e2e2e transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Botón de cerrar sesión — tono diferente para distinguirlo */
+.boton-cerrar-sesion {
+    -fx-text-fill: #888888;
+}
+
+.boton-cerrar-sesion:hover {
+    -fx-text-fill: #ff4444;
+    -fx-background-color: #1f0505;
+    -fx-border-color: #cc0000;
+}
+
+/* Botones del sidebar con Rajdhani */
+.boton-custom {
+    -fx-background-color: transparent;
+    -fx-text-fill: #aaaaaa;
+    -fx-font-size: 13px;
+    -fx-font-family: "Rajdhani";
+    -fx-font-weight: bold;
+    -fx-padding: 12 16;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: transparent;
+}
+
+.boton-custom:hover {
+    -fx-background-color: #1f1010;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #9B0F1F;
+    -fx-font-size: 13px;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.boton-custom:pressed {
+    -fx-background-color: #2a0a0a;
+    -fx-border-color: #c0392b;
+}
