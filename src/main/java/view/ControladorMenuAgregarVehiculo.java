@@ -35,7 +35,7 @@ public class ControladorMenuAgregarVehiculo {
 
     @FXML private TextField id_moto, marca_moto, modelo_moto, km_moto, baeria_moto;
     @FXML private TextField precio_moto, vmax_moto, color_moto, año_moto;
-    @FXML private TextField carga_moto, pasajeros_moto, tipo_moto;
+    @FXML private TextField carga_moto, peso_moto, tipo_moto;
 
     @FXML private TextField id_patineta, marca_patineta, modelo_patineta, km_patineta;
     @FXML private TextField bateria_patineta, precio_patineta, velocidad_patineta;
@@ -390,7 +390,7 @@ public class ControladorMenuAgregarVehiculo {
         id_moto.clear(); marca_moto.clear(); modelo_moto.clear();
         km_moto.clear(); baeria_moto.clear(); precio_moto.clear();
         vmax_moto.clear(); color_moto.clear(); año_moto.clear();
-        carga_moto.clear(); pasajeros_moto.clear(); tipo_moto.clear();
+        carga_moto.clear(); peso_moto.clear(); tipo_moto.clear();
         imgMoto.setImage(null); rutaImagenMoto = null;
     }
 

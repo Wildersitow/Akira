@@ -201,12 +201,12 @@
                   <Font name="Roboto" size="17.0" />
                </font>
             </Button>
-            <Label fx:id="" layoutX="768.0" layoutY="104.0" prefHeight="18.0" prefWidth="151.0" text="Numero de pasajeros" textFill="WHITE">
+            <Label fx:id="" layoutX="768.0" layoutY="104.0" prefHeight="18.0" prefWidth="151.0" text="Peso en Kg" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="pasajeros_moto" layoutX="768.0" layoutY="141.0" stylesheets="@../css/styles.css" />
+            <TextField fx:id="peso_moto" layoutX="768.0" layoutY="141.0" stylesheets="@../css/styles.css" />
             <Label fx:id="" layoutX="768.0" layoutY="193.0" prefHeight="18.0" prefWidth="151.0" text="Tipo de moto" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="14.0" />
