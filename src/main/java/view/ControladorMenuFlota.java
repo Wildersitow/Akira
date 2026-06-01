@@ -58,14 +58,11 @@ public class ControladorMenuFlota {
     public void cargarVehiculos() {
         todosLosVehiculos.clear();
 
-        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error autos: " + e.getMessage()); }
-        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error motos: " + e.getMessage()); }
-        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error bicicletas: " + e.getMessage()); }
-        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error patinetas: " + e.getMessage()); }
+        try {
+            todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); // ✅ una sola vez
+        } catch (ServiceException e) {
+            System.err.println("Error cargando vehículos: " + e.getMessage());
+        }
 
         todosLosVehiculos = todosLosVehiculos.stream()
                 .filter(v -> v.getEstado() == EstadoVehiculo.DISPONIBLE
@@ -271,7 +268,7 @@ public class ControladorMenuFlota {
             agregarFila(body, "Batería", v.getCapacidadBateria() + " kWh", true);
 
         if (v instanceof AutoElectrico a) {
-            agregarFila(body, "Tipo",      a.getTipoCarro(),                      false);
+            agregarFila(body, "Tipo",      a.getTipoCarga(),                      false);
             agregarFila(body, "Puertas",   String.valueOf(a.getNumeroPuertas()),   true);
             agregarFila(body, "Pasajeros", String.valueOf(a.getNumeroPasajeros()), false);
             agregarFila(body, "Tracción",  a.getTraccion(),                       true);
