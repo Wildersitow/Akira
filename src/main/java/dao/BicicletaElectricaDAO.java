@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class BicicletaElectricaDAO {
 
     public void guardar(BicicletaElectrica bici) throws ServiceException {
-        String sql = "INSERT INTO bicicleta_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, tipo_asistencia, velocidad_max_kmh, num_cambios, material_marco) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO bicicleta_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, tipo_asistencia, velocidad_max_kmh, num_cambios, material_marco, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -29,6 +29,7 @@ public class BicicletaElectricaDAO {
             ps.setInt(11, bici.getVelocidadMaximaKmH());
             ps.setInt(12, bici.getNumeroMarchas());
             ps.setString(13, bici.getMaterialMarco());
+            ps.setString(14, bici.getImagen());
             ps.executeUpdate();
             con.commit();
 
@@ -73,7 +74,7 @@ public class BicicletaElectricaDAO {
     }
 
     private BicicletaElectrica mapear(ResultSet rs) throws SQLException {
-        return new BicicletaElectrica(
+        BicicletaElectrica bici = new BicicletaElectrica(
                 rs.getInt("anio"),
                 rs.getDouble("autonomia_km"),
                 rs.getDouble("capacidad_bateria"),
@@ -90,6 +91,8 @@ public class BicicletaElectricaDAO {
                 rs.getString("tipo_asistencia"),
                 rs.getInt("num_cambios")
         );
+        bici.setImagen(rs.getString("imagen"));
+        return bici;
     }
 
     private int estadoToId(EstadoVehiculo estado) {

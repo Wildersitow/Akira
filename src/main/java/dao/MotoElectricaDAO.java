@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class MotoElectricaDAO {
 
     public void guardar(MotoElectrica moto) throws ServiceException {
-        String sql = "INSERT INTO moto_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, tipo_moto, peso_kg, altura_asiento_mm) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO moto_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, tipo_moto, peso_kg, altura_asiento_mm,imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = ConexionDB.getConexion();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -28,6 +28,7 @@ public class MotoElectricaDAO {
             ps.setString(10, moto.getTipoMoto());
             ps.setDouble(11, moto.getPesoKg());
             ps.setInt(12, moto.getAlturaAsientoMm());
+            ps.setString(13, moto.getImagen());
             ps.executeUpdate();
             con.commit();
 
@@ -72,7 +73,7 @@ public class MotoElectricaDAO {
     }
 
     private MotoElectrica mapear(ResultSet rs) throws SQLException {
-        return new MotoElectrica(
+        MotoElectrica moto = new MotoElectrica(
                 rs.getInt("anio"),
                 rs.getDouble("autonomia_km"),
                 rs.getDouble("capacidad_bateria"),
@@ -88,6 +89,8 @@ public class MotoElectricaDAO {
                 rs.getString("tipo_moto"),
                 rs.getDouble("peso_kg")
         );
+        moto.setImagen(rs.getString("imagen"));
+        return moto;
     }
 
     private int estadoToId(EstadoVehiculo estado) {

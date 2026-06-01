@@ -147,4 +147,20 @@ public class ClienteDAO {
                 new ArrayList<>()                         // contratos — se cargan aparte
         );
     }
-}
+
+    public Cliente buscarPorNombre(String nombre) throws ServiceException {
+        String sql = "SELECT * FROM cliente WHERE LOWER(nombre) = LOWER(?)";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+            return null;
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar cliente: " + e.getMessage(), e);
+        }
+    }
+    }

@@ -13,6 +13,7 @@ public abstract class VehiculoElectrico {
     protected int VelocidadMaxima;
     protected int PotenciaMotorKW;
     protected EstadoVehiculo Estado;
+    protected String imagen;
 
     public VehiculoElectrico(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima) {
         Anio = anio;
@@ -126,6 +127,9 @@ public abstract class VehiculoElectrico {
         }
         this.Estado = EstadoVehiculo.VENDIDO;
     }
+
+    public String getImagen() { return imagen; }
+    public void setImagen(String imagen) { this.imagen = imagen; }
 
     @Override
     public String toString() {
