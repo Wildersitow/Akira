@@ -6,34 +6,44 @@ import service.ServiceException;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.List;
 
 public class AutoElectricoDAO {
 
     public void guardar(AutoElectrico auto) throws ServiceException {
-        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion, imagen) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio_base, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion, autonomia_km, capacidad_bateria, velocidad_maxima, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
 
             con.setAutoCommit(false);
-            ps.setString(1, auto.getMarca());
-            ps.setString(2, auto.getModelo());
-            ps.setInt(3, auto.getAnio());
-            ps.setString(4, auto.getColor());
-            ps.setDouble(5, auto.getPrecioBase());
-            ps.setInt(6, estadoToId(auto.getEstado()));
-            ps.setInt(7, auto.getNumeroPuertas());
-            ps.setString(8, auto.getTipoCarro());
-            ps.setInt(9, auto.getNumeroPasajeros());
+            ps.setString(1,  auto.getMarca());
+            ps.setString(2,  auto.getModelo());
+            ps.setInt(3,     auto.getAnio());
+            ps.setString(4,  auto.getColor());
+            ps.setDouble(5,  auto.getPrecioBase());
+            ps.setInt(6,     estadoToId(auto.getEstado()));
+            ps.setInt(7,     auto.getNumeroPuertas());
+            ps.setString(8,  auto.getTipoCarro());
+            ps.setInt(9,     auto.getNumeroPasajeros());
             ps.setString(10, auto.getTraccion());
-            ps.setString(11, auto.getImagen());
+            ps.setDouble(11, auto.getAutonomiaKm());
+            ps.setDouble(12, auto.getCapacidadBateria());
+            ps.setInt(13,    auto.getVelocidadMaxima());
+            ps.setString(14, auto.getImagen());
             ps.executeUpdate();
             con.commit();
 
             System.out.println("✓ Auto guardado: " + auto.getMarca() + " " + auto.getModelo());
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_GUARDADO", "Error al guardar auto: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
@@ -54,8 +64,10 @@ public class AutoElectricoDAO {
 
     public void eliminar(long id) throws ServiceException {
         String sql = "DELETE FROM auto_electrico WHERE id = ?";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        Connection con = null;
+        try  {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
 
             con.setAutoCommit(false);
             ps.setLong(1, id);
@@ -66,23 +78,25 @@ public class AutoElectricoDAO {
                 throw new ServiceException("AUTO_NO_ENCONTRADO", "No se encontró el auto con id: " + id);
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar auto: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
     private AutoElectrico mapear(ResultSet rs) throws SQLException {
-        AutoElectrico auto =  new AutoElectrico(
+        AutoElectrico auto = new AutoElectrico(
                 rs.getInt("anio"),
-                0.0,                          // autonomiaKm — no está en la tabla
-                0.0,                          // capacidadBateria — no está en la tabla
+                rs.getDouble("autonomia_km"),
+                rs.getDouble("capacidad_bateria"),
                 rs.getString("color"),
                 idToEstado(rs.getInt("estado_id")),
                 String.valueOf(rs.getLong("id")),
                 rs.getString("marca"),
                 rs.getString("modelo"),
-                rs.getDouble("precio"),
-                0,                            // potenciaMotorKW — no está en la tabla
-                0,                            // velocidadMaxima — no está en la tabla
+                rs.getDouble("precio_base"),
+                rs.getInt("velocidad_maxima"),
                 rs.getInt("cap_pasajeros"),
                 rs.getInt("numero_puertas"),
                 rs.getString("tipo_carro"),
@@ -109,5 +123,62 @@ public class AutoElectricoDAO {
             default -> EstadoVehiculo.DISPONIBLE;
 
         };
+    }
+    public AutoElectrico obtenerPorId(long id) throws ServiceException {
+        String sql = "SELECT * FROM auto_electrico WHERE id = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+
+            throw new ServiceException("AUTO_NO_ENCONTRADO", "No se encontró el auto con id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar auto: " + e.getMessage(), e);
+        }
+    }
+
+    public void actualizarCampos(long id, Map<String, Object> campos) throws ServiceException {
+        if (campos == null || campos.isEmpty())
+            throw new ServiceException("SIN_CAMPOS", "No se especificaron campos a actualizar.");
+
+        StringBuilder sql = new StringBuilder("UPDATE auto_electrico SET ");
+        List<Object> valores = new ArrayList<>();
+
+        campos.forEach((campo, valor) -> {
+            sql.append(campo).append(" = ?, ");
+            valores.add(valor);
+        });
+
+        sql.delete(sql.length() - 2, sql.length());
+        sql.append(" WHERE id = ?");
+        valores.add(id);
+
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql.toString());
+            con.setAutoCommit(false);
+
+            for (int i = 0; i < valores.size(); i++)
+                ps.setObject(i + 1, valores.get(i));
+
+            int filas = ps.executeUpdate();
+            con.commit();
+
+            if (filas == 0)
+                throw new ServiceException("AUTO_NO_ENCONTRADO", "No se encontró el auto con id: " + id);
+
+            System.out.println("✓ Auto actualizado, campos: " + campos.keySet());
+
+        } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
+            throw new ServiceException("ERROR_ACTUALIZACION", "Error al actualizar auto: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
     }
 }
