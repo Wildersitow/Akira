@@ -47,7 +47,7 @@ public class PatinetaElectricaDAO {
     }
 
     public ArrayList<PatinetaElectrica> obtenerTodos() throws ServiceException {
-        String sql = "SELECT * FROM patineta_electrica";
+        String sql = "SELECT * FROM akira.patineta_electrica";
         ArrayList<PatinetaElectrica> lista = new ArrayList<>();
         try (Connection con = ConexionDB.getConexion();
              Statement st = con.createStatement();
