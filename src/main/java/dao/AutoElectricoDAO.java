@@ -6,6 +6,8 @@ import service.ServiceException;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.List;
 
 public class AutoElectricoDAO {
 
@@ -121,5 +123,62 @@ public class AutoElectricoDAO {
             default -> EstadoVehiculo.DISPONIBLE;
 
         };
+    }
+    public AutoElectrico obtenerPorId(long id) throws ServiceException {
+        String sql = "SELECT * FROM auto_electrico WHERE id = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+
+            throw new ServiceException("AUTO_NO_ENCONTRADO", "No se encontró el auto con id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar auto: " + e.getMessage(), e);
+        }
+    }
+
+    public void actualizarCampos(long id, Map<String, Object> campos) throws ServiceException {
+        if (campos == null || campos.isEmpty())
+            throw new ServiceException("SIN_CAMPOS", "No se especificaron campos a actualizar.");
+
+        StringBuilder sql = new StringBuilder("UPDATE auto_electrico SET ");
+        List<Object> valores = new ArrayList<>();
+
+        campos.forEach((campo, valor) -> {
+            sql.append(campo).append(" = ?, ");
+            valores.add(valor);
+        });
+
+        sql.delete(sql.length() - 2, sql.length());
+        sql.append(" WHERE id = ?");
+        valores.add(id);
+
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql.toString());
+            con.setAutoCommit(false);
+
+            for (int i = 0; i < valores.size(); i++)
+                ps.setObject(i + 1, valores.get(i));
+
+            int filas = ps.executeUpdate();
+            con.commit();
+
+            if (filas == 0)
+                throw new ServiceException("AUTO_NO_ENCONTRADO", "No se encontró el auto con id: " + id);
+
+            System.out.println("✓ Auto actualizado, campos: " + campos.keySet());
+
+        } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
+            throw new ServiceException("ERROR_ACTUALIZACION", "Error al actualizar auto: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
     }
 }
