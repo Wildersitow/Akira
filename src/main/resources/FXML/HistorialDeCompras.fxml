@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0"
+            style="-fx-background-color: #0A0A0A;"
+            stylesheets="@../css/stylesHistorial.css"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.ControladorHistorialDeCompras">
+
+    <!-- ══════════════════════════════════════════
+         SIDEBAR
+    ══════════════════════════════════════════════ -->
+    <Pane prefHeight="720.0" prefWidth="220.0"
+          styleClass="sidebar"
+          AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+        <children>
+
+            <!-- Logo -->
+            <ImageView fitHeight="151.0" fitWidth="188.0" layoutX="16.0" layoutY="0.0"
+                       pickOnBounds="true" preserveRatio="true">
+                <image><Image url="@../Imagenes/LogoFondoNegro.png" /></image>
+            </ImageView>
+
+            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0"
+                    mnemonicParsing="false" onAction="#cambiarInicio"
+                    prefHeight="54.0" prefWidth="195.0"
+                    styleClass="boton-nav" text="INICIO" />
+
+            <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0"
+                    mnemonicParsing="false" onAction="#cambiarAgregarVehiculo"
+                    prefHeight="54.0" prefWidth="195.0"
+                    styleClass="boton-nav" text="AÑADIR/QUITAR VEHICULO" />
+
+            <Button fx:id="boton_contratos" layoutX="13.0" layoutY="274.0"
+                    mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0"
+                    styleClass="boton-nav" text="CONTRATOS" />
+
+            <!-- HISTORIAL activo -->
+            <Button fx:id="boton_historial" layoutX="13.0" layoutY="361.0"
+                    mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0"
+                    styleClass="boton-nav, boton-nav-active" text="HISTORIAL DE COMPRAS" />
+
+            <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0"
+                    mnemonicParsing="false" onAction="#cambiarFlota"
+                    prefHeight="54.0" prefWidth="195.0"
+                    styleClass="boton-nav" text="FLOTA" />
+
+            <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0"
+                    mnemonicParsing="false" onAction="#cambiarAsistente"
+                    prefHeight="54.0" prefWidth="195.0"
+                    styleClass="boton-nav" text="ASISTENTE" />
+
+            <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0"
+                    mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0"
+                    styleClass="boton-nav, boton-cerrar" text="CERRAR SESIÓN" />
+        </children>
+    </Pane>
+
+    <!-- ══════════════════════════════════════════
+         CONTENIDO PRINCIPAL (derecha del sidebar)
+    ══════════════════════════════════════════════ -->
+    <VBox spacing="0"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="220.0"
+          AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="0">
+
+        <!-- ── HEADER ── -->
+        <HBox alignment="CENTER_LEFT" prefHeight="88.0" spacing="16"
+              styleClass="header-historial">
+            <padding><Insets left="32" right="32" /></padding>
+
+            <!-- Ícono decorativo -->
+            <Pane styleClass="header-icon-bg" prefWidth="48" prefHeight="48">
+                <children>
+                    <Label layoutX="9" layoutY="8" styleClass="header-icon-label" text="📋" />
+                </children>
+            </Pane>
+
+            <VBox spacing="3">
+                <Label styleClass="header-titulo" text="HISTORIAL DE COMPRAS" />
+                <Label styleClass="header-subtitulo" text="Registro completo de todos los contratos de venta" />
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- KPIs rápidos en el header -->
+            <HBox spacing="12" alignment="CENTER_RIGHT">
+
+                <VBox styleClass="kpi-mini" alignment="CENTER" prefWidth="110" prefHeight="60">
+                    <Label styleClass="kpi-mini-valor" fx:id="lblTotalContratos" text="0" />
+                    <Label styleClass="kpi-mini-titulo" text="TOTAL" />
+                </VBox>
+
+                <VBox styleClass="kpi-mini" alignment="CENTER" prefWidth="110" prefHeight="60">
+                    <Label styleClass="kpi-mini-valor-green" fx:id="lblContratosActivos" text="0" />
+                    <Label styleClass="kpi-mini-titulo" text="ACTIVOS" />
+                </VBox>
+
+                <VBox styleClass="kpi-mini" alignment="CENTER" prefWidth="130" prefHeight="60">
+                    <Label styleClass="kpi-mini-valor-accent" fx:id="lblIngresoTotal" text="0" />
+                    <Label styleClass="kpi-mini-titulo" text="INGRESO TOTAL" />
+                </VBox>
+
+            </HBox>
+        </HBox>
+
+        <!-- ── BARRA DE FILTROS ── -->
+        <HBox alignment="CENTER_LEFT" prefHeight="64.0" spacing="12"
+              styleClass="barra-filtros">
+            <padding><Insets left="28" right="28" /></padding>
+
+            <!-- Búsqueda -->
+            <TextField fx:id="txtBuscar"
+                       onKeyReleased="#aplicarFiltros"
+                       prefHeight="36.0" prefWidth="220.0"
+                       promptText="🔍  Cliente, vehículo, ID..."
+                       styleClass="input-busqueda" />
+
+            <!-- Separador visual -->
+            <Pane styleClass="filtro-sep" prefWidth="1" prefHeight="30" />
+
+            <Label styleClass="filtro-label" text="Estado:" />
+            <ComboBox fx:id="comboEstado"
+                      onAction="#aplicarFiltros"
+                      prefHeight="36.0" prefWidth="160.0"
+                      promptText="Todos"
+                      styleClass="combo-filtro" />
+
+            <Label styleClass="filtro-label" text="Forma de pago:" />
+            <ComboBox fx:id="comboPago"
+                      onAction="#aplicarFiltros"
+                      prefHeight="36.0" prefWidth="150.0"
+                      promptText="Todas"
+                      styleClass="combo-filtro" />
+
+            <Label styleClass="filtro-label" text="Ordenar:" />
+            <ComboBox fx:id="comboOrdenar"
+                      onAction="#aplicarFiltros"
+                      prefHeight="36.0" prefWidth="180.0"
+                      promptText="Más reciente"
+                      styleClass="combo-filtro" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Button fx:id="btnLimpiar"
+                    onAction="#limpiarFiltros"
+                    prefHeight="36.0" prefWidth="130.0"
+                    styleClass="btn-limpiar"
+                    text="↺  Limpiar" />
+
+            <Button fx:id="btnRecargar"
+                    onAction="#cargarContratos"
+                    prefHeight="36.0" prefWidth="110.0"
+                    styleClass="btn-recargar"
+                    text="⟳  Recargar" />
+
+            <Button fx:id="btnExportar"
+                    prefHeight="36.0" prefWidth="120.0"
+                    styleClass="btn-exportar"
+                    text="↓  Exportar" />
+        </HBox>
+
+        <!-- ── TABLA ── -->
+        <VBox VBox.vgrow="ALWAYS" styleClass="zona-tabla">
+            <padding><Insets bottom="20" left="28" right="28" top="16" /></padding>
+
+            <!-- Contador de resultados -->
+            <HBox alignment="CENTER_LEFT" prefHeight="28" spacing="8">
+                <Label fx:id="lblResultados"
+                       styleClass="label-resultados"
+                       text="Mostrando 0 contratos" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="hint-doble-click" text="Doble clic en una fila para ver el detalle completo" />
+            </HBox>
+
+            <Region prefHeight="8" />
+
+            <!-- TableView principal -->
+            <TableView fx:id="tablaContratos"
+                       VBox.vgrow="ALWAYS"
+                       onMouseClicked="#onFilaDobleClick"
+                       styleClass="tabla-historial"
+                       style="-fx-background-color: #111111;">
+
+                <columns>
+
+                    <!-- ID -->
+                    <TableColumn fx:id="colId"
+                                 prefWidth="70.0"
+                                 minWidth="60.0"
+                                 text="ID" />
+
+                    <!-- Fecha -->
+                    <TableColumn fx:id="colFecha"
+                                 prefWidth="110.0"
+                                 minWidth="100.0"
+                                 text="FECHA" />
+
+                    <!-- Cliente -->
+                    <TableColumn fx:id="colCliente"
+                                 prefWidth="180.0"
+                                 minWidth="140.0"
+                                 text="CLIENTE" />
+
+                    <!-- Cédula -->
+                    <TableColumn fx:id="colCedula"
+                                 prefWidth="130.0"
+                                 minWidth="100.0"
+                                 text="CÉDULA" />
+
+                    <!-- Vehículo -->
+                    <TableColumn fx:id="colVehiculo"
+                                 prefWidth="190.0"
+                                 minWidth="150.0"
+                                 text="VEHÍCULO" />
+
+                    <!-- Forma de pago -->
+                    <TableColumn fx:id="colPago"
+                                 prefWidth="130.0"
+                                 minWidth="100.0"
+                                 text="FORMA DE PAGO" />
+
+                    <!-- Descuento -->
+                    <TableColumn fx:id="colDescuento"
+                                 prefWidth="110.0"
+                                 minWidth="90.0"
+                                 text="DESCUENTO" />
+
+                    <!-- Precio final -->
+                    <TableColumn fx:id="colPrecio"
+                                 prefWidth="140.0"
+                                 minWidth="120.0"
+                                 text="PRECIO FINAL" />
+
+                    <!-- Empleado -->
+                    <TableColumn fx:id="colEmpleado"
+                                 prefWidth="160.0"
+                                 minWidth="120.0"
+                                 text="GESTIONADO POR" />
+
+                    <!-- Estado -->
+                    <TableColumn fx:id="colEstado"
+                                 prefWidth="120.0"
+                                 minWidth="100.0"
+                                 text="ESTADO" />
+
+                </columns>
+
+                <!-- Placeholder cuando no hay datos -->
+                <placeholder>
+                    <VBox alignment="CENTER" spacing="14">
+                        <Label style="-fx-font-size:42px;" text="📋" />
+                        <Label style="-fx-text-fill:#444; -fx-font-size:16px; -fx-font-weight:bold;"
+                               text="Sin contratos registrados" />
+                        <Label style="-fx-text-fill:#2e2e2e; -fx-font-size:12px;"
+                               text="Las compras confirmadas aparecerán aquí" />
+                    </VBox>
+                </placeholder>
+
+            </TableView>
+
+        </VBox>
+
+        <!-- ── PANEL DE DETALLE (colapsable, aparece al seleccionar fila) ── -->
+        <HBox fx:id="panelDetalle"
+              alignment="CENTER_LEFT"
+              prefHeight="0.0"
+              managed="false"
+              visible="false"
+              spacing="0"
+              styleClass="panel-detalle">
+
+            <!-- Bloque izquierdo: info del contrato -->
+            <VBox prefWidth="340" spacing="6" styleClass="detalle-bloque">
+                <padding><Insets bottom="18" left="24" right="24" top="18" /></padding>
+                <Label styleClass="detalle-seccion-titulo" text="CONTRATO" />
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="ID" />
+                    <Label fx:id="detId" styleClass="detalle-val" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Fecha" />
+                    <Label fx:id="detFecha" styleClass="detalle-val" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Estado" />
+                    <Label fx:id="detEstado" styleClass="detalle-val" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Forma de pago" />
+                    <Label fx:id="detPago" styleClass="detalle-val" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Descuento" />
+                    <Label fx:id="detDescuento" styleClass="detalle-val-accent" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila-total">
+                    <Label styleClass="detalle-key-total" text="PRECIO FINAL" />
+                    <Label fx:id="detPrecio" styleClass="detalle-val-total" text="—" />
+                </HBox>
+            </VBox>
+
+            <!-- Separador -->
+            <Pane prefWidth="1" styleClass="detalle-separador" />
+
+            <!-- Bloque central: cliente -->
+            <VBox prefWidth="280" spacing="6" styleClass="detalle-bloque">
+                <padding><Insets bottom="18" left="24" right="24" top="18" /></padding>
+                <Label styleClass="detalle-seccion-titulo" text="CLIENTE" />
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Nombre" />
+                    <Label fx:id="detClienteNombre" styleClass="detalle-val" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Cédula" />
+                    <Label fx:id="detClienteCedula" styleClass="detalle-val" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Email" />
+                    <Label fx:id="detClienteEmail" styleClass="detalle-val" text="—" />
+                </HBox>
+            </VBox>
+
+            <!-- Separador -->
+            <Pane prefWidth="1" styleClass="detalle-separador" />
+
+            <!-- Bloque derecho: vehículo y empleado -->
+            <VBox prefWidth="280" spacing="6" styleClass="detalle-bloque">
+                <padding><Insets bottom="18" left="24" right="24" top="18" /></padding>
+                <Label styleClass="detalle-seccion-titulo" text="VEHÍCULO" />
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Vehículo" />
+                    <Label fx:id="detVehiculo" styleClass="detalle-val" text="—" />
+                </HBox>
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Estado" />
+                    <Label fx:id="detVehEstado" styleClass="detalle-val" text="—" />
+                </HBox>
+                <Region prefHeight="8" />
+                <Label styleClass="detalle-seccion-titulo" text="EMPLEADO" />
+                <HBox styleClass="detalle-fila">
+                    <Label styleClass="detalle-key" text="Gestionado por" />
+                    <Label fx:id="detEmpleado" styleClass="detalle-val" text="—" />
+                </HBox>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Botón cerrar detalle -->
+            <Button fx:id="btnCerrarDetalle"
+                    onAction="#cerrarDetalle"
+                    styleClass="btn-cerrar-detalle"
+                    text="✕"
+                    prefWidth="40" prefHeight="40" />
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>
