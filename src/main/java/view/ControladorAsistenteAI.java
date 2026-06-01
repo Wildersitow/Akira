@@ -33,6 +33,10 @@ public class ControladorAsistenteAI {
 
     private final AkiraAssistantService servicio   = new AkiraAssistantService();
     private final ExecutorService       executor   = Executors.newSingleThreadExecutor();
+
+    public ControladorAsistenteAI() {
+        this.utilidades = new UtilidadesFX();
+    }
     public ControladorAsistenteAI(UtilidadesFX utilidades) {
         this.utilidades = utilidades;
     }
