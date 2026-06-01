@@ -21,8 +21,5 @@
         <module name="Akira" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Akira" target="21" />
-    </bytecodeTargetLevel>
   </component>
 </project>
