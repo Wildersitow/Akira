@@ -628,8 +628,7 @@ public class ControladorMenuAlquiler {
             agregarFilaInfo(body, "Autonomía", v.getAutonomiaKm().intValue() + " km", true);
         if (v.getCapacidadBateria() != null && v.getCapacidadBateria() > 0)
             agregarFilaInfo(body, "Batería", v.getCapacidadBateria() + " kWh", false);
-        if (v.getPotenciaMotorKW() > 0)
-            agregarFilaInfo(body, "Potencia", v.getPotenciaMotorKW() + " kW", true);
+
 
         if (v instanceof AutoElectrico a) {
             agregarFilaInfo(body, "Tipo",      a.getTipoCarro(),                 false);
@@ -642,7 +641,7 @@ public class ControladorMenuAlquiler {
         } else if (v instanceof BicicletaElectrica b) {
             agregarFilaInfo(body, "Asistencia", b.getTipoAsistencia(), false);
             agregarFilaInfo(body, "Marchas",    String.valueOf(b.getNumeroMarchas()), true);
-            agregarFilaInfo(body, "Marco",      b.getMaterialMarco(),  false);
+
         } else if (v instanceof PatinetaElectrica p) {
             agregarFilaInfo(body, "Vel. máx.",  p.getVelocidadMaximaKmH() + " km/h", false);
             agregarFilaInfo(body, "Plegable",   p.isEsPlegable() ? "Sí" : "No", true);
