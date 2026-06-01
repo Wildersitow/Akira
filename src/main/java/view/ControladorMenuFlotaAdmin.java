@@ -277,7 +277,7 @@ public class ControladorMenuFlotaAdmin {
 
         TextField fExtra1 = null, fExtra2 = null;
         if (v instanceof AutoElectrico auto) {
-            fExtra1 = styledField(auto.getTipoCarro(), fieldStyle);
+            fExtra1 = styledField(auto.getTipoCarga(), fieldStyle);
             fExtra2 = styledField(auto.getTraccion(),  fieldStyle);
             grid.add(lbl("Tipo carro", labelStyle), 0, row); grid.add(fExtra1, 1, row++);
             grid.add(lbl("Tracción",   labelStyle), 0, row); grid.add(fExtra2, 1, row++);
