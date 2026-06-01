@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class ServiceFlota {
+public class  ServiceFlota {
 
     private final AutoElectricoDAO      autoDAO = new AutoElectricoDAO();
     private final MotoElectricaDAO      motoDAO = new MotoElectricaDAO();
