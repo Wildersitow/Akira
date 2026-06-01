@@ -110,7 +110,7 @@ public class AkiraAssistantService {
                     sb.append(String.format(
                             "  • %s %s | Precio: $%.0f | Puertas: %d | Pasajeros: %d | Tracción: %s\n",
                             a.getMarca(), a.getModelo(), a.getPrecioBase(),
-                            a.getNumeroPuertas(), a.getNumeroPasajeros()
+                            a.getNumeroPuertas(), a.getNumeroPasajeros(), a.getTraccion()
 
                     ));
                 }
@@ -151,11 +151,10 @@ public class AkiraAssistantService {
                 sb.append("BICICLETAS ELÉCTRICAS (").append(bicis.size()).append("):\n");
                 for (BicicletaElectrica b : bicis) {
                     sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Marchas: %d |Tipo Asistencia pedal: %s | Material: %s\n",
+                            "  • %s %s | Precio: $%.0f | Marchas: %d | Tipo Asistencia: %s\n",
                             b.getMarca(), b.getModelo(), b.getPrecioBase(),
-                            b.getNumeroMarchas(),
-                            b.getTipoAsistencia(),
-                            b.getMaterialMarco()
+                            b.getNumeroMarchas(), b.getTipoAsistencia()
+
                     ));
                 }
             } else {
@@ -174,9 +173,8 @@ public class AkiraAssistantService {
                 sb.append("PATINETAS ELÉCTRICAS (").append(patinetas.size()).append("):\n");
                 for (PatinetaElectrica p : patinetas) {
                     sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Plegable: %s | Peso dispositivo: %.1f kg \n",
-                            p.getMarca(), p.getModelo(), p.getPrecioBase(),
-                            p.isEsPlegable() ? "Sí" : "No"
+                            "  • %s %s | Precio: $%.0f | Plegable: %s\n",
+                            p.getMarca(), p.getModelo(), p.getPrecioBase(), p.isEsPlegable() ? "Sí" : "No"
 
                     ));
                 }
