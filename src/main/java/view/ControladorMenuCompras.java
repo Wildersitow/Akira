@@ -447,7 +447,7 @@ public class ControladorMenuCompras {
             agregarFila(body, "Batería", v.getCapacidadBateria() + " kWh", false);
 
         if (v instanceof AutoElectrico a) {
-            agregarFila(body, "Tipo",      a.getTipoCarro(),                      false);
+            agregarFila(body, "Tipo",      a.getTipoCarga(),                      false);
             agregarFila(body, "Puertas",   String.valueOf(a.getNumeroPuertas()),   true);
             agregarFila(body, "Pasajeros", String.valueOf(a.getNumeroPasajeros()), false);
             agregarFila(body, "Tracción",  a.getTraccion(),                       true);
