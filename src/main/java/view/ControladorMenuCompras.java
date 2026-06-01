@@ -1,26 +1,21 @@
 package view;
 
-import dao.AutoElectricoDAO;
-import dao.BicicletaElectricaDAO;
-import dao.MotoElectricaDAO;
-import dao.PatinetaElectricaDAO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
+import service.ServiceCompras;
 import service.ServiceException;
+import service.ServiceVehiculo;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,27 +24,23 @@ import java.util.stream.Collectors;
 
 public class ControladorMenuCompras {
 
-    @FXML private FlowPane   flowVehiculos;
-    @FXML private VBox       panelVacio;
-    @FXML private TextField  txtBuscar;
+    @FXML private FlowPane         flowVehiculos;
+    @FXML private VBox             panelVacio;
+    @FXML private TextField        txtBuscar;
     @FXML private ComboBox<String> comboTipo;
     @FXML private ComboBox<String> comboPrecio;
     @FXML private ComboBox<String> comboMarca;
     @FXML private ComboBox<String> comboAutonomia;
     @FXML private ComboBox<String> comboOrdenar;
-    @FXML private Label      lblResultados;
-    @FXML private Button     btnCarrito;
+    @FXML private Label            lblResultados;
+    @FXML private Button           btnCarrito;
 
-    private final UtilidadesFX utilidades = new UtilidadesFX();
+    private final UtilidadesFX    utilidades      = new UtilidadesFX();
+    private final ServiceVehiculo serviceVehiculo = new ServiceVehiculo();
+    private final ServiceCompras  serviceCompras  = new ServiceCompras();
 
-    private List<VehiculoElectrico> todosLosVehiculos = new ArrayList<>();
-
-    private final List<VehiculoElectrico> carrito = new ArrayList<>();
-
-    private final AutoElectricoDAO      autoDAO = new AutoElectricoDAO();
-    private final MotoElectricaDAO      motoDAO = new MotoElectricaDAO();
-    private final BicicletaElectricaDAO biciDAO = new BicicletaElectricaDAO();
-    private final PatinetaElectricaDAO  patiDAO = new PatinetaElectricaDAO();
+    private List<VehiculoElectrico>       todosLosVehiculos = new ArrayList<>();
+    private final List<VehiculoElectrico> carrito           = new ArrayList<>();
 
     @FXML
     public void initialize() {
@@ -60,50 +51,30 @@ public class ControladorMenuCompras {
     private void poblarCombosFijos() {
         comboTipo.getItems().addAll(
                 "Todos", "Auto Eléctrico", "Moto Eléctrica",
-                "Bicicleta Eléctrica", "Patineta Eléctrica"
-        );
+                "Bicicleta Eléctrica", "Patineta Eléctrica");
         comboPrecio.getItems().addAll(
-                "Sin límite",
-                "Hasta $10.000.000",
-                "Hasta $30.000.000",
-                "Hasta $60.000.000",
-                "Hasta $100.000.000"
-        );
+                "Sin límite", "Hasta $10.000.000", "Hasta $30.000.000",
+                "Hasta $60.000.000", "Hasta $100.000.000");
         comboAutonomia.getItems().addAll(
                 "Sin filtro", "Más de 50 km", "Más de 100 km",
-                "Más de 200 km", "Más de 400 km"
-        );
+                "Más de 200 km", "Más de 400 km");
         comboOrdenar.getItems().addAll(
                 "Relevancia", "Precio: menor a mayor",
-                "Precio: mayor a menor", "Más reciente"
-        );
+                "Precio: mayor a menor", "Más reciente");
     }
 
     @FXML
     public void cargarVehiculos() {
-        todosLosVehiculos.clear();
-
-        try { todosLosVehiculos.addAll(autoDAO.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error autos: " + e.getMessage()); }
-
-        try { todosLosVehiculos.addAll(motoDAO.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error motos: " + e.getMessage()); }
-
-        try { todosLosVehiculos.addAll(biciDAO.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error bicicletas: " + e.getMessage()); }
-
-        try { todosLosVehiculos.addAll(patiDAO.obtenerTodos()); }
-        catch (ServiceException e) { System.err.println("Error patinetas: " + e.getMessage()); }
-
-        todosLosVehiculos = todosLosVehiculos.stream()
-                .filter(VehiculoElectrico::estaDisponible)
-                .collect(Collectors.toList());
+        try {
+            todosLosVehiculos = serviceVehiculo.obtenerDisponibles();
+        } catch (ServiceException e) {
+            todosLosVehiculos = new ArrayList<>();
+            System.err.println("Error cargando vehículos: " + e.getMessage());
+        }
 
         List<String> marcas = todosLosVehiculos.stream()
                 .map(VehiculoElectrico::getMarca)
-                .distinct()
-                .sorted()
-                .collect(Collectors.toList());
+                .distinct().sorted().collect(Collectors.toList());
         comboMarca.getItems().clear();
         comboMarca.getItems().add("Todas");
         comboMarca.getItems().addAll(marcas);
@@ -117,51 +88,47 @@ public class ControladorMenuCompras {
 
         String buscar = txtBuscar != null && txtBuscar.getText() != null
                 ? txtBuscar.getText().trim().toLowerCase() : "";
-        if (!buscar.isEmpty()) {
+        if (!buscar.isEmpty())
             filtrados = filtrados.stream()
                     .filter(v -> v.getMarca().toLowerCase().contains(buscar)
                             || v.getModelo().toLowerCase().contains(buscar))
                     .collect(Collectors.toList());
-        }
 
         String tipo = comboTipo.getValue();
-        if (tipo != null && !tipo.equals("Todos")) {
+        if (tipo != null && !tipo.equals("Todos"))
             filtrados = filtrados.stream()
                     .filter(v -> obtenerTipo(v).equals(tipo))
                     .collect(Collectors.toList());
-        }
 
         String precio = comboPrecio.getValue();
         if (precio != null && !precio.equals("Sin límite")) {
-            double max = extraerPrecioMax(precio);
+            double max = serviceCompras.extraerPrecioMax(precio);
             filtrados = filtrados.stream()
                     .filter(v -> v.getPrecioBase() <= max)
                     .collect(Collectors.toList());
         }
 
         String marca = comboMarca.getValue();
-        if (marca != null && !marca.equals("Todas")) {
+        if (marca != null && !marca.equals("Todas"))
             filtrados = filtrados.stream()
                     .filter(v -> v.getMarca().equalsIgnoreCase(marca))
                     .collect(Collectors.toList());
-        }
 
         String autonomia = comboAutonomia.getValue();
         if (autonomia != null && !autonomia.equals("Sin filtro")) {
-            double min = extraerAutonomiaMin(autonomia);
+            double min = serviceCompras.extraerAutonomiaMin(autonomia);
             filtrados = filtrados.stream()
                     .filter(v -> v.getAutonomiaKm() != null && v.getAutonomiaKm() >= min)
                     .collect(Collectors.toList());
         }
 
         String orden = comboOrdenar.getValue();
-        if ("Precio: menor a mayor".equals(orden)) {
+        if ("Precio: menor a mayor".equals(orden))
             filtrados.sort((a, b) -> Double.compare(a.getPrecioBase(), b.getPrecioBase()));
-        } else if ("Precio: mayor a menor".equals(orden)) {
+        else if ("Precio: mayor a menor".equals(orden))
             filtrados.sort((a, b) -> Double.compare(b.getPrecioBase(), a.getPrecioBase()));
-        } else if ("Más reciente".equals(orden)) {
+        else if ("Más reciente".equals(orden))
             filtrados.sort((a, b) -> Integer.compare(b.getAnio(), a.getAnio()));
-        }
 
         renderizarCards(filtrados);
     }
@@ -179,65 +146,30 @@ public class ControladorMenuCompras {
 
     private void renderizarCards(List<VehiculoElectrico> lista) {
         flowVehiculos.getChildren().clear();
-
         if (lista.isEmpty()) {
             flowVehiculos.getChildren().add(panelVacio);
             lblResultados.setText("Sin resultados");
             return;
         }
-
         lblResultados.setText("Mostrando " + lista.size() + " vehículo(s)");
-
-        for (VehiculoElectrico v : lista) {
+        for (VehiculoElectrico v : lista)
             flowVehiculos.getChildren().add(crearCard(v));
-        }
     }
 
     private VBox crearCard(VehiculoElectrico v) {
         VBox card = new VBox(0);
         card.setPrefWidth(260);
-        card.setStyle(
-                "-fx-background-color:#1a1a1a;" +
-                        "-fx-background-radius:14;" +
-                        "-fx-border-color:#2e2e2e;" +
-                        "-fx-border-radius:14;" +
-                        "-fx-border-width:1;" +
-                        "-fx-effect:dropshadow(gaussian,rgba(0,0,0,0.4),10,0,0,2);"
-        );
-
-        card.setOnMouseEntered(e -> card.setStyle(
-                "-fx-background-color:#1e1e1e;" +
-                        "-fx-background-radius:14;" +
-                        "-fx-border-color:#9B0F1F;" +
-                        "-fx-border-radius:14;" +
-                        "-fx-border-width:1;" +
-                        "-fx-effect:dropshadow(gaussian,rgba(155,15,31,0.25),16,0,0,0);"
-        ));
-        card.setOnMouseExited(e -> card.setStyle(
-                "-fx-background-color:#1a1a1a;" +
-                        "-fx-background-radius:14;" +
-                        "-fx-border-color:#2e2e2e;" +
-                        "-fx-border-radius:14;" +
-                        "-fx-border-width:1;" +
-                        "-fx-effect:dropshadow(gaussian,rgba(0,0,0,0.4),10,0,0,2);"
-        ));
+        card.setStyle(estiloCardNormal());
+        card.setOnMouseEntered(e -> card.setStyle(estiloCardHover()));
+        card.setOnMouseExited(e  -> card.setStyle(estiloCardNormal()));
 
         StackPane zonaImagen = new StackPane();
         zonaImagen.setPrefHeight(155);
-        zonaImagen.setStyle(
-                "-fx-background-color:#141414;" +
-                        "-fx-background-radius:14 14 0 0;"
-        );
+        zonaImagen.setStyle("-fx-background-color:#141414; -fx-background-radius:14 14 0 0;");
 
         Label badgeTipo = new Label(obtenerEmoji(v) + " " + obtenerTipo(v));
-        badgeTipo.setStyle(
-                "-fx-background-color:#9B0F1F;" +
-                        "-fx-text-fill:white;" +
-                        "-fx-font-size:10px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-background-radius:6;" +
-                        "-fx-padding:3 8;"
-        );
+        badgeTipo.setStyle("-fx-background-color:#9B0F1F; -fx-text-fill:white; -fx-font-size:10px;" +
+                "-fx-font-weight:bold; -fx-background-radius:6; -fx-padding:3 8;");
         StackPane.setAlignment(badgeTipo, Pos.TOP_LEFT);
         StackPane.setMargin(badgeTipo, new Insets(10, 0, 0, 10));
 
@@ -246,34 +178,21 @@ public class ControladorMenuCompras {
         imgView.setFitHeight(120);
         imgView.setPreserveRatio(true);
         imgView.setSmooth(true);
-
         cargarImagenVehiculo(imgView, v);
-
         zonaImagen.getChildren().addAll(imgView, badgeTipo);
 
         VBox zonaInfo = new VBox(6);
         zonaInfo.setPadding(new Insets(14, 16, 14, 16));
 
         Label lblNombre = new Label(v.getMarca() + " " + v.getModelo());
-        lblNombre.setStyle(
-                "-fx-text-fill:#eeeeee;" +
-                        "-fx-font-size:15px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-font-family:'Rajdhani';"
-        );
+        lblNombre.setStyle("-fx-text-fill:#eeeeee; -fx-font-size:15px; -fx-font-weight:bold; -fx-font-family:'Rajdhani';");
         lblNombre.setWrapText(true);
 
-        Label lblAnio = new Label(String.valueOf(v.getAnio()) + "  •  " + v.getColor());
+        Label lblAnio = new Label(v.getAnio() + "  •  " + v.getColor());
         lblAnio.setStyle("-fx-text-fill:#666; -fx-font-size:11px;");
 
-        // Precio
         Label lblPrecio = new Label(formatearPrecio(v.getPrecioBase()));
-        lblPrecio.setStyle(
-                "-fx-text-fill:#9B0F1F;" +
-                        "-fx-font-size:18px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-font-family:'Rajdhani';"
-        );
+        lblPrecio.setStyle("-fx-text-fill:#9B0F1F; -fx-font-size:18px; -fx-font-weight:bold; -fx-font-family:'Rajdhani';");
 
         HBox infoRapida = new HBox(12);
         infoRapida.setAlignment(Pos.CENTER_LEFT);
@@ -297,111 +216,53 @@ public class ControladorMenuCompras {
         Button btnInfo = new Button("Ver info");
         btnInfo.setPrefWidth(108);
         btnInfo.setPrefHeight(34);
-        btnInfo.setStyle(
-                "-fx-background-color:transparent;" +
-                        "-fx-text-fill:#9B0F1F;" +
-                        "-fx-border-color:#9B0F1F;" +
-                        "-fx-border-radius:7;" +
-                        "-fx-background-radius:7;" +
-                        "-fx-border-width:1;" +
-                        "-fx-font-size:12px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-cursor:hand;"
-        );
-        btnInfo.setOnMouseEntered(e -> btnInfo.setStyle(
-                "-fx-background-color:#9B0F1F;" +
-                        "-fx-text-fill:white;" +
-                        "-fx-border-color:#9B0F1F;" +
-                        "-fx-border-radius:7;" +
-                        "-fx-background-radius:7;" +
-                        "-fx-border-width:1;" +
-                        "-fx-font-size:12px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-cursor:hand;"
-        ));
-        btnInfo.setOnMouseExited(e -> btnInfo.setStyle(
-                "-fx-background-color:transparent;" +
-                        "-fx-text-fill:#9B0F1F;" +
-                        "-fx-border-color:#9B0F1F;" +
-                        "-fx-border-radius:7;" +
-                        "-fx-background-radius:7;" +
-                        "-fx-border-width:1;" +
-                        "-fx-font-size:12px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-cursor:hand;"
-        ));
+        btnInfo.setStyle(estiloBotonSecundario());
+        btnInfo.setOnMouseEntered(e -> btnInfo.setStyle(estiloBotonSecundarioHover()));
+        btnInfo.setOnMouseExited(e  -> btnInfo.setStyle(estiloBotonSecundario()));
         btnInfo.setOnAction(e -> verInformacion(v));
 
         Button btnAgregar = new Button("🛒 Añadir");
         btnAgregar.setPrefWidth(108);
         btnAgregar.setPrefHeight(34);
-        btnAgregar.setStyle(
-                "-fx-background-color:#9B0F1F;" +
-                        "-fx-text-fill:white;" +
-                        "-fx-border-radius:7;" +
-                        "-fx-background-radius:7;" +
-                        "-fx-font-size:12px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-cursor:hand;"
-        );
-        btnAgregar.setOnMouseEntered(e -> btnAgregar.setStyle(
-                "-fx-background-color:#c0392b;" +
-                        "-fx-text-fill:white;" +
-                        "-fx-border-radius:7;" +
-                        "-fx-background-radius:7;" +
-                        "-fx-font-size:12px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-cursor:hand;"
-        ));
-        btnAgregar.setOnMouseExited(e -> btnAgregar.setStyle(
-                "-fx-background-color:#9B0F1F;" +
-                        "-fx-text-fill:white;" +
-                        "-fx-border-radius:7;" +
-                        "-fx-background-radius:7;" +
-                        "-fx-font-size:12px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-cursor:hand;"
-        ));
+        btnAgregar.setStyle(estiloBotonPrimario());
+        btnAgregar.setOnMouseEntered(e -> btnAgregar.setStyle(estiloBotonPrimarioHover()));
+        btnAgregar.setOnMouseExited(e  -> btnAgregar.setStyle(estiloBotonPrimario()));
         btnAgregar.setOnAction(e -> agregarAlCarrito(v, btnAgregar));
 
         botones.getChildren().addAll(btnInfo, btnAgregar);
-
         zonaInfo.getChildren().addAll(lblNombre, lblAnio, lblPrecio, infoRapida, sep, botones);
         card.getChildren().addAll(zonaImagen, zonaInfo);
-
         return card;
     }
 
     private void agregarAlCarrito(VehiculoElectrico v, Button btnAgregar) {
-        // Evitar duplicados
-        boolean yaEsta = carrito.stream()
-                .anyMatch(c -> c.getId().equals(v.getId()));
+        try {
+            serviceCompras.validarCompra(v);
+        } catch (ServiceException e) {
+            mostrarToast("⚠ " + e.getMessage());
+            return;
+        }
+
+        boolean yaEsta = carrito.stream().anyMatch(c -> c.getId().equals(v.getId()));
         if (yaEsta) {
             mostrarToast("⚠ Ya está en el carrito");
             return;
         }
+
         carrito.add(v);
         actualizarBtnCarrito();
 
         btnAgregar.setText("✓ Añadido");
-        btnAgregar.setStyle(
-                "-fx-background-color:#1a5c30;" +
-                        "-fx-text-fill:white;" +
-                        "-fx-border-radius:7;" +
-                        "-fx-background-radius:7;" +
-                        "-fx-font-size:12px;" +
-                        "-fx-font-weight:bold;" +
-                        "-fx-cursor:hand;"
-        );
+        btnAgregar.setStyle("-fx-background-color:#1a5c30; -fx-text-fill:white; -fx-border-radius:7;" +
+                "-fx-background-radius:7; -fx-font-size:12px; -fx-font-weight:bold; -fx-cursor:hand;");
         btnAgregar.setDisable(true);
 
         mostrarToast("✓ " + v.getMarca() + " " + v.getModelo() + " añadido al carrito");
     }
 
     private void actualizarBtnCarrito() {
-        if (btnCarrito != null) {
+        if (btnCarrito != null)
             btnCarrito.setText("🛒  Carrito (" + carrito.size() + ")");
-        }
     }
 
     @FXML
@@ -439,10 +300,9 @@ public class ControladorMenuCompras {
         VBox listaItems = new VBox(1);
         listaItems.setStyle("-fx-background-color:#0f0f0f;");
 
-        double[] totalRef = {0};
+        double[] totalRef = {serviceCompras.calcularTotalCarrito(carrito)};
 
         for (VehiculoElectrico v : carrito) {
-            totalRef[0] += v.calcularPrecioFinal();
             HBox fila = new HBox(12);
             fila.setAlignment(Pos.CENTER_LEFT);
             fila.setPadding(new Insets(12, 20, 12, 20));
@@ -463,11 +323,9 @@ public class ControladorMenuCompras {
             precioV.setStyle("-fx-text-fill:#9B0F1F; -fx-font-size:14px; -fx-font-weight:bold;");
 
             Button btnQuitar = new Button("✕");
-            btnQuitar.setStyle(
-                    "-fx-background-color:transparent; -fx-text-fill:#555;" +
-                            "-fx-border-color:#333; -fx-border-radius:4; -fx-background-radius:4;" +
-                            "-fx-cursor:hand; -fx-padding:2 6; -fx-font-size:11px;"
-            );
+            btnQuitar.setStyle("-fx-background-color:transparent; -fx-text-fill:#555;" +
+                    "-fx-border-color:#333; -fx-border-radius:4; -fx-background-radius:4;" +
+                    "-fx-cursor:hand; -fx-padding:2 6; -fx-font-size:11px;");
             btnQuitar.setOnAction(e -> {
                 carrito.remove(v);
                 actualizarBtnCarrito();
@@ -499,11 +357,9 @@ public class ControladorMenuCompras {
         botones.setAlignment(Pos.CENTER_RIGHT);
 
         Button btnVaciar = new Button("Vaciar carrito");
-        btnVaciar.setStyle(
-                "-fx-background-color:transparent; -fx-text-fill:#9B0F1F;" +
-                        "-fx-border-color:#9B0F1F; -fx-border-radius:7; -fx-background-radius:7;" +
-                        "-fx-border-width:1; -fx-font-size:13px; -fx-cursor:hand; -fx-padding:8 16;"
-        );
+        btnVaciar.setStyle("-fx-background-color:transparent; -fx-text-fill:#9B0F1F;" +
+                "-fx-border-color:#9B0F1F; -fx-border-radius:7; -fx-background-radius:7;" +
+                "-fx-border-width:1; -fx-font-size:13px; -fx-cursor:hand; -fx-padding:8 16;");
         btnVaciar.setOnAction(e -> {
             carrito.clear();
             actualizarBtnCarrito();
@@ -512,11 +368,9 @@ public class ControladorMenuCompras {
         });
 
         Button btnComprar = new Button("Confirmar compra  →");
-        btnComprar.setStyle(
-                "-fx-background-color:#9B0F1F; -fx-text-fill:white;" +
-                        "-fx-border-radius:7; -fx-background-radius:7;" +
-                        "-fx-font-size:13px; -fx-font-weight:bold; -fx-cursor:hand; -fx-padding:8 20;"
-        );
+        btnComprar.setStyle("-fx-background-color:#9B0F1F; -fx-text-fill:white;" +
+                "-fx-border-radius:7; -fx-background-radius:7;" +
+                "-fx-font-size:13px; -fx-font-weight:bold; -fx-cursor:hand; -fx-padding:8 20;");
         btnComprar.setOnAction(e -> {
             ventana.close();
             confirmarCompra();
@@ -531,12 +385,18 @@ public class ControladorMenuCompras {
     }
 
     private void confirmarCompra() {
+        try {
+            serviceCompras.validarCarrito(carrito);
+        } catch (ServiceException e) {
+            utilidades.mostrarAlerta(Alert.AlertType.ERROR, "Error en el carrito", e.getMessage());
+            return;
+        }
+
         StringBuilder resumen = new StringBuilder();
-        double total = 0;
+        double total = serviceCompras.calcularTotalCarrito(carrito);
         for (VehiculoElectrico v : carrito) {
             resumen.append("• ").append(v.getMarca()).append(" ").append(v.getModelo())
                     .append("  →  ").append(formatearPrecio(v.calcularPrecioFinal())).append("\n");
-            total += v.calcularPrecioFinal();
         }
         resumen.append("\nTotal: ").append(formatearPrecio(total));
 
@@ -576,47 +436,40 @@ public class ControladorMenuCompras {
         root.getChildren().add(header);
 
         VBox body = new VBox(0);
-        body.setStyle("-fx-padding:4 0;");
-
-        agregarFila(body, "Color",          v.getColor(),                        false);
-        agregarFila(body, "Año",            String.valueOf(v.getAnio()),          true);
-        agregarFila(body, "Precio base",    formatearPrecio(v.getPrecioBase()),   false);
-        agregarFila(body, "Precio final",   formatearPrecio(v.calcularPrecioFinal()), true);
-        agregarFila(body, "Estado",         v.getEstado().name(),                 false);
-
+        agregarFila(body, "Color",        v.getColor(),                        false);
+        agregarFila(body, "Año",          String.valueOf(v.getAnio()),          true);
+        agregarFila(body, "Precio base",  formatearPrecio(v.getPrecioBase()),   false);
+        agregarFila(body, "Precio final", formatearPrecio(v.calcularPrecioFinal()), true);
+        agregarFila(body, "Estado",       v.getEstado().name(),                 false);
         if (v.getAutonomiaKm() != null && v.getAutonomiaKm() > 0)
             agregarFila(body, "Autonomía", v.getAutonomiaKm().intValue() + " km", true);
         if (v.getCapacidadBateria() != null && v.getCapacidadBateria() > 0)
-            agregarFila(body, "Batería", v.getCapacidadBateria() + " kWh",       false);
+            agregarFila(body, "Batería", v.getCapacidadBateria() + " kWh", false);
 
         if (v instanceof AutoElectrico a) {
-            agregarFila(body, "Tipo",       a.getTipoCarro(),                     false);
-            agregarFila(body, "Puertas",    String.valueOf(a.getNumeroPuertas()),  true);
-            agregarFila(body, "Pasajeros",  String.valueOf(a.getNumeroPasajeros()), false);
-            agregarFila(body, "Tracción",   a.getTraccion(),                      true);
+            agregarFila(body, "Tipo",      a.getTipoCarro(),                      false);
+            agregarFila(body, "Puertas",   String.valueOf(a.getNumeroPuertas()),   true);
+            agregarFila(body, "Pasajeros", String.valueOf(a.getNumeroPasajeros()), false);
+            agregarFila(body, "Tracción",  a.getTraccion(),                       true);
         } else if (v instanceof MotoElectrica m) {
-            agregarFila(body, "Tipo moto",  m.getTipoMoto(),                      false);
-            agregarFila(body, "Peso",       m.getPesoKg() + " kg",               true);
+            agregarFila(body, "Tipo moto", m.getTipoMoto(),        false);
+            agregarFila(body, "Peso",      m.getPesoKg() + " kg",  true);
         } else if (v instanceof BicicletaElectrica b) {
-            agregarFila(body, "Asistencia", b.getTipoAsistencia(),                false);
+            agregarFila(body, "Asistencia", b.getTipoAsistencia(),               false);
             agregarFila(body, "Marchas",    String.valueOf(b.getNumeroMarchas()), true);
         } else if (v instanceof PatinetaElectrica p) {
             agregarFila(body, "Vel. máx.",  p.getVelocidadMaximaKmH() + " km/h", false);
             agregarFila(body, "Plegable",   p.isEsPlegable() ? "Sí" : "No",      true);
             agregarFila(body, "Carga máx.", p.getCargaMaximaKg() + " kg",         false);
         }
-
         root.getChildren().add(body);
 
         HBox pie = new HBox();
         pie.setStyle("-fx-background-color:#111; -fx-padding:14 20; -fx-border-color:#1e1e1e; -fx-border-width:1 0 0 0;");
         pie.setAlignment(Pos.CENTER_RIGHT);
         Button btnCerrar = new Button("Cerrar");
-        btnCerrar.setStyle(
-                "-fx-background-color:#9B0F1F; -fx-text-fill:white;" +
-                        "-fx-border-radius:7; -fx-background-radius:7;" +
-                        "-fx-font-size:13px; -fx-cursor:hand; -fx-padding:8 20;"
-        );
+        btnCerrar.setStyle("-fx-background-color:#9B0F1F; -fx-text-fill:white;" +
+                "-fx-border-radius:7; -fx-background-radius:7; -fx-font-size:13px; -fx-cursor:hand; -fx-padding:8 20;");
         btnCerrar.setOnAction(e -> ventana.close());
         pie.getChildren().add(btnCerrar);
         root.getChildren().add(pie);
@@ -630,17 +483,13 @@ public class ControladorMenuCompras {
         fila.setPadding(new Insets(10, 20, 10, 20));
         fila.setAlignment(Pos.CENTER_LEFT);
         fila.setStyle("-fx-background-color:" + (par ? "#141414" : "#111111") + ";");
-
         Label lbl = new Label(etiqueta);
         lbl.setStyle("-fx-text-fill:#666; -fx-font-size:12px;");
         lbl.setPrefWidth(130);
-
         Region esp = new Region();
         HBox.setHgrow(esp, Priority.ALWAYS);
-
         Label val = new Label(valor != null ? valor : "—");
         val.setStyle("-fx-text-fill:#cccccc; -fx-font-size:12px; -fx-font-weight:bold;");
-
         fila.getChildren().addAll(lbl, esp, val);
         parent.getChildren().add(fila);
     }
@@ -653,11 +502,20 @@ public class ControladorMenuCompras {
         };
         for (String ruta : rutas) {
             File f = new File(ruta);
-            if (f.exists()) {
-                imgView.setImage(new Image(f.toURI().toString()));
-                return;
-            }
+            if (f.exists()) { imgView.setImage(new Image(f.toURI().toString())); return; }
         }
+    }
+
+    private void mostrarToast(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Akira");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        Platform.runLater(alert::show);
+        new Thread(() -> {
+            try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
+            Platform.runLater(alert::close);
+        }).start();
     }
 
     private String obtenerTipo(VehiculoElectrico v) {
@@ -688,37 +546,36 @@ public class ControladorMenuCompras {
         return "$" + String.format("%,.0f", precio).replace(",", ".");
     }
 
-    private double extraerPrecioMax(String opcion) {
-        return switch (opcion) {
-            case "Hasta $10.000.000"  -> 10_000_000;
-            case "Hasta $30.000.000"  -> 30_000_000;
-            case "Hasta $60.000.000"  -> 60_000_000;
-            case "Hasta $100.000.000" -> 100_000_000;
-            default -> Double.MAX_VALUE;
-        };
+    private String estiloCardNormal() {
+        return "-fx-background-color:#1a1a1a; -fx-background-radius:14; -fx-border-color:#2e2e2e;" +
+                "-fx-border-radius:14; -fx-border-width:1; -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.4),10,0,0,2);";
     }
 
-    private double extraerAutonomiaMin(String opcion) {
-        return switch (opcion) {
-            case "Más de 50 km"  ->  50;
-            case "Más de 100 km" -> 100;
-            case "Más de 200 km" -> 200;
-            case "Más de 400 km" -> 400;
-            default -> 0;
-        };
+    private String estiloCardHover() {
+        return "-fx-background-color:#1e1e1e; -fx-background-radius:14; -fx-border-color:#9B0F1F;" +
+                "-fx-border-radius:14; -fx-border-width:1; -fx-effect:dropshadow(gaussian,rgba(155,15,31,0.25),16,0,0,0);";
     }
 
-    private void mostrarToast(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Akira");
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        Platform.runLater(alert::show);
-        new Thread(() -> {
-            try { Thread.sleep(1500); }
-            catch (InterruptedException ignored) {}
-            Platform.runLater(alert::close);
-        }).start();
+    private String estiloBotonSecundario() {
+        return "-fx-background-color:transparent; -fx-text-fill:#9B0F1F; -fx-border-color:#9B0F1F;" +
+                "-fx-border-radius:7; -fx-background-radius:7; -fx-border-width:1;" +
+                "-fx-font-size:12px; -fx-font-weight:bold; -fx-cursor:hand;";
+    }
+
+    private String estiloBotonSecundarioHover() {
+        return "-fx-background-color:#9B0F1F; -fx-text-fill:white; -fx-border-color:#9B0F1F;" +
+                "-fx-border-radius:7; -fx-background-radius:7; -fx-border-width:1;" +
+                "-fx-font-size:12px; -fx-font-weight:bold; -fx-cursor:hand;";
+    }
+
+    private String estiloBotonPrimario() {
+        return "-fx-background-color:#9B0F1F; -fx-text-fill:white; -fx-border-radius:7;" +
+                "-fx-background-radius:7; -fx-font-size:12px; -fx-font-weight:bold; -fx-cursor:hand;";
+    }
+
+    private String estiloBotonPrimarioHover() {
+        return "-fx-background-color:#c0392b; -fx-text-fill:white; -fx-border-radius:7;" +
+                "-fx-background-radius:7; -fx-font-size:12px; -fx-font-weight:bold; -fx-cursor:hand;";
     }
 
     @FXML public void cambiarInicio(ActionEvent event) {

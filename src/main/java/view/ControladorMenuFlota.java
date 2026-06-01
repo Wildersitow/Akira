@@ -1,9 +1,5 @@
 package view;
 
-import dao.AutoElectricoDAO;
-import dao.BicicletaElectricaDAO;
-import dao.MotoElectricaDAO;
-import dao.PatinetaElectricaDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -38,10 +34,7 @@ public class ControladorMenuFlota {
 
     private List<VehiculoElectrico> todosLosVehiculos = new ArrayList<>();
 
-    private final AutoElectricoDAO      autoDAO = new AutoElectricoDAO();
-    private final MotoElectricaDAO      motoDAO = new MotoElectricaDAO();
-    private final BicicletaElectricaDAO biciDAO = new BicicletaElectricaDAO();
-    private final PatinetaElectricaDAO  patiDAO = new PatinetaElectricaDAO();
+    private final ServiceFlota serviceFlota = new ServiceFlota();
 
     @FXML
     public void initialize() {
@@ -64,13 +57,13 @@ public class ControladorMenuFlota {
     public void cargarVehiculos() {
         todosLosVehiculos.clear();
 
-        try { todosLosVehiculos.addAll(autoDAO.obtenerTodos()); }
+        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
         catch (ServiceException e) { System.err.println("Error autos: " + e.getMessage()); }
-        try { todosLosVehiculos.addAll(motoDAO.obtenerTodos()); }
+        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
         catch (ServiceException e) { System.err.println("Error motos: " + e.getMessage()); }
-        try { todosLosVehiculos.addAll(biciDAO.obtenerTodos()); }
+        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
         catch (ServiceException e) { System.err.println("Error bicicletas: " + e.getMessage()); }
-        try { todosLosVehiculos.addAll(patiDAO.obtenerTodos()); }
+        try { todosLosVehiculos.addAll(serviceFlota.obtenerTodos()); }
         catch (ServiceException e) { System.err.println("Error patinetas: " + e.getMessage()); }
 
         todosLosVehiculos = todosLosVehiculos.stream()
@@ -275,21 +268,18 @@ public class ControladorMenuFlota {
             agregarFila(body, "Autonomía", v.getAutonomiaKm().intValue() + " km", false);
         if (v.getCapacidadBateria() != null && v.getCapacidadBateria() > 0)
             agregarFila(body, "Batería", v.getCapacidadBateria() + " kWh", true);
-        if (v.getPotenciaMotorKW() > 0)
-            agregarFila(body, "Potencia", v.getPotenciaMotorKW() + " kW", false);
 
         if (v instanceof AutoElectrico a) {
-            agregarFila(body, "Tipo",      a.getTipoCarro(),                      true);
-            agregarFila(body, "Puertas",   String.valueOf(a.getNumeroPuertas()),   false);
-            agregarFila(body, "Pasajeros", String.valueOf(a.getNumeroPasajeros()), true);
-            agregarFila(body, "Tracción",  a.getTraccion(),                       false);
+            agregarFila(body, "Tipo",      a.getTipoCarro(),                      false);
+            agregarFila(body, "Puertas",   String.valueOf(a.getNumeroPuertas()),   true);
+            agregarFila(body, "Pasajeros", String.valueOf(a.getNumeroPasajeros()), false);
+            agregarFila(body, "Tracción",  a.getTraccion(),                       true);
         } else if (v instanceof MotoElectrica m) {
             agregarFila(body, "Tipo moto", m.getTipoMoto(),        true);
             agregarFila(body, "Peso",      m.getPesoKg() + " kg",  false);
         } else if (v instanceof BicicletaElectrica b) {
-            agregarFila(body, "Asistencia", b.getTipoAsistencia(),               true);
-            agregarFila(body, "Marchas",    String.valueOf(b.getNumeroMarchas()), false);
-            agregarFila(body, "Marco",      b.getMaterialMarco(),                 true);
+            agregarFila(body, "Asistencia", b.getTipoAsistencia(),               false);
+            agregarFila(body, "Marchas",    String.valueOf(b.getNumeroMarchas()), true);
         } else if (v instanceof PatinetaElectrica p) {
             agregarFila(body, "Vel. máx.",  p.getVelocidadMaximaKmH() + " km/h", false);
             agregarFila(body, "Plegable",   p.isEsPlegable() ? "Sí" : "No",       true);
