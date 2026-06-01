@@ -12,6 +12,7 @@ public abstract  class Persona implements Serializable {
     private final String email;
     private final String rol;
     private final int telefono;
+    private Long id;
 
     public Persona(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, String rol, int telefono) {
         this.nombre = nombre;
@@ -48,4 +49,9 @@ public abstract  class Persona implements Serializable {
     public String getRol() {
         return rol;
     }
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
+
 }
