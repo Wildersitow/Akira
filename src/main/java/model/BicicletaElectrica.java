@@ -35,7 +35,7 @@ public class BicicletaElectrica extends VehiculoElectrico {
         return "BicicletaEléctrica | " + super.toString() +
                 " | Asistencia: " + tipoAsistencia +
                 " | Vel. máx: " + velocidadMaximaKmH + " km/h" +
-                " | Cambios: " + numeroMarchas; // ← quitar marco
+                " | Cambios: " + numeroMarchas;
     }
 
     public int getVelocidadMaximaKmH() {
