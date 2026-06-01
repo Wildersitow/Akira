@@ -12,11 +12,9 @@
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuPrincipalEmpleado">
    <children>
 
-      <!-- ══ PANEL DE LISTAS (tablas) ══ -->
       <Pane fx:id="pane_producto1" layoutX="266.0" layoutY="418.0" prefHeight="276.0" prefWidth="958.0" styleClass="panel-contenido">
          <children>
 
-            <!-- Tabla: Vehículos Comprados -->
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" styleClass="label-seccion-tabla" text="VEHICULOS COMPRADOS" textFill="WHITE" />
 
             <TableView layoutX="29.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
@@ -29,7 +27,6 @@
                </columns>
             </TableView>
 
-            <!-- Tabla: Vehículos Alquilados -->
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="594.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" styleClass="label-seccion-tabla" text="VEHICULOS ALQUILADOS" textFill="WHITE" />
 
             <TableView layoutX="485.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
@@ -44,18 +41,15 @@
          </children>
       </Pane>
 
-      <!-- ══ PANEL SUPERIOR: BIENVENIDA + KPI CARDS ══ -->
       <Pane fx:id="pane_producto11" layoutX="266.0" layoutY="35.0" prefHeight="302.0" prefWidth="958.0" styleClass="panel-contenido">
          <children>
 
-            <!-- Título bienvenida -->
             <Label fx:id="label_akira1" layoutX="26.0" layoutY="14.0" prefHeight="54.0" prefWidth="175.0" styleClass="label-titulo" text="Bienvenido," textFill="WHITE" />
 
             <Label fx:id="label_akira11" layoutX="201.0" layoutY="14.0" prefHeight="54.0" prefWidth="300.0" styleClass="label-titulo-usuario" text="USUARIO" textFill="WHITE" />
 
             <Label fx:id="label_akira12" layoutX="26.0" layoutY="68.0" prefHeight="23.0" prefWidth="393.0" styleClass="label-subtitulo" text="Resumen general del sistema" textFill="WHITE" />
 
-            <!-- KPI: Total Vehículos -->
             <Pane layoutX="26.0" layoutY="109.0" prefHeight="164.0" prefWidth="226.0" styleClass="card-estadistica">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="TOTAL VEHICULOS" />
@@ -63,7 +57,6 @@
                </children>
             </Pane>
 
-            <!-- KPI: Ingresos -->
             <Pane layoutX="263.0" layoutY="109.0" prefHeight="164.0" prefWidth="220.0" styleClass="card-estadistica">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="INGRESOS" />
@@ -107,7 +100,7 @@
                </image>
             </ImageView>
 
-            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="INICIO" />
+            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" text="INICIO" />
 
             <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="AÑADIR/QUITAR VEHICULO" />
 
