@@ -43,7 +43,7 @@ public class BicicletaElectricaDAO {
     }
 
     public ArrayList<BicicletaElectrica> obtenerTodos() throws ServiceException {
-        String sql = "SELECT * FROM bicicleta_electrica";
+        String sql = "SELECT * FROM akira.bicicleta_electrica";
         ArrayList<BicicletaElectrica> lista = new ArrayList<>();
         try (Connection con = ConexionDB.getConexion();
              Statement st = con.createStatement();
