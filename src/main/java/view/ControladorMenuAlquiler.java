@@ -528,7 +528,7 @@ public class ControladorMenuAlquiler {
             agregarFilaInfo(body, "Batería", v.getCapacidadBateria() + " kWh", false);
 
         if (v instanceof AutoElectrico a) {
-            agregarFilaInfo(body, "Tipo",      a.getTipoCarro(),                      false);
+            agregarFilaInfo(body, "Tipo",      a.getTipoCarga(),                      false);
             agregarFilaInfo(body, "Puertas",   String.valueOf(a.getNumeroPuertas()),   true);
             agregarFilaInfo(body, "Pasajeros", String.valueOf(a.getNumeroPasajeros()), false);
             agregarFilaInfo(body, "Tracción",  a.getTraccion(),                       true);
