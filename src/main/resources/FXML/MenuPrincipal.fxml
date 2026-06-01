@@ -5,78 +5,70 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuInicio">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0a0a0a;" stylesheets="@../css/styleMenuInicio.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuPrincipal">
    <children>
-      <Pane layoutX="0.0" layoutY="0.0" prefHeight="90.0" prefWidth="1280.0" styleClass="navbar">
-         <children>
-            <ImageView fitHeight="110.0" fitWidth="170.0" layoutX="20.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/LogoFondoNegro.png" />
-               </image>
+
+      <HBox fx:id="navbar" alignment="CENTER_LEFT" layoutX="0.0" layoutY="0.0" prefHeight="64.0" prefWidth="1280.0" spacing="0" style="-fx-background-color: #111111; -fx-border-color: transparent transparent #2e2e2e transparent; -fx-border-width: 0 0 1 0;">
+
+         <Pane prefHeight="64" prefWidth="220" style="-fx-background-color: transparent;">
+            <ImageView fitHeight="91.0" fitWidth="160.0" layoutX="41.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+               <image><Image url="@../Imagenes/logoprovisional.png" /></image>
             </ImageView>
-            <Button fx:id="boton_inicio" layoutX="280.0" layoutY="22.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" styleClass="boton-nav" text="INICIO" />
+         </Pane>
 
-            <Button fx:id="boton_alquilar" layoutX="420.0" layoutY="22.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" styleClass="boton-nav" text="ALQUILAR" />
+         <Region HBox.hgrow="ALWAYS" />
 
-            <Button fx:id="boton_comprar" layoutX="560.0" layoutY="22.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" styleClass="boton-nav" text="COMPRAR" />
+         <Button fx:id="boton_inicio" mnemonicParsing="false" onAction="#cambiarInicio" styleClass="boton-nav" stylesheets="@../css/styles.css" text="INICIO" />
+         <Button fx:id="boton_comprar" mnemonicParsing="false" onAction="#cambiarCompras" styleClass="boton-nav" stylesheets="@../css/styles.css" text="COMPRAR" />
+         <Button fx:id="boton_alquilar" mnemonicParsing="false" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ALQUILAR" />
+         <Button fx:id="boton_contratos" mnemonicParsing="false" onAction="#cambiarInicio" styleClass="boton-nav" stylesheets="@../css/styles.css" text="CONTRATOS" />
+         <Button fx:id="boton_flota" mnemonicParsing="false" styleClass="boton-nav" stylesheets="@../css/styles.css" text="FLOTA" />
+         <Button fx:id="boton_asistente" mnemonicParsing="false" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ASISTENTE" />
 
-            <Button fx:id="boton_flota" layoutX="700.0" layoutY="22.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" styleClass="boton-nav" text="FLOTA" />
+         <Region prefWidth="16" />
 
-            <Button fx:id="boton_asistente" layoutX="840.0" layoutY="22.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="120.0" styleClass="boton-nav" text="ASISTENTE" />
-            <Button fx:id="boton_cerrar_sesion" layoutX="1080.0" layoutY="22.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="160.0" styleClass="boton-nav, boton-cerrar-sesion" text="🚪  CERRAR SESIÓN" />
+         <Button fx:id="boton_asistente1" mnemonicParsing="false" prefHeight="36" prefWidth="150" style="-fx-background-color: #1a0808; -fx-text-fill: #cc3333; -fx-font-family: 'Impact Regular'; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: #4a1010; -fx-border-radius: 6; -fx-border-width: 1; -fx-cursor: hand;" text="⏻  CERRAR SESIÓN" />
+         <Pane prefWidth="16" />
+      </HBox>
+
+      <Pane fx:id="pane_producto11" layoutX="24.0" layoutY="80.0" prefHeight="310.0" prefWidth="1232.0" style="-fx-background-color: #1a1a1a; -fx-background-radius: 16; -fx-border-color: #2e2e2e; -fx-border-radius: 16; -fx-border-width: 1; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0, 0, 3);">
+         <children>
+
+            <Label layoutX="36.0" layoutY="52.0" prefHeight="52.0" prefWidth="600.0" style="-fx-text-fill: #ffffff; -fx-font-family: 'Rajdhani'; -fx-font-size: 38px; -fx-font-weight: bold;" text="¡Bienvenido a Akira!" />
+
+            <Label layoutX="36.0" layoutY="108.0" prefHeight="30.0" prefWidth="480.0" style="-fx-text-fill: #9B0F1F; -fx-font-family: 'Rajdhani'; -fx-font-size: 20px; -fx-font-weight: bold;" text="Encuentra tu futuro vehículo eléctrico" />
+
+            <Label layoutX="36.0" layoutY="148.0" prefHeight="44.0" prefWidth="560.0" style="-fx-text-fill: #777777; -fx-font-family: 'Rajdhani'; -fx-font-size: 14px;" text="Explora nuestra flota de vehículos disponibles para compra y alquiler.&#10;Tecnología de punta al alcance de tu mano." wrapText="true" />
+
+            <Button fx:id="bot_ver_catalogo" layoutX="36.0" layoutY="220.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #9B0F1F; -fx-text-fill: #ffffff; -fx-font-family: 'Rajdhani'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 20;" text="Ver catálogo →" />
 
          </children>
       </Pane>
-      <Pane layoutX="0.0" layoutY="90.0" prefHeight="1.0" prefWidth="1280.0" style="-fx-background-color: #2e2e2e;" />
 
-      <Pane fx:id="pane_producto11" layoutX="40.0" layoutY="110.0" prefHeight="290.0" prefWidth="1200.0" styleClass="panel-hero">
+      <Label layoutX="24.0" layoutY="410.0" prefHeight="28.0" prefWidth="300.0" style="-fx-text-fill: #555555; -fx-font-family: 'Rajdhani'; -fx-font-size: 13px; -fx-font-weight: bold;" text="VEHÍCULOS RECOMENDADOS" />
+
+      <Pane fx:id="pane_producto1" layoutX="24.0" layoutY="448.0" prefHeight="240.0" prefWidth="390.0" style="-fx-background-color: #1a1a1a; -fx-background-radius: 14; -fx-border-color: #2e2e2e; -fx-border-radius: 14; -fx-border-width: 1; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);">
          <children>
-
-            <!-- Texto izquierdo -->
-            <Label layoutX="32.0" layoutY="60.0" prefWidth="520.0" styleClass="label-hero-titulo" text="¡Bienvenido a Akira!" />
-
-            <Label layoutX="32.0" layoutY="120.0" prefWidth="480.0" styleClass="label-hero-subtitulo" text="Encuentra tu futuro vehículo eléctrico" />
-
-            <Label layoutX="32.0" layoutY="165.0" prefHeight="60.0" prefWidth="480.0" styleClass="label-hero-descripcion" text="Explora nuestra flota de vehículos disponibles para compra y alquiler. Tecnología de punta al alcance de tu mano." wrapText="true" />
-            <Button layoutX="32.0" layoutY="235.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="boton-cta" text="Ver catálogo →" />
-
-            <ImageView fx:id="imagen_vehiculo_hero" fitHeight="242.0" fitWidth="560.0" layoutX="610.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
-
-         </children>
-      </Pane>
-      <Pane layoutX="40.0" layoutY="418.0" prefHeight="40.0" prefWidth="1200.0" styleClass="seccion-header-plano">
-         <children>
-            <Label layoutX="0.0" layoutY="8.0" styleClass="label-seccion-recomendados" text="VEHÍCULOS RECOMENDADOS" />
+            <Label layoutX="20.0" layoutY="16.0" prefHeight="24.0" prefWidth="200.0" style="-fx-text-fill: #dddddd; -fx-font-family: 'Rajdhani'; -fx-font-size: 16px; -fx-font-weight: bold;" text="Recomendado 1" />
+            <Button fx:id="ver_detalles" layoutX="200.0" layoutY="190.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: transparent; -fx-text-fill: #9B0F1F; -fx-font-family: 'Rajdhani'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-border-color: #9B0F1F; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 1; -fx-cursor: hand;" text="Ver Información" />
          </children>
       </Pane>
 
-      <Pane fx:id="pane_producto1" layoutX="40.0" layoutY="465.0" prefHeight="215.0" prefWidth="375.0" styleClass="card-vehiculo">
+      <Pane fx:id="pane_producto12" layoutX="445.0" layoutY="448.0" prefHeight="240.0" prefWidth="390.0" style="-fx-background-color: #1a1a1a; -fx-background-radius: 14; -fx-border-color: #2e2e2e; -fx-border-radius: 14; -fx-border-width: 1; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);">
          <children>
-            <ImageView fx:id="imagen_rec1" fitHeight="120.0" fitWidth="355.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-
-            <Label fx:id="label_rec1" layoutX="14.0" layoutY="138.0" prefWidth="250.0" styleClass="label-card-titulo" text="Recomendado 1" />
-
-            <Button fx:id="boton_ver1" layoutX="200.0" layoutY="170.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="160.0" styleClass="boton-ver-info" text="Ver Información" />
+            <Label layoutX="20.0" layoutY="16.0" prefHeight="24.0" prefWidth="200.0" style="-fx-text-fill: #dddddd; -fx-font-family: 'Rajdhani'; -fx-font-size: 16px; -fx-font-weight: bold;" text="Recomendado 2" />
+            <Button fx:id="ver_detalles2" layoutX="200.0" layoutY="190.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: transparent; -fx-text-fill: #9B0F1F; -fx-font-family: 'Rajdhani'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-border-color: #9B0F1F; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 1; -fx-cursor: hand;" text="Ver Información" />
          </children>
       </Pane>
-      <Pane fx:id="pane_producto2" layoutX="452.0" layoutY="465.0" prefHeight="215.0" prefWidth="375.0" styleClass="card-vehiculo">
+
+      <Pane fx:id="pane_producto13" layoutX="866.0" layoutY="448.0" prefHeight="240.0" prefWidth="390.0" style="-fx-background-color: #1a1a1a; -fx-background-radius: 14; -fx-border-color: #2e2e2e; -fx-border-radius: 14; -fx-border-width: 1; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);">
          <children>
-            <ImageView fx:id="imagen_rec2" fitHeight="120.0" fitWidth="355.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-
-            <Label fx:id="label_rec2" layoutX="14.0" layoutY="138.0" prefWidth="250.0" styleClass="label-card-titulo" text="Recomendado 2" />
-
-            <Button fx:id="boton_ver2" layoutX="200.0" layoutY="170.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="160.0" styleClass="boton-ver-info" text="Ver Información" />
-         </children>
-      </Pane>
-      <Pane fx:id="pane_producto3" layoutX="864.0" layoutY="465.0" prefHeight="215.0" prefWidth="375.0" styleClass="card-vehiculo">
-         <children>
-            <ImageView fx:id="imagen_rec3" fitHeight="120.0" fitWidth="355.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-
-            <Label fx:id="label_rec3" layoutX="14.0" layoutY="138.0" prefWidth="250.0" styleClass="label-card-titulo" text="Recomendado 3" />
-
-            <Button fx:id="boton_ver3" layoutX="200.0" layoutY="170.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="160.0" styleClass="boton-ver-info" text="Ver Información" />
+            <Label layoutX="20.0" layoutY="16.0" prefHeight="24.0" prefWidth="200.0" style="-fx-text-fill: #dddddd; -fx-font-family: 'Rajdhani'; -fx-font-size: 16px; -fx-font-weight: bold;" text="Recomendado 3" />
+            <Button fx:id="ver_detalles3" layoutX="200.0" layoutY="190.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: transparent; -fx-text-fill: #9B0F1F; -fx-font-family: 'Rajdhani'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-border-color: #9B0F1F; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-width: 1; -fx-cursor: hand;" text="Ver Información" />
          </children>
       </Pane>
 
