@@ -5,8 +5,6 @@ public class AutoElectrico extends VehiculoElectrico {
     private static final double RECARGO_SUV_PICKUP   = 0.15;
     private static final double RECARGO_COUPE        = 0.10;
     private static final double RECARGO_AWD          = 0.10;
-    private static final double RECARGO_ALTA_POTENCIA = 0.08;
-    private static final int    UMBRAL_POTENCIA_KW   = 150;
 
     private final int numeroPuertas;
     private final int numeroPasajeros;
