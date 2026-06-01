@@ -11,9 +11,8 @@ public class MotoElectrica extends VehiculoElectrico {
     private String tipoMoto;
     private double pesoKg;
 
-    public MotoElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima, int alturaAsientoMm, String tipoMoto, double pesoKg) {
-        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, potenciaMotorKW, velocidadMaxima);
-        this.alturaAsientoMm = alturaAsientoMm;
+    public MotoElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, String tipoMoto, double pesoKg) {
+        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, 0);
         this.tipoMoto = tipoMoto;
         this.pesoKg = pesoKg;
     }
@@ -37,17 +36,9 @@ public class MotoElectrica extends VehiculoElectrico {
     public String toString() {
         return "MotoEléctrica | " + super.toString() +
                 " | Tipo: " + tipoMoto +
-                " | Peso: " + pesoKg + " kg" +
-                " | Altura asiento: " + alturaAsientoMm + " mm";
+                " | Peso: " + pesoKg + " kg";
     }
 
-    public int getAlturaAsientoMm() {
-        return alturaAsientoMm;
-    }
-
-    public void setAlturaAsientoMm(int alturaAsientoMm) {
-        this.alturaAsientoMm = alturaAsientoMm;
-    }
 
     public String getTipoMoto() {
         return tipoMoto;

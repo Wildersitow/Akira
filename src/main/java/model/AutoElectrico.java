@@ -13,8 +13,8 @@ public class AutoElectrico extends VehiculoElectrico {
     private final String tipoCarro;
     private final String traccion;
 
-    public AutoElectrico(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima, int numeroPasajeros, int numeroPuertas, String tipoCarro, String traccion) {
-        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, potenciaMotorKW, velocidadMaxima);
+    public AutoElectrico(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int velocidadMaxima, int numeroPasajeros, int numeroPuertas, String tipoCarro, String traccion) {
+        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, velocidadMaxima);
         this.numeroPasajeros = numeroPasajeros;
         this.numeroPuertas = numeroPuertas;
         this.tipoCarro = tipoCarro;
@@ -34,10 +34,6 @@ public class AutoElectrico extends VehiculoElectrico {
 
         if (traccion.equalsIgnoreCase("AWD")) {
             precioFinal += precioFinal * RECARGO_AWD;
-        }
-
-        if (getPotenciaMotorKW() > UMBRAL_POTENCIA_KW) {
-            precioFinal += precioFinal * RECARGO_ALTA_POTENCIA;
         }
 
         return precioFinal;
