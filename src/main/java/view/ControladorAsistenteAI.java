@@ -16,7 +16,9 @@ import java.util.concurrent.Executors;
 
 public class ControladorAsistenteAI {
 
-    private final UtilidadesFX utilidades;
+
+
+    private final UtilidadesFX utilidades = new UtilidadesFX();
     @FXML private ScrollPane scrollPane;
     @FXML private VBox       chatContainer;
     @FXML private TextField  campoTexto;
@@ -31,11 +33,9 @@ public class ControladorAsistenteAI {
     @FXML private Button btnQ5;
     @FXML private Button btnQ6;
 
-    private final AkiraAssistantService servicio   = new AkiraAssistantService();
-    private final ExecutorService       executor   = Executors.newSingleThreadExecutor();
-    public ControladorAsistenteAI(UtilidadesFX utilidades) {
-        this.utilidades = utilidades;
-    }
+    private final AkiraAssistantService servicio = new AkiraAssistantService();
+    private final ExecutorService       executor = Executors.newSingleThreadExecutor();
+    public ControladorAsistenteAI() {}
 
     @FXML
     public void initialize() {
