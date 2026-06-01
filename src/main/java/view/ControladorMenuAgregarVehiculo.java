@@ -22,6 +22,7 @@ import javafx.application.Platform;
 
 public class ControladorMenuAgregarVehiculo {
 
+
     @FXML private Pane paneAuto;
     @FXML private Pane paneMoto;
     @FXML private Pane panePatineta;
@@ -33,9 +34,9 @@ public class ControladorMenuAgregarVehiculo {
     @FXML private TextField precio_base, vmax_auto, puertas_auto, pasajeros_auto;
     @FXML private TextField carga_auto, traccion_auto, color_auto, año_auto;
 
-    @FXML private TextField id_moto, marca_moto, modelo_moto, km_moto, baeria_moto;
+    @FXML private TextField id_moto, marca_moto, modelo_moto, km_moto, bateria_moto;
     @FXML private TextField precio_moto, vmax_moto, color_moto, año_moto;
-    @FXML private TextField carga_moto, pasajeros_moto, tipo_moto;
+    @FXML private TextField carga_moto, peso_moto, tipo_moto;
 
     @FXML private TextField id_patineta, marca_patineta, modelo_patineta, km_patineta;
     @FXML private TextField bateria_patineta, precio_patineta, velocidad_patineta;
@@ -146,19 +147,19 @@ public class ControladorMenuAgregarVehiculo {
                 listaVehiculos.add(new VehiculoFila("Moto", m.getId(), m.getMarca(),
                         m.getModelo(), fecha, String.valueOf(m.getAutonomiaKm()),
                         String.valueOf(m.getCapacidadBateria()),
-                        String.valueOf(m.getPrecioBase()), String.valueOf(m.getVelocidadMaxima())));
+                        String.valueOf(m.getPrecioBase()), String.valueOf(m.getVelocidadMaximaKmH())));
 
             for (PatinetaElectrica p : patinetaService.obtenerTodos())
                 listaVehiculos.add(new VehiculoFila("Patineta", p.getId(), p.getMarca(),
                         p.getModelo(), fecha, String.valueOf(p.getAutonomiaKm()),
                         String.valueOf(p.getCapacidadBateria()),
-                        String.valueOf(p.getPrecioBase()), String.valueOf(p.getVelocidadMaxima())));
+                        String.valueOf(p.getPrecioBase()), String.valueOf(p.getVelocidadMaximaKmH())));
 
             for (BicicletaElectrica b : biciService.obtenerTodos())
                 listaVehiculos.add(new VehiculoFila("Bicicleta", b.getId(), b.getMarca(),
                         b.getModelo(), fecha, String.valueOf(b.getAutonomiaKm()),
                         String.valueOf(b.getCapacidadBateria()),
-                        String.valueOf(b.getPrecioBase()), String.valueOf(b.getVelocidadMaxima())));
+                        String.valueOf(b.getPrecioBase()), String.valueOf(b.getVelocidadMaximaKmH())));
 
             listaFiltrada.clear();
             listaFiltrada.addAll(listaVehiculos);
@@ -263,7 +264,6 @@ public class ControladorMenuAgregarVehiculo {
                     marca_auto.getText().trim(),
                     modelo_auto.getText().trim(),
                     Double.parseDouble(precio_base.getText().trim()),
-                    0,
                     Integer.parseInt(vmax_auto.getText().trim()),
                     Integer.parseInt(pasajeros_auto.getText().trim()),
                     Integer.parseInt(puertas_auto.getText().trim()),
@@ -288,18 +288,16 @@ public class ControladorMenuAgregarVehiculo {
             MotoElectrica moto = new MotoElectrica(
                     Integer.parseInt(año_moto.getText().trim()),
                     Double.parseDouble(km_moto.getText().trim()),
-                    Double.parseDouble(baeria_moto.getText().trim()),
+                    Double.parseDouble(bateria_moto.getText().trim()),
                     color_moto.getText().trim(),
                     EstadoVehiculo.DISPONIBLE,
                     id_moto.getText().trim(),
                     marca_moto.getText().trim(),
                     modelo_moto.getText().trim(),
                     Double.parseDouble(precio_moto.getText().trim()),
-                    0,
-                    Integer.parseInt(vmax_moto.getText().trim()),
-                    0,
                     tipo_moto.getText().trim(),
-                    0.0
+                    Double.parseDouble(peso_moto.getText().trim()),
+                    Integer.parseInt(vmax_moto.getText().trim()) //
             );
             moto.setImagen(rutaImagenMoto);
             motoService.guardar(moto);
@@ -326,8 +324,6 @@ public class ControladorMenuAgregarVehiculo {
                     marca_patineta.getText().trim(),
                     modelo_patineta.getText().trim(),
                     Double.parseDouble(precio_patineta.getText().trim()),
-                    0,
-                    Integer.parseInt(velocidad_patineta.getText().trim()),
                     Integer.parseInt(pesomax_patineta.getText().trim()),
                     box_patineta.isSelected(),
                     Integer.parseInt(velocidad_patineta.getText().trim())
@@ -357,9 +353,6 @@ public class ControladorMenuAgregarVehiculo {
                     marca_bici.getText().trim(),
                     model_bici.getText().trim(),
                     Double.parseDouble(precio_bici.getText().trim()),
-                    0,
-                    Integer.parseInt(vmax_bici.getText().trim()),
-                    "N/A",
                     Integer.parseInt(vmax_bici.getText().trim()),
                     box_bici.isSelected() ? "Pedal" : "Throttle",
                     Integer.parseInt(marchas_bici.getText().trim())
@@ -388,9 +381,9 @@ public class ControladorMenuAgregarVehiculo {
     @FXML
     private void limpiarMoto() {
         id_moto.clear(); marca_moto.clear(); modelo_moto.clear();
-        km_moto.clear(); baeria_moto.clear(); precio_moto.clear();
+        km_moto.clear(); bateria_moto.clear(); precio_moto.clear();
         vmax_moto.clear(); color_moto.clear(); año_moto.clear();
-        carga_moto.clear(); pasajeros_moto.clear(); tipo_moto.clear();
+        carga_moto.clear(); peso_moto.clear(); tipo_moto.clear();
         imgMoto.setImage(null); rutaImagenMoto = null;
     }
 

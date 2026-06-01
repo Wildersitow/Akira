@@ -150,7 +150,7 @@
                   <Font name="Roboto" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="baeria_moto" layoutX="417.0" layoutY="144.0" stylesheets="@../css/styles.css" />
+            <TextField fx:id="bateria_moto" layoutX="417.0" layoutY="144.0" stylesheets="@../css/styles.css" />
             <Label fx:id="" layoutX="417.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Precio base" textFill="WHITE">
                <font>
                   <Font name="Roboto" size="14.0" />
