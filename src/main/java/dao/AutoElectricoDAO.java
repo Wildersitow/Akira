@@ -12,7 +12,7 @@ import java.util.List;
 public class AutoElectricoDAO {
 
     public void guardar(AutoElectrico auto) throws ServiceException {
-        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio_base, estado_id, numero_puertas, tipo_carro, cap_pasajeros, traccion, autonomia_km, capacidad_bateria, velocidad_maxima, imagen) " +
+        String sql = "INSERT INTO auto_electrico (marca, modelo, anio, color, precio_base, estado_id, numero_puertas, tipo_carga, cap_pasajeros, traccion, autonomia_km, capacidad_bateria, velocidad_maxima, imagen) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Connection con = null;
         try {
@@ -27,7 +27,7 @@ public class AutoElectricoDAO {
             ps.setDouble(5,  auto.getPrecioBase());
             ps.setInt(6,     estadoToId(auto.getEstado()));
             ps.setInt(7,     auto.getNumeroPuertas());
-            ps.setString(8,  auto.getTipoCarro());
+            ps.setString(8,  auto.getTipoCarga());
             ps.setInt(9,     auto.getNumeroPasajeros());
             ps.setString(10, auto.getTraccion());
             ps.setDouble(11, auto.getAutonomiaKm());
@@ -48,7 +48,7 @@ public class AutoElectricoDAO {
     }
 
     public ArrayList<AutoElectrico> obtenerTodos() throws ServiceException {
-        String sql = "SELECT * FROM auto_electrico";
+        String sql = "SELECT * FROM akira.auto_electrico";
         ArrayList<AutoElectrico> lista = new ArrayList<>();
         try (Connection con = ConexionDB.getConexion();
              Statement st = con.createStatement();
@@ -99,7 +99,7 @@ public class AutoElectricoDAO {
                 rs.getInt("velocidad_maxima"),
                 rs.getInt("cap_pasajeros"),
                 rs.getInt("numero_puertas"),
-                rs.getString("tipo_carro"),
+                rs.getString("tipo_carga"),
                 rs.getString("traccion")
         );
         auto.setImagen(rs.getString("imagen"));
