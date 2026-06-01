@@ -10,33 +10,33 @@ import java.util.ArrayList;
 public class BicicletaElectricaDAO {
 
     public void guardar(BicicletaElectrica bici) throws ServiceException {
-        String sql = "INSERT INTO bicicleta_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, tipo_asistencia, velocidad_max_kmh, num_cambios, material_marco, imagen) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
+        String sql = "INSERT INTO bicicleta_electrica (marca, modelo, anio, color, precio_base, estado_id, tipo_asistencia, velocidad_max_kmh, num_cambios, autonomia_km, capacidad_bateria, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
             con.setAutoCommit(false);
-            ps.setString(1, bici.getMarca());
-            ps.setString(2, bici.getModelo());
-            ps.setInt(3, bici.getAnio());
-            ps.setString(4, bici.getColor());
-            ps.setDouble(5, bici.getPrecioBase());
-            ps.setDouble(6, bici.getAutonomiaKm());
-            ps.setDouble(7, bici.getCapacidadBateria());
-            ps.setInt(8, bici.getPotenciaMotorKW());
-            ps.setInt(9, estadoToId(bici.getEstado()));
-            ps.setString(10, bici.getTipoAsistencia());
-            ps.setInt(11, bici.getVelocidadMaximaKmH());
-            ps.setInt(12, bici.getNumeroMarchas());
-            ps.setString(13, bici.getMaterialMarco());
-            ps.setString(14, bici.getImagen());
+            ps.setString(1,  bici.getMarca());
+            ps.setString(2,  bici.getModelo());
+            ps.setInt(3,     bici.getAnio());
+            ps.setString(4,  bici.getColor());
+            ps.setDouble(5,  bici.getPrecioBase());
+            ps.setInt(6,     estadoToId(bici.getEstado()));
+            ps.setString(7,  bici.getTipoAsistencia());
+            ps.setInt(8,     bici.getVelocidadMaximaKmH());
+            ps.setInt(9,     bici.getNumeroMarchas());
+            ps.setDouble(10, bici.getAutonomiaKm());
+            ps.setDouble(11, bici.getCapacidadBateria());
+            ps.setString(12, bici.getImagen());
             ps.executeUpdate();
             con.commit();
-
             System.out.println("✓ Bicicleta guardada: " + bici.getMarca() + " " + bici.getModelo());
-
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_GUARDADO", "Error al guardar bicicleta: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
@@ -57,19 +57,21 @@ public class BicicletaElectricaDAO {
 
     public void eliminar(long id) throws ServiceException {
         String sql = "DELETE FROM bicicleta_electrica WHERE id = ?";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
             con.setAutoCommit(false);
             ps.setLong(1, id);
             int filas = ps.executeUpdate();
             con.commit();
-
             if (filas == 0)
                 throw new ServiceException("BICI_NO_ENCONTRADA", "No se encontró la bicicleta con id: " + id);
-
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar bicicleta: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
@@ -84,9 +86,6 @@ public class BicicletaElectricaDAO {
                 rs.getString("marca"),
                 rs.getString("modelo"),
                 rs.getDouble("precio_base"),
-                rs.getInt("potencia_motor_kw"),
-                0,                              // velocidadMaxima heredada — no está en la tabla
-                rs.getString("material_marco"),
                 rs.getInt("velocidad_max_kmh"),
                 rs.getString("tipo_asistencia"),
                 rs.getInt("num_cambios")

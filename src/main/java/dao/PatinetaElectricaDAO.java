@@ -10,10 +10,12 @@ import java.util.ArrayList;
 public class PatinetaElectricaDAO {
 
     public void guardar(PatinetaElectrica patineta) throws ServiceException {
-        String sql = "INSERT INTO patineta_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, velocidad_max_kmh, peso_plat_kg, plegable, carga_maxima_kg, imagen) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        String sql = "INSERT INTO patineta_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria , estado_id, velocidad_max_kmh, peso_plat_kg, plegable, carga_maxima_kg, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Connection con = null;
+        try  {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
 
             con.setAutoCommit(false);
             ps.setString(1, patineta.getMarca());
@@ -23,20 +25,22 @@ public class PatinetaElectricaDAO {
             ps.setDouble(5, patineta.getPrecioBase());
             ps.setDouble(6, patineta.getAutonomiaKm());
             ps.setDouble(7, patineta.getCapacidadBateria());
-            ps.setInt(8, patineta.getPotenciaMotorKW());
-            ps.setInt(9, estadoToId(patineta.getEstado()));
-            ps.setInt(10, patineta.getVelocidadMaximaKmH());
-            ps.setDouble(11, 0.0);               // peso_plat_kg — no existe en el modelo
-            ps.setInt(12, patineta.isEsPlegable() ? 1 : 0);
-            ps.setInt(13, patineta.getCargaMaximaKg());
-            ps.setString(14, patineta.getImagen());
+            ps.setInt(8, estadoToId(patineta.getEstado()));
+            ps.setInt(9, patineta.getVelocidadMaximaKmH());
+            ps.setDouble(10, 0.0);
+            ps.setInt(11, patineta.isEsPlegable() ? 1 : 0);
+            ps.setInt(12, patineta.getCargaMaximaKg());
+            ps.setString(13, patineta.getImagen());
             ps.executeUpdate();
             con.commit();
 
             System.out.println("✓ Patineta guardada: " + patineta.getMarca() + " " + patineta.getModelo());
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_GUARDADO", "Error al guardar patineta: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
@@ -57,8 +61,10 @@ public class PatinetaElectricaDAO {
 
     public void eliminar(long id) throws ServiceException {
         String sql = "DELETE FROM patineta_electrica WHERE id = ?";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
 
             con.setAutoCommit(false);
             ps.setLong(1, id);
@@ -69,7 +75,10 @@ public class PatinetaElectricaDAO {
                 throw new ServiceException("PATINETA_NO_ENCONTRADA", "No se encontró la patineta con id: " + id);
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar patineta: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
@@ -84,8 +93,6 @@ public class PatinetaElectricaDAO {
                 rs.getString("marca"),
                 rs.getString("modelo"),
                 rs.getDouble("precio_base"),
-                rs.getInt("potencia_motor_kw"),
-                0,                               // velocidadMaxima heredada — no está en la tabla
                 rs.getInt("carga_maxima_kg"),
                 rs.getInt("plegable") == 1,
                 rs.getInt("velocidad_max_kmh")
