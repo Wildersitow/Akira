@@ -19,7 +19,7 @@ import java.util.List;
 public class AkiraAssistantService {
 
     private static final String API_URL = "https://api.anthropic.com/v1/messages";
-    private static final String API_KEY = "TU_API_KEY_AQUI";
+    private static final String API_KEY = "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";
     private static final String MODEL   = "claude-sonnet-4-20250514";
 
     private final List<String[]> historial = new ArrayList<>();
