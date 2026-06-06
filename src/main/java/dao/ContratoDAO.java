@@ -14,35 +14,35 @@ public class ContratoDAO {
     private final EmpleadoDAO empleadoDAO = new EmpleadoDAO();
 
     public void guardar(Contrato contrato, String tipoVehiculo) throws ServiceException {
-        String sql = "INSERT INTO contrato (cliente_id, vehiculo_id, vehiculo_tipo, empleado_id, precio_total, forma_pago, fecha, estado_contrato) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "{call akira.sp_registrar_contrato(?, ?, ?, ?, ?, ?)}";
         Connection con = null;
         try {
             con = ConexionDB.getConexion();
             con.setAutoCommit(false);
-            PreparedStatement ps = con.prepareStatement(sql);
+            CallableStatement cs = con.prepareCall(sql);
 
-            ps.setLong(1,   contrato.getCliente().getId());
-            ps.setLong(2,   Long.parseLong(contrato.getVehiculoElectrico().getId()));
-            ps.setString(3, tipoVehiculo);
-            ps.setLong(4,   contrato.getEmpleado().getId());
-            ps.setDouble(5, contrato.getPrecioFinal());
-            ps.setString(6, contrato.getFormaDePago());
-            ps.setDate(7,   Date.valueOf(contrato.getFechaVenta()));
-            ps.setString(8, contrato.getEstadoContrato());
+            cs.setDouble(1, contrato.getPrecioFinal());
+            cs.setString(2, contrato.getFormaDePago());
+            cs.setLong(3,   contrato.getCliente().getId());
+            cs.setLong(4,   contrato.getEmpleado().getId());
+            cs.setLong(5,   Long.parseLong(contrato.getVehiculoElectrico().getId()));
+            cs.setString(6, tipoVehiculo.toUpperCase());
 
-            ps.executeUpdate();
+            cs.execute();
             con.commit();
 
-            System.out.println("✓ Contrato guardado, cliente id: " + contrato.getCliente().getId());
+            System.out.println("✓ Contrato registrado, cliente id: "
+                    + contrato.getCliente().getId());
 
         } catch (SQLException e) {
             try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
-            throw new ServiceException("ERROR_GUARDADO", "Error al guardar contrato: " + e.getMessage(), e);
+            throw new ServiceException("ERROR_GUARDADO",
+                    "Error al guardar contrato: " + e.getMessage(), e);
         } finally {
             try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
+
 
     public ArrayList<Contrato> obtenerTodos() throws ServiceException {
         String sql = "SELECT * FROM contrato";
@@ -177,7 +177,7 @@ public class ContratoDAO {
             Empleado empleado = empleadoDAO.obtenerPorId(rs.getLong("empleado_id"));
             VehiculoElectrico vehiculo = obtenerVehiculo(
                     rs.getLong("vehiculo_id"),
-                    rs.getString("vehiculo_tipo")
+                    rs.getString("tipo_vehiculo")
             );
 
             return new Contrato(
