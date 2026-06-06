@@ -2,6 +2,7 @@ package view;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -22,6 +23,14 @@ import javafx.application.Platform;
 
 public class ControladorMenuAgregarVehiculo {
 
+    public ControladorMenuAgregarVehiculo() {
+        this.utilidades = new UtilidadesFX();
+    }
+
+
+    public ControladorMenuAgregarVehiculo(UtilidadesFX utilidades) {
+        this.utilidades = utilidades;
+    }
 
     @FXML private Pane paneAuto;
     @FXML private Pane paneMoto;
@@ -73,6 +82,7 @@ public class ControladorMenuAgregarVehiculo {
     private final UtilidadesFX utilidadesFX = new UtilidadesFX();
 
     private static final String CARPETA_IMAGENES = "src/main/resources/Imagenes/";
+    private UtilidadesFX utilidades;
 
     @FXML
     public void initialize() {
@@ -404,4 +414,35 @@ public class ControladorMenuAgregarVehiculo {
         color_bici.clear(); año_bici.clear(); box_bici.setSelected(false);
         imgBici.setImage(null); rutaImagenBici = null;
     }
+
+    @FXML
+    public void cambiarInicio(ActionEvent event) {
+        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipalEmpleado.fxml"); }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    public void cambiarContrato(ActionEvent event) {
+        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuContratosEmpleado.fxml"); }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    public void cambiarHistorial(ActionEvent event) {
+        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/HistorialDeCompras.fxml"); }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    public void cambiarFlota(ActionEvent event) {
+        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlotaAdmin.fxml"); }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    public void cambiarAsistente(ActionEvent event) {
+        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml"); }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
 }
