@@ -183,6 +183,20 @@ public class EmpleadoDAO {
         }
     }
 
+    public Empleado obtenerPrimero() throws ServiceException {
+        String sql = "SELECT * FROM empleado FETCH FIRST 1 ROWS ONLY";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) return mapear(rs);
+            throw new ServiceException("EMPLEADO_NO_ENCONTRADO", "No hay empleados registrados.");
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al obtener empleado: " + e.getMessage(), e);
+        }
+    }
+
     private Empleado mapear(ResultSet rs) throws SQLException {
         Empleado empleado = new Empleado(
                 rs.getString("nombre"),
@@ -191,7 +205,7 @@ public class EmpleadoDAO {
                 rs.getString("cedula"),
                 rs.getString("email"),
                 rs.getString("rol"),
-                rs.getInt("telefono"),
+                rs.getLong("telefono"),   // ← de getInt a getLong
                 rs.getString("codigo_empleado"),
                 rs.getString("cargo"),
                 rs.getDouble("salario")
