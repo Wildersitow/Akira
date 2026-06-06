@@ -23,11 +23,17 @@
          <Region HBox.hgrow="ALWAYS" />
 
          <Button fx:id="boton_inicio" mnemonicParsing="false" onAction="#cambiarInicio" styleClass="boton-nav" stylesheets="@../css/styles.css" text="INICIO" />
-         <Button fx:id="boton_comprar" mnemonicParsing="false" onAction="#cambiarCompras" styleClass="boton-nav" stylesheets="@../css/styles.css" text="COMPRAR" />
-         <Button fx:id="boton_alquilar" mnemonicParsing="false" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ALQUILAR" />
-         <Button fx:id="boton_contratos" mnemonicParsing="false" onAction="#cambiarInicio" styleClass="boton-nav" stylesheets="@../css/styles.css" text="CONTRATOS" />
-         <Button fx:id="boton_flota" mnemonicParsing="false" styleClass="boton-nav" stylesheets="@../css/styles.css" text="FLOTA" />
-         <Button fx:id="boton_asistente" mnemonicParsing="false" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ASISTENTE" />
+         <Button fx:id="boton_compras" mnemonicParsing="false" onAction="#cambiarCompras" styleClass="boton-nav" stylesheets="@../css/styles.css" text="COMPRAR" />
+         <Button fx:id="boton_alquiler" mnemonicParsing="false"  onAction="#cambiarAlquiler" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ALQUILAR" />
+         <Button fx:id="boton_contrato" mnemonicParsing="false" onAction="#cambiarContratos" styleClass="boton-nav" stylesheets="@../css/styles.css" text="CONTRATOS" />
+         <Button fx:id="boton_flota" mnemonicParsing="false"  onAction="#cambiarFlota" styleClass="boton-nav" stylesheets="@../css/styles.css" text="FLOTA" />
+         <Button fx:id="boton_asistene" mnemonicParsing="false" onAction="#cambiarAsistente" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ASISTENTE" />
+         <Button fx:id="boton_perfil" mnemonicParsing="false" onAction="#cambiarPerfil"
+                 prefHeight="36" prefWidth="120"
+                 style="-fx-background-color: transparent; -fx-text-fill: #aaaaaa; -fx-font-family: 'Impact Regular'; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: #2e2e2e; -fx-border-radius: 6; -fx-border-width: 1; -fx-cursor: hand;"
+                 text="👤  PERFIL" />
+
+         <Region prefWidth="10" />
 
          <Region prefWidth="16" />
 
@@ -44,7 +50,7 @@
 
             <Label layoutX="36.0" layoutY="148.0" prefHeight="44.0" prefWidth="560.0" style="-fx-text-fill: #777777; -fx-font-family: 'Rajdhani'; -fx-font-size: 14px;" text="Explora nuestra flota de vehículos disponibles para compra y alquiler.&#10;Tecnología de punta al alcance de tu mano." wrapText="true" />
 
-            <Button fx:id="bot_ver_catalogo" layoutX="36.0" layoutY="220.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #9B0F1F; -fx-text-fill: #ffffff; -fx-font-family: 'Rajdhani'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 20;" text="Ver catálogo →" />
+            <Button fx:id="bot_ver_catalogo" layoutX="36.0" layoutY="220.0" mnemonicParsing="false" onAction="#cambiarFlota" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #9B0F1F; -fx-text-fill: #ffffff; -fx-font-family: 'Rajdhani'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 20;" text="Ver catálogo →" />
 
          </children>
       </Pane>
