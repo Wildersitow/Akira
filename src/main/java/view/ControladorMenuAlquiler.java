@@ -16,6 +16,13 @@ import model.*;
 import service.ServiceAlquiler;
 import service.ServiceException;
 import service.ServiceVehiculo;
+import dao.ContratoAlquilerDAO;
+import dao.EmpleadoDAO;
+import model.Cliente;
+import model.ContratoAlquiler;
+import model.Empleado;
+import service.SesionCuenta;
+import java.time.LocalDate;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -451,17 +458,55 @@ public class ControladorMenuAlquiler {
     }
 
     private void confirmarAlquiler() {
+        // Pedir forma de pago
+        ChoiceDialog<String> dialogoPago = new ChoiceDialog<>("CONTADO", "CONTADO", "CRÉDITO", "TRANSFERENCIA");
+        dialogoPago.setTitle("Forma de pago");
+        dialogoPago.setHeaderText("Selecciona la forma de pago");
+        dialogoPago.setContentText("Pago:");
+        String formaPago = dialogoPago.showAndWait().orElse(null);
+        if (formaPago == null) return;
+
+        Cliente cliente = (Cliente) SesionCuenta.getUsuarioActual();
+
+        Empleado empleado;
+        try {
+            empleado = new EmpleadoDAO().obtenerPrimero();
+        } catch (ServiceException e) {
+            utilidades.mostrarAlerta(Alert.AlertType.ERROR, "Error", "No hay empleados disponibles.");
+            return;
+        }
+
+        ContratoAlquilerDAO contratoAlquilerDAO = new ContratoAlquilerDAO();
         StringBuilder resumen = new StringBuilder();
         double total = 0;
-        for (ItemReserva item : reservas) {
-            resumen.append("• ").append(item.vehiculo.getMarca())
-                    .append(" ").append(item.vehiculo.getModelo())
-                    .append("  (").append(item.periodo).append(")")
-                    .append("  →  ").append(formatearPrecio(item.totalPagar)).append("\n");
-            total += item.totalPagar;
-        }
-        resumen.append("\nTotal: ").append(formatearPrecio(total));
 
+        try {
+            for (ItemReserva item : reservas) {
+                ContratoAlquiler contrato = new ContratoAlquiler(
+                        cliente,
+                        item.vehiculo,
+                        item.totalPagar,
+                        null,                   // id lo genera el trigger
+                        formaPago,
+                        LocalDate.now(),
+                        "ACTIVO",
+                        empleado,
+                        item.periodo,
+                        item.dias
+                );
+                contratoAlquilerDAO.guardar(contrato, obtenerTipoInterno(item.vehiculo));
+                resumen.append("• ").append(item.vehiculo.getMarca())
+                        .append(" ").append(item.vehiculo.getModelo())
+                        .append("  (").append(item.periodo).append(")")
+                        .append("  →  ").append(formatearPrecio(item.totalPagar)).append("\n");
+                total += item.totalPagar;
+            }
+        } catch (ServiceException e) {
+            utilidades.mostrarAlerta(Alert.AlertType.ERROR, "Error al guardar", e.getMessage());
+            return;
+        }
+
+        resumen.append("\nTotal: ").append(formatearPrecio(total));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Alquiler confirmado");
         alert.setHeaderText("¡Tu reserva está lista!");
@@ -471,6 +516,14 @@ public class ControladorMenuAlquiler {
         reservas.clear();
         actualizarBtnReservas();
         cargarVehiculos();
+    }
+
+    private String obtenerTipoInterno(VehiculoElectrico v) {
+        if (v instanceof AutoElectrico)      return "AUTO";
+        if (v instanceof MotoElectrica)      return "MOTO";
+        if (v instanceof BicicletaElectrica) return "BICICLETA";
+        if (v instanceof PatinetaElectrica)  return "PATINETA";
+        return "AUTO";
     }
 
     private void verInformacion(VehiculoElectrico v) {
@@ -693,5 +746,8 @@ public class ControladorMenuAlquiler {
     }
     @FXML public void cambiarAsistente(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml");
+    }
+    @FXML public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml");
     }
 }
