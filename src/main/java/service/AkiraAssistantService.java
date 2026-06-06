@@ -19,7 +19,7 @@ import java.util.List;
 public class AkiraAssistantService {
 
     private static final String API_KEY = "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";
-    private static final String API_URL = "https://api.groq.com/openai/v1/chat/completions";
+    private static final String API_URL = System.getenv("https://api.groq.com/openai/v1/chat/completions");
     private static final String MODEL   = "llama-3.3-70b-versatile";
 
     private final List<String[]> historial = new ArrayList<>();
