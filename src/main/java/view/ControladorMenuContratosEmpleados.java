@@ -320,6 +320,12 @@ public class ControladorMenuContratosEmpleados {
     }
 
     @FXML
+    public void cambiarContrato(ActionEvent event) {
+        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuContratosEmpleado.fxml"); }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
+    @FXML
     public void cambiarFlota(ActionEvent event) {
         try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml"); }
         catch (Exception e) { e.printStackTrace(); }

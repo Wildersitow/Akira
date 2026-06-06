@@ -14,6 +14,8 @@ import model.Cliente;
 import model.Contrato;
 import model.ContratoAlquiler;
 import service.SesionCuenta;
+import dao.ContratoAlquilerDAO;
+
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -144,12 +146,14 @@ public class ControladorMenuContratos {
     private List<ContratoAlquiler> obtenerContratosDelClienteActual() {
         if (!SesionCuenta.haySesionActiva()) return new ArrayList<>();
         if (!(SesionCuenta.getUsuarioActual() instanceof Cliente cliente)) return new ArrayList<>();
-        if (cliente.getContratos() == null) return new ArrayList<>();
 
-        return cliente.getContratos().stream()
-                .filter(c -> c instanceof ContratoAlquiler)
-                .map(c -> (ContratoAlquiler) c)
-                .collect(Collectors.toList());
+        try {
+            ContratoAlquilerDAO dao = new ContratoAlquilerDAO();
+            return dao.obtenerPorCliente((long) cliente.getId());
+        } catch (Exception e) {
+            System.err.println("Error al cargar contratos alquiler: " + e.getMessage());
+            return new ArrayList<>();
+        }
     }
 
     @FXML
