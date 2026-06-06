@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public class ClienteDAO {
 
     public void guardar(Cliente cliente) throws ServiceException {
-        String sql = "INSERT INTO cliente (nombre, nombre_usuario, cedula, telefono, email, contrasena, rol, direccion, licencia_conducir, historial_credito, puntos_fidelidad) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "{call akira.pkg_personas.sp_registrar_cliente(?,?,?,?,?,?,?,?,?,?,?)}";
         Connection con = null;
         try {
             con = ConexionDB.getConexion();
@@ -58,6 +57,29 @@ public class ClienteDAO {
 
         } catch (SQLException e) {
             throw new ServiceException("ERROR_LECTURA", "Error al leer clientes: " + e.getMessage(), e);
+        }
+    }
+
+    public void actualizarPerfil(long id, String nombre, long telefono,
+                                 String direccion, String licencia,
+                                 double historialCredito) throws ServiceException {
+        String sql = "{call akira.sp_actualizar_perfil_cliente(?,?,?,?,?,?)}";
+        try (Connection con = ConexionDB.getConexion();
+             CallableStatement cs = con.prepareCall(sql)) {
+
+            cs.setLong(1,    id);
+            cs.setString(2,  nombre);
+            cs.setLong(3,    telefono);
+            cs.setString(4,  direccion);
+            cs.setString(5,  licencia);
+            cs.setDouble(6,  historialCredito);
+
+            cs.execute();
+            System.out.println("✓ Perfil actualizado, cliente id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_PERFIL",
+                    "Error al actualizar perfil: " + e.getMessage(), e);
         }
     }
 
