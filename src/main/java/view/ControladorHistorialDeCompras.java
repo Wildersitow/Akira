@@ -166,6 +166,8 @@ public class ControladorHistorialDeCompras {
     public void cargarContratos() {
         todosLosContratos.clear();
         try {
+            ContratoDAO dao = new ContratoDAO();
+            todosLosContratos = dao.obtenerTodos(); // ← esto faltaba
         } catch (Exception e) {
             System.err.println("Error cargando contratos: " + e.getMessage());
         }
