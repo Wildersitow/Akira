@@ -16,6 +16,13 @@ import model.*;
 import service.ServiceCompras;
 import service.ServiceException;
 import service.ServiceVehiculo;
+import dao.ContratoDAO;
+import dao.EmpleadoDAO;
+import model.Cliente;
+import model.Contrato;
+import model.Empleado;
+import service.SesionCuenta;
+import java.time.LocalDate;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -392,14 +399,52 @@ public class ControladorMenuCompras {
             return;
         }
 
+        // Pedir forma de pago
+        ChoiceDialog<String> dialogoPago = new ChoiceDialog<>("CONTADO", "CONTADO", "CRÉDITO", "TRANSFERENCIA");
+        dialogoPago.setTitle("Forma de pago");
+        dialogoPago.setHeaderText("Selecciona la forma de pago");
+        dialogoPago.setContentText("Pago:");
+        String formaPago = dialogoPago.showAndWait().orElse(null);
+        if (formaPago == null) return; // canceló
+
+        Cliente cliente = (Cliente) SesionCuenta.getUsuarioActual();
+
+        // Obtener un empleado disponible
+        Empleado empleado = null;
+        try {
+            EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+            empleado = empleadoDAO.obtenerPrimero(); // ver nota abajo
+        } catch (ServiceException e) {
+            utilidades.mostrarAlerta(Alert.AlertType.ERROR, "Error", "No hay empleados disponibles.");
+            return;
+        }
+
+        ContratoDAO contratoDAO = new ContratoDAO();
         StringBuilder resumen = new StringBuilder();
         double total = serviceCompras.calcularTotalCarrito(carrito);
-        for (VehiculoElectrico v : carrito) {
-            resumen.append("• ").append(v.getMarca()).append(" ").append(v.getModelo())
-                    .append("  →  ").append(formatearPrecio(v.calcularPrecioFinal())).append("\n");
-        }
-        resumen.append("\nTotal: ").append(formatearPrecio(total));
 
+        try {
+            for (VehiculoElectrico v : carrito) {
+                Contrato contrato = new Contrato(
+                        cliente,
+                        v,
+                        v.calcularPrecioFinal(),
+                        null,           // id lo genera el trigger
+                        formaPago,
+                        LocalDate.now(),
+                        "COMPLETADO",
+                        empleado
+                );
+                contratoDAO.guardar(contrato, obtenerTipoInterno(v));
+                resumen.append("• ").append(v.getMarca()).append(" ").append(v.getModelo())
+                        .append("  →  ").append(formatearPrecio(v.calcularPrecioFinal())).append("\n");
+            }
+        } catch (ServiceException e) {
+            utilidades.mostrarAlerta(Alert.AlertType.ERROR, "Error al guardar", e.getMessage());
+            return;
+        }
+
+        resumen.append("\nTotal: ").append(formatearPrecio(total));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Compra confirmada");
         alert.setHeaderText("¡Gracias por tu compra!");
@@ -409,7 +454,17 @@ public class ControladorMenuCompras {
         carrito.clear();
         actualizarBtnCarrito();
         cargarVehiculos();
+
     }
+
+    private String obtenerTipoInterno(VehiculoElectrico v) {
+        if (v instanceof AutoElectrico)      return "AUTO";
+        if (v instanceof MotoElectrica)      return "MOTO";
+        if (v instanceof BicicletaElectrica) return "BICICLETA";
+        if (v instanceof PatinetaElectrica)  return "PATINETA";
+        return "AUTO";
+    }
+
 
     private void verInformacion(VehiculoElectrico v) {
         Stage ventana = new Stage();
@@ -593,4 +648,15 @@ public class ControladorMenuCompras {
     @FXML public void cambiarAsistente(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml");
     }
+    @FXML
+    public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml");
+    }
+
+    @FXML
+    public void cambiarLogin(ActionEvent event) {
+        SesionCuenta.cerrarSesion();
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
+    }
+
 }
