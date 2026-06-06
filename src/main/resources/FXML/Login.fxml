@@ -39,9 +39,9 @@
 
             <Label fx:id="texto_contra1" layoutX="60.0" layoutY="174.0" prefHeight="24.0" prefWidth="560.0" style="-fx-text-fill: #555555; -fx-font-family: 'Segoe UI'; -fx-font-size: 13px;" text="Ingresa tu información de inicio de sesión para ingresas al sistema" />
 
-            <Label layoutX="60.0" layoutY="228.0" style="-fx-text-fill: #3a3a3a; -fx-font-family: 'Impact Regular'; -fx-font-size: 11px;" text="NOMBRE DE USUARIO" />
+            <Label layoutX="60.0" layoutY="228.0" style="-fx-text-fill: #3a3a3a; -fx-font-family: 'Impact Regular'; -fx-font-size: 11px;" text="CORREO ELECTRONICO" />
 
-            <TextField fx:id="field_usuario" layoutX="60.0" layoutY="248.0" prefHeight="50.0" prefWidth="570.0" promptText="Nombre de Usuario" style="-fx-background-color: #1a1a1a; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #333333; -fx-background-radius: 10; -fx-border-color: #2a2a2a; -fx-border-radius: 10; -fx-border-width: 1; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px; -fx-padding: 0 16;">
+            <TextField fx:id="field_usuario" layoutX="60.0" layoutY="248.0" prefHeight="50.0" prefWidth="570.0" promptText="Correo Electronico" style="-fx-background-color: #1a1a1a; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #333333; -fx-background-radius: 10; -fx-border-color: #2a2a2a; -fx-border-radius: 10; -fx-border-width: 1; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px; -fx-padding: 0 16;">
                <font><Font size="14.0" /></font>
             </TextField>
 
