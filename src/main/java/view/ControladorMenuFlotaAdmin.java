@@ -279,7 +279,7 @@ public class ControladorMenuFlotaAdmin {
         if (v instanceof AutoElectrico auto) {
             fExtra1 = styledField(auto.getTipoCarga(), fieldStyle);
             fExtra2 = styledField(auto.getTraccion(),  fieldStyle);
-            grid.add(lbl("Tipo carro", labelStyle), 0, row); grid.add(fExtra1, 1, row++);
+            grid.add(lbl("Tipo carga", labelStyle), 0, row); grid.add(fExtra1, 1, row++);
             grid.add(lbl("Tracción",   labelStyle), 0, row); grid.add(fExtra2, 1, row++);
         } else if (v instanceof MotoElectrica moto) {
             fExtra1 = styledField(moto.getTipoMoto(),               fieldStyle);
@@ -322,7 +322,7 @@ public class ControladorMenuFlotaAdmin {
                 campos.put("estado_id",    serviceFlota.estadoToId(EstadoVehiculo.valueOf(cbEstado.getValue())));
 
                 if (v instanceof AutoElectrico) {
-                    campos.put("tipo_carro", fe1.getText().trim());
+                    campos.put("tipo_carga", fe1.getText().trim());
                     campos.put("traccion",   fe2.getText().trim());
                 } else if (v instanceof MotoElectrica) {
                     campos.put("tipo_moto", fe1.getText().trim());
