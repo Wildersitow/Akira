@@ -391,6 +391,12 @@ public class ControladorMenuFlota {
     @FXML public void cambiarCompras(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuCompras.fxml");
     }
+    @FXML
+    public void cambiarContrato(ActionEvent event) {
+        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml"); }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
     @FXML public void cambiarAlquiler(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/Alquiler.fxml");
     }
