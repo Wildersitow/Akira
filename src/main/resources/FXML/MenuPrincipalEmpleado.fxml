@@ -104,7 +104,7 @@
 
             <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="AÑADIR/QUITAR VEHICULO" />
 
-            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="CONTRATOS" />
+            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false"  onAction="#cambiarFlota" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="CONTRATOS" />
 
             <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="HISTORIAL DE COMPRAS" />
 
