@@ -24,20 +24,17 @@
 
          <Button fx:id="boton_inicio" mnemonicParsing="false" onAction="#cambiarInicio" styleClass="boton-nav" stylesheets="@../css/styles.css" text="INICIO" />
          <Button fx:id="boton_compras" mnemonicParsing="false" onAction="#cambiarCompras" styleClass="boton-nav" stylesheets="@../css/styles.css" text="COMPRAR" />
-         <Button fx:id="boton_alquiler" mnemonicParsing="false"  onAction="#cambiarAlquiler" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ALQUILAR" />
+         <Button fx:id="boton_alquiler" mnemonicParsing="false" onAction="#cambiarAlquiler" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ALQUILAR" />
          <Button fx:id="boton_contrato" mnemonicParsing="false" onAction="#cambiarContratos" styleClass="boton-nav" stylesheets="@../css/styles.css" text="CONTRATOS" />
-         <Button fx:id="boton_flota" mnemonicParsing="false"  onAction="#cambiarFlota" styleClass="boton-nav" stylesheets="@../css/styles.css" text="FLOTA" />
+         <Button fx:id="boton_flota" mnemonicParsing="false" onAction="#cambiarFlota" styleClass="boton-nav" stylesheets="@../css/styles.css" text="FLOTA" />
          <Button fx:id="boton_asistene" mnemonicParsing="false" onAction="#cambiarAsistente" styleClass="boton-nav" stylesheets="@../css/styles.css" text="ASISTENTE" />
-         <Button fx:id="boton_perfil" mnemonicParsing="false" onAction="#cambiarPerfil"
-                 prefHeight="36" prefWidth="120"
-                 style="-fx-background-color: transparent; -fx-text-fill: #aaaaaa; -fx-font-family: 'Impact Regular'; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: #2e2e2e; -fx-border-radius: 6; -fx-border-width: 1; -fx-cursor: hand;"
-                 text="👤  PERFIL" />
+         <Button fx:id="boton_perfil" mnemonicParsing="false" onAction="#cambiarPerfil" prefHeight="36" prefWidth="120" style="-fx-background-color: transparent; -fx-text-fill: #aaaaaa; -fx-font-family: 'Impact Regular'; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: #2e2e2e; -fx-border-radius: 6; -fx-border-width: 1; -fx-cursor: hand;" text="👤  PERFIL" />
 
          <Region prefWidth="10" />
 
          <Region prefWidth="16" />
 
-         <Button fx:id="boton_asistente1" mnemonicParsing="false" prefHeight="36" prefWidth="150" style="-fx-background-color: #1a0808; -fx-text-fill: #cc3333; -fx-font-family: 'Impact Regular'; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: #4a1010; -fx-border-radius: 6; -fx-border-width: 1; -fx-cursor: hand;" text="⏻  CERRAR SESIÓN" />
+         <Button fx:id="boton_asistente1" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="36" prefWidth="150" style="-fx-background-color: #1a0808; -fx-text-fill: #cc3333; -fx-font-family: 'Impact Regular'; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: #4a1010; -fx-border-radius: 6; -fx-border-width: 1; -fx-cursor: hand;" text="⏻  CERRAR SESIÓN" />
          <Pane prefWidth="16" />
       </HBox>
 

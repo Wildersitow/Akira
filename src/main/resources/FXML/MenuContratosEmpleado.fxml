@@ -14,31 +14,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0A0A0A;" stylesheets="@../css/stylesHistorial.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuContratosEmpleados">
-
-    <Pane prefHeight="720.0" prefWidth="220.0" styleClass="sidebar" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
-        <children>
-
-            <ImageView fitHeight="151.0" fitWidth="188.0" layoutX="16.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
-                <image><Image url="@../Imagenes/LogoFondoNegro.png" /></image>
-            </ImageView>
-
-            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" onAction="#cambiarInicio" prefHeight="54.0" prefWidth="195.0" styleClass="boton-nav" text="INICIO" />
-
-            <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" styleClass="boton-nav" text="AÑADIR/QUITAR VEHICULO" />
-
-            <Button fx:id="boton_contratos" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-nav, boton-nav-active" text="CONTRATOS" />
-
-            <Button fx:id="boton_historial" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" onAction="#cambiarHistorial" prefHeight="54.0" prefWidth="195.0" styleClass="boton-nav" text="HISTORIAL DE COMPRAS" />
-
-            <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0" mnemonicParsing="false" onAction="#cambiarFlota" prefHeight="54.0" prefWidth="195.0" styleClass="boton-nav" text="FLOTA" />
-
-            <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" onAction="#cambiarAsistente" prefHeight="54.0" prefWidth="195.0" styleClass="boton-nav" text="ASISTENTE" />
-
-            <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cerrarSesion" prefHeight="54.0" prefWidth="195.0" styleClass="boton-nav, boton-cerrar" text="CERRAR SESIÓN" />
-        </children>
-    </Pane>
 
     <VBox spacing="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
 
@@ -244,5 +222,49 @@
         </HBox>
 
     </VBox>
+   <Pane prefHeight="728.0" prefWidth="220.0" style="-fx-background-color:#1F1F1F; -fx-border-color:#3B3B3B;">
+      <children>
+         <ImageView fitHeight="145.0" fitWidth="209.0" layoutX="38.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../Imagenes/logoprovisional.png" />
+            </image>
+         </ImageView>
+         <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" onAction="#cambiarInicio" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
+            <font>
+               <Font name="Impact Regular" size="25.0" />
+            </font>
+         </Button>
+         <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="AÑADIR/QUITAR VEHICULO" textFill="WHITE">
+            <font>
+               <Font name="Impact Regular" size="21.0" />
+            </font>
+         </Button>
+         <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" onAction="#cambiarContratos" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CONTRATOS" textFill="WHITE">
+            <font>
+               <Font name="Impact Regular" size="25.0" />
+            </font>
+         </Button>
+         <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" onAction="#cambiarHistorial" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="HISTORIAL DE COMPRAS" textFill="WHITE">
+            <font>
+               <Font name="Impact Regular" size="25.0" />
+            </font>
+         </Button>
+         <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0" mnemonicParsing="false" onAction="#cambiarFlota" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
+            <font>
+               <Font name="Impact Regular" size="25.0" />
+            </font>
+         </Button>
+         <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" onAction="#cambiarAsistente" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ASISTENTE" textFill="WHITE">
+            <font>
+               <Font name="Impact Regular" size="25.0" />
+            </font>
+         </Button>
+         <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
+            <font>
+               <Font name="Impact Regular" size="25.0" />
+            </font>
+         </Button>
+      </children>
+   </Pane>
 
 </AnchorPane>

@@ -301,46 +301,27 @@ public class ControladorMenuContratosEmpleados {
         lblResultados.setText("Mostrando " + mostrados + " contrato" + (mostrados != 1 ? "s" : ""));
     }
 
-    @FXML
-    public void cambiarInicio(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipalEmpleado.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+    @FXML public void cambiarInicio(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipalEmpleado.fxml");
+    }
+    @FXML public void cambiarAgregarVehiculo(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuAgregarVehiculo.fxml");
+    }
+    @FXML public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuContratosEmpleado.fxml");
+    }
+    @FXML public void cambiarHistorial(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/HistorialDeCompras.fxml");
+    }
+    @FXML public void cambiarFlota(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlotaAdmin.fxml");
+    }
+    @FXML public void cambiarAsistente(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAIEmpleados.fxml");
     }
 
-    @FXML
-    public void cambiarAgregarVehiculo(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuAgregarVehiculo.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cambiarHistorial(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/HistorialDeCompras.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cambiarContrato(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuContratosEmpleado.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cambiarFlota(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cambiarAsistente(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cerrarSesion(ActionEvent event) {
+    public void cambiarLogin(ActionEvent event) {
         SesionCuenta.cerrarSesion();
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuInicio.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
     }
 }

@@ -415,34 +415,28 @@ public class ControladorMenuAgregarVehiculo {
         imgBici.setImage(null); rutaImagenBici = null;
     }
 
-    @FXML
-    public void cambiarInicio(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipalEmpleado.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+    @FXML public void cambiarInicio(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipalEmpleado.fxml");
+    }
+    @FXML public void cambiarAgregarVehiculo(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuAgregarVehiculo.fxml");
+    }
+    @FXML public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuContratosEmpleado.fxml");
+    }
+    @FXML public void cambiarHistorial(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/HistorialDeCompras.fxml");
+    }
+    @FXML public void cambiarFlota(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlotaAdmin.fxml");
+    }
+    @FXML public void cambiarAsistente(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAIEmpleados.fxml");
     }
 
-    @FXML
-    public void cambiarContrato(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuContratosEmpleado.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cambiarHistorial(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/HistorialDeCompras.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cambiarFlota(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlotaAdmin.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
-    @FXML
-    public void cambiarAsistente(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+    public void cambiarLogin(ActionEvent event) {
+        SesionCuenta.cerrarSesion();
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
     }
 
 }

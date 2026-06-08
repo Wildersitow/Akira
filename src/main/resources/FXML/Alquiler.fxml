@@ -29,7 +29,7 @@
             <Button onAction="#cambiarInicio" styleClass="boton-nav" text="INICIO" />
             <Button onAction="#cambiarCompras" styleClass="boton-nav" text="COMPRAR" />
             <Button onAction="#cambiarAlquiler" styleClass="boton-nav" text="ALQUILAR" />
-            <Button styleClass="boton-nav" text="CONTRATOS" />
+            <Button onAction="#cambiarContratos" styleClass="boton-nav" text="CONTRATOS" />
             <Button onAction="#cambiarFlota" styleClass="boton-nav" text="FLOTA" />
             <Button onAction="#cambiarAsistente" styleClass="boton-nav" text="ASISTENTE" />
         </HBox>
@@ -37,7 +37,7 @@
         <HBox alignment="CENTER" spacing="10">
             <padding><Insets right="20" /></padding>
             <Button fx:id="btnReservas" onAction="#abrirReservas" styleClass="btn-carrito" text="📋  Reservas (0)" />
-            <Button styleClass="btn-cerrar" text="CERRAR SESIÓN" />
+            <Button onAction="#cambiarLogin" styleClass="btn-cerrar" text="CERRAR SESIÓN" />
         </HBox>
     </HBox>
 

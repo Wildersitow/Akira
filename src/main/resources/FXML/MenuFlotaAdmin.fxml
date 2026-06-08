@@ -33,11 +33,11 @@
                 <font><Font name="Impact Regular" size="21.0" /></font>
             </Button>
 
-            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CONTRATOS" textFill="WHITE">
+            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" onAction="#cambiarContratos" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CONTRATOS" textFill="WHITE">
                 <font><Font name="Impact Regular" size="25.0" /></font>
             </Button>
 
-            <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="HISTORIAL DE COMPRAS" textFill="WHITE">
+            <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" onAction="#cambiarHistorial" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="HISTORIAL DE COMPRAS" textFill="WHITE">
                 <font><Font name="Impact Regular" size="25.0" /></font>
             </Button>
 
@@ -49,7 +49,7 @@
                 <font><Font name="Impact Regular" size="25.0" /></font>
             </Button>
 
-            <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
+            <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
                 <font><Font name="Impact Regular" size="25.0" /></font>
             </Button>
 

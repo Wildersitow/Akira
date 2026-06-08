@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import model.*;
 import service.ServiceException;
 import service.ServiceFlota;
+import service.SesionCuenta;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -391,12 +392,6 @@ public class ControladorMenuFlota {
     @FXML public void cambiarCompras(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuCompras.fxml");
     }
-    @FXML
-    public void cambiarContrato(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
-    }
-
     @FXML public void cambiarAlquiler(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/Alquiler.fxml");
     }
@@ -405,5 +400,12 @@ public class ControladorMenuFlota {
     }
     @FXML public void cambiarAsistente(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml");
+    }
+    @FXML public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml");
+    }
+    public void cambiarLogin(ActionEvent event) {
+        SesionCuenta.cerrarSesion();
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
     }
 }

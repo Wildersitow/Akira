@@ -267,34 +267,26 @@ public class ControladorMenuContratos {
         lblResultados.setText("Mostrando " + mostrados + " contrato" + (mostrados != 1 ? "s" : ""));
     }
 
-    @FXML
-    public void cambiarInicio(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+    @FXML public void cambiarInicio(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
     }
-
-    @FXML
-    public void cambiarCompras(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuCompras.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+    @FXML public void cambiarCompras(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuCompras.fxml");
     }
-
-    @FXML
-    public void cambiarFlota(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+    @FXML public void cambiarAlquiler(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Alquiler.fxml");
     }
-
-    @FXML
-    public void cambiarAsistente(ActionEvent event) {
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+    @FXML public void cambiarFlota(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml");
     }
-
-    @FXML
-    public void cerrarSesion(ActionEvent event) {
+    @FXML public void cambiarAsistente(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml");
+    }
+    @FXML public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml");
+    }
+    public void cambiarLogin(ActionEvent event) {
         SesionCuenta.cerrarSesion();
-        try { utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuInicio.fxml"); }
-        catch (Exception e) { e.printStackTrace(); }
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
     }
 }

@@ -750,4 +750,8 @@ public class ControladorMenuAlquiler {
     @FXML public void cambiarContratos(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml");
     }
+    public void cambiarLogin(ActionEvent event) {
+        SesionCuenta.cerrarSesion();
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
+    }
 }

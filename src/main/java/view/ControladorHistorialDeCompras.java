@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 import model.Contrato;
 import service.ServiceException;
+import service.SesionCuenta;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -324,10 +325,21 @@ public class ControladorHistorialDeCompras {
     @FXML public void cambiarAgregarVehiculo(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuAgregarVehiculo.fxml");
     }
+    @FXML public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuContratosEmpleado.fxml");
+    }
+    @FXML public void cambiarHistorial(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/HistorialDeCompras.fxml");
+    }
     @FXML public void cambiarFlota(ActionEvent event) {
         utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlotaAdmin.fxml");
     }
     @FXML public void cambiarAsistente(ActionEvent event) {
-        utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml");
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAIEmpleados.fxml");
+    }
+
+    public void cambiarLogin(ActionEvent event) {
+        SesionCuenta.cerrarSesion();
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
     }
 }

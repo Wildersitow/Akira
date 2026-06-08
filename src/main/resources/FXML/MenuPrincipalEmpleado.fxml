@@ -100,19 +100,19 @@
                </image>
             </ImageView>
 
-            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" text="INICIO" />
+            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" onAction="#cambiarInicio" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" text="INICIO" />
 
             <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="AÑADIR/QUITAR VEHICULO" />
 
-            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false"  onAction="#cambiarFlota" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="CONTRATOS" />
+            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" onAction="#cambiarContratos" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="CONTRATOS" />
 
-            <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="HISTORIAL DE COMPRAS" />
+            <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" onAction="#cambiarHistorial" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="HISTORIAL DE COMPRAS" />
 
-            <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="FLOTA" />
+            <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0" mnemonicParsing="false" onAction="#cambiarFlota" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="FLOTA" />
 
-            <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="ASISTENTE" />
+            <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" onAction="#cambiarAsistente" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="ASISTENTE" />
 
-            <Button fx:id="boton_asistente1" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom, boton-cerrar-sesion" text="CERRAR SESIÓN" />
+            <Button fx:id="boton_asistente1" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom, boton-cerrar-sesion" text="CERRAR SESIÓN" />
 
          </children>
       </Pane>
