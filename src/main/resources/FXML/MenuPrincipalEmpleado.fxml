@@ -17,24 +17,24 @@
 
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" styleClass="label-seccion-tabla" text="VEHICULOS COMPRADOS" textFill="WHITE" />
 
-            <TableView layoutX="29.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
+            <TableView fx:id="tablaCompras" layoutX="29.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="ID" />
-                  <TableColumn prefWidth="88.8" text="MODELO" />
-                  <TableColumn prefWidth="96.8" text="PRECIO" />
-                  <TableColumn prefWidth="114.4" text="COMPRADOR" />
-                  <TableColumn prefWidth="70.4" text="FECHA" />
+                  <TableColumn fx:id="colCompraId" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="colCompraModelo" prefWidth="88.8" text="MODELO" />
+                  <TableColumn fx:id="colCompraPrecio" prefWidth="96.8" text="PRECIO" />
+                  <TableColumn fx:id="colCompraCliente" prefWidth="114.4" text="COMPRADOR" />
+                  <TableColumn fx:id="colCompraFecha" prefWidth="70.4" text="FECHA" />
                </columns>
             </TableView>
 
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="594.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" styleClass="label-seccion-tabla" text="VEHICULOS ALQUILADOS" textFill="WHITE" />
 
-            <TableView layoutX="485.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
+            <TableView fx:id="tablaAlquileres" layoutX="485.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
                <columns>
-                  <TableColumn prefWidth="146.4" text="CLIENTE" />
-                  <TableColumn prefWidth="130.4" text="VEHICULO" />
-                  <TableColumn prefWidth="87.2" text="FECHA" />
-                  <TableColumn prefWidth="84.0" text="ESTADO" />
+                  <TableColumn fx:id="colAlqCliente" prefWidth="146.4" text="CLIENTE" />
+                  <TableColumn fx:id="colAlqVehiculo" prefWidth="130.4" text="VEHICULO" />
+                  <TableColumn fx:id="colAlqFecha" prefWidth="87.2" text="FECHA" />
+                  <TableColumn fx:id="colAlqEstado" prefWidth="84.0" text="ESTADO" />
                </columns>
             </TableView>
 
@@ -46,51 +46,47 @@
 
             <Label fx:id="label_akira1" layoutX="26.0" layoutY="14.0" prefHeight="54.0" prefWidth="175.0" styleClass="label-titulo" text="Bienvenido," textFill="WHITE" />
 
-            <Label fx:id="label_akira11" layoutX="201.0" layoutY="14.0" prefHeight="54.0" prefWidth="300.0" styleClass="label-titulo-usuario" text="USUARIO" textFill="WHITE" />
+            <Label fx:id="label_usuario" layoutX="201.0" layoutY="14.0" prefHeight="54.0" prefWidth="300.0" styleClass="label-titulo-usuario" text="USUARIO" textFill="WHITE" />
 
             <Label fx:id="label_akira12" layoutX="26.0" layoutY="68.0" prefHeight="23.0" prefWidth="393.0" styleClass="label-subtitulo" text="Resumen general del sistema" textFill="WHITE" />
 
             <Pane layoutX="26.0" layoutY="109.0" prefHeight="164.0" prefWidth="226.0" styleClass="card-estadistica">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="TOTAL VEHICULOS" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="TOTAL VEHICULOS" />
+                  <Label fx:id="labelTotalVehiculos" alignment="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
                </children>
             </Pane>
 
             <Pane layoutX="263.0" layoutY="109.0" prefHeight="164.0" prefWidth="220.0" styleClass="card-estadistica">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="INGRESOS" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+                  <Label alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="INGRESOS" />
+                  <Label fx:id="labelIngresos" alignment="CENTER" layoutX="8.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
                </children>
             </Pane>
 
-            <!-- KPI: Total Clientes -->
             <Pane layoutX="493.0" layoutY="109.0" prefHeight="164.0" prefWidth="226.0" styleClass="card-estadistica">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="TOTAL CLIENTES" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="TOTAL CLIENTES" />
+                  <Label fx:id="labelTotalClientes" alignment="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
                </children>
             </Pane>
 
-            <!-- KPI: Contratos Activos -->
             <Pane layoutX="728.0" layoutY="109.0" prefHeight="164.0" prefWidth="204.0" styleClass="card-estadistica">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="CONTRATOS ACTIVOS" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+                  <Label alignment="CENTER" layoutX="0.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="CONTRATOS ACTIVOS" />
+                  <Label fx:id="labelContratosActivos" alignment="CENTER" layoutX="0.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
                </children>
             </Pane>
 
          </children>
       </Pane>
 
-      <!-- ══ HEADER SECCIÓN LISTAS ══ -->
       <Pane layoutX="266.0" layoutY="351.0" prefHeight="54.0" prefWidth="958.0" styleClass="seccion-header">
          <children>
             <Label layoutX="14.0" layoutY="16.0" prefHeight="23.0" prefWidth="125.0" styleClass="seccion-header-label" text="LISTAS" textFill="WHITE" />
          </children>
       </Pane>
 
-      <!-- ══ SIDEBAR ══ -->
       <Pane prefHeight="728.0" prefWidth="220.0" styleClass="sidebar">
          <children>
 
@@ -112,7 +108,7 @@
 
             <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" onAction="#cambiarAsistente" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="ASISTENTE" />
 
-            <Button fx:id="boton_asistente1" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom, boton-cerrar-sesion" text="CERRAR SESIÓN" />
+            <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="CERRAR SESIÓN" />
 
          </children>
       </Pane>
