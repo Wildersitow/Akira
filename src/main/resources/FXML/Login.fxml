@@ -7,45 +7,66 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1F1F1F;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorLogin">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0d0d0d;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorLogin">
    <children>
-      <AnchorPane prefHeight="720.0" prefWidth="806.0" style="-fx-background-color: #1A1A1A;">
+
+      <Pane layoutX="660.0" layoutY="0.0" prefHeight="720.0" prefWidth="620.0" style="-fx-background-color: #9B0F1F;" />
+
+      <Pane layoutX="700.0" layoutY="0.0" prefHeight="720.0" prefWidth="580.0" style="-fx-background-color: #0f0f0f; -fx-background-radius: 0 0 0 72;">
          <children>
-            <Label fx:id="texto_usuario" alignment="CENTER" layoutX="242.0" layoutY="123.0" prefHeight="48.0" prefWidth="322.0" text="NOMBRE DE USUARIO" textFill="WHITE">
-               <font>
-                  <Font name="Impact Regular" size="39.0" />
-               </font>
-            </Label>
-            <Label fx:id="texto_contra" alignment="CENTER" layoutX="300.0" layoutY="333.0" prefHeight="48.0" prefWidth="205.0" text="CONTRASEÑA" textFill="WHITE">
-               <font>
-                  <Font name="Impact Regular" size="39.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="field_contra" layoutX="159.0" layoutY="405.0" prefHeight="48.0" prefWidth="486.0" style="-fx-background-color: #D4D4D4;" />
-            <Button fx:id="boton_login" layoutX="299.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleIniciarSesion" prefHeight="54.0" prefWidth="206.0" style="-fx-background-color: #9B0F1F;" text="LOGIN" textFill="WHITE">
-               <font>
-                  <Font name="Impact Regular" size="25.0" />
-               </font>
+            <ImageView fitHeight="440.0" fitWidth="643.0" layoutX="70.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/LogoFondoNegro.png" />
+               </image>
+            </ImageView>
+
+            <Label alignment="CENTER" layoutX="90.0" layoutY="440.0" prefWidth="400.0" style="-fx-text-fill: #444444; -fx-font-family: 'Impact Regular'; -fx-font-size: 15px;" text="Alquiler y venta de vehículos eléctricos" />
+
+            <Pane layoutX="250.0" layoutY="425.0" prefHeight="3.0" prefWidth="80.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 2;" />
+         </children></Pane>
+
+      <AnchorPane prefHeight="720.0" prefWidth="700.0" style="-fx-background-color: #111111;">
+         <children>
+
+            <Pane layoutX="698.0" layoutY="0.0" prefHeight="720.0" prefWidth="2.0" style="-fx-background-color: #1c1c1c;" />
+
+            <Label fx:id="texto_contra" layoutX="60.0" layoutY="98.0" prefHeight="56.0" prefWidth="570.0" style="-fx-text-fill: #ffffff; -fx-font-family: 'Impact Regular'; -fx-font-size: 44px;" text="!BIENVENIDO A AKIRA!" />
+
+            <Pane layoutX="60.0" layoutY="157.0" prefHeight="4.0" prefWidth="100.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 2;" />
+
+            <Label fx:id="texto_contra1" layoutX="60.0" layoutY="174.0" prefHeight="24.0" prefWidth="560.0" style="-fx-text-fill: #555555; -fx-font-family: 'Segoe UI'; -fx-font-size: 13px;" text="Ingresa tu información de inicio de sesión para ingresas al sistema" />
+
+            <Label layoutX="60.0" layoutY="228.0" style="-fx-text-fill: #3a3a3a; -fx-font-family: 'Impact Regular'; -fx-font-size: 11px;" text="CORREO ELECTRONICO" />
+
+            <TextField fx:id="field_usuario" layoutX="60.0" layoutY="248.0" prefHeight="50.0" prefWidth="570.0" promptText="Correo Electronico" style="-fx-background-color: #1a1a1a; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #333333; -fx-background-radius: 10; -fx-border-color: #2a2a2a; -fx-border-radius: 10; -fx-border-width: 1; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px; -fx-padding: 0 16;">
+               <font><Font size="14.0" /></font>
+            </TextField>
+
+            <Label layoutX="60.0" layoutY="318.0" style="-fx-text-fill: #3a3a3a; -fx-font-family: 'Impact Regular'; -fx-font-size: 11px;" text="CONTRASEÑA" />
+
+            <PasswordField fx:id="field_contra" layoutX="60.0" layoutY="338.0" prefHeight="50.0" prefWidth="570.0" promptText="Contraseña" style="-fx-background-color: #1a1a1a; -fx-text-fill: #ffffff; -fx-prompt-text-fill: #333333; -fx-background-radius: 10; -fx-border-color: #9B0F1F; -fx-border-radius: 10; -fx-border-width: 1; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px; -fx-padding: 0 16;">
+               <font><Font size="14.0" /></font>
+            </PasswordField>
+
+            <Button fx:id="boton_login" layoutX="60.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleIniciarSesion" prefHeight="54.0" prefWidth="570.0" style="-fx-background-color: #9B0F1F; -fx-text-fill: white; -fx-font-family: 'Impact Regular'; -fx-font-size: 22px; -fx-background-radius: 10; -fx-cursor: hand;" text="LOGIN">
+               <font><Font name="Impact Regular" size="22.0" /></font>
             </Button>
-            <Label fx:id="texto_registro" alignment="CENTER" layoutX="197.0" layoutY="599.0" prefHeight="14.0" prefWidth="254.0" text="Aun no tienes una cuenta?" textFill="WHITE">
-               <font>
-                  <Font name="Impact Regular" size="21.0" />
-               </font>
-            </Label>
-            <Button fx:id="boton_registro" layoutX="455.0" layoutY="599.0" mnemonicParsing="false" onAction="#cambiarRegistrar" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: #9B0F1F;" text="REGISTRARSE" textFill="WHITE">
-               <font>
-                  <Font name="Impact Regular" size="14.0" />
-               </font>
+
+            <Pane layoutX="60.0" layoutY="494.0" prefHeight="1.0" prefWidth="240.0" style="-fx-background-color: #222222;" />
+            <Label layoutX="308.0" layoutY="482.0" style="-fx-text-fill: #333333; -fx-font-family: 'Segoe UI'; -fx-font-size: 13px;" text="ó" />
+            <Pane layoutX="330.0" layoutY="494.0" prefHeight="1.0" prefWidth="300.0" style="-fx-background-color: #222222;" />
+
+            <Label fx:id="texto_registro" layoutX="112.0" layoutY="518.0" prefHeight="28.0" prefWidth="260.0" style="-fx-text-fill: #555555; -fx-font-family: 'Impact Regular'; -fx-font-size: 16px;" text="Aun no tienes una cuenta?" />
+
+            <Button fx:id="boton_registro" layoutX="382.0" layoutY="516.0" mnemonicParsing="false" onAction="#cambiarRegistrar" prefHeight="32.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-text-fill: #9B0F1F; -fx-font-family: 'Impact Regular'; -fx-font-size: 14px; -fx-border-color: #9B0F1F; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-width: 1; -fx-cursor: hand;" text="REGISTRARSE">
+               <font><Font name="Impact Regular" size="14.0" /></font>
             </Button>
-            <TextField fx:id="field_usuario" layoutX="159.0" layoutY="209.0" prefHeight="48.0" prefWidth="486.0" style="-fx-background-color: #D4D4D4;" />
+
          </children>
       </AnchorPane>
-      <ImageView fitHeight="449.0" fitWidth="479.0" layoutX="817.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../Desktop/Paint%20Paper/Paint/logoprovisional.png" />
-         </image>
-      </ImageView>
+
    </children>
 </AnchorPane>

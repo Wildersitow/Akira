@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuPrincipalEmpleado">
+   <children>
+
+      <Pane fx:id="pane_producto1" layoutX="266.0" layoutY="418.0" prefHeight="276.0" prefWidth="958.0" styleClass="panel-contenido">
+         <children>
+
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" styleClass="label-seccion-tabla" text="VEHICULOS COMPRADOS" textFill="WHITE" />
+
+            <TableView fx:id="tablaCompras" layoutX="29.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
+               <columns>
+                  <TableColumn fx:id="colCompraId" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="colCompraModelo" prefWidth="88.8" text="MODELO" />
+                  <TableColumn fx:id="colCompraPrecio" prefWidth="96.8" text="PRECIO" />
+                  <TableColumn fx:id="colCompraCliente" prefWidth="114.4" text="COMPRADOR" />
+                  <TableColumn fx:id="colCompraFecha" prefWidth="70.4" text="FECHA" />
+               </columns>
+            </TableView>
+
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="594.0" layoutY="14.0" prefHeight="23.0" prefWidth="220.0" styleClass="label-seccion-tabla" text="VEHICULOS ALQUILADOS" textFill="WHITE" />
+
+            <TableView fx:id="tablaAlquileres" layoutX="485.0" layoutY="53.0" prefHeight="197.0" prefWidth="447.0">
+               <columns>
+                  <TableColumn fx:id="colAlqCliente" prefWidth="146.4" text="CLIENTE" />
+                  <TableColumn fx:id="colAlqVehiculo" prefWidth="130.4" text="VEHICULO" />
+                  <TableColumn fx:id="colAlqFecha" prefWidth="87.2" text="FECHA" />
+                  <TableColumn fx:id="colAlqEstado" prefWidth="84.0" text="ESTADO" />
+               </columns>
+            </TableView>
+
+         </children>
+      </Pane>
+
+      <Pane fx:id="pane_producto11" layoutX="266.0" layoutY="35.0" prefHeight="302.0" prefWidth="958.0" styleClass="panel-contenido">
+         <children>
+
+            <Label fx:id="label_akira1" layoutX="26.0" layoutY="14.0" prefHeight="54.0" prefWidth="175.0" styleClass="label-titulo" text="Bienvenido," textFill="WHITE" />
+
+            <Label fx:id="label_usuario" layoutX="201.0" layoutY="14.0" prefHeight="54.0" prefWidth="300.0" styleClass="label-titulo-usuario" text="USUARIO" textFill="WHITE" />
+
+            <Label fx:id="label_akira12" layoutX="26.0" layoutY="68.0" prefHeight="23.0" prefWidth="393.0" styleClass="label-subtitulo" text="Resumen general del sistema" textFill="WHITE" />
+
+            <Pane layoutX="26.0" layoutY="109.0" prefHeight="164.0" prefWidth="226.0" styleClass="card-estadistica">
+               <children>
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="TOTAL VEHICULOS" />
+                  <Label fx:id="labelTotalVehiculos" alignment="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+               </children>
+            </Pane>
+
+            <Pane layoutX="263.0" layoutY="109.0" prefHeight="164.0" prefWidth="220.0" styleClass="card-estadistica">
+               <children>
+                  <Label alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="INGRESOS" />
+                  <Label fx:id="labelIngresos" alignment="CENTER" layoutX="8.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+               </children>
+            </Pane>
+
+            <Pane layoutX="493.0" layoutY="109.0" prefHeight="164.0" prefWidth="226.0" styleClass="card-estadistica">
+               <children>
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="TOTAL CLIENTES" />
+                  <Label fx:id="labelTotalClientes" alignment="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+               </children>
+            </Pane>
+
+            <Pane layoutX="728.0" layoutY="109.0" prefHeight="164.0" prefWidth="204.0" styleClass="card-estadistica">
+               <children>
+                  <Label alignment="CENTER" layoutX="0.0" layoutY="14.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-titulo" text="CONTRATOS ACTIVOS" />
+                  <Label fx:id="labelContratosActivos" alignment="CENTER" layoutX="0.0" layoutY="71.0" prefHeight="23.0" prefWidth="204.0" styleClass="label-kpi-valor" text="0" />
+               </children>
+            </Pane>
+
+         </children>
+      </Pane>
+
+      <Pane layoutX="266.0" layoutY="351.0" prefHeight="54.0" prefWidth="958.0" styleClass="seccion-header">
+         <children>
+            <Label layoutX="14.0" layoutY="16.0" prefHeight="23.0" prefWidth="125.0" styleClass="seccion-header-label" text="LISTAS" textFill="WHITE" />
+         </children>
+      </Pane>
+
+      <Pane prefHeight="728.0" prefWidth="220.0" styleClass="sidebar">
+         <children>
+
+            <ImageView fitHeight="151.0" fitWidth="188.0" layoutX="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/LogoFondoNegro.png" />
+               </image>
+            </ImageView>
+
+            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" onAction="#cambiarInicio" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" text="INICIO" />
+
+            <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="AÑADIR/QUITAR VEHICULO" />
+
+            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" onAction="#cambiarContratos" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="CONTRATOS" />
+
+            <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" onAction="#cambiarHistorial" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="HISTORIAL DE COMPRAS" />
+
+            <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0" mnemonicParsing="false" onAction="#cambiarFlota" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="FLOTA" />
+
+            <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" onAction="#cambiarAsistente" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="ASISTENTE" />
+
+            <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" text="CERRAR SESIÓN" />
+
+         </children>
+      </Pane>
+
+   </children>
+</AnchorPane>

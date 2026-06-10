@@ -1,0 +1,189 @@
+/* ══════════════════════════════════════════════════
+   CLASES PARA MenuInicio — agregar al final de styles.css
+   ══════════════════════════════════════════════════ */
+
+/* ── Navbar superior ── */
+.navbar {
+    -fx-background-color: #111111;
+    -fx-border-color: transparent transparent #2e2e2e transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Botones del navbar horizontal */
+.boton-nav {
+    -fx-background-color: transparent;
+    -fx-text-fill: #aaaaaa;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: transparent;
+    -fx-padding: 8 12;
+}
+
+.boton-nav:hover {
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #9B0F1F;
+    -fx-background-color: transparent;
+}
+
+.boton-nav:pressed {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1a0808;
+}
+
+/* ── Banner hero ── */
+.panel-hero {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 16;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0, 0, 3);
+}
+
+.label-hero-titulo {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 38px;
+    -fx-font-weight: bold;
+}
+
+.label-hero-subtitulo {
+    -fx-text-fill: #9B0F1F;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.label-hero-descripcion {
+    -fx-text-fill: #777777;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 14px;
+}
+
+/* Botón CTA "Ver catálogo" */
+.boton-cta {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-padding: 8 20;
+}
+
+.boton-cta:hover {
+    -fx-background-color: #c0392b;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.5), 12, 0, 0, 0);
+}
+
+.boton-cta:pressed {
+    -fx-background-color: #7a0c18;
+}
+
+/* ── Header sección recomendados ── */
+.seccion-header-plano {
+    -fx-background-color: transparent;
+}
+
+.label-seccion-recomendados {
+    -fx-text-fill: #555555;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* ── Tarjetas de vehículos ── */
+.card-vehiculo {
+    -fx-background-color: #1a1a1a;
+    -fx-background-radius: 14;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
+}
+
+.card-vehiculo:hover {
+    -fx-border-color: #9B0F1F;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.25), 16, 0, 0, 0);
+}
+
+.label-card-titulo {
+    -fx-text-fill: #dddddd;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Botón "Ver Información" dentro de la card */
+.boton-ver-info {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9B0F1F;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-color: #9B0F1F;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-padding: 4 12;
+}
+
+.boton-ver-info:hover {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: #ffffff;
+}
+
+.boton-ver-info:pressed {
+    -fx-background-color: #7a0c18;
+    -fx-text-fill: #ffffff;
+}
+
+.btn-carrito {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-color: #9B0F1F;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-padding: 6 14;
+}
+
+.btn-carrito:hover {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: #ffffff;
+}
+
+.btn-carrito:pressed {
+    -fx-background-color: #7a0c18;
+}
+
+.btn-cerrar {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-border-width: 0;
+    -fx-cursor: hand;
+    -fx-padding: 6 14;
+}
+
+.btn-cerrar:hover {
+    -fx-background-color: #c0392b;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.5), 10, 0, 0, 0);
+}
+
+.btn-cerrar:pressed {
+    -fx-background-color: #7a0c18;
+}

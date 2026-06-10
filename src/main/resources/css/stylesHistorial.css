@@ -1,0 +1,433 @@
+/* ═══════════════════════════════════════════════════════════════
+   stylesHistorial.css — Historial de Compras  |  Akira
+   Paleta: negro profundo · rojo sangre #9B0F1F · blanco hueso
+═══════════════════════════════════════════════════════════════ */
+
+/* ── ROOT ─────────────────────────────────────────────────── */
+.root {
+    -fx-background-color: #0A0A0A;
+    -fx-font-family: "Segoe UI", "Rajdhani", sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════════════════════════ */
+.sidebar {
+    -fx-background-color: #111111;
+    -fx-border-color: #1e1e1e;
+    -fx-border-width: 0 1 0 0;
+}
+
+.boton-nav {
+    -fx-background-color: transparent;
+    -fx-text-fill: #888888;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 14;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.boton-nav:hover {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: white;
+    -fx-border-color: transparent transparent transparent #9B0F1F;
+    -fx-border-width: 0 0 0 3;
+}
+
+.boton-nav-active {
+    -fx-background-color: #9B0F1F !important;
+    -fx-text-fill: white !important;
+    -fx-border-color: transparent !important;
+}
+
+.boton-cerrar {
+    -fx-text-fill: #555555;
+}
+
+.boton-cerrar:hover {
+    -fx-text-fill: #ff4444;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER
+══════════════════════════════════════════════════════════════ */
+.header-historial {
+    -fx-background-color: linear-gradient(to right, #140000, #1a0000, #111111);
+    -fx-border-color: #9B0F1F;
+    -fx-border-width: 0 0 2 0;
+    -fx-min-height: 88px;
+    -fx-max-height: 88px;
+}
+
+.header-icon-bg {
+    -fx-background-color: rgba(155, 15, 31, 0.2);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(155, 15, 31, 0.4);
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.header-icon-label {
+    -fx-font-size: 22px;
+}
+
+.header-titulo {
+    -fx-text-fill: white;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+    -fx-font-size: 22px;
+    -fx-letter-spacing: 2px;
+}
+
+.header-subtitulo {
+    -fx-text-fill: #666666;
+    -fx-font-size: 12px;
+}
+
+/* KPIs en el header */
+.kpi-mini {
+    -fx-background-color: #161616;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2a2a;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 8 14;
+}
+
+.kpi-mini-valor {
+    -fx-text-fill: white;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+    -fx-font-size: 22px;
+    -fx-alignment: CENTER;
+}
+
+.kpi-mini-valor-green {
+    -fx-text-fill: #2ecc71;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+    -fx-font-size: 22px;
+    -fx-alignment: CENTER;
+}
+
+.kpi-mini-valor-accent {
+    -fx-text-fill: #9B0F1F;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+    -fx-font-size: 20px;
+    -fx-alignment: CENTER;
+}
+
+.kpi-mini-titulo {
+    -fx-text-fill: #555555;
+    -fx-font-size: 10px;
+    -fx-alignment: CENTER;
+    -fx-letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BARRA DE FILTROS
+══════════════════════════════════════════════════════════════ */
+.barra-filtros {
+    -fx-background-color: #0f0f0f;
+    -fx-border-color: #1e1e1e;
+    -fx-border-width: 0 0 1 0;
+    -fx-min-height: 64px;
+    -fx-max-height: 64px;
+}
+
+.filtro-label {
+    -fx-text-fill: #555555;
+    -fx-font-size: 11px;
+}
+
+.filtro-sep {
+    -fx-background-color: #2a2a2a;
+}
+
+.input-busqueda {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #444444;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1;
+    -fx-padding: 0 10;
+    -fx-font-size: 12px;
+}
+
+.input-busqueda:focused {
+    -fx-border-color: #9B0F1F;
+}
+
+.combo-filtro {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.combo-filtro .list-cell {
+    -fx-text-fill: #cccccc;
+    -fx-background-color: transparent;
+    -fx-font-size: 12px;
+}
+
+.combo-filtro:focused,
+.combo-filtro:showing {
+    -fx-border-color: #9B0F1F;
+}
+
+.combo-filtro-popup .list-view {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #9B0F1F;
+    -fx-border-width: 1;
+}
+
+.combo-filtro-popup .list-view .list-cell {
+    -fx-text-fill: #cccccc;
+    -fx-background-color: #1a1a1a;
+    -fx-padding: 6 10;
+    -fx-font-size: 12px;
+}
+
+.combo-filtro-popup .list-view .list-cell:hover {
+    -fx-background-color: #2a0a0a;
+    -fx-text-fill: white;
+}
+
+.combo-filtro-popup .list-view .list-cell:selected {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: white;
+}
+
+/* Botones de acción en filtros */
+.btn-limpiar {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9B0F1F;
+    -fx-border-color: #9B0F1F;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.btn-limpiar:hover {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: white;
+}
+
+.btn-recargar {
+    -fx-background-color: transparent;
+    -fx-text-fill: #555;
+    -fx-border-color: #333;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.btn-recargar:hover {
+    -fx-text-fill: white;
+    -fx-border-color: #666;
+}
+
+.btn-exportar {
+    -fx-background-color: #161616;
+    -fx-text-fill: #aaaaaa;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-width: 1;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.btn-exportar:hover {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: white;
+    -fx-border-color: #555;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ZONA TABLA
+══════════════════════════════════════════════════════════════ */
+.zona-tabla {
+    -fx-background-color: #0A0A0A;
+}
+
+.label-resultados {
+    -fx-text-fill: #555555;
+    -fx-font-size: 12px;
+}
+
+.hint-doble-click {
+    -fx-text-fill: #333333;
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+/* ── TABLE VIEW ──────────────────────────────────────────── */
+.tabla-historial {
+    -fx-background-color: #111111;
+    -fx-border-color: #1e1e1e;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-width: 1;
+}
+
+.tabla-historial .column-header-background {
+    -fx-background-color: #9B0F1F;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.tabla-historial .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(0,0,0,0.2);
+    -fx-border-width: 0 1 0 0;
+}
+
+.tabla-historial .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-letter-spacing: 0.5px;
+}
+
+/* Filas */
+.tabla-historial .table-row-cell {
+    -fx-background-color: #111111;
+    -fx-border-color: transparent transparent #181818 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 12px;
+}
+
+.tabla-historial .table-row-cell:odd {
+    -fx-background-color: #131313;
+}
+
+.tabla-historial .table-row-cell:hover {
+    -fx-background-color: #1e1e1e;
+    -fx-cursor: hand;
+}
+
+.tabla-historial .table-row-cell:selected {
+    -fx-background-color: rgba(155, 15, 31, 0.20);
+    -fx-border-color: transparent transparent transparent #9B0F1F;
+    -fx-border-width: 0 0 0 3;
+}
+
+.tabla-historial .table-cell {
+    -fx-text-fill: #cccccc;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 10;
+    -fx-font-size: 12px;
+}
+
+/* Scroll de la tabla */
+.tabla-historial .scroll-bar:vertical {
+    -fx-background-color: #111111;
+    -fx-pref-width: 8;
+}
+
+.tabla-historial .scroll-bar:vertical .thumb {
+    -fx-background-color: #2e2e2e;
+    -fx-background-radius: 4;
+}
+
+.tabla-historial .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9B0F1F;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PANEL DETALLE (inferior, aparece al seleccionar fila)
+══════════════════════════════════════════════════════════════ */
+.panel-detalle {
+    -fx-background-color: #0d0d0d;
+    -fx-border-color: #9B0F1F;
+    -fx-border-width: 1 0 0 0;
+    -fx-min-height: 200px;
+    -fx-max-height: 200px;
+}
+
+.detalle-bloque {
+    -fx-background-color: transparent;
+}
+
+.detalle-separador {
+    -fx-background-color: #1e1e1e;
+}
+
+.detalle-seccion-titulo {
+    -fx-text-fill: #9B0F1F;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+    -fx-font-size: 11px;
+    -fx-letter-spacing: 1.5px;
+    -fx-padding: 0 0 6 0;
+}
+
+.detalle-fila {
+    -fx-spacing: 0;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.detalle-key {
+    -fx-text-fill: #444444;
+    -fx-font-size: 11px;
+    -fx-min-width: 130px;
+    -fx-pref-width: 130px;
+}
+
+.detalle-val {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.detalle-val-accent {
+    -fx-text-fill: #2ecc71;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.detalle-fila-total {
+    -fx-spacing: 0;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 0 0 0;
+    -fx-border-color: #2a2a2a;
+    -fx-border-width: 1 0 0 0;
+    -fx-margin: 8 0 0 0;
+}
+
+.detalle-key-total {
+    -fx-text-fill: #9B0F1F;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-min-width: 130px;
+    -fx-pref-width: 130px;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+    -fx-letter-spacing: 0.5px;
+}
+
+.detalle-val-total {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Impact Regular", "Impact", sans-serif;
+}
+
+.btn-cerrar-detalle {
+    -fx-background-color: transparent;
+    -fx-text-fill: #444;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 16px;
+}
+
+.btn-cerrar-detalle:hover {
+    -fx-text-fill: #9B0F1F;
+}

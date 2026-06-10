@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #060606;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuAgregarVehiculo">
+   <children>
+
+      <Pane fx:id="paneAuto" layoutX="266.0" layoutY="88.0" prefHeight="353.0" prefWidth="958.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="237.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Id del vehiculo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="id_auto" layoutX="237.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Marca" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="marca_auto" layoutX="237.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Modelo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="modelo_auto" layoutX="237.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Autonomia en Km" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="km_auto" layoutX="417.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Capacidad de bateria" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="bateria_auto" layoutX="417.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Precio base" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="precio_base" layoutX="417.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Velocidad maxima" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="vmax_auto" layoutX="590.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Numero de puertas" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="puertas_auto" layoutX="590.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Numero de pasajeros" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="pasajeros_auto" layoutX="590.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Tipo de carga" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="carga_auto" layoutX="768.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Tracción" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="traccion_auto" layoutX="768.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="177.0" prefHeight="18.0" prefWidth="151.0" text="Color" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="color_auto" layoutX="768.0" layoutY="195.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="224.0" prefHeight="18.0" prefWidth="151.0" text="Año" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="año_auto" layoutX="768.0" layoutY="243.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+               <children>
+                  <ImageView fx:id="imgAuto" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_auto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenAuto" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                     <font><Font name="Roboto" size="14.0" /></font>
+                  </Button>
+               </children>
+            </AnchorPane>
+
+            <Button fx:id="btn_limpiar_auto" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarAuto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+            <Button fx:id="btn_agregar_auto" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarAuto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+         </children>
+      </Pane>
+
+      <Pane fx:id="paneMoto" layoutX="266.0" layoutY="88.0" prefHeight="353.0" prefWidth="958.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="237.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Id del vehiculo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="id_moto" layoutX="237.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Marca" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="marca_moto" layoutX="237.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Modelo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="modelo_moto" layoutX="237.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Autonomia en Km" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="km_moto" layoutX="417.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Capacidad de bateria" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="baeria_moto" layoutX="417.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Precio base" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="precio_moto" layoutX="417.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Velocidad maxima" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="vmax_moto" layoutX="590.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Color" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="color_moto" layoutX="590.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Año" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="año_moto" layoutX="590.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Tipo de carga" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="carga_moto" layoutX="768.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="104.0" prefHeight="18.0" prefWidth="151.0" text="Peso en Kg" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="peso_moto" layoutX="768.0" layoutY="141.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="193.0" prefHeight="18.0" prefWidth="151.0" text="Tipo de moto" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="tipo_moto" layoutX="768.0" layoutY="230.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+               <children>
+                  <ImageView fx:id="imgMoto" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_moto" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenMoto" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                     <font><Font name="Roboto" size="14.0" /></font>
+                  </Button>
+               </children>
+            </AnchorPane>
+
+            <Button fx:id="btn_limpiar_moto" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarMoto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+            <Button fx:id="btn_agregar_moto" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarMoto" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+         </children>
+      </Pane>
+
+      <Pane fx:id="panePatineta" layoutX="266.0" layoutY="88.0" prefHeight="353.0" prefWidth="958.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="237.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Id del vehiculo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="id_patineta" layoutX="237.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Marca" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="marca_patineta" layoutX="237.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Modelo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="modelo_patineta" layoutX="237.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Autonomia en Km" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="km_patineta" layoutX="417.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Capacidad de bateria" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="bateria_patineta" layoutX="417.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Precio base" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="precio_patineta" layoutX="417.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Velocidad maxima" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="velocidad_patineta" layoutX="590.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="111.0" prefHeight="18.0" prefWidth="151.0" text="Color" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="color_patineta" layoutX="590.0" layoutY="148.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Año" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="año_patineta" layoutX="590.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Peso maximo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="pesomax_patineta" layoutX="768.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="104.0" prefHeight="18.0" prefWidth="151.0" text="Es plegable?" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <CheckBox fx:id="box_patineta" layoutX="825.0" layoutY="150.0" mnemonicParsing="false" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="193.0" prefHeight="18.0" prefWidth="151.0" text="Peso del dispositivo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="peso_patineta" layoutX="768.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+               <children>
+                  <ImageView fx:id="imgPatineta" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_patineta" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenPatineta" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                     <font><Font name="Roboto" size="14.0" /></font>
+                  </Button>
+               </children>
+            </AnchorPane>
+
+            <Button fx:id="btn_limpiar_patineta" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarPatineta" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+            <Button fx:id="btn_agregar_patineta" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarPatineta" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+         </children>
+      </Pane>
+
+      <Pane fx:id="paneBicicleta" layoutX="266.0" layoutY="88.0" prefHeight="353.0" prefWidth="958.0" style="-fx-background-color: #1F1F1F; -fx-background-radius: 20px; -fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+         <children>
+            <Label layoutX="237.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Id del vehiculo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="id_bici" layoutX="237.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Marca" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="marca_bici" layoutX="237.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="237.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Modelo" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="model_bici" layoutX="237.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Autonomia en Km" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="km_bici" layoutX="417.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Capacidad de bateria" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="bateria_bici" layoutX="417.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="417.0" layoutY="196.0" prefHeight="18.0" prefWidth="151.0" text="Precio base" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="precio_bici" layoutX="417.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Velocidad maxima" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="vmax_bici" layoutX="590.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="107.0" prefHeight="18.0" prefWidth="151.0" text="Color" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="color_bici" layoutX="590.0" layoutY="144.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="590.0" layoutY="190.0" prefHeight="18.0" prefWidth="151.0" text="Año" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="año_bici" layoutX="590.0" layoutY="233.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="24.0" prefHeight="18.0" prefWidth="151.0" text="Tipo de bicicleta" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="tipo_bici" layoutX="768.0" layoutY="61.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="116.0" prefHeight="18.0" prefWidth="151.0" text="Numero de marchas" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <TextField fx:id="marchas_bici" layoutX="768.0" layoutY="153.0" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <Label layoutX="768.0" layoutY="205.0" prefHeight="18.0" prefWidth="151.0" text="Tiene asistencia pedal?" textFill="WHITE"><font><Font name="Roboto" size="14.0" /></font></Label>
+            <CheckBox fx:id="box_bici" layoutX="825.0" layoutY="240.0" mnemonicParsing="false" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+            <AnchorPane layoutX="44.0" layoutY="39.0" prefHeight="223.0" prefWidth="144.0" style="-fx-border-color: #3B3B3B; -fx-border-radius: 20px;">
+               <children>
+                  <ImageView fx:id="imgBici" fitHeight="160.0" fitWidth="142.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btn_imagen_bici" layoutX="1.0" layoutY="193.0" mnemonicParsing="false" onAction="#seleccionarImagenBici" prefHeight="32.0" prefWidth="142.0" style="-fx-background-color: #1F1F1F; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: #3B3B3B;" text="Añadir Imagen" textFill="WHITE">
+                     <font><Font name="Roboto" size="14.0" /></font>
+                  </Button>
+               </children>
+            </AnchorPane>
+
+            <Button fx:id="btn_limpiar_bici" layoutX="544.0" layoutY="298.0" mnemonicParsing="false" onAction="#limpiarBici" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Limpiar" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+            <Button fx:id="btn_agregar_bici" layoutX="294.0" layoutY="298.0" mnemonicParsing="false" onAction="#agregarBici" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Agregar Vehiculo" textFill="WHITE">
+               <font><Font name="Roboto" size="17.0" /></font>
+            </Button>
+         </children>
+      </Pane>
+
+      <Pane layoutX="266.0" layoutY="23.0" prefHeight="54.0" prefWidth="958.0" style="-fx-background-color: #9B0F1F;">
+         <children>
+            <Label layoutX="14.0" layoutY="16.0" prefHeight="23.0" prefWidth="298.0" text="REGISTRAR Y ELIMINAR VEHICULO" textFill="WHITE">
+               <font><Font name="Impact Regular" size="18.0" /></font>
+            </Label>
+            <ComboBox fx:id="comboTipoVehiculo" layoutX="763.0" layoutY="7.0" prefHeight="40.0" prefWidth="181.0" promptText="TIPO DE VEHICULO" style="-fx-background-color: #1F1F1F;" stylesheets="@../css/stylesAgregarVehiculo.css" />
+         </children>
+      </Pane>
+
+      <TableView fx:id="tablaVehiculos" layoutX="266.0" layoutY="506.0" prefHeight="201.0" prefWidth="958.0" style="-fx-background-color: #2a2a2a; -fx-border-color: #3B3B3B;" stylesheets="@../css/stylesAgregarVehiculo.css">
+         <columns>
+            <TableColumn fx:id="colTipo" prefWidth="128.8" text="TIPO DE VEHICULO" />
+            <TableColumn fx:id="colId" prefWidth="56.0" text="ID" />
+            <TableColumn fx:id="colMarca" prefWidth="92.0" text="MARCA" />
+            <TableColumn fx:id="colModelo" prefWidth="88.8" text="MODELO" />
+            <TableColumn fx:id="colFecha" prefWidth="83.2" text="FECHA" />
+            <TableColumn fx:id="colAutonomia" prefWidth="97.6" text="AUTONOMIA" />
+            <TableColumn fx:id="colBateria" prefWidth="160.0" text="CAPACIDAD DE BATERIA" />
+            <TableColumn fx:id="colPrecio" prefWidth="89.6" text="PRECIO" />
+            <TableColumn fx:id="colVelocidad" prefWidth="162.4" text="VELOCIDAD MAXIMA" />
+         </columns>
+      </TableView>
+
+      <TextField fx:id="campoBuscar" layoutX="266.0" layoutY="457.0" prefHeight="32.0" prefWidth="384.0" promptText="Buscar Vehiculo" stylesheets="@../css/stylesAgregarVehiculo.css" />
+
+      <Button fx:id="btn_eliminar" layoutX="1036.0" layoutY="457.0" mnemonicParsing="false" onAction="#eliminarVehiculo" prefHeight="32.0" prefWidth="188.0" style="-fx-background-color: #9B0F1F; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Eliminar Vehiculo" textFill="WHITE">
+         <font><Font name="Roboto" size="17.0" /></font>
+      </Button>
+      <Pane layoutY="1.0" prefHeight="731.0" prefWidth="220.0" style="-fx-background-color:#1F1F1F; -fx-border-color:#3B3B3B;">
+         <children>
+            <ImageView fitHeight="145.0" fitWidth="209.0" layoutX="38.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/logoprovisional.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="boton_inicio" layoutX="13.0" layoutY="134.0" mnemonicParsing="false" onAction="#cambiarInicio" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="INICIO" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_agregar" layoutX="13.0" layoutY="206.0" mnemonicParsing="false" onAction="#cambiarAgregarVehiculo" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #9B0F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="AÑADIR/QUITAR VEHICULO" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_alquilar" layoutX="13.0" layoutY="274.0" mnemonicParsing="false" onAction="#cambiarContratos" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CONTRATOS" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_comprar" layoutX="13.0" layoutY="361.0" mnemonicParsing="false" onAction="#cambiarHistorial" prefHeight="54.0" prefWidth="195.0" styleClass="boton-custom" stylesheets="@../css/styles.css" text="HISTORIAL DE COMPRAS" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_flota" layoutX="13.0" layoutY="447.0" mnemonicParsing="false" onAction="#cambiarFlota" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color: #1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="FLOTA" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_asistente" layoutX="13.0" layoutY="536.0" mnemonicParsing="false" onAction="#cambiarAsistente" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="ASISTENTE" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_cerrar" layoutX="13.0" layoutY="627.0" mnemonicParsing="false" onAction="#cambiarLogin" prefHeight="54.0" prefWidth="195.0" style="-fx-background-color:#1F1F1F;" styleClass="boton-custom" stylesheets="@../css/styles.css" text="CERRAR SESIÓN" textFill="WHITE">
+               <font>
+                  <Font name="Impact Regular" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+
+   </children>
+</AnchorPane>
