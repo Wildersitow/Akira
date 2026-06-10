@@ -26,7 +26,7 @@ public class Akira extends Application {
             Font.loadFont(new File("src/main/resources/fuentes/Rajdhani-Bold.ttf")
                     .toURI().toURL().toExternalForm(), 14);
 
-            File fxmlFile = new File("src/main/resources/FXML/MenuInicio.fxml");
+            File fxmlFile = new File("src/main/resources/FXML/Login.fxml");
             FXMLLoader loader = new FXMLLoader(fxmlFile.toURI().toURL());
             Parent root = loader.load();
 
