@@ -18,9 +18,9 @@ import java.util.List;
 
 public class AkiraAssistantService {
 
-    private static final String API_URL = "https://api.anthropic.com/v1/messages";
-    private static final String API_KEY = "TU_API_KEY_AQUI";
-    private static final String MODEL   = "claude-sonnet-4-20250514";
+    private static final String API_KEY = "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";
+    private static final String API_URL = System.getenv("https://api.groq.com/openai/v1/chat/completions");
+    private static final String MODEL   = "llama-3.3-70b-versatile";
 
     private final List<String[]> historial = new ArrayList<>();
 
@@ -42,47 +42,48 @@ public class AkiraAssistantService {
         REGLAS IMPORTANTES:
         - Solo recomienda vehículos que aparezcan en el INVENTARIO ACTUAL que se te proporciona.
         - Si el inventario está vacío, informa amablemente que no hay vehículos registrados aún.
-        - Si el usuario pregunta algo general (ventajas de eléctricos, cómo cargar, etc.), responde con tu conocimiento aunque no esté en el inventario.
+        - Si el usuario pregunta algo general, responde con tu conocimiento.
         - Cuando menciones precios usa el formato $X.XXX.XXX (pesos colombianos COP).
         - Responde siempre en español, de forma amigable y concisa. Usa emojis con moderación.
-        - Cuando necesites más información del usuario para recomendar, haz una sola pregunta a la vez.
+        - Cuando necesites más información, haz una sola pregunta a la vez.
         """;
 
     public String enviarMensaje(String mensajeUsuario) throws Exception {
 
         String inventario = construirInventario();
-
         String systemPrompt = SYSTEM_BASE + "\n\n" + inventario;
 
         historial.add(new String[]{"user", mensajeUsuario});
 
-        StringBuilder mensajesJson = new StringBuilder("[");
-        for (int i = 0; i < historial.size(); i++) {
-            String[] msg = historial.get(i);
-            if (i > 0) mensajesJson.append(",");
-            mensajesJson.append(String.format(
+        // Construir mensajes incluyendo system
+        StringBuilder mensajes = new StringBuilder("[");
+        mensajes.append(String.format(
+                "{\"role\":\"system\",\"content\":\"%s\"}",
+                escaparJson(systemPrompt)
+        ));
+        for (String[] msg : historial) {
+            mensajes.append(",");
+            mensajes.append(String.format(
                     "{\"role\":\"%s\",\"content\":\"%s\"}",
                     msg[0], escaparJson(msg[1])
             ));
         }
-
-        mensajesJson.append("]");
+        mensajes.append("]");
 
         String body = String.format("""
             {
               "model": "%s",
               "max_tokens": 1024,
-              "system": "%s",
+              "temperature": 0.7,
               "messages": %s
             }
-            """, MODEL, escaparJson(systemPrompt), mensajesJson);
+            """, MODEL, mensajes);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(API_URL))
                 .header("Content-Type", "application/json")
-                .header("x-api-key", API_KEY)
-                .header("anthropic-version", "2023-06-01")
+                .header("Authorization", "Bearer " + API_KEY)
                 .POST(HttpRequest.BodyPublishers.ofString(body))
                 .build();
 
@@ -101,91 +102,48 @@ public class AkiraAssistantService {
         StringBuilder sb = new StringBuilder();
         sb.append("=== INVENTARIO ACTUAL DEL SISTEMA ===\n\n");
 
-        // Autos
         try {
             ArrayList<AutoElectrico> autos = autoDAO.obtenerTodos();
             if (!autos.isEmpty()) {
                 sb.append("AUTOS ELÉCTRICOS (").append(autos.size()).append("):\n");
-                for (AutoElectrico a : autos) {
-                    sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Puertas: %d | Pasajeros: %d | Tracción: %s\n",
+                for (AutoElectrico a : autos)
+                    sb.append(String.format("  • %s %s | Precio: $%.0f | Puertas: %d | Pasajeros: %d | Tracción: %s\n",
                             a.getMarca(), a.getModelo(), a.getPrecioBase(),
-                            a.getNumeroPuertas(), a.getNumeroPasajeros()
+                            a.getNumeroPuertas(), a.getNumeroPasajeros(), a.getTraccion()));
+            } else sb.append("AUTOS ELÉCTRICOS: Sin registros.\n");
+        } catch (Exception e) { sb.append("AUTOS ELÉCTRICOS: Error al consultar.\n"); }
 
-                    ));
-                }
-            } else {
-                sb.append("AUTOS ELÉCTRICOS: Sin registros.\n");
-            }
-        } catch (Exception e) {
-            sb.append("AUTOS ELÉCTRICOS: Error al consultar.\n");
-        }
-
-        sb.append("\n");
-
-        // Motos
         try {
             ArrayList<MotoElectrica> motos = motoDAO.obtenerTodos();
             if (!motos.isEmpty()) {
                 sb.append("MOTOS ELÉCTRICAS (").append(motos.size()).append("):\n");
-                for (MotoElectrica m : motos) {
-                    sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Tipo: %s | \n",
-                            m.getMarca(), m.getModelo(), m.getPrecioBase(),
-                            m.getTipoMoto()
-                    ));
-                }
-            } else {
-                sb.append("MOTOS ELÉCTRICAS: Sin registros.\n");
-            }
-        } catch (Exception e) {
-            sb.append("MOTOS ELÉCTRICAS: Error al consultar.\n");
-        }
+                for (MotoElectrica m : motos)
+                    sb.append(String.format("  • %s %s | Precio: $%.0f | Tipo: %s\n",
+                            m.getMarca(), m.getModelo(), m.getPrecioBase(), m.getTipoMoto()));
+            } else sb.append("MOTOS ELÉCTRICAS: Sin registros.\n");
+        } catch (Exception e) { sb.append("MOTOS ELÉCTRICAS: Error al consultar.\n"); }
 
-        sb.append("\n");
-
-        // Bicicletas
         try {
             ArrayList<BicicletaElectrica> bicis = biciDAO.obtenerTodos();
             if (!bicis.isEmpty()) {
                 sb.append("BICICLETAS ELÉCTRICAS (").append(bicis.size()).append("):\n");
-                for (BicicletaElectrica b : bicis) {
-                    sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Marchas: %d |Tipo Asistencia pedal: %s | Material: %s\n",
+                for (BicicletaElectrica b : bicis)
+                    sb.append(String.format("  • %s %s | Precio: $%.0f | Marchas: %d | Asistencia: %s\n",
                             b.getMarca(), b.getModelo(), b.getPrecioBase(),
-                            b.getNumeroMarchas(),
-                            b.getTipoAsistencia(),
-                            b.getMaterialMarco()
-                    ));
-                }
-            } else {
-                sb.append("BICICLETAS ELÉCTRICAS: Sin registros.\n");
-            }
-        } catch (Exception e) {
-            sb.append("BICICLETAS ELÉCTRICAS: Error al consultar.\n");
-        }
+                            b.getNumeroMarchas(), b.getTipoAsistencia()));
+            } else sb.append("BICICLETAS ELÉCTRICAS: Sin registros.\n");
+        } catch (Exception e) { sb.append("BICICLETAS ELÉCTRICAS: Error al consultar.\n"); }
 
-        sb.append("\n");
-
-        // Patinetas
         try {
             ArrayList<PatinetaElectrica> patinetas = patiDAO.obtenerTodos();
             if (!patinetas.isEmpty()) {
                 sb.append("PATINETAS ELÉCTRICAS (").append(patinetas.size()).append("):\n");
-                for (PatinetaElectrica p : patinetas) {
-                    sb.append(String.format(
-                            "  • %s %s | Precio: $%.0f | Plegable: %s | Peso dispositivo: %.1f kg \n",
+                for (PatinetaElectrica p : patinetas)
+                    sb.append(String.format("  • %s %s | Precio: $%.0f | Plegable: %s\n",
                             p.getMarca(), p.getModelo(), p.getPrecioBase(),
-                            p.isEsPlegable() ? "Sí" : "No"
-
-                    ));
-                }
-            } else {
-                sb.append("PATINETAS ELÉCTRICAS: Sin registros.\n");
-            }
-        } catch (Exception e) {
-            sb.append("PATINETAS ELÉCTRICAS: Error al consultar.\n");
-        }
+                            p.isEsPlegable() ? "Sí" : "No"));
+            } else sb.append("PATINETAS ELÉCTRICAS: Sin registros.\n");
+        } catch (Exception e) { sb.append("PATINETAS ELÉCTRICAS: Error al consultar.\n"); }
 
         sb.append("\n=== FIN DEL INVENTARIO ===");
         return sb.toString();
@@ -196,9 +154,9 @@ public class AkiraAssistantService {
     }
 
     private String extraerTextoRespuesta(String json) {
-        int idx = json.indexOf("\"text\":");
+        int idx = json.indexOf("\"content\":");
         if (idx == -1) return "No pude obtener una respuesta.";
-        int inicio = json.indexOf("\"", idx + 7) + 1;
+        int inicio = json.indexOf("\"", idx + 10) + 1;
         int fin = inicio;
         while (fin < json.length()) {
             if (json.charAt(fin) == '\\') { fin += 2; continue; }
@@ -225,5 +183,4 @@ public class AkiraAssistantService {
                 .replace("\\\"", "\"")
                 .replace("\\\\", "\\");
     }
-
 }

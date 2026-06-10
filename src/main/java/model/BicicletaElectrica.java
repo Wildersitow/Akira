@@ -2,8 +2,6 @@ package model;
 
 public class BicicletaElectrica extends VehiculoElectrico {
 
-    private static final double RECARGO_CARBONO   = 0.20;
-    private static final double RECARGO_ALUMINIO  = 0.05;
     private static final double RECARGO_THROTTLE  = 0.08;
     private static final double RECARGO_AUTONOMIA = 0.05;
     private static final int    UMBRAL_AUTONOMIA_KM = 80;
@@ -11,11 +9,9 @@ public class BicicletaElectrica extends VehiculoElectrico {
     private int numeroMarchas;
     private int velocidadMaximaKmH;
     private String tipoAsistencia;
-    private String materialMarco;
 
-    public BicicletaElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima, String materialMarco, int velocidadMaximaKmH, String tipoAsistencia, int numeroMarchas) {
-        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, potenciaMotorKW, velocidadMaxima);
-        this.materialMarco = materialMarco;
+    public BicicletaElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int velocidadMaximaKmH, String tipoAsistencia, int numeroMarchas) {
+        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, 0);
         this.velocidadMaximaKmH = velocidadMaximaKmH;
         this.tipoAsistencia = tipoAsistencia;
         this.numeroMarchas = numeroMarchas;
@@ -25,11 +21,6 @@ public class BicicletaElectrica extends VehiculoElectrico {
     public double calcularPrecioFinal() {
         double precioFinal = getPrecioBase();
 
-        if (materialMarco.equalsIgnoreCase("Carbono")) {
-            precioFinal += precioFinal * RECARGO_CARBONO;
-        } else if (materialMarco.equalsIgnoreCase("Aluminio")) {
-            precioFinal += precioFinal * RECARGO_ALUMINIO;
-        }
         if (tipoAsistencia.equalsIgnoreCase("Throttle")) {
             precioFinal += precioFinal * RECARGO_THROTTLE;
         }
@@ -44,16 +35,7 @@ public class BicicletaElectrica extends VehiculoElectrico {
         return "BicicletaEléctrica | " + super.toString() +
                 " | Asistencia: " + tipoAsistencia +
                 " | Vel. máx: " + velocidadMaximaKmH + " km/h" +
-                " | Cambios: " + numeroMarchas +
-                " | Marco: " + materialMarco;
-    }
-
-    public String getMaterialMarco() {
-        return materialMarco;
-    }
-
-    public void setMaterialMarco(String materialMarco) {
-        this.materialMarco = materialMarco;
+                " | Cambios: " + numeroMarchas;
     }
 
     public int getVelocidadMaximaKmH() {

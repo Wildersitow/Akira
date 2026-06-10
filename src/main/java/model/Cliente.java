@@ -10,6 +10,7 @@ public class Cliente extends Persona implements Serializable {
     private final double historialCredito;
     private final int puntosFidelidad;
     private final List<Contrato> contratos;
+    private String direccion;
 
     public Cliente(String nombre, String nombreUsuario, String contraseña, String documentoid, String email, String rol, int telefono, String licenciaConducir, double historialCredito, int puntosFidelidad, List<Contrato> contratos) {
         super(nombre, nombreUsuario, contraseña, documentoid, email, rol, telefono);
@@ -34,6 +35,10 @@ public class Cliente extends Persona implements Serializable {
     public int getPuntosFidelidad() {
         return puntosFidelidad;
     }
+
+    public String getDireccion() { return direccion; }
+
+    public void getDireccion(String direccion) { this.direccion = direccion; }
 
     public double getTotalGastado() {
         if (contratos == null || contratos.isEmpty()) {

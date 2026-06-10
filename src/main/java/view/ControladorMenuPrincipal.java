@@ -1,6 +1,8 @@
 package view;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import service.SesionCuenta;
 
 public class ControladorMenuPrincipal {
 
@@ -10,56 +12,44 @@ public class ControladorMenuPrincipal {
         this.utilidades = new UtilidadesFX();
     }
 
-    public void cambiarInicio(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a MenuPrincipal...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
+    @FXML
+    public void cambiarInicio(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuPrincipal.fxml");
     }
 
-    public void cambiarAlquiler(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a Alquiler...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/Alquiler.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
+    @FXML
+    public void cambiarCompras(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuCompras.fxml");
     }
 
-    public void cambiarCompras(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a MenuCompras...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuCompras.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
+    @FXML
+    public void cambiarAlquiler(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Alquiler.fxml");
     }
 
-    public void cambiarFlota(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a MenuFlota...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
+    @FXML
+    public void cambiarContratos(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Contratos.fxml");
     }
 
-    public void cambiarAsistente(ActionEvent event){
-        try {
-            System.out.println("Intentando cambiar a Asistente...");
-            utilidades.cambiarEscenaConTransicion(event, "/FXML/Asistente.fxml");
-        } catch (Exception e) {
-            System.err.println("ERROR al cambiar escena:");
-            e.printStackTrace();
-        }
+    @FXML
+    public void cambiarFlota(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/MenuFlota.fxml");
     }
 
+    @FXML
+    public void cambiarAsistente(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/AsistenteAI.fxml");
+    }
 
+    @FXML
+    public void cambiarLogin(ActionEvent event) {
+        SesionCuenta.cerrarSesion();
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Login.fxml");
+    }
 
+    @FXML
+    public void cambiarPerfil(ActionEvent event) {
+        utilidades.cambiarEscenaConTransicion(event, "/FXML/Perfil.fxml");
+    }
 }

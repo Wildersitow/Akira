@@ -7,15 +7,16 @@ public class MotoElectrica extends VehiculoElectrico {
     private static final double RECARGO_AUTONOMIA  = 0.05;
     private static final int    UMBRAL_AUTONOMIA_KM = 150;
 
-    private int alturaAsientoMm;
+
     private String tipoMoto;
     private double pesoKg;
+    private int velocidadMaximaKmH;
 
-    public MotoElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima, int alturaAsientoMm, String tipoMoto, double pesoKg) {
-        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, potenciaMotorKW, velocidadMaxima);
-        this.alturaAsientoMm = alturaAsientoMm;
+    public MotoElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, String tipoMoto, double pesoKg, int velocidadMaximaKmH) {
+        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, 0);
         this.tipoMoto = tipoMoto;
         this.pesoKg = pesoKg;
+        this.velocidadMaximaKmH = velocidadMaximaKmH;
     }
 
     @Override
@@ -37,17 +38,9 @@ public class MotoElectrica extends VehiculoElectrico {
     public String toString() {
         return "MotoEléctrica | " + super.toString() +
                 " | Tipo: " + tipoMoto +
-                " | Peso: " + pesoKg + " kg" +
-                " | Altura asiento: " + alturaAsientoMm + " mm";
+                " | Peso: " + pesoKg + " kg";
     }
 
-    public int getAlturaAsientoMm() {
-        return alturaAsientoMm;
-    }
-
-    public void setAlturaAsientoMm(int alturaAsientoMm) {
-        this.alturaAsientoMm = alturaAsientoMm;
-    }
 
     public String getTipoMoto() {
         return tipoMoto;
@@ -64,4 +57,13 @@ public class MotoElectrica extends VehiculoElectrico {
     public void setPesoKg(double pesoKg) {
         this.pesoKg = pesoKg;
     }
+
+    public int getVelocidadMaximaKmH() {
+            return velocidadMaximaKmH;
+    }
+
+    public void setVelocidadMaximaKmH(int velocidadMaximaKmH) {
+            this.velocidadMaximaKmH = velocidadMaximaKmH;
+    }
+
 }

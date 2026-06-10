@@ -9,30 +9,39 @@ import java.util.ArrayList;
 public class ClienteDAO {
 
     public void guardar(Cliente cliente) throws ServiceException {
-        String sql = "INSERT INTO cliente (nombre, nombre_usuario, cedula, telefono, email, contrasena, rol, direccion, licencia_conducir, historial_credito, puntos_fidelidad) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
+        String sql = "{call akira.pkg_personas.sp_registrar_cliente(?,?,?,?,?,?,?,?,?,?,?)}";
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
             con.setAutoCommit(false);
-            ps.setString(1, cliente.getNombre());
-            ps.setString(2, cliente.getNombreUsuario());
-            ps.setString(3, cliente.getDocumentoId());
-            ps.setString(4, String.valueOf(cliente.getTelefono()));
-            ps.setString(5, cliente.getEmail());
-            ps.setString(6, cliente.getContraseña());
-            ps.setString(7, cliente.getRol());
-            ps.setString(8, null);                        // direccion — no está en el modelo
-            ps.setString(9, cliente.getLicenciaConducir());
+            PreparedStatement ps = con.prepareStatement(sql, new String[]{"ID"});
+
+            ps.setString(1,  cliente.getNombre());
+            ps.setString(2,  cliente.getNombreUsuario());
+            ps.setString(3,  cliente.getDocumentoId());
+            ps.setString(4,  String.valueOf(cliente.getTelefono()));
+            ps.setString(5,  cliente.getEmail());
+            ps.setString(6,  cliente.getContraseña());
+            ps.setString(7,  cliente.getRol());
+            ps.setString(8,  null);
+            ps.setString(9,  cliente.getLicenciaConducir());
             ps.setDouble(10, cliente.getHistorialCredito());
-            ps.setInt(11, cliente.getPuntosFidelidad());
+            ps.setInt(11,    cliente.getPuntosFidelidad());
+
             ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) cliente.setId(rs.getLong(1));
+
             con.commit();
 
-            System.out.println("✓ Cliente guardado: " + cliente.getNombreUsuario());
+            System.out.println("✓ Cliente guardado: " + cliente.getNombreUsuario() + " | id: " + cliente.getId());
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_GUARDADO", "Error al guardar cliente: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
@@ -51,12 +60,37 @@ public class ClienteDAO {
         }
     }
 
+    public void actualizarPerfil(long id, String nombre, long telefono,
+                                 String direccion, String licencia,
+                                 double historialCredito) throws ServiceException {
+        String sql = "{call akira.sp_actualizar_perfil_cliente(?,?,?,?,?,?)}";
+        try (Connection con = ConexionDB.getConexion();
+             CallableStatement cs = con.prepareCall(sql)) {
+
+            cs.setLong(1,    id);
+            cs.setString(2,  nombre);
+            cs.setLong(3,    telefono);
+            cs.setString(4,  direccion);
+            cs.setString(5,  licencia);
+            cs.setDouble(6,  historialCredito);
+
+            cs.execute();
+            System.out.println("✓ Perfil actualizado, cliente id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_PERFIL",
+                    "Error al actualizar perfil: " + e.getMessage(), e);
+        }
+    }
+
     public void actualizar(Cliente cliente) throws ServiceException {
         String sql = "UPDATE cliente SET nombre=?, nombre_usuario=?, telefono=?, contrasena=?, rol=?, licencia_conducir=?, historial_credito=?, puntos_fidelidad=? WHERE email=?";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
             con.setAutoCommit(false);
+            PreparedStatement ps = con.prepareStatement(sql);
+
             ps.setString(1, cliente.getNombre());
             ps.setString(2, cliente.getNombreUsuario());
             ps.setString(3, String.valueOf(cliente.getTelefono()));
@@ -64,7 +98,7 @@ public class ClienteDAO {
             ps.setString(5, cliente.getRol());
             ps.setString(6, cliente.getLicenciaConducir());
             ps.setDouble(7, cliente.getHistorialCredito());
-            ps.setInt(8, cliente.getPuntosFidelidad());
+            ps.setInt(8,    cliente.getPuntosFidelidad());
             ps.setString(9, cliente.getEmail());
 
             int filas = ps.executeUpdate();
@@ -76,16 +110,21 @@ public class ClienteDAO {
             System.out.println("✓ Cliente actualizado: " + cliente.getNombreUsuario());
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_ACTUALIZACION", "Error al actualizar cliente: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
     public void eliminar(String email) throws ServiceException {
         String sql = "DELETE FROM cliente WHERE email = ?";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
             con.setAutoCommit(false);
+            PreparedStatement ps = con.prepareStatement(sql);
+
             ps.setString(1, email);
             int filas = ps.executeUpdate();
             con.commit();
@@ -96,7 +135,10 @@ public class ClienteDAO {
             System.out.println("✓ Cliente eliminado: " + email);
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar cliente: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
@@ -132,22 +174,6 @@ public class ClienteDAO {
         }
     }
 
-    private Cliente mapear(ResultSet rs) throws SQLException {
-        return new Cliente(
-                rs.getString("nombre"),
-                rs.getString("nombre_usuario"),
-                rs.getString("contrasena"),
-                rs.getString("cedula"),
-                rs.getString("email"),
-                rs.getString("rol"),
-                rs.getInt("telefono"),
-                rs.getString("licencia_conducir"),
-                rs.getDouble("historial_credito"),
-                rs.getInt("puntos_fidelidad"),
-                new ArrayList<>()                         // contratos — se cargan aparte
-        );
-    }
-
     public Cliente buscarPorNombre(String nombre) throws ServiceException {
         String sql = "SELECT * FROM cliente WHERE LOWER(nombre) = LOWER(?)";
         try (Connection con = ConexionDB.getConexion();
@@ -163,4 +189,39 @@ public class ClienteDAO {
             throw new ServiceException("ERROR_LECTURA", "Error al buscar cliente: " + e.getMessage(), e);
         }
     }
+
+    public Cliente obtenerPorId(long id) throws ServiceException {
+        String sql = "SELECT * FROM cliente WHERE id = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+
+            throw new ServiceException("CLIENTE_NO_ENCONTRADO", "No se encontró el cliente con id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar cliente: " + e.getMessage(), e);
+        }
     }
+
+    private Cliente mapear(ResultSet rs) throws SQLException {
+        Cliente cliente = new Cliente(
+                rs.getString("nombre"),
+                rs.getString("nombre_usuario"),
+                rs.getString("contrasena"),
+                rs.getString("cedula"),
+                rs.getString("email"),
+                rs.getString("rol"),
+                rs.getInt("telefono"),
+                rs.getString("licencia_conducir"),
+                rs.getDouble("historial_credito"),
+                rs.getInt("puntos_fidelidad"),
+                new ArrayList<>()
+        );
+        cliente.setId(rs.getLong("id"));
+        return cliente;
+    }
+}
