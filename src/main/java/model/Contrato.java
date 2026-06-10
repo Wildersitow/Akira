@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Contrato {
 
@@ -10,7 +9,7 @@ public class Contrato {
     private static final int    MINIMO_CONTRATOS_RECURRENTE  = 2;
 
     private Long id;
-    private LocalDate fehcaVenta;
+    private LocalDate fechaVenta;
     private Cliente cliente;
     private VehiculoElectrico vehiculoElectrico;
     private double precioFinal;
@@ -24,7 +23,7 @@ public class Contrato {
         this.precioFinal = precioFinal;
         this.id = id;
         this.formaDePago = formaDePago;
-        this.fehcaVenta = fehcaVenta;
+        this.fechaVenta = fehcaVenta;
         this.estadoContrato = estadoContrato;
         this.empleado = empleado;
     }
@@ -47,7 +46,7 @@ public class Contrato {
     public String generarResumen(){
         return  "===== RESUMEN DEL CONTRATO =====" + "\n" +
                 "ID Contrato   : " + id                              + "\n" +
-                "Fecha         : " + fehcaVenta                           + "\n" +
+                "Fecha         : " + fechaVenta                           + "\n" +
                 "Estado        : " + estadoContrato                          + "\n" +
                 "--- Cliente ---"                                     + "\n" +
                 "Nombre        : " + cliente.getNombre()             + "\n" +
@@ -80,8 +79,8 @@ public class Contrato {
         return formaDePago;
     }
 
-    public LocalDate getFehcaVenta() {
-        return fehcaVenta;
+    public LocalDate getFechaVenta() {
+        return fechaVenta;
     }
 
     public Long getId() {

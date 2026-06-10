@@ -1,14 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0A0A0A;" stylesheets="@../css/stylesCompras.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControladorMenuAlquiler">
+
+    <HBox fx:id="navbar" alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="1280.0" spacing="0" style="-fx-background-color: #111111; -fx-border-color: #1e1e1e; -fx-border-width: 0 0 1 0;" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+        <HBox alignment="CENTER_LEFT" prefHeight="72" prefWidth="220">
+            <padding><Insets left="24" /></padding>
+            <ImageView fitHeight="48" fitWidth="160" pickOnBounds="true" preserveRatio="true">
+                <image><Image url="@../Imagenes/logoprovisional.png" /></image>
+            </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="4" HBox.hgrow="ALWAYS">
+            <Button onAction="#cambiarInicio" styleClass="boton-nav" text="INICIO" />
+            <Button onAction="#cambiarCompras" styleClass="boton-nav" text="COMPRAR" />
+            <Button onAction="#cambiarAlquiler" styleClass="boton-nav" text="ALQUILAR" />
+            <Button onAction="#cambiarContratos" styleClass="boton-nav" text="CONTRATOS" />
+            <Button onAction="#cambiarFlota" styleClass="boton-nav" text="FLOTA" />
+            <Button onAction="#cambiarAsistente" styleClass="boton-nav" text="ASISTENTE" />
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="10">
+            <padding><Insets right="20" /></padding>
+            <Button fx:id="btnReservas" onAction="#abrirReservas" styleClass="btn-carrito" text="📋  Reservas (0)" />
+            <Button onAction="#cambiarLogin" styleClass="btn-cerrar" text="CERRAR SESIÓN" />
+        </HBox>
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" prefWidth="1280" spacing="16" style="-fx-background-color: linear-gradient(to right, #9B0F1F, #6b0000);" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="72">
+        <padding><Insets left="32" /></padding>
+        <Label style="-fx-font-size:22px;" text="🔑" />
+        <VBox spacing="1">
+            <Label style="-fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:bold; -fx-font-family:'Impact Regular';" text="ALQUILA TU VEHÍCULO ELÉCTRICO" />
+            <Label style="-fx-text-fill:#ffcccc; -fx-font-size:11px;" text="Elige el vehículo, el período y reserva al instante — disponible en toda Colombia" />
+        </VBox>
+    </HBox>
+
+    <HBox prefWidth="1280" spacing="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="136">
+
+        <VBox prefWidth="270" spacing="0" style="-fx-background-color: #111111; -fx-border-color: #1e1e1e; -fx-border-width: 0 1 0 0;">
+            <padding><Insets bottom="20" left="16" right="16" top="20" /></padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 0 0 14 0;">
+                <Label style="-fx-text-fill:#9B0F1F; -fx-font-size:13px; -fx-font-weight:bold; -fx-font-family:'Impact Regular';" text="FILTROS" />
+            </HBox>
+
+            <Label style="-fx-text-fill:#888; -fx-font-size:11px; -fx-padding:0 0 4 0;" text="Buscar" />
+            <TextField fx:id="txtBuscar" onKeyReleased="#aplicarFiltros" prefWidth="238" promptText="Marca, modelo..." style="-fx-background-color:#1a1a1a; -fx-text-fill:white; -fx-prompt-text-fill:#555;                               -fx-border-color:#333; -fx-border-radius:6; -fx-background-radius:6;                               -fx-padding:8 10; -fx-font-size:12px;" />
+
+            <Region prefHeight="14" />
+
+            <Label style="-fx-text-fill:#888; -fx-font-size:11px; -fx-padding:0 0 4 0;" text="Tipo de vehículo" />
+            <ComboBox fx:id="comboTipo" onAction="#aplicarFiltros" prefHeight="36" prefWidth="238" promptText="Todos" style="-fx-background-color:#1a1a1a; -fx-border-color:#333; -fx-border-radius:6;                              -fx-background-radius:6;" />
+
+            <Region prefHeight="10" />
+
+            <Label style="-fx-text-fill:#888; -fx-font-size:11px; -fx-padding:0 0 4 0;" text="Precio por día" />
+            <ComboBox fx:id="comboPrecio" onAction="#aplicarFiltros" prefHeight="36" prefWidth="238" promptText="Sin límite" style="-fx-background-color:#1a1a1a; -fx-border-color:#333; -fx-border-radius:6;                              -fx-background-radius:6;" />
+
+            <Region prefHeight="10" />
+
+            <Label style="-fx-text-fill:#888; -fx-font-size:11px; -fx-padding:0 0 4 0;" text="Marca" />
+            <ComboBox fx:id="comboMarca" onAction="#aplicarFiltros" prefHeight="36" prefWidth="238" promptText="Todas" style="-fx-background-color:#1a1a1a; -fx-border-color:#333; -fx-border-radius:6;                              -fx-background-radius:6;" />
+
+            <Region prefHeight="10" />
+
+            <Label style="-fx-text-fill:#888; -fx-font-size:11px; -fx-padding:0 0 4 0;" text="Período de alquiler" />
+            <ComboBox fx:id="comboPeriodo" onAction="#aplicarFiltros" prefHeight="36" prefWidth="238" promptText="Cualquier período" style="-fx-background-color:#1a1a1a; -fx-border-color:#333; -fx-border-radius:6;                              -fx-background-radius:6;" />
+
+            <Region prefHeight="10" />
+
+            <Label style="-fx-text-fill:#888; -fx-font-size:11px; -fx-padding:0 0 4 0;" text="Autonomía mínima" />
+            <ComboBox fx:id="comboAutonomia" onAction="#aplicarFiltros" prefHeight="36" prefWidth="238" promptText="Sin filtro" style="-fx-background-color:#1a1a1a; -fx-border-color:#333; -fx-border-radius:6;                              -fx-background-radius:6;" />
+
+            <Region prefHeight="20" />
+
+            <Button onAction="#limpiarFiltros" prefHeight="36" prefWidth="238" style="-fx-background-color:transparent; -fx-text-fill:#9B0F1F;                            -fx-border-color:#9B0F1F; -fx-border-radius:6; -fx-background-radius:6;                            -fx-font-size:12px; -fx-cursor:hand;" text="↺  Limpiar filtros" />
+
+            <Region prefHeight="20" />
+
+            <Label fx:id="lblResultados" style="-fx-text-fill:#555; -fx-font-size:11px;" text="Mostrando 0 vehículos" />
+        </VBox>
+
+        <VBox spacing="0" style="-fx-background-color:#0A0A0A;" HBox.hgrow="ALWAYS">
+
+            <HBox alignment="CENTER_LEFT" prefHeight="44" spacing="12" style="-fx-background-color:#111111; -fx-border-color:#1e1e1e; -fx-border-width:0 0 1 0;">
+                <padding><Insets left="20" right="20" /></padding>
+                <Label style="-fx-text-fill:#888; -fx-font-size:12px;" text="Ordenar por:" />
+                <ComboBox fx:id="comboOrdenar" onAction="#aplicarFiltros" prefHeight="30" promptText="Relevancia" style="-fx-background-color:#1a1a1a; -fx-border-color:#333;                                  -fx-border-radius:4; -fx-background-radius:4; -fx-font-size:12px;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button onAction="#cargarVehiculos" style="-fx-background-color:transparent; -fx-text-fill:#555;                                -fx-border-color:#333; -fx-border-radius:4; -fx-background-radius:4;                                -fx-font-size:11px; -fx-cursor:hand; -fx-padding:4 10;" text="⟳ Recargar" />
+            </HBox>
+
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color:transparent; -fx-border-color:transparent;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <FlowPane fx:id="flowVehiculos" hgap="18" style="-fx-background-color:#0A0A0A; -fx-padding:20;" vgap="18">
+                    <VBox fx:id="panelVacio" alignment="CENTER" prefHeight="400" prefWidth="910" spacing="14" style="-fx-background-color:transparent;">
+                        <Label style="-fx-font-size:48px;" text="🔑" />
+                        <Label style="-fx-text-fill:#555; -fx-font-size:18px; -fx-font-weight:bold;" text="No hay vehículos disponibles para alquilar" />
+                        <Label style="-fx-text-fill:#333; -fx-font-size:13px;" text="Agrega vehículos desde el panel de empleado" />
+                    </VBox>
+                </FlowPane>
+            </ScrollPane>
+        </VBox>
+    </HBox>
 
 </AnchorPane>

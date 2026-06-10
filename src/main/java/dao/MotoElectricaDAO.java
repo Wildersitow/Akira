@@ -6,14 +6,18 @@ import service.ServiceException;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.List;
 
 public class MotoElectricaDAO {
 
     public void guardar(MotoElectrica moto) throws ServiceException {
-        String sql = "INSERT INTO moto_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, tipo_moto, peso_kg, altura_asiento_mm) " +
+        String sql = "INSERT INTO moto_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, estado_id, tipo_moto, peso_kg, velocidad_max_kmh, imagen) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        Connection con = null;
+        try  {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
 
             con.setAutoCommit(false);
             ps.setString(1, moto.getMarca());
@@ -23,23 +27,27 @@ public class MotoElectricaDAO {
             ps.setDouble(5, moto.getPrecioBase());
             ps.setDouble(6, moto.getAutonomiaKm());
             ps.setDouble(7, moto.getCapacidadBateria());
-            ps.setInt(8, moto.getPotenciaMotorKW());
-            ps.setInt(9, estadoToId(moto.getEstado()));
-            ps.setString(10, moto.getTipoMoto());
-            ps.setDouble(11, moto.getPesoKg());
-            ps.setInt(12, moto.getAlturaAsientoMm());
+            ps.setInt(8, estadoToId(moto.getEstado()));
+            ps.setString(9, moto.getTipoMoto());
+            ps.setDouble(10, moto.getPesoKg());
+            ps.setInt(11,    moto.getVelocidadMaximaKmH());
+            ps.setString(12, moto.getImagen());
             ps.executeUpdate();
             con.commit();
 
             System.out.println("✓ Moto guardada: " + moto.getMarca() + " " + moto.getModelo());
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_GUARDADO", "Error al guardar moto: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
+
     public ArrayList<MotoElectrica> obtenerTodos() throws ServiceException {
-        String sql = "SELECT * FROM moto_electrica";
+        String sql = "SELECT * FROM akira.moto_electrica";
         ArrayList<MotoElectrica> lista = new ArrayList<>();
         try (Connection con = ConexionDB.getConexion();
              Statement st = con.createStatement();
@@ -55,8 +63,10 @@ public class MotoElectricaDAO {
 
     public void eliminar(long id) throws ServiceException {
         String sql = "DELETE FROM moto_electrica WHERE id = ?";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+        Connection con = null;
+        try  {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
 
             con.setAutoCommit(false);
             ps.setLong(1, id);
@@ -67,12 +77,15 @@ public class MotoElectricaDAO {
                 throw new ServiceException("MOTO_NO_ENCONTRADA", "No se encontró la moto con id: " + id);
 
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar moto: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
     private MotoElectrica mapear(ResultSet rs) throws SQLException {
-        return new MotoElectrica(
+        MotoElectrica moto = new MotoElectrica(
                 rs.getInt("anio"),
                 rs.getDouble("autonomia_km"),
                 rs.getDouble("capacidad_bateria"),
@@ -82,12 +95,12 @@ public class MotoElectricaDAO {
                 rs.getString("marca"),
                 rs.getString("modelo"),
                 rs.getDouble("precio_base"),
-                rs.getInt("potencia_motor_kw"),
-                0,                            // velocidadMaxima — no está en la tabla
-                rs.getInt("altura_asiento_mm"),
                 rs.getString("tipo_moto"),
-                rs.getDouble("peso_kg")
+                rs.getDouble("peso_kg"),
+                rs.getInt("velocidad_max_kmh")
         );
+        moto.setImagen(rs.getString("imagen"));
+        return moto;
     }
 
     private int estadoToId(EstadoVehiculo estado) {
@@ -106,5 +119,63 @@ public class MotoElectricaDAO {
             case 4  -> EstadoVehiculo.MANTENIMIENTO;
             default -> EstadoVehiculo.DISPONIBLE;
         };
+    }
+
+    public MotoElectrica obtenerPorId(long id) throws ServiceException {
+        String sql = "SELECT * FROM moto_electrica WHERE id = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+
+            throw new ServiceException("MOTO_NO_ENCONTRADA", "No se encontró la moto con id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar moto: " + e.getMessage(), e);
+        }
+    }
+
+    public void actualizarCampos(long id, Map<String, Object> campos) throws ServiceException {
+        if (campos == null || campos.isEmpty())
+            throw new ServiceException("SIN_CAMPOS", "No se especificaron campos a actualizar.");
+
+        StringBuilder sql = new StringBuilder("UPDATE moto_electrica SET ");
+        List<Object> valores = new ArrayList<>();
+
+        campos.forEach((campo, valor) -> {
+            sql.append(campo).append(" = ?, ");
+            valores.add(valor);
+        });
+
+        sql.delete(sql.length() - 2, sql.length());
+        sql.append(" WHERE id = ?");
+        valores.add(id);
+
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql.toString());
+            con.setAutoCommit(false);
+
+            for (int i = 0; i < valores.size(); i++)
+                ps.setObject(i + 1, valores.get(i));
+
+            int filas = ps.executeUpdate();
+            con.commit();
+
+            if (filas == 0)
+                throw new ServiceException("MOTO_NO_ENCONTRADA", "No se encontró la moto con id: " + id);
+
+            System.out.println("✓ Moto actualizada, campos: " + campos.keySet());
+
+        } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
+            throw new ServiceException("ERROR_ACTUALIZACION", "Error al actualizar moto: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
     }
 }

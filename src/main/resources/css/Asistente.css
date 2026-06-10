@@ -176,3 +176,36 @@
 .indicador-carga {
     -fx-progress-color: #cc0000;
 }
+
+/* ── BOTONES DE NAVEGACIÓN (navbar horizontal) ── */
+
+.boton-nav {
+    -fx-background-color: transparent;
+    -fx-text-fill: #aaaaaa;
+    -fx-font-family: "Rajdhani";
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 16;
+    -fx-cursor: hand;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: transparent;
+}
+
+.boton-nav:hover {
+    -fx-background-color: #1f1010;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #9B0F1F;
+}
+
+.boton-nav:pressed {
+    -fx-background-color: #2a0a0a;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #c0392b;
+}
+
+.boton-nav-activo {
+    -fx-background-color: #1a0808;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #9B0F1F;
+}

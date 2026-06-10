@@ -6,41 +6,44 @@ import service.ServiceException;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.List;
 
 public class BicicletaElectricaDAO {
 
     public void guardar(BicicletaElectrica bici) throws ServiceException {
-        String sql = "INSERT INTO bicicleta_electrica (marca, modelo, anio, color, precio_base, autonomia_km, capacidad_bateria, potencia_motor_kw, estado_id, tipo_asistencia, velocidad_max_kmh, num_cambios, material_marco) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
+        String sql = "INSERT INTO bicicleta_electrica (marca, modelo, anio, color, precio_base, estado_id, tipo_asistencia, velocidad_max_kmh, num_cambios, autonomia_km, capacidad_bateria, imagen) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
             con.setAutoCommit(false);
-            ps.setString(1, bici.getMarca());
-            ps.setString(2, bici.getModelo());
-            ps.setInt(3, bici.getAnio());
-            ps.setString(4, bici.getColor());
-            ps.setDouble(5, bici.getPrecioBase());
-            ps.setDouble(6, bici.getAutonomiaKm());
-            ps.setDouble(7, bici.getCapacidadBateria());
-            ps.setInt(8, bici.getPotenciaMotorKW());
-            ps.setInt(9, estadoToId(bici.getEstado()));
-            ps.setString(10, bici.getTipoAsistencia());
-            ps.setInt(11, bici.getVelocidadMaximaKmH());
-            ps.setInt(12, bici.getNumeroMarchas());
-            ps.setString(13, bici.getMaterialMarco());
+            ps.setString(1,  bici.getMarca());
+            ps.setString(2,  bici.getModelo());
+            ps.setInt(3,     bici.getAnio());
+            ps.setString(4,  bici.getColor());
+            ps.setDouble(5,  bici.getPrecioBase());
+            ps.setInt(6,     estadoToId(bici.getEstado()));
+            ps.setString(7,  bici.getTipoAsistencia());
+            ps.setInt(8,     bici.getVelocidadMaximaKmH());
+            ps.setInt(9,     bici.getNumeroMarchas());
+            ps.setDouble(10, bici.getAutonomiaKm());
+            ps.setDouble(11, bici.getCapacidadBateria());
+            ps.setString(12, bici.getImagen());
             ps.executeUpdate();
             con.commit();
-
             System.out.println("✓ Bicicleta guardada: " + bici.getMarca() + " " + bici.getModelo());
-
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_GUARDADO", "Error al guardar bicicleta: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
     public ArrayList<BicicletaElectrica> obtenerTodos() throws ServiceException {
-        String sql = "SELECT * FROM bicicleta_electrica";
+        String sql = "SELECT * FROM akira.bicicleta_electrica";
         ArrayList<BicicletaElectrica> lista = new ArrayList<>();
         try (Connection con = ConexionDB.getConexion();
              Statement st = con.createStatement();
@@ -56,24 +59,26 @@ public class BicicletaElectricaDAO {
 
     public void eliminar(long id) throws ServiceException {
         String sql = "DELETE FROM bicicleta_electrica WHERE id = ?";
-        try (Connection con = ConexionDB.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
             con.setAutoCommit(false);
             ps.setLong(1, id);
             int filas = ps.executeUpdate();
             con.commit();
-
             if (filas == 0)
                 throw new ServiceException("BICI_NO_ENCONTRADA", "No se encontró la bicicleta con id: " + id);
-
         } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
             throw new ServiceException("ERROR_ELIMINACION", "Error al eliminar bicicleta: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
     }
 
     private BicicletaElectrica mapear(ResultSet rs) throws SQLException {
-        return new BicicletaElectrica(
+        BicicletaElectrica bici = new BicicletaElectrica(
                 rs.getInt("anio"),
                 rs.getDouble("autonomia_km"),
                 rs.getDouble("capacidad_bateria"),
@@ -83,13 +88,12 @@ public class BicicletaElectricaDAO {
                 rs.getString("marca"),
                 rs.getString("modelo"),
                 rs.getDouble("precio_base"),
-                rs.getInt("potencia_motor_kw"),
-                0,                              // velocidadMaxima heredada — no está en la tabla
-                rs.getString("material_marco"),
                 rs.getInt("velocidad_max_kmh"),
                 rs.getString("tipo_asistencia"),
                 rs.getInt("num_cambios")
         );
+        bici.setImagen(rs.getString("imagen"));
+        return bici;
     }
 
     private int estadoToId(EstadoVehiculo estado) {
@@ -108,5 +112,63 @@ public class BicicletaElectricaDAO {
             case 4  -> EstadoVehiculo.MANTENIMIENTO;
             default -> EstadoVehiculo.DISPONIBLE;
         };
+    }
+
+    public BicicletaElectrica obtenerPorId(long id) throws ServiceException {
+        String sql = "SELECT * FROM bicicleta_electrica WHERE id = ?";
+        try (Connection con = ConexionDB.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) return mapear(rs);
+
+            throw new ServiceException("BICI_NO_ENCONTRADA", "No se encontró la bicicleta con id: " + id);
+
+        } catch (SQLException e) {
+            throw new ServiceException("ERROR_LECTURA", "Error al buscar bicicleta: " + e.getMessage(), e);
+        }
+    }
+
+    public void actualizarCampos(long id, Map<String, Object> campos) throws ServiceException {
+        if (campos == null || campos.isEmpty())
+            throw new ServiceException("SIN_CAMPOS", "No se especificaron campos a actualizar.");
+
+        StringBuilder sql = new StringBuilder("UPDATE bicicleta_electrica SET ");
+        List<Object> valores = new ArrayList<>();
+
+        campos.forEach((campo, valor) -> {
+            sql.append(campo).append(" = ?, ");
+            valores.add(valor);
+        });
+
+        sql.delete(sql.length() - 2, sql.length());
+        sql.append(" WHERE id = ?");
+        valores.add(id);
+
+        Connection con = null;
+        try {
+            con = ConexionDB.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql.toString());
+            con.setAutoCommit(false);
+
+            for (int i = 0; i < valores.size(); i++)
+                ps.setObject(i + 1, valores.get(i));
+
+            int filas = ps.executeUpdate();
+            con.commit();
+
+            if (filas == 0)
+                throw new ServiceException("BICI_NO_ENCONTRADA", "No se encontró la bicicleta con id: " + id);
+
+            System.out.println("✓ Bicicleta actualizada, campos: " + campos.keySet());
+
+        } catch (SQLException e) {
+            try { if (con != null) con.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
+            throw new ServiceException("ERROR_ACTUALIZACION", "Error al actualizar bicicleta: " + e.getMessage(), e);
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
     }
 }

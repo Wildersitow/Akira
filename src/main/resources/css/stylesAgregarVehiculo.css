@@ -1,0 +1,336 @@
+/* ═══════════════════════════════════════════════════════════════
+   Akira — stylesAgregarVehiculo.css
+   Estética moderna inspirada en MenuFlota
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── ROOT ──────────────────────────────────────────────────── */
+.root {
+    -fx-background-color: #060606;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* ── SIDEBAR ───────────────────────────────────────────────── */
+.sidebar {
+    -fx-background-color: #111111;
+    -fx-border-color: #1e1e1e;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* ── BOTONES SIDEBAR ───────────────────────────────────────── */
+.boton-custom {
+    -fx-background-color: transparent;
+    -fx-text-fill: #aaaaaa;
+    -fx-font-family: "Impact Regular", Impact, sans-serif;
+    -fx-font-size: 16px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 16;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.boton-custom:hover {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: white;
+}
+
+/* ── HEADER STRIP ROJO ─────────────────────────────────────── */
+.header-strip {
+    -fx-background-color: linear-gradient(to right, #9B0F1F, #6b0000);
+}
+
+.header-strip-label {
+    -fx-text-fill: white;
+    -fx-font-family: "Impact Regular", Impact, sans-serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* ── COMBOBOX TIPO VEHICULO (header) ───────────────────────── */
+.combo-tipo-vehiculo {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.combo-tipo-vehiculo .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-font-family: "Impact Regular", Impact, sans-serif;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
+    -fx-padding: 4 10;
+}
+
+.combo-tipo-vehiculo .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-tipo-vehiculo .arrow {
+    -fx-background-color: #cccccc;
+}
+
+.combo-tipo-vehiculo:focused,
+.combo-tipo-vehiculo:showing {
+    -fx-border-color: white;
+    -fx-background-color: #2a1a1a;
+}
+
+.combo-tipo-vehiculo-popup .list-view {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #9B0F1F;
+    -fx-border-width: 1;
+}
+
+.combo-tipo-vehiculo-popup .list-view .list-cell {
+    -fx-text-fill: #cccccc;
+    -fx-background-color: #1a1a1a;
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+}
+
+.combo-tipo-vehiculo-popup .list-view .list-cell:hover {
+    -fx-background-color: #2e2e2e;
+    -fx-text-fill: white;
+}
+
+.combo-tipo-vehiculo-popup .list-view .list-cell:selected {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: white;
+}
+
+/* ── PANEL DE FORMULARIO ───────────────────────────────────── */
+.panel-form {
+    -fx-background-color: #141414;
+    -fx-background-radius: 16;
+    -fx-border-color: #252525;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 12, 0, 0, 4);
+}
+
+/* ── LABELS DEL FORMULARIO ─────────────────────────────────── */
+.form-label {
+    -fx-text-fill: #888888;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* ── TEXT FIELDS ───────────────────────────────────────────── */
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #2e2e2e transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 4 0;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: #444444;
+}
+
+.text-field:focused {
+    -fx-border-color: transparent transparent #9B0F1F transparent;
+}
+
+/* ── CONTENEDOR IMAGEN ─────────────────────────────────────── */
+.img-container {
+    -fx-background-color: #0e0e0e;
+    -fx-background-radius: 12;
+    -fx-border-color: #252525;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+}
+
+.btn-imagen {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #888888;
+    -fx-border-color: #2e2e2e;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 6 12;
+}
+
+.btn-imagen:hover {
+    -fx-background-color: #222222;
+    -fx-text-fill: white;
+    -fx-border-color: #9B0F1F;
+}
+
+/* ── BOTONES ACCIÓN FORMULARIO ─────────────────────────────── */
+.btn-agregar {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto", sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 8 24;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.4), 8, 0, 0, 2);
+}
+
+.btn-agregar:hover {
+    -fx-background-color: #b01020;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.7), 12, 0, 0, 2);
+}
+
+.btn-limpiar {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: #aaaaaa;
+    -fx-font-family: "Roboto", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #2e2e2e;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-padding: 8 24;
+}
+
+.btn-limpiar:hover {
+    -fx-background-color: #2a2a2a;
+    -fx-text-fill: white;
+    -fx-border-color: #9B0F1F;
+}
+
+/* ── BARRA DE BÚSQUEDA ─────────────────────────────────────── */
+.campo-buscar {
+    -fx-background-color: #111111;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #444444;
+    -fx-border-color: #252525;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 14;
+    -fx-font-size: 13px;
+}
+
+.campo-buscar:focused {
+    -fx-border-color: #9B0F1F;
+}
+
+/* ── BOTÓN ELIMINAR ────────────────────────────────────────── */
+.btn-eliminar {
+    -fx-background-color: #9B0F1F;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto", sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 8 24;
+    -fx-effect: dropshadow(gaussian, rgba(155,15,31,0.4), 8, 0, 0, 2);
+}
+
+.btn-eliminar:hover {
+    -fx-background-color: #b01020;
+}
+
+/* ── TABLA ─────────────────────────────────────────────────── */
+.table-view {
+    -fx-background-color: #111111;
+    -fx-border-color: #1e1e1e;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #9B0F1F;
+    -fx-border-color: #7a0b17;
+    -fx-border-width: 0 1 0 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #9B0F1F;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto", sans-serif;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #111111;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #151515;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #1e1e1e;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #2a0a10;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER;
+    -fx-border-color: transparent;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 13px;
+}
+
+/* Scroll de la tabla */
+.table-view .scroll-bar:vertical {
+    -fx-background-color: #111111;
+    -fx-pref-width: 8;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #2e2e2e;
+    -fx-background-radius: 4;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #9B0F1F;
+}
+
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: #111111;
+    -fx-pref-height: 8;
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #2e2e2e;
+    -fx-background-radius: 4;
+}
+
+/* ── CHECKBOX ──────────────────────────────────────────────── */
+.check-box .box {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #444444;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #9B0F1F;
+    -fx-border-color: #9B0F1F;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box .label {
+    -fx-text-fill: transparent;
+}

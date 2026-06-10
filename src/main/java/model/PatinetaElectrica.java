@@ -12,8 +12,8 @@ public class PatinetaElectrica extends VehiculoElectrico {
     private int cargaMaximaKg;
     private boolean esPlegable;
 
-    public PatinetaElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int potenciaMotorKW, int velocidadMaxima, int cargaMaximaKg, boolean esPlegable, int velocidadMaximaKmH) {
-        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, potenciaMotorKW, velocidadMaxima);
+    public PatinetaElectrica(int anio, Double autonomiaKm, Double capacidadBateria, String color, EstadoVehiculo estado, String id, String marca, String modelo, Double precioBase, int cargaMaximaKg, boolean esPlegable, int velocidadMaximaKmH) {
+        super(anio, autonomiaKm, capacidadBateria, color, estado, id, marca, modelo, precioBase, 0);
         this.cargaMaximaKg = cargaMaximaKg;
         this.esPlegable = esPlegable;
         this.velocidadMaximaKmH = velocidadMaximaKmH;

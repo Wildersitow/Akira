@@ -46,8 +46,8 @@ public class ServiceCuenta {
                         "La contraseña debe tener al menos 6 caracteres");
             }
 
-            if (clienteDAO.buscarPorNombreUsuario(nombreUsuario) != null ||
-                    empleadoDAO.buscarPorNombreUsuario(nombreUsuario) != null) {
+            if (clienteDAO.buscarPorEmail(correo) != null ||
+                    empleadoDAO.buscarPorEmail(correo) != null) {
                 throw new ServiceException("USUARIO_DUPLICADO",
                         "El nombre de usuario '" + nombreUsuario + "' ya está en uso");
             }
@@ -55,7 +55,7 @@ public class ServiceCuenta {
             if (rol.equalsIgnoreCase("cliente")) {
                 System.out.println("Creando nuevo Cliente...");
 
-                Cliente nuevoCliente = new Cliente("", nombreUsuario, contraseña, documentoid, correo, "cliente", 0, "", 0.0, 0, new ArrayList<>());
+                Cliente nuevoCliente = new Cliente(nombreUsuario, nombreUsuario, contraseña, documentoid, correo, "cliente", 0, "", 0.0, 0, new ArrayList<>());
 
                 clienteDAO.guardar(nuevoCliente);
                 System.out.println("Cliente guardado exitosamente!");
@@ -69,7 +69,7 @@ public class ServiceCuenta {
             } else if (rol.equalsIgnoreCase("empleado")) {
                 System.out.println("Creando nuevo Empleado...");
 
-                Empleado nuevoEmpleado = new Empleado("", nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "", 0.0);
+                Empleado nuevoEmpleado = new Empleado(nombreUsuario, nombreUsuario, contraseña, documentoid, correo, "empleado", 0, "", "Administrador", 0.0);
 
                 // Guardar en repositorio
                 empleadoDAO.guardar(nuevoEmpleado);
@@ -116,7 +116,7 @@ public class ServiceCuenta {
             }
 
 
-            Cliente cliente = clienteDAO.buscarPorNombreUsuario(nombreUsuario);
+            Cliente cliente = clienteDAO.buscarPorEmail(nombreUsuario);
 
             if (cliente != null) {
                 System.out.println("Usuario encontrado como Cliente");
@@ -139,7 +139,7 @@ public class ServiceCuenta {
                 }
             }
 
-            Empleado empleado = empleadoDAO.buscarPorNombreUsuario(nombreUsuario);
+            Empleado empleado = empleadoDAO.buscarPorEmail(nombreUsuario);
 
             if (empleado != null) {
                 System.out.println("Usuario encontrado como Administrador");
@@ -184,4 +184,51 @@ public class ServiceCuenta {
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
         return correo != null && correo.matches(regex);
     }
+
+    public Cliente buscarClientePorNombre(String nombre) throws ServiceException {
+        try {
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new ServiceException("NOMBRE_VACIO", "El nombre no puede estar vacío");
+            }
+
+            Cliente cliente = clienteDAO.buscarPorNombre(nombre.trim());
+
+            if (cliente == null) {
+                throw new ServiceException("CLIENTE_NO_ENCONTRADO",
+                        "No se encontró ningún cliente con el nombre '" + nombre + "'");
+            }
+
+            return cliente;
+
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getCodigo(), e.getMessage(), e);
+        } catch (Exception e) {
+            throw new ServiceException("ERROR_BUSQUEDA",
+                    "Error al buscar cliente por nombre: " + e.getMessage(), e);
+        }
+    }
+
+    public Empleado buscarEmpleadoPorNombre(String nombre) throws ServiceException {
+        try {
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new ServiceException("NOMBRE_VACIO", "El nombre no puede estar vacío");
+            }
+
+            Empleado empleado = empleadoDAO.buscarPorNombre(nombre.trim());
+
+            if (empleado == null) {
+                throw new ServiceException("EMPLEADO_NO_ENCONTRADO",
+                        "No se encontró ningún empleado con el nombre '" + nombre + "'");
+            }
+
+            return empleado;
+
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getCodigo(), e.getMessage(), e);
+        } catch (Exception e) {
+            throw new ServiceException("ERROR_BUSQUEDA",
+                    "Error al buscar empleado por nombre: " + e.getMessage(), e);
+        }
+    }
+
 }
